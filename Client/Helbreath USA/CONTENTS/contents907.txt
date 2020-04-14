@@ -1,0 +1,47 @@
+  
+Item Management
+ 
+You can use weapons, shields, rings,
+necklaces and clothes. To equip item,
+Drag the item from the item inventory
+to the character information window
+or just double click. And to
+release quipment, drag the item
+from the character info window to
+the item inventory.
+ 
+To sell the item, Drag the item
+which you want to sell to the Shop
+keeper or Blacksmith keeper and
+select 'Sell' menu.
+ 
+If you want to exchange an item with
+another player, drag the item to
+the player and drop it. And select
+'Exchange' menu.
+ 
+If you die by an enemy or a
+monster, you will lose some 
+experience and items. To protect 
+yourself from losing important
+items, you should deposit items 
+in the warehouse. To do this, go to
+the warehouse in the town, and
+give the item by drag-drop to the 
+Warehouse Keeper. If you want
+to get an item back from the
+warehouse, click the warehouse
+keeper and select 'Manage' menu.
+Then you can see the item list
+under deposit. Click the item
+from the list to take it back.
+ 
+A character can hold 50 items in
+their bag, and can deposit 120 items
+in the warehouse.
+ 
+Also on 1 tile, you can drop 
+12 items. But if you drop
+more than 12 items, the server
+will not remember the first item.
+So be careful.

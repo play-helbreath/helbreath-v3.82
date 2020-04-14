@@ -1,0 +1,53 @@
+[MAP-INFO]
+map-location  = bisle
+initial-point = 1  144 117
+pk-mode 	= 0
+type        = 1
+drop-type    = 1
+// t/ype1 => noXP noPenalty
+
+//-Teleportation-Set----SX-----SY---DestMapName--DX-----DY----Dir---;
+teleport-loc     =      131    107    stadium    -1    -1     8
+teleport-loc     =      131    108    stadium    -1    -1     8
+teleport-loc     =      132    107    stadium    -1    -1     8
+teleport-loc     =      132    108    stadium    -1    -1     8
+teleport-loc     =      133    107    stadium    -1    -1     8
+teleport-loc     =      133    108    stadium    -1    -1     8
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     1      55    39
+waypoint          =     2      50    40
+waypoint          =     3      60    38
+waypoint          =     4      65    40
+waypoint          =     5      63    44
+waypoint          =     6      58    47
+waypoint          =     7      52    48
+waypoint          =     8      49    44
+waypoint          =     9      47    41
+waypoint          =     10     55    41
+
+
+maximum-object = 50
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area           = 1       139 112 152 123
+
+max-fish   = 10
+fish-point = 0   204 104
+fish-point = 1   206 105
+fish-point = 2   217 102
+fish-point = 3   224 98
+fish-point = 4   229 102
+fish-point = 5   210 30
+fish-point = 6   212 29
+fish-point = 7   148 36
+fish-point = 8   146 36
+fish-point = 9   103 221
+fish-point = 10  105 222
+fish-point = 11  102 220
+fish-point = 12  186 200
+fish-point = 13  187 202
+fish-point = 14  35  40
+fish-point = 15  34  39
+
+[END-MAP-INFO]

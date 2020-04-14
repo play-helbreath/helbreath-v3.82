@@ -1,0 +1,573 @@
+Game.cpp
+_________________________________________________________________________
+BOOL CGame::bSendCommand(..)
+Add a new case:
+	case DEF_REQUEST_ANGEL:	// to Game Server
+		dwp = (DWORD *)(cMsg + DEF_INDEX4_MSGID);
+		*dwp = dwMsgID;
+		wp  = (WORD *)(cMsg + DEF_INDEX2_MSGTYPE);
+		*wp = NULL;
+		cp = (char*)(cMsg + 6);
+		memset( cp, 0, 20 );
+		memcpy((char *)cp, pString, strlen(pString) + 1);
+		cp += 20;
+		ip = (int *)cp;
+		*ip = iV1; // Angel ID
+		iRet = m_pGSock->iSendMsg(cMsg, 30, cKey);
+		break;
+
+
+_________________________________________________________________________
+void CGame::UpdateScreen_OnLoading(bool bActive)
+Add sprites in the right places:
+m_pSprite[DEF_SPRID_ITEMPACK_PIVOTPOINT+22] = new class CSprite(m_hPakFile, &m_DDraw, "item-pack", 19, FALSE); // Angels
+m_pSprite[DEF_SPRID_ITEMGROUND_PIVOTPOINT+22] = new class CSprite(m_hPakFile, &m_DDraw, "item-ground", 19, FALSE);//Angels
+MakeSprite( "TutelarAngel1", DEF_SPRID_TUTELARYANGELS_PIVOTPOINT + 50*0, 48, FALSE);//(STR)
+MakeSprite( "TutelarAngel2", DEF_SPRID_TUTELARYANGELS_PIVOTPOINT + 50*1, 48, FALSE);//(DEX)
+MakeSprite( "TutelarAngel3", DEF_SPRID_TUTELARYANGELS_PIVOTPOINT + 50*2, 48, FALSE);//(INT)
+MakeSprite( "TutelarAngel4", DEF_SPRID_TUTELARYANGELS_PIVOTPOINT + 50*3, 48, FALSE);//(MAG)
+m_pSprite[DEF_SPRID_ITEMEQUIP_PIVOTPOINT + 22] = new class CSprite(m_hPakFile, &m_DDraw, "item-pack", 19); // Angels
+m_pSprite[DEF_SPRID_ITEMEQUIP_PIVOTPOINT + 62] = new class CSprite(m_hPakFile, &m_DDraw, "item-pack", 19); // Angels
+
+
+_________________________________________________________________________
+void CGame::InitPlayerCharacteristics(char * pData)
+Initialise data:
+	// Snoopy: Angels
+	m_iAngelicStr = 0;
+	m_iAngelicDex = 0;
+	m_iAngelicInt = 0;
+	m_iAngelicMag = 0;
+
+
+
+_________________________________________________________________________
+void CGame::DrawObject_OnXXXX(..)
+Find every "CheckActiveAura2(...)", and add just before:
+DrawAngel(...) as stated by Diuuude.
+
+
+_________________________________________________________________________
+void CGame::InitItemList(char * pData)
+ At the end of reading item loop, add: (not the Bankitem loop ! )
+		// Add Angelic Stats
+		if (   (m_pItemList[i]->m_cItemType == 1)
+			&& (m_bIsItemEquipped[i] == TRUE)
+			&& (m_pItemList[i]->m_cEquipPos >= 11))
+		{	if(memcmp(m_pItemList[i]->m_cName, "AngelicPandent(STR)", 19) == 0)
+			{	iAngelValue = (m_pItemList[i]->m_dwAttribute & 0xF0000000) >> 28;
+				m_iAngelicStr = 1 + iAngelValue;
+			}else if(memcmp(m_pItemList[i]->m_cName, "AngelicPandent(DEX)", 19) == 0)
+			{	iAngelValue = (m_pItemList[i]->m_dwAttribute & 0xF0000000) >> 28;
+				m_iAngelicDex = 1 + iAngelValue;
+			}else if(memcmp(m_pItemList[i]->m_cName, "AngelicPandent(INT)", 19) == 0)
+			{	iAngelValue = (m_pItemList[i]->m_dwAttribute & 0xF0000000) >> 28;
+				m_iAngelicInt = 1 + iAngelValue;
+			}else if(memcmp(m_pItemList[i]->m_cName, "AngelicPandent(MAG)", 19) == 0)
+			{	iAngelValue = (m_pItemList[i]->m_dwAttribute & 0xF0000000) >> 28;
+				m_iAngelicMag = 1 + iAngelValue;
+	}	}	}
+& declare iAngelValue at begin of function....
+
+
+_________________________________________________________________________
+void CGame::DrawDialogBox_GaugePannel()
+Adjust formulas:
+ie: iMaxPoint = m_iVit*3 + m_iLevel*2 + (m_iStr + m_iAngelicStr)/2;
+And lower HP if above MaxHP, MP if above maxMP, SP ....
+
+_________________________________________________________________________
+void CGame::NotifyMsgHandler(char * pData)
+at the end of case DEF_NOTIFY_SPECIALABILITYSTATUS: , add:
+else if (sV1 == 4) // Unequiped the SA item
+		{	AddEventList(NOTIFY_MSG_HANDLER31, 10);//"Special ability has been released."
+			m_iSpecialAbilityType = 0;
+		}else if (sV1 == 5) // Angel
+		{	PlaySound('E', 34, 0);
+		}
+NB: This function is a bit... strange... you may wish to adjust all the case...
+
+_________________________________________________________________________
+void CGame::DlbBoxDoubleClick_Character(short msX, short msY)
+void CGame::bItemDrop_Inventory(short msX, short msY)
+Near the end, just before SendCommand (MSGID_COMMAND_COMMON, DEF_COMMONTYPE_RELEASEITEM, add:			
+// Remove Angelic Stats
+			if (   (m_pItemList[m_stMCursor.sSelectedObjectID]->m_cEquipPos >= 11)
+				&& (m_pItemList[m_stMCursor.sSelectedObjectID]->m_cItemType == 1))
+			{	char cItemID = m_stMCursor.sSelectedObjectID;
+				if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(STR)", 19) == 0)
+				{	m_iAngelicStr = 0; 
+				}else if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(DEX)", 19) == 0)
+				{	m_iAngelicDex = 0;
+				}else if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(INT)", 19) == 0)
+				{	m_iAngelicInt = 0;
+				}else if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(MAG)", 19) == 0)
+				{	m_iAngelicMag = 0;
+			}	}
+
+
+
+_________________________________________________________________________
+void CGame::DrawDialogBox_Character(short msX, short msY)
+Adjust HP, MP, SP formulas.(hp, mp, sp, maxload):
+	// HP
+	wsprintf(G_cTxt, "%d/%d", iTemp, m_iVit*3 + m_iLevel*2 + (m_iStr + m_iAngelicStr)/2);
+	PutAlignedString(sX+180, sX+250, sY + 173, G_cTxt, 45,25,25);
+
+	// Mp
+	iTemp = m_iMP;
+	wsprintf(G_cTxt, "%d/%d", iTemp, (m_iMag + m_iAngelicMag)*2 + m_iLevel*2 + (m_iInt + m_iAngelicInt)/2);
+	PutAlignedString(sX+180, sX+250, sY + 191, G_cTxt, 45,25,25);
+
+	// Sp
+	iTemp = m_iSP;
+	wsprintf(G_cTxt, "%d/%d", iTemp, m_iLevel*2 + (m_iStr + m_iAngelicStr)*2);
+	PutAlignedString(sX+180, sX+250, sY + 208, G_cTxt, 45,25,25);
+
+	// Max.Load
+	wsprintf(G_cTxt, "%d/%d", (_iCalcTotalWeight()/100), ((m_iStr + m_iAngelicStr)*5 + m_iLevel*5));
+	PutAlignedString(sX+180, sX+250, sY + 240, G_cTxt, 45,25,25);
+
+	// Enemy Kills
+	wsprintf(G_cTxt, "%d", m_iEnemyKillCount);
+	PutAlignedString(sX+180, sX+250, sY + 257, G_cTxt, 45,25,25);
+
+	// Str
+	if (m_iAngelicStr == 0)
+	{	wsprintf(G_cTxt, "%d", m_iStr);
+		PutAlignedString(sX+48, sX+82, sY + 285, G_cTxt, 45,25,25);
+	}else
+	{	wsprintf(G_cTxt, "%d", m_iStr + m_iAngelicStr);
+		PutAlignedString(sX+48, sX+82, sY + 285, G_cTxt, 0,0,192);
+	}
+
+	// Vit
+	wsprintf(G_cTxt, "%d", m_iVit);
+	PutAlignedString(sX+218, sX+251, sY + 285, G_cTxt, 45,25,25);
+
+	// Dex
+	if (m_iAngelicDex == 0)
+	{	wsprintf(G_cTxt, "%d", m_iDex);
+		PutAlignedString(sX+48, sX+82, sY +302, G_cTxt, 45,25,25);
+	}else
+	{	wsprintf(G_cTxt, "%d", m_iDex + m_iAngelicDex);
+		PutAlignedString(sX+48, sX+82, sY +302, G_cTxt, 0,0,192);
+	}
+
+	// Int
+	if (m_iAngelicInt == 0)
+	{	wsprintf(G_cTxt, "%d", m_iInt);
+		PutAlignedString(sX+135, sX+167, sY +285, G_cTxt, 45,25,25);
+	}else
+	{	wsprintf(G_cTxt, "%d", m_iInt + m_iAngelicInt);
+		PutAlignedString(sX+135, sX+167, sY +285, G_cTxt, 0,0,192);
+	}
+
+	// Mag
+	if (m_iAngelicMag == 0)
+	{	wsprintf(G_cTxt, "%d", m_iMag);
+		PutAlignedString(sX+135, sX+167, sY +302, G_cTxt, 45,25,25);
+	}else
+	{	wsprintf(G_cTxt, "%d", m_iMag + m_iAngelicMag);
+		PutAlignedString(sX+135, sX+167, sY +302, G_cTxt, 0,0,192);
+	}
+
+
+
+_________________________________________________________________________
+void CGame::DrawDialogBox_Magic(short msX, short msY, short msZ)
+Correct the CP formula:
+if ((m_iInt + m_iAngelicInt) > 50) iResult += ((m_iInt + m_iAngelicInt) - 50)/2;
+
+
+
+_________________________________________________________________________
+void CGame::DrawDialogBox_ItemUpgrade(int msX, int msY)
+You may adjust some things....
+below "iValue = iValue*(iValue+6)/8 + 2;", add:
+			if (   (m_pItemList[m_stDialogBoxInfo[34].sV1]->m_cEquipPos >= 11)
+				&& (m_pItemList[m_stDialogBoxInfo[34].sV1]->m_cItemType == 1))	
+			{	if(   (memcmp(m_pItemList[m_stDialogBoxInfo[34].sV1]->m_cName, "AngelicPandent(STR)", 19) == 0)
+					|| (memcmp(m_pItemList[m_stDialogBoxInfo[34].sV1]->m_cName, "AngelicPandent(DEX)", 19) == 0)
+					|| (memcmp(m_pItemList[m_stDialogBoxInfo[34].sV1]->m_cName, "AngelicPandent(INT)", 19) == 0)
+					|| (memcmp(m_pItemList[m_stDialogBoxInfo[34].sV1]->m_cName, "AngelicPandent(MAG)", 19) == 0))
+				{	iValue = (m_pItemList[m_stDialogBoxInfo[34].sV1]->m_dwAttribute & 0xF0000000) >> 28;
+					switch (iValue) {
+					case 0:	iValue = 10; break;
+					case 1: iValue = 11; break;
+					case 2: iValue = 13; break;
+					case 3: iValue = 16; break;
+					case 4: iValue = 20; break;
+					case 5: iValue = 25; break;
+					case 6: iValue = 31; break;
+					case 7: iValue = 38; break;
+					case 8: iValue = 46; break;
+					case 9: iValue = 55; break;
+			}	}	}
+
+
+_________________________________________________________________________
+void CGame::ReleaseEquipHandler(char cEquipPos)
+above GetItemName(..), add:
+	// Remove Angelic Stats
+	if (   (cEquipPos >= 11)
+		&& (m_pItemList[m_sItemEquipmentStatus[cEquipPos]]->m_cItemType == 1))
+	{	char cItemID = m_sItemEquipmentStatus[cEquipPos];
+		if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(STR)", 19) == 0)
+		{	m_iAngelicStr = 0;
+		}else if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(DEX)", 19) == 0)
+		{	m_iAngelicDex = 0;
+		}else if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(INT)", 19) == 0)
+		{	m_iAngelicInt = 0;
+		}else if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(MAG)", 19) == 0)
+		{	m_iAngelicMag = 0;
+	}	}
+_________________________________________________________________________
+void CGame::ItemEquipHandler(char cItemID)
+ Adjust for Weight, and add near the end:
+	// Add Angelic Stats
+	if (   (m_pItemList[cItemID]->m_cItemType == 1)
+		&& (m_pItemList[cItemID]->m_cEquipPos >= 11))
+	{	int iAngelValue = 0;
+		if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(STR)", 19) == 0)
+		{	iAngelValue = (m_pItemList[cItemID]->m_dwAttribute & 0xF0000000) >> 28;
+			m_iAngelicStr = 1 + iAngelValue;
+		}else if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(DEX)", 19) == 0)
+		{	iAngelValue = (m_pItemList[cItemID]->m_dwAttribute & 0xF0000000) >> 28;
+			m_iAngelicDex = 1 + iAngelValue;
+		}else if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(INT)", 19) == 0)
+		{	iAngelValue = (m_pItemList[cItemID]->m_dwAttribute & 0xF0000000) >> 28;
+			m_iAngelicInt = 1 + iAngelValue;
+		}else if(memcmp(m_pItemList[cItemID]->m_cName, "AngelicPandent(MAG)", 19) == 0)
+		{	iAngelValue = (m_pItemList[cItemID]->m_dwAttribute & 0xF0000000) >> 28;
+			m_iAngelicMag = 1 + iAngelValue;
+	}
+
+
+_________________________________________________________________________
+New function, by Diuuude:
+void CGame::DrawAngel(int iSprite, short sX, short sY, char cFrame, DWORD dwTime)
+{	if  ((_tmp_iStatus & 0x1000) != 0) m_pSprite[DEF_SPRID_TUTELARYANGELS_PIVOTPOINT+iSprite]->PutSpriteFast(sX, sY, cFrame, dwTime);  //AngelicPendant(STR)
+	else if ((_tmp_iStatus & 0x2000) != 0) m_pSprite[DEF_SPRID_TUTELARYANGELS_PIVOTPOINT+(50*1)+iSprite]->PutSpriteFast(sX, sY, cFrame, dwTime); //AngelicPendant(DEX)
+	else if ((_tmp_iStatus & 0x4000) != 0) m_pSprite[DEF_SPRID_TUTELARYANGELS_PIVOTPOINT+(50*2)+iSprite]->PutSpriteFast(sX, sY-20, cFrame, dwTime);//AngelicPendant(INT)
+	else if ((_tmp_iStatus & 0x8000) != 0) m_pSprite[DEF_SPRID_TUTELARYANGELS_PIVOTPOINT+(50*3)+iSprite]->PutSpriteFast(sX, sY-20, cFrame, dwTime);//AngelicPendant(MAG)
+
+}
+
+_________________________________________________________________________
+2 fixed functions:
+
+/*********************************************************************************************************************
+**  void DrawDialogBox_CMDHallMenu(short msX, short msY)			( Snoopy )										**
+**  description			: Draw the diag																				**
+**********************************************************************************************************************/
+void CGame::DrawDialogBox_CMDHallMenu(short msX, short msY)
+{short sX, sY, szX;
+ char cTxt[120];
+	sX = m_stDialogBoxInfo[51].sX;
+	sY = m_stDialogBoxInfo[51].sY;
+	szX = m_stDialogBoxInfo[51].sSizeX;
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_GAME2, sX, sY, 2);
+
+	switch (m_stDialogBoxInfo[51].cMode) {
+	case 0: // initial diag
+		if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 70) && (msY < sY + 95))
+			 PutAlignedString(sX, sX + szX, sY + 70, "Teleport to Battle Field", 255,255,255);
+		else PutAlignedString(sX, sX + szX, sY + 70, "Teleport to Battle Field", 4,0,50);
+
+		if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 95) && (msY < sY + 120))
+			 PutAlignedString(sX, sX + szX, sY + 95, "Hire a soldier", 255,255,255);
+		else PutAlignedString(sX, sX + szX, sY + 95, "Hire a soldier", 4,0,50);
+
+		if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 120) && (msY < sY + 145))
+			 PutAlignedString(sX, sX + szX, sY + 120, "Taking Flags", 255,255,255);
+		else PutAlignedString(sX, sX + szX, sY + 120, "Taking Flags", 4,0,50);
+
+		if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 145) && (msY < sY + 170))
+			 PutAlignedString(sX, sX + szX, sY + 145, "Receive a Tutelary Angel", 255,255,255);
+		else PutAlignedString(sX, sX + szX, sY + 145, "Receive a Tutelary Angel", 4,0,50);
+		break;
+
+	case 1: // TP diag
+		if( m_iTeleportMapCount > 0 )
+		{	//PutAlignedString(sX, sX + szX, sY + 50, DRAW_DIALOGBOX_CITYHALL_MENU69, 55,25,25); // "Teleporting to dungeon level 2."
+			//PutAlignedString(sX, sX + szX, sY + 80, DRAW_DIALOGBOX_CITYHALL_MENU70, 55,25,25); // "5000Gold is required"
+			//PutAlignedString(sX, sX + szX, sY + 95, DRAW_DIALOGBOX_CITYHALL_MENU71, 55,25,25); //
+			//PutAlignedString(sX, sX + szX, sY + 110, DRAW_DIALOGBOX_CITYHALL_MENU72, 55,25,25);//
+			PutString2(sX + 35, sY + 250, DRAW_DIALOGBOX_CITYHALL_MENU72_1, 55,25,25);//"Civilians cannot go some area."
+			for( int i=0 ; i<m_iTeleportMapCount ; i++ )
+			{	ZeroMemory( cTxt, sizeof(cTxt) );
+				GetOfficialMapName( m_stTeleportList[i].mapname, cTxt );
+				wsprintf( G_cTxt, DRAW_DIALOGBOX_CITYHALL_MENU77, cTxt, m_stTeleportList[i].iCost );
+				if( (msX >= sX + DEF_LBTNPOSX) && (msX <= sX + DEF_RBTNPOSX + DEF_BTNSZX) && (msY >= sY + 130 + i*15) && (msY <= sY + 144 + i*15) )
+					 PutAlignedString(sX, sX + szX, sY + 130 + i*15, G_cTxt, 255, 255, 255);
+				else PutAlignedString(sX, sX + szX, sY + 130 + i*15, G_cTxt,  250,  250,  0);
+			}
+		}else if( m_iTeleportMapCount == -1 )
+		{	PutAlignedString(sX, sX + szX, sY + 125, DRAW_DIALOGBOX_CITYHALL_MENU73, 55,25,25);//"Now it's searching for possible area"
+			PutAlignedString(sX, sX + szX, sY + 150, DRAW_DIALOGBOX_CITYHALL_MENU74, 55,25,25);//"to teleport."
+			PutAlignedString(sX, sX + szX, sY + 175, DRAW_DIALOGBOX_CITYHALL_MENU75, 55,25,25);//"Please wait for a moment."
+		}else
+		{	PutAlignedString(sX, sX + szX, sY + 175, DRAW_DIALOGBOX_CITYHALL_MENU76, 55,25,25);//"There is no area that you can teleport."
+		}
+		break;
+
+	case 2: // Soldier diag
+		PutAlignedString(sX, sX + szX, sY + 45, "You will hire a soldier by summon points", 255,255,255);
+		if ((m_iConstructionPoint >= 2000) && (m_bIsCrusadeMode == FALSE))
+		{	if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 70) && (msY < sY + 95))
+				 PutAlignedString(sX, sX + szX, sY + 70, "Sorceress             2000 Point", 255,255,255);
+			else PutAlignedString(sX, sX + szX, sY + 70, "Sorceress             2000 Point", 4,0,50);
+		}else PutAlignedString(sX, sX + szX, sY + 70, "Sorceress             2000 Point", 65,65,65);
+
+		if ((m_iConstructionPoint >= 3000) && (m_bIsCrusadeMode == FALSE))
+		{	if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 95) && (msY < sY + 120))
+			 PutAlignedString(sX, sX + szX, sY + 95, "Ancient Temple Knight 3000 Point", 255,255,255);
+			else PutAlignedString(sX, sX + szX, sY + 95, "Ancient Temple Knight 3000 Point", 4,0,50);
+		}else PutAlignedString(sX, sX + szX, sY + 95, "Ancient Temple Knight 3000 Point", 65,65,65);
+
+		if ((m_iConstructionPoint >= 1500) && (m_bIsCrusadeMode == FALSE))
+		{	if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 120) && (msY < sY + 145))
+				PutAlignedString(sX, sX + szX, sY + 120, "Elf Master            1500 Point", 255,255,255);
+			else PutAlignedString(sX, sX + szX, sY + 120, "Elf Master            1500 Point", 4,0,50);
+		}else PutAlignedString(sX, sX + szX, sY + 120, "Elf Master            1500 Point", 65,65,65);
+
+		if ((m_iConstructionPoint >= 3000) && (m_bIsCrusadeMode == FALSE))
+		{	if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 145) && (msY < sY + 171))
+				PutAlignedString(sX, sX + szX, sY + 145, "Dark Shadow Knight    3000 Point", 255,255,255);
+			else PutAlignedString(sX, sX + szX, sY + 145, "Dark Shadow Knight    3000 Point", 4,0,50);
+		}else PutAlignedString(sX, sX + szX, sY + 145, "Dark Shadow Knight    3000 Point", 65,65,65);
+
+		if ((m_iConstructionPoint >= 4000) && (m_bIsCrusadeMode == FALSE))
+		{	if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 170) && (msY < sY + 195))
+				PutAlignedString(sX, sX + szX, sY + 170, "Heavy Battle Tank     4000 Point", 255,255,255);
+			else PutAlignedString(sX, sX + szX, sY + 170, "Heavy Battle Tank     4000 Point", 4,0,50);
+		}else PutAlignedString(sX, sX + szX, sY + 170, "Heavy Battle Tank     4000 Point", 65,65,65);
+
+		if ((m_iConstructionPoint >= 3000) && (m_bIsCrusadeMode == FALSE))
+		{	if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 195) && (msY < sY + 220))
+				PutAlignedString(sX, sX + szX, sY + 195, "Barbarian             3000 Point", 255,255,255);
+			else PutAlignedString(sX, sX + szX, sY + 195, "Barbarian             3000 Point", 4,0,50);
+		}else PutAlignedString(sX, sX + szX, sY + 195, "Barbarian             3000 Point", 65,65,65);
+
+
+
+		PutAlignedString(sX, sX + szX, sY + 220,"You should join a guild to hire soldiers.", 4,0,50);
+		wsprintf(G_cTxt,"Summon points : %d", m_iConstructionPoint);
+		PutAlignedString(sX, sX + szX, sY + 250, G_cTxt, 4,0,50);
+		PutAlignedString(sX, sX + szX, sY + 280, "Maximum summon points : 12000 points.", 4,0,50);
+		PutAlignedString(sX, sX + szX, sY + 300, "Maximum hiring number : 5 ", 4,0,50);
+		break;
+
+	case 3: // Hire a Flag Diag
+		PutAlignedString(sX, sX + szX, sY + 45,"You may acquire Flags with EK points.", 4,0,50);
+		PutAlignedString(sX, sX + szX, sY + 70,"Price is 10 EK per Flag.", 4,0,50);
+		if( (msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 140) && (msY <= sY + 165) )
+			PutAlignedString(sX, sX + szX, sY + 140, "Take a Flag", 255,255,255);
+		else
+			PutAlignedString(sX, sX + szX, sY + 140, "Take a Flag", 250,250,0);
+		break;
+
+	case 4: // Tutelar Angel Diag
+		PutAlignedString(sX, sX + szX, sY + 45, "5 magesty points will be deducted", 4,0,50);
+		PutAlignedString(sX, sX + szX, sY + 80, "upon receiving the Pendant of Tutelary Angel.", 4,0,50);
+		PutAlignedString(sX, sX + szX, sY + 105, "Would you like to receive the Tutelary Angel?", 4,0,50);
+		wsprintf(G_cTxt, DRAW_DIALOGBOX_ITEMUPGRADE11, m_iGizonItemUpgradeLeft);// "Item upgrade point : %d"
+
+		PutAlignedString(sX, sX + szX, sY + 140, G_cTxt, 0,0,0);
+
+		if (   (msX > sX + 35) && (msX < sX + 220) && (msY > sY + 175) && (msY < sY + 200)
+			&& (m_iGizonItemUpgradeLeft >4))
+			 PutAlignedString(sX, sX + szX, sY + 175, "Tutelary Angel (STR) will be handed out.", 255,255,255);
+		else PutAlignedString(sX, sX + szX, sY + 175, "Tutelary Angel (STR) will be handed out.", 250,250,0);
+
+		if (   (msX > sX + 35) && (msX < sX + 220) && (msY > sY + 200) && (msY < sY + 225)
+			&& (m_iGizonItemUpgradeLeft >4))
+			 PutAlignedString(sX, sX + szX, sY + 200, "Tutelary Angel (DEX) will be handed out.", 255,255,255);
+		else PutAlignedString(sX, sX + szX, sY + 200, "Tutelary Angel (DEX) will be handed out.", 250,250,0);
+
+		if (   (msX > sX + 35) && (msX < sX + 220) && (msY > sY + 225) && (msY < sY + 250)
+			&& (m_iGizonItemUpgradeLeft >4))
+			 PutAlignedString(sX, sX + szX, sY + 225, "Tutelary Angel (INT) will be handed out.", 255,255,255);
+		else PutAlignedString(sX, sX + szX, sY + 225, "Tutelary Angel (INT) will be handed out.", 250,250,0);
+
+		if (   (msX > sX + 35) && (msX < sX + 220) && (msY > sY + 250) && (msY < sY + 275)
+			&& (m_iGizonItemUpgradeLeft >4))
+			 PutAlignedString(sX, sX + szX, sY + 250, "Tutelary Angel (MAG) will be handed out.", 255,255,255);
+		else PutAlignedString(sX, sX + szX, sY + 250, "Tutelary Angel (MAG) will be handed out.", 250,250,0);
+
+		break;
+	}
+}
+
+/*********************************************************************************************************************
+**  void DlgBoxClick_CMDHallMenu(short msX, short msY)			( Snoopy )											**
+**  description			: Response of the player if he accepts resurection or not									**
+**********************************************************************************************************************/
+void CGame::DlgBoxClick_CMDHallMenu(short msX, short msY)
+{short sX, sY;
+	sX = m_stDialogBoxInfo[51].sX;
+	sY = m_stDialogBoxInfo[51].sY;
+	switch (m_stDialogBoxInfo[51].cMode) {
+	case 0: // initial diag
+		if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 70) && (msY < sY + 95))
+		{	m_stDialogBoxInfo[51].cMode = 1; // TP diag
+			m_iTeleportMapCount = -1;
+			bSendCommand(MSGID_REQUEST_HELDENIAN_TP_LIST, NULL, NULL, NULL, NULL, NULL, NULL);
+			PlaySound('E', 14, 5);
+		}
+		if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 95) && (msY < sY + 120))
+		{	m_stDialogBoxInfo[51].cMode = 2; // Soldier Diag
+			PlaySound('E', 14, 5);
+		}
+		if (   (msX > sX + 35) && (msX < sX + 220) && (msY > sY + 120) && (msY < sY + 145)
+			/*&& (m_iEnemyKillCount >= 3)*/)
+		{	m_stDialogBoxInfo[51].cMode = 3; // Flag Diag
+			PlaySound('E', 14, 5);
+		}
+		if (   (msX > sX + 35) && (msX < sX + 220) && (msY > sY + 120) && (msY < sY + 145)
+			/*&& (m_iEnemyKillCount >= 3)*/)
+		{	m_stDialogBoxInfo[51].cMode = 3; // Flag Diag
+			PlaySound('E', 14, 5);
+		}
+
+		if (   (msX > sX + 35) && (msX < sX + 220) && (msY > sY + 145) && (msY < sY + 170)
+			/*&& (m_iGizonItemUpgradeLeft >= 5)*/)
+		{	m_stDialogBoxInfo[51].cMode = 4; // Flag Diag
+			PlaySound('E', 14, 5);
+		}
+
+
+	case 1: // TP now
+		if( m_iTeleportMapCount > 0 )
+		{	for( int i=0 ; i<m_iTeleportMapCount ; i++ )
+			{	if( (msX >= sX + DEF_LBTNPOSX) && (msX <= sX + DEF_RBTNPOSX + DEF_BTNSZX) && (msY >= sY + 130 + i*15) && (msY <= sY + 144 + i*15) )
+				{	bSendCommand(MSGID_REQUEST_HELDENIAN_TP, NULL, NULL, m_stTeleportList[i].iIndex, NULL, NULL, NULL);
+					DisableDialogBox(51);
+					return;
+		}	}	}
+		break;
+
+	case 2: // Buy a soldier scroll
+		if (   (msX >= sX + 35) && (msX <= sX + 220) && (msY > sY + 70) && (msY < sY + 95)
+			&& (m_iConstructionPoint >= 2000) && (m_bIsCrusadeMode == FALSE)) // Sorceress
+		{	bSendCommand(MSGID_REQUEST_HELDENIAN_SCROLL, 875, 1, 2, 3, 4, "Gail", 5);
+			PlaySound('E', 14, 5);
+		}
+		if (   (msX >= sX + 35) && (msX <= sX + 220) && (msY > sY + 95) && (msY < sY + 120)
+			&& (m_iConstructionPoint >= 3000) && (m_bIsCrusadeMode == FALSE)) // ATK
+		{	bSendCommand(MSGID_REQUEST_HELDENIAN_SCROLL, 876, 0, 0, 0, 0, "Gail", 0);
+			PlaySound('E', 14, 5);
+		}
+		if (   (msX >= sX + 35) && (msX <= sX + 220) && (msY > sY + 120) && (msY < sY + 145)
+			&& (m_iConstructionPoint >= 1500) && (m_bIsCrusadeMode == FALSE)) // Elf
+		{	bSendCommand(MSGID_REQUEST_HELDENIAN_SCROLL, 877, 0, 0, 0, 0, "Gail", 0);
+			PlaySound('E', 14, 5);
+		}
+		if (   (msX >= sX + 35) && (msX <= sX + 220) && (msY > sY + 145) && (msY < sY + 170)
+			&& (m_iConstructionPoint >= 3000) && (m_bIsCrusadeMode == FALSE)) // DSK
+		{	bSendCommand(MSGID_REQUEST_HELDENIAN_SCROLL, 878, 0, 0, 0, 0, "Gail", 0);
+			PlaySound('E', 14, 5);
+		}
+		if (   (msX >= sX + 35) && (msX <= sX + 220) && (msY > sY + 170) && (msY < sY + 195)
+			&& (m_iConstructionPoint >= 4000) && (m_bIsCrusadeMode == FALSE)) // HBT
+		{	bSendCommand(MSGID_REQUEST_HELDENIAN_SCROLL, 879, 0, 0, 0, 0, "Gail", 0);
+			PlaySound('E', 14, 5);
+		}
+		if (   (msX >= sX + 35) && (msX <= sX + 220) && (msY > sY + 195) && (msY < sY + 220)
+			&& (m_iConstructionPoint >= 3000) && (m_bIsCrusadeMode == FALSE)) // Barbarian
+		{	bSendCommand(MSGID_REQUEST_HELDENIAN_SCROLL, 880, 0, 0, 0, 0, "Gail", 0);
+			PlaySound('E', 14, 5);
+		}
+		break;
+
+	case 3: // Buy a Flag
+		if (   (msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 140) && (msY <= sY + 165)
+			&& (m_iEnemyKillCount >=3))
+		{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_REQ_GETOCCUPYFLAG, 0, 0, 0, 0, 0, 0);
+			PlaySound('E', 14, 5);
+		}
+		break;
+
+	case 4: // Buy an Angel
+		if (   (msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 175) && (msY <= sY + 200)
+			&& ( m_iGizonItemUpgradeLeft>=5))
+		{	bSendCommand(DEF_REQUEST_ANGEL, NULL, NULL, 1, NULL, NULL, "Gail", NULL);
+			PlaySound('E', 14, 5);
+		}
+		if (   (msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 200) && (msY <= sY + 225)
+			&& ( m_iGizonItemUpgradeLeft>=5))
+		{	bSendCommand(DEF_REQUEST_ANGEL, NULL, NULL, 2, NULL, NULL, "Gail", NULL);
+			PlaySound('E', 14, 5);
+		}
+		if (   (msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 225) && (msY <= sY + 250)
+			&& ( m_iGizonItemUpgradeLeft>=5))
+		{	bSendCommand(DEF_REQUEST_ANGEL, NULL, NULL, 3, NULL, NULL, "Gail", NULL);
+			PlaySound('E', 14, 5);
+		}
+		if (   (msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 250) && (msY <= sY + 275)
+			&& ( m_iGizonItemUpgradeLeft>=5))
+		{	bSendCommand(DEF_REQUEST_ANGEL, NULL, NULL, 4, NULL, NULL, "Gail", NULL);
+			PlaySound('E', 14, 5);
+		}
+
+		break;
+	}
+}
+
+_________________________________________________________________________
+And of course, must show items on left finger, it really easy:
+Find every part of code with "DEF_EQUIPPOS_RFINGER", and duplicate with "DEF_EQUIPPOS_LFINGER".
+NB: Right is sX + 32, sY + 193; Left is sX + 98, sY + 182
+
+_________________________________________________________________________
+_________________________________________________________________________
+
+Game.h
+
+Declare:
+	// Snoopy: Added Angels
+	int m_iAngelicStr, m_iAngelicInt, m_iAngelicDex, m_iAngelicMag;
+ and the new functions...
+
+
+
+_________________________________________________________________________
+
+SpriteID.h:
+declare:
+#define DEF_SPRID_TUTELARYANGELS_PIVOTPOINT 10800
+
+
+
+_________________________________________________________________________
+
+NetMessages.h:
+Declare:
+// Reversed by Snoopy (real v382 msgid)
+#define DEF_REQUEST_ANGEL				0x0FC9421E
+
+
+
+
+_________________________________________________________________________
+
+MapData.cpp:
+Function "int CMapData::iObjectFrameCounter(..)"
+Find 6 times :
+"if ((m_pData[dX][dY].m_cOwnerFrame == 1) || (m_pData[dX][dY].m_cOwnerFrame == 5)) 
+{	if (((m_pData[dX][dY].m_sAppr4 & 0x000F) != 0) && ((m_pData[dX][dY].m_iStatus & 0x10) == 0)) 
+{	m_pGame->bAddNewEffect(54, (m_sPivotX+dX)*32 +(rand()%20-10), (m_sPivotY+dY)*32 -(rand()%50) -5, NULL, NULL, -(rand()%8), 0);
+}"
+
+Then add 6 times just after:
+if (   (((m_pData[dX][dY].m_iStatus & 0x00000F00) >> 8) > rand()%6) // Angel stars
+	&& ((m_pData[dX][dY].m_iStatus & 0x0000F000) != 0) 
+	&& ((m_pData[dX][dY].m_iStatus & 0x10) == 0)) 
+{	m_pGame->bAddNewEffect(54, (m_sPivotX+dX)*32 +(rand()%15+10), (m_sPivotY+dY)*32 -(rand()%30) -50, NULL, NULL, -(rand()%8), 0);
+}
+
+_________________________________________________________________________
+
+
+if (   (((m_pData[dX][dY].m_iStatus & 0x00000F00) >> 8) > rand()%6) // Angel stars

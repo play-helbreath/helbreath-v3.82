@@ -1,0 +1,35 @@
+__________________________________________________________________
+                       Debug log
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+C'est trop utile ca pour tester...
+Suffit d'appeler "DebugLog("Tag 1");" si l'on veut savoir si ca a été
+exécuté avant le crash.
+
+game.cpp:
+¯¯¯¯¯¯¯¯¯¯
+void DebugLog(char * cStr)
+Crée un fichier Log. a appeler pour débuguer.
+
+/*********************************************************************************************************************
+**  void DebugLog(char * cStr)						(Snoopy)							**
+**  description			:: writes data into "Debug.txt"									**
+**********************************************************************************************************************/
+void CGame::DebugLog(char * cStr)
+{FILE * pFile;
+ char cBuffer[512];
+ SYSTEMTIME SysTime;
+	pFile = fopen("Debug.txt", "at");
+	if (pFile == NULL) return;
+	ZeroMemory(cBuffer, sizeof(cBuffer));
+	GetLocalTime(&SysTime);
+	wsprintf(cBuffer, "(%4d:%2d:%2d:%2d:%2d) - ", SysTime.wYear, SysTime.wMonth, SysTime.wDay, SysTime.wHour, SysTime.wMinute);
+	strcat(cBuffer, cStr);
+	strcat(cBuffer, "\n");
+	fwrite(cBuffer, 1, strlen(cBuffer), pFile);
+	fclose(pFile);
+}
+
+game.h:
+¯¯¯¯¯¯¯
+Déclaration de la fonction:
+void DebugLog(char * cStr);

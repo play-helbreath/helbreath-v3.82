@@ -1,0 +1,182 @@
+0042D0A0  |. 83C0 F6                     ADD EAX,-0A                                   ;  Switch (cases A..5B)
+0042D0A3  |. 83F8 51                     CMP EAX,51
+0042D0A6  |. 77 0F                       JA SHORT 0042D0B7
+0042D0A8  |. 33C9                        XOR ECX,ECX
+0042D0AA  |. 8A88 C0F04200               MOV CL,BYTE PTR DS:[EAX+42F0C0]
+0042D0B0  |. FF248D B8F04200             JMP NEAR DWORD PTR DS:[ECX*4+42F0B8]
+0042D0B7  |> 8A85 96350700               MOV AL,BYTE PTR SS:[EBP+73596]                ;  Default case of switch 0042D0A0
+0042D0BD  |. 84C0                        TEST AL,AL
+0042D0BF  |. 74 3B                       JE SHORT 0042D0FC
+0042D0C1  |. 0FBE05 A0914C00             MOVSX EAX,BYTE PTR DS:[4C91A0]
+0042D0C8  |. 56                          PUSH ESI                                      ; /Arg4
+0042D0C9  |. 50                          PUSH EAX                                      ; |Arg3
+0042D0CA  |. 8B4424 24                   MOV EAX,DWORD PTR SS:[ESP+24]                 ; |
+0042D0CE  |. 83FF 32                     CMP EDI,32                                    ; |
+0042D0D1  |. 53                          PUSH EBX                                      ; |Arg2
+0042D0D2  |. 57                          PUSH EDI                                      ; |Arg1
+0042D0D3  |. 0FBECA                      MOVSX ECX,DL                                  ; |
+0042D0D6  |. 7D 10                       JGE SHORT 0042D0E8                            ; |
+0042D0D8  |. 03C8                        ADD ECX,EAX                                   ; |
+0042D0DA  |. 8B8C8D 28810300             MOV ECX,DWORD PTR SS:[EBP+ECX*4+38128]        ; |
+0042D0E1  |. E8 FA1D0700                 CALL 0049EEE0                                 ; \Original.0049EEE0
+							m_pSprite[]->PutShadowSpriteClip(sX+dx, sY+dy, _tmp_cFrame, dwTime);
+
+0042D0E6  |. EB 0E                       JMP SHORT 0042D0F6
+0042D0E8  |> 03C8                        ADD ECX,EAX                                   ; |
+0042D0EA  |. 8B8C8D 28810300             MOV ECX,DWORD PTR SS:[EBP+ECX*4+38128]        ; |
+0042D0F1  |. E8 2A1B0700                 CALL 0049EC20                                 ; \Original.0049EC20
+							m_pSprite[]->PutShadowSprite(sX+dx, sY+dy, _tmp_cFrame, dwTime);
+
+0042D0F6  |> 8A15 8C914C00               MOV DL,BYTE PTR DS:[4C918C]
+0042D0FC  |> 66:833D 3C914C00 23         CMP WORD PTR DS:[4C913C],23                   ;  Cases A (Line Feed),23 ('#'),32 ('2'),33 ('3'),3C ('<'),41 ('A'),51 ('Q'),5B ('[') of switch 0042D0A0
+0042D104  |. 75 18                       JNZ SHORT 0042D11E
+0042D106  |. 8B8D ECE50600               MOV ECX,DWORD PTR SS:[EBP+6E5EC]
+0042D10C  |. 6A 1E                       PUSH 1E                                       ; /Arg5 = 0000001E
+0042D10E  |. 56                          PUSH ESI                                      ; |Arg4
+0042D10F  |. 6A 01                       PUSH 1                                        ; |Arg3 = 00000001
+0042D111  |. 53                          PUSH EBX                                      ; |Arg2
+0042D112  |. 57                          PUSH EDI                                      ; |Arg1
+0042D113  |. E8 18210700                 CALL 0049F230                                 ; \Original.0049F230
+							m_pEffectSpr[31]->PutTransSprite(dX, dY, cTempFrame, dwTime); 
+
+0042D118  |. 8A15 8C914C00               MOV DL,BYTE PTR DS:[4C918C]
+0042D11E  |> 8B4424 18                   MOV EAX,DWORD PTR SS:[ESP+18]
+0042D122  |. 85C0                        TEST EAX,EAX
+0042D124  |. 74 56                       JE SHORT 0042D17C
+0042D126  |. 66:833D 3C914C00 51         CMP WORD PTR DS:[4C913C],51                   ;  abaddon
+0042D12E  |. 75 25                       JNZ SHORT 0042D155
+0042D130  |. 0FBE05 A0914C00             MOVSX EAX,BYTE PTR DS:[4C91A0]
+0042D137  |. 56                          PUSH ESI                                      ; /Arg4
+0042D138  |. 50                          PUSH EAX                                      ; |Arg3
+0042D139  |. 8B4424 24                   MOV EAX,DWORD PTR SS:[ESP+24]                 ; |
+0042D13D  |. 53                          PUSH EBX                                      ; |Arg2
+0042D13E  |. 0FBECA                      MOVSX ECX,DL                                  ; |
+0042D141  |. 03C8                        ADD ECX,EAX                                   ; |
+0042D143  |. 57                          PUSH EDI                                      ; |Arg1
+0042D144  |. 8B8C8D 28810300             MOV ECX,DWORD PTR SS:[EBP+ECX*4+38128]        ; |
+0042D14B  |. E8 40290700                 CALL 0049FA90                                 ; \Original.0049FA90
+							m_pEffectSpr[76]->PutTransSprite70(sX+dx, sY+dy, _tmp_cFrame, dwTime); 
+
+0042D150  |. E9 6F010000                 JMP 0042D2C4
+0042D155  |> 0FBE05 A0914C00             MOVSX EAX,BYTE PTR DS:[4C91A0]
+0042D15C  |. 6A 1E                       PUSH 1E                                       ; /Arg5 = 0000001E
+0042D15E  |. 56                          PUSH ESI                                      ; |Arg4
+0042D15F  |. 0FBECA                      MOVSX ECX,DL                                  ; |
+0042D162  |. 50                          PUSH EAX                                      ; |Arg3
+0042D163  |. 8B4424 28                   MOV EAX,DWORD PTR SS:[ESP+28]                 ; |
+0042D167  |. 03C8                        ADD ECX,EAX                                   ; |
+0042D169  |. 53                          PUSH EBX                                      ; |Arg2
+0042D16A  |. 57                          PUSH EDI                                      ; |Arg1
+0042D16B  |. 8B8C8D 28810300             MOV ECX,DWORD PTR SS:[EBP+ECX*4+38128]        ; |
+0042D172  |. E8 B9200700                 CALL 0049F230                                 ; \Original.0049F230
+							m_pEffectSpr[31]->PutTransSprite(dX, dY, cTempFrame, dwTime); 
+
+0042D177  |. E9 48010000                 JMP 0042D2C4
+0042D17C  |> F605 5CB14C00 40            TEST BYTE PTR DS:[4CB15C],40
+0042D183  |. 0F84 DD000000               JE 0042D266
+0042D189  |. 66:833D 3C914C00 52         CMP WORD PTR DS:[4C913C],52                   ;  Sorceress
+0042D191  |. 56                          PUSH ESI                                      ; /Arg7
+0042D192  |. 75 6C                       JNZ SHORT 0042D200                            ; |
+0042D194  |. 33C0                        XOR EAX,EAX                                   ; |
+0042D196  |. 33C9                        XOR ECX,ECX                                   ; |
+0042D198  |. 66:8B85 5C300700            MOV AX,WORD PTR SS:[EBP+7305C]                ; |
+0042D19F  |. 66:8B8D 70300700            MOV CX,WORD PTR SS:[EBP+73070]                ; |
+0042D1A6  |. D1E8                        SHR EAX,1                                     ; |
+0042D1A8  |. 2BC8                        SUB ECX,EAX                                   ; |
+0042D1AA  |. 33C0                        XOR EAX,EAX                                   ; |
+0042D1AC  |. 66:8B85 3C300700            MOV AX,WORD PTR SS:[EBP+7303C]                ; |
+0042D1B3  |. 51                          PUSH ECX                                      ; |Arg6
+0042D1B4  |. 33C9                        XOR ECX,ECX                                   ; |
+0042D1B6  |. 66:8B8D 50300700            MOV CX,WORD PTR SS:[EBP+73050]                ; |
+0042D1BD  |. D1E8                        SHR EAX,1                                     ; |
+0042D1BF  |. 2BC8                        SUB ECX,EAX                                   ; |
+0042D1C1  |. 33C0                        XOR EAX,EAX                                   ; |
+0042D1C3  |. 66:8B85 1C300700            MOV AX,WORD PTR SS:[EBP+7301C]                ; |
+0042D1CA  |. 51                          PUSH ECX                                      ; |Arg5
+0042D1CB  |. 33C9                        XOR ECX,ECX                                   ; |
+0042D1CD  |. 66:8B8D 30300700            MOV CX,WORD PTR SS:[EBP+73030]                ; |
+0042D1D4  |. D1E8                        SHR EAX,1                                     ; |
+0042D1D6  |. 2BC8                        SUB ECX,EAX                                   ; |
+0042D1D8  |. 0FBE05 A0914C00             MOVSX EAX,BYTE PTR DS:[4C91A0]                ; |
+0042D1DF  |. 51                          PUSH ECX                                      ; |Arg4
+0042D1E0  |. 50                          PUSH EAX                                      ; |Arg3
+0042D1E1  |. 8B4424 30                   MOV EAX,DWORD PTR SS:[ESP+30]                 ; |
+0042D1E5  |. 8D4B EC                     LEA ECX,DWORD PTR DS:[EBX-14]                 ; |
+0042D1E8  |. 0FBED2                      MOVSX EDX,DL                                  ; |
+0042D1EB  |. 03D0                        ADD EDX,EAX                                   ; |
+0042D1ED  |. 51                          PUSH ECX                                      ; |Arg2
+0042D1EE  |. 57                          PUSH EDI                                      ; |Arg1
+0042D1EF  |. 8B8C95 28810300             MOV ECX,DWORD PTR SS:[EBP+EDX*4+38128]        ; |
+0042D1F6  |. E8 454D0700                 CALL 004A1F40                                 ; \Original.004A1F40
+							m_pSprite[]->PutSpriteRGB(sX + 134, sY +182, m_pItemList[]->m_sSpriteFrame, m_wWR[], m_wWG[], m_wWB[], dwTime);
+
+0042D1FB  |. E9 C4000000                 JMP 0042D2C4
+0042D200  |> 33C0                        XOR EAX,EAX                                   ; |
+0042D202  |. 33C9                        XOR ECX,ECX                                   ; |
+0042D204  |. 66:8B85 5C300700            MOV AX,WORD PTR SS:[EBP+7305C]                ; |
+0042D20B  |. 66:8B8D 70300700            MOV CX,WORD PTR SS:[EBP+73070]                ; |
+0042D212  |. D1E8                        SHR EAX,1                                     ; |
+0042D214  |. 2BC8                        SUB ECX,EAX                                   ; |
+0042D216  |. 33C0                        XOR EAX,EAX                                   ; |
+0042D218  |. 66:8B85 3C300700            MOV AX,WORD PTR SS:[EBP+7303C]                ; |
+0042D21F  |. 51                          PUSH ECX                                      ; |Arg6
+0042D220  |. 33C9                        XOR ECX,ECX                                   ; |
+0042D222  |. 66:8B8D 50300700            MOV CX,WORD PTR SS:[EBP+73050]                ; |
+0042D229  |. D1E8                        SHR EAX,1                                     ; |
+0042D22B  |. 2BC8                        SUB ECX,EAX                                   ; |
+0042D22D  |. 33C0                        XOR EAX,EAX                                   ; |
+0042D22F  |. 66:8B85 1C300700            MOV AX,WORD PTR SS:[EBP+7301C]                ; |
+0042D236  |. 51                          PUSH ECX                                      ; |Arg5
+0042D237  |. 33C9                        XOR ECX,ECX                                   ; |
+0042D239  |. 66:8B8D 30300700            MOV CX,WORD PTR SS:[EBP+73030]                ; |
+0042D240  |. D1E8                        SHR EAX,1                                     ; |
+0042D242  |. 2BC8                        SUB ECX,EAX                                   ; |
+0042D244  |. 0FBE05 A0914C00             MOVSX EAX,BYTE PTR DS:[4C91A0]                ; |
+0042D24B  |. 51                          PUSH ECX                                      ; |Arg4
+0042D24C  |. 50                          PUSH EAX                                      ; |Arg3
+0042D24D  |. 8B4424 30                   MOV EAX,DWORD PTR SS:[ESP+30]                 ; |
+0042D251  |. 53                          PUSH EBX                                      ; |Arg2
+0042D252  |. 0FBECA                      MOVSX ECX,DL                                  ; |
+0042D255  |. 03C8                        ADD ECX,EAX                                   ; |
+0042D257  |. 57                          PUSH EDI                                      ; |Arg1
+0042D258  |. 8B8C8D 28810300             MOV ECX,DWORD PTR SS:[EBP+ECX*4+38128]        ; |
+0042D25F  |. E8 DC4C0700                 CALL 004A1F40                                 ; \Original.004A1F40
+							m_pSprite[]->PutSpriteRGB(sX + 134, sY +182, m_pItemList[]->m_sSpriteFrame, m_wWR[], m_wWG[], m_wWB[], dwTime);
+
+0042D264  |. EB 5E                       JMP SHORT 0042D2C4
+0042D266  |> 66:A1 3C914C00              MOV AX,WORD PTR DS:[4C913C]
+0042D26C  |. 66:3D 5200                  CMP AX,52                                     ;   82 sorceress ?
+0042D270  |. 75 24                       JNZ SHORT 0042D296
+0042D272  |. 0FBE05 A0914C00             MOVSX EAX,BYTE PTR DS:[4C91A0]
+0042D279  |. 6A 00                       PUSH 0
+0042D27B  |. 6A 00                       PUSH 0
+0042D27D  |. 56                          PUSH ESI
+0042D27E  |. 50                          PUSH EAX
+0042D27F  |. 8B4424 2C                   MOV EAX,DWORD PTR SS:[ESP+2C]
+0042D283  |. 8D4B EC                     LEA ECX,DWORD PTR DS:[EBX-14]
+0042D286  |. 0FBED2                      MOVSX EDX,DL
+0042D289  |. 03D0                        ADD EDX,EAX
+0042D28B  |. 51                          PUSH ECX
+0042D28C  |. 57                          PUSH EDI
+0042D28D  |. 8B8C95 28810300             MOV ECX,DWORD PTR SS:[EBP+EDX*4+38128]
+0042D294  |. EB 29                       JMP SHORT 0042D2BF
+0042D296  |> 66:3D 5B00                  CMP AX,5B                                     ;   91 gate
+0042D29A  |. 6A 00                       PUSH 0
+0042D29C  |. 75 04                       JNZ SHORT 0042D2A2
+0042D29E  |. 6A 10                       PUSH 10
+0042D2A0  |. EB 02                       JMP SHORT 0042D2A4
+0042D2A2  |> 6A 00                       PUSH 0
+0042D2A4  |> 0FBE05 A0914C00             MOVSX EAX,BYTE PTR DS:[4C91A0]                ; |
+0042D2AB  |. 56                          PUSH ESI                                      ; |Arg4
+0042D2AC  |. 50                          PUSH EAX                                      ; |Arg3
+0042D2AD  |. 8B4424 2C                   MOV EAX,DWORD PTR SS:[ESP+2C]                 ; |
+0042D2B1  |. 53                          PUSH EBX                                      ; |Arg2
+0042D2B2  |. 0FBECA                      MOVSX ECX,DL                                  ; |
+0042D2B5  |. 03C8                        ADD ECX,EAX                                   ; |
+0042D2B7  |. 57                          PUSH EDI                                      ; |Arg1
+0042D2B8  |. 8B8C8D 28810300             MOV ECX,DWORD PTR SS:[EBP+ECX*4+38128]        ; |
+0042D2BF  |> E8 5C0D0700                 CALL 0049E020                                 ; \Original.0049E020
+							m_pSprite[]->PutSpriteFast(int sX, int sY, int sFrame, DWORD dwTime)
+
+0042D2C4  |> 0FBE15 8C914C00             MOVSX EDX,BYTE PTR DS:[4C918C]
+

@@ -1,0 +1,41 @@
+[MAP-INFO]
+map-location  = stadium
+initial-point = 1  100 62
+pk-mode 	= 0
+// t/ype1 => noXP noPenalty
+// t/ype2 => noDrop 
+// t/ype3 => noDrop noPK penalty/reward
+type  	= 3
+drop-type 	= 0
+
+//-Teleportation-Set----SX-----SY---DestMapName-DX----DY----Dir---;
+teleport-loc     =      103    66     bisle     -1    -1     5
+teleport-loc     =      103    67     bisle     -1    -1     5
+teleport-loc     =      104    66     bisle     -1    -1     5
+teleport-loc     =      104    67     bisle     -1    -1     5
+teleport-loc     =      105    66     bisle     -1    -1     5
+teleport-loc     =      105    67     bisle     -1    -1     5
+
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     1      55    39
+waypoint          =     2      50    40
+waypoint          =     3      60    38
+waypoint          =     4      65    40
+waypoint          =     5      63    44
+waypoint          =     6      58    47
+waypoint          =     7      52    48
+waypoint          =     8      49    44
+waypoint          =     9      47    41
+waypoint          =     10     55    41
+
+
+maximum-object = 50
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area           = 1       97 61 111 73
+//energy-sphere
+energy-sphere-creation-point = 1 1 70 57
+energy-sphere-goal-point     = 1 1 92 42 47 72
+
+[END-MAP-INFO]

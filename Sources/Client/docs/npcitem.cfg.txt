@@ -1,0 +1,392 @@
+Those using WLServer Source which is able to send NpcItem.cfg to HGServers can use this to edit 2nd drop. I have not tested think it works. Also made a change commented "// Fixed by hypnotoad" 2.20 it was making an error so i just recoded it.
+
+in Game.cpp find MSGID_NOTICEMENTFILECONTENTS after the break for that case add:
+
+
+CODE 	
+  // v2.17 2002-8-7 // 2002-09-06 #1
+  case MSGID_NPCITEMCONFIGCONTENTS:
+   PutLogList("(!) NpcItemConfig file contents received. Now decoding...");
+   _bDecodeNpcItemConfigFileContents((char *)(pData + DEF_INDEX2_MSGTYPE + 2), dwMsgSize);
+   break;
+	
+
+
+
+Add this function to Game.cpp:
+
+
+CODE 	
+
+// v2.15 2002-8-7 // 2002-09-06 #1
+BOOL CGame::_bDecodeNpcItemConfigFileContents(char * pData, DWORD dwMsgSize)
+{
+char * pContents, * token;
+char seps[] = "= \t\n";
+char cReadModeA = 0;
+char cReadModeB = 0;
+int  iNpcConfigListIndex = 0;
+int k = 0;
+class CStrTok * pStrTok;
+class CNpcItem * pTempNpcItem = NULL;
+ 
+pContents = new char[dwMsgSize+1];
+ZeroMemory(pContents, dwMsgSize+1);
+memcpy(pContents, pData, dwMsgSize);
+
+pStrTok = new class CStrTok(pContents, seps);
+token = pStrTok->pGet();
+while( token != NULL ) {
+ if (cReadModeA != 0) {
+  switch (cReadModeA) {
+  case 1:
+
+   switch (cReadModeB) {
+
+   case 1:
+    // NPC ¿Ã∏ß
+    if (strlen(token) > 20) {
+     PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - Too long Npc name.");
+     delete pContents;
+     delete pStrTok;
+     return FALSE;
+    }
+    for (iNpcConfigListIndex = 0; iNpcConfigListIndex < DEF_MAXNPCTYPES; iNpcConfigListIndex++)
+     if (m_pNpcConfigList[iNpcConfigListIndex] != NULL) {
+      if(strcmp(m_pNpcConfigList[iNpcConfigListIndex]->m_cNpcName,token) == 0) {
+       PutLogList(token);
+       break; 
+      }
+     }
+
+    if (iNpcConfigListIndex == DEF_MAXNPCTYPES ) {
+     PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - No exist Npc Name");
+     delete pContents;
+     delete pStrTok;
+     return FALSE;
+    }
+
+    cReadModeB = 2;
+    break;
+
+   case 2:
+    // 2002-09-17 #1
+    // npcitem type º≥¡§
+    if( strlen(token) > 2 ) {
+     PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - Type Error.");
+     delete pContents;
+     delete pStrTok;
+     return FALSE;
+    }
+
+    m_pNpcConfigList[iNpcConfigListIndex]->m_iNpcitemType = atoi(token);
+
+    cReadModeB = 3;
+    break;
+
+   case 3:
+    // æ∆¿Ã≈€ ¿Ã∏ß 
+    if (strlen(token) > 20) {
+     PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - Too long Item name.");
+     delete pContents;
+     delete pStrTok;
+     return FALSE;
+    }
+
+    if (pTempNpcItem == NULL)
+     pTempNpcItem = new class CNpcItem();
+
+
+    if( memcmp(token,"[ENDITEM]",9) == 0 ){
+     cReadModeA = 0;
+     cReadModeB = 0;
+
+     if ( pTempNpcItem  != NULL) {
+      delete pTempNpcItem; 
+      pTempNpcItem = NULL;
+     }
+     break;
+    }
+    
+    strcpy(pTempNpcItem->m_cName, token);
+
+    // 2002-09-09 #1 NPCITEM List ø° ID∏¶ √ﬂ∞°«—¥Ÿ.
+    // ¡÷¿« : ITEM List∞° NPCITEM List ∫∏¥Ÿ ∏’¿˙ WLSø°º∫∏≥ª¡Ææﬂ «—¥Ÿ.
+    if( !m_bReceivedItemList ) // ITEM List∞° ø¿¡ˆ æ æ“¥Ÿ.
+    {
+     PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration error - Before Item List receiving.");
+     delete pContents;
+     delete pStrTok;
+     return FALSE;
+    }
+
+    // Fixed by hypnotoad
+    for(k = 0; k<DEF_MAXITEMTYPES; k++) {
+     if (m_pItemConfigList[k] != NULL) {   
+      if (strcmp(token, m_pItemConfigList[k]->m_cName) == 0 ) {
+       pTempNpcItem->m_sItemID = m_pItemConfigList[k]->m_sIDnum;
+      }
+     }
+     else {
+      break;
+     }
+    }
+
+
+    if ( k == DEF_MAXITEMTYPES ) {
+     PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration error - Do Not exist in ITEM LIST");
+     delete pContents;
+     delete pStrTok;
+     return FALSE;
+    }
+
+    cReadModeB = 4;
+    break;
+
+   case 4:
+    // √ππ¯¬∞ »Æ∑¸
+    if (_bGetIsStringIsNumber(token) == FALSE) {
+     PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - Wrong Data format.");
+     delete pContents;
+     delete pStrTok;
+     return FALSE;
+    }
+    pTempNpcItem->m_sFirstProbability = atoi(token);
+
+    if (pTempNpcItem->m_sFirstProbability <= 0 ) {
+     PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - First probability have wrong value");
+     delete pContents;
+     delete pStrTok;
+     return FALSE; 
+    }
+
+    // √ππ¯¬∞ »Æ∑¸ø° ¥Î«— ≈∏∞Ÿ∞™¿ª ¿”¿«∑Œ ¡ÿ¥Ÿ. 
+    if ( pTempNpcItem->m_sFirstProbability > 13) 
+     pTempNpcItem->m_cFirstTargetValue = 13;
+    else if ( pTempNpcItem->m_sFirstProbability > 3) 
+     pTempNpcItem->m_cFirstTargetValue = 3;
+    else 
+     pTempNpcItem->m_cFirstTargetValue = 1;
+     
+    cReadModeB = 5;
+    break;
+
+   case 5:
+    // µŒπ¯¬∞ »Æ∑¸
+    if (_bGetIsStringIsNumber(token) == FALSE) {
+     PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - Wrong Data format.");
+     delete pContents;
+     delete pStrTok;
+     return FALSE;
+    }
+
+    pTempNpcItem->m_sSecondProbability = atoi(token);
+
+    if (pTempNpcItem->m_sSecondProbability <= 0 ) {
+     PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - Second probability have wrong value");
+     delete pContents;
+     delete pStrTok;
+     return FALSE; 
+    }
+
+    // µŒπ¯¬∞ »Æ∑¸ø° ¥Î«— ≈∏∞Ÿ∞™¿ª ¿”¿«∑Œ ¡ÿ¥Ÿ. 
+    if ( pTempNpcItem->m_sSecondProbability > 13) 
+     pTempNpcItem->m_cSecondTargetValue = 13;
+    else if ( pTempNpcItem->m_sSecondProbability > 3) 
+     pTempNpcItem->m_cSecondTargetValue = 3;
+    else 
+     pTempNpcItem->m_cSecondTargetValue = 1;
+
+    cReadModeB = 3;
+  
+    // vectorø° «ˆ¿Á ±Ó¡ˆ ¿–æÓ µÂ∏∞ ∞™¿ª ≥÷¥¬¥Ÿ. 
+    m_pNpcConfigList[iNpcConfigListIndex]->m_vNpcItem.push_back(*pTempNpcItem);
+
+    // 2002-09-17 #1 NPCITEM Type 2¿œ ∞ÊøÏ
+    if( m_pNpcConfigList[iNpcConfigListIndex]->m_iNpcitemMax < pTempNpcItem->m_sSecondProbability )
+     m_pNpcConfigList[iNpcConfigListIndex]->m_iNpcitemMax = pTempNpcItem->m_sSecondProbability;
+
+    break;
+
+   } // switch #2
+
+  default: 
+   break;
+
+  } // switch #1
+ } // if
+ else {
+
+  if (memcmp(token, "NpcItem", 7) == 0) {
+   cReadModeA = 1;
+   cReadModeB = 1;
+  
+  }
+ }
+ token = pStrTok->pGet();
+}
+
+delete pStrTok;
+delete pContents;
+
+if ((cReadModeA != 0) || (cReadModeB != 0)) {
+ PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file contents error!");
+ return FALSE;
+}
+
+m_bNpcItemConfig = TRUE;
+return TRUE;
+
+} // _bDecodeNpcItemConfigFileContents()
+
+update bGetItemNameWhenDeleteNpc to include this:
+[CODE]
+if (m_bNpcItemConfig == TRUE) {
+
+class CNpcItem CTempNpcItem;
+int iResult;
+int iNpcIndex;
+int iNumNpcitem;
+int iIndex;
+int iDiceValue;
+BOOL bFirstDice = FALSE, bSecondDice = FALSE;
+
+for ( iNpcIndex = 0; iNpcIndex < DEF_MAXNPCTYPES; iNpcIndex++) {
+ if (m_pNpcConfigList[iNpcIndex] != NULL) {
+  if(m_pNpcConfigList[iNpcIndex]->m_sType == sNpcType ) break; 
+ }
+}
+
+if ( iNpcIndex == DEF_MAXNPCTYPES ) return FALSE;
+
+if( m_pNpcConfigList[iNpcIndex]->m_vNpcItem.size() <=  0 )  return FALSE;
+
+switch( m_pNpcConfigList[iNpcIndex]->m_iNpcitemType )
+{
+case 1:
+ // º≥¡§ ∆ƒ¿œ¿« ø©∑Ø ∞≥¿« æ∆¿Ã≈€ ¡ﬂ «œ≥™∏¶ ∞Ì∏•¥Ÿ.
+ iResult = iDice( 1, m_pNpcConfigList[iNpcIndex]->m_vNpcItem.size() ) - 1;
+
+ CTempNpcItem = m_pNpcConfigList[iNpcIndex]->m_vNpcItem.at(iResult);
+ 
+ if ( iDice(1,CTempNpcItem.m_sFirstProbability  ) == CTempNpcItem.m_cFirstTargetValue ) bFirstDice  = TRUE;
+ if ( iDice(1,CTempNpcItem.m_sSecondProbability ) == CTempNpcItem.m_cSecondTargetValue) bSecondDice = TRUE;
+
+ if ( (bFirstDice == TRUE) && (bSecondDice == TRUE) )
+ {
+  iItemID = CTempNpcItem.m_sItemID;
+
+  wsprintf(G_cTxt, "NpcType 1 (%d) size(%d) %s(%d) (%d)", sNpcType, m_pNpcConfigList[iNpcIndex]->m_vNpcItem.size(), CTempNpcItem.m_cName, CTempNpcItem.m_sItemID, iItemID);
+ // PutDebugMsg(G_cTxt);
+
+ }
+ break;
+
+case 2:
+ iNumNpcitem = m_pNpcConfigList[iNpcIndex]->m_vNpcItem.size();
+ iDiceValue  = iDice(1, m_pNpcConfigList[iNpcIndex]->m_iNpcitemMax);
+
+ for(iIndex = 0; iIndex < iNumNpcitem; iIndex++) {
+  CTempNpcItem = m_pNpcConfigList[iNpcIndex]->m_vNpcItem.at(iIndex);
+
+  if( CTempNpcItem.m_sFirstProbability <= iDiceValue && iDiceValue < CTempNpcItem.m_sSecondProbability )
+  {
+   iItemID = CTempNpcItem.m_sItemID;
+
+   wsprintf(G_cTxt, "NpcType 2 (%d) size(%d) %s(%d) (%d)", sNpcType, m_pNpcConfigList[iNpcIndex]->m_vNpcItem.size(), CTempNpcItem.m_cName, CTempNpcItem.m_sItemID, iItemID);
+   //PutDebugMsg(G_cTxt);
+
+   break;
+  }
+ }
+ break;
+
+} // switch
+
+if ( iItemID <= 0 )
+ return FALSE;
+
+return TRUE;
+}
+else {
+
+// PUT the code of ur your current bGetItemNameWhenDeleteNpc here
+
+}	
+
+
+add this at the end of npc.cpp:
+
+CODE 	
+
+// 2002-09-06 #1
+CNpcItem::CNpcItem()
+{
+ZeroMemory(m_cName, sizeof(m_cName));
+m_sItemID = 0;       // 2002-09-09 #1
+m_sFirstProbability = 0;
+m_cFirstTargetValue = NULL;
+m_sSecondProbability = 0;
+m_cSecondTargetValue = NULL;
+}	
+
+
+add this at the end of npc.h:
+
+CODE 	
+
+// 2002-09-06 #1
+class CNpcItem
+{
+public :
+CNpcItem();
+
+char  m_cName[21];
+short m_sItemID;    // 2002-09-09 #1 Item ID
+short m_sFirstProbability;
+char  m_cFirstTargetValue;
+short m_sSecondProbability;
+char  m_cSecondTargetValue;
+};	
+
+
+add this to game.h:
+
+CODE 	
+
+bool  m_bNpcItemConfig;
+BOOL _bDecodeNpcItemConfigFileContents(char * pData, DWORD dwMsgSize);
+
+
+and this to the top:
+#define DEF_MAXITEMTYPES   5000
+	
+
+
+add this to CGame::CGame
+
+CODE 	
+m_bNpcItemConfig = FALSE;	
+
+
+add these to npc.h's CNpc { 
+
+CODE 	
+
+std::vector<CNpcItem>  m_vNpcItem;
+int  m_iNpcitemType;
+int  m_iNpcitemMax;
+	
+
+
+add this to the top of npc.h
+
+CODE 	
+
+
+#include <vector>
+
+	
+
+
+This post has been edited by Hypnotoad on May 21 2006, 09:28 PM

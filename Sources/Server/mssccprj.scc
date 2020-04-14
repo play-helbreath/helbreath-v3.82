@@ -1,0 +1,5 @@
+SCC = This is a Source Code Control file
+
+[HGserver.dsp]
+SCC_Aux_Path = "\\Testserver\VSS\"
+SCC_Project_Name = "$/HGserver", MBBAAAAA

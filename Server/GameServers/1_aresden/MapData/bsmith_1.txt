@@ -1,0 +1,36 @@
+[MAP-INFO]
+map-location  = aresden
+initial-point = 1  41 37
+fixed-dayornight-mode = 1
+pk-mode 	= 2
+type		= 3
+drop-type 	= 0
+limited-cast = 1
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =      33     34     aresden             171    197   4
+teleport-loc     =      32     35     aresden             171    197   4
+teleport-loc     =      33     35     aresden             171    197   4
+
+teleport-loc     =      43     30     aresden             154    203   6
+teleport-loc     =      44     29     aresden             154    203   6
+teleport-loc     =      44     30     aresden             154    203   6
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     1      49    33
+waypoint          =     2      49    33
+waypoint          =     3      49    33
+waypoint          =     4      49    33
+waypoint          =     5      49    33
+waypoint          =     6      49    33
+waypoint          =     7      49    33
+waypoint          =     8      49    33
+waypoint          =     9      49    33
+waypoint          =     10     49    33
+
+//-NPC-setting--------Name---------------MoveType----WaypointIndex(10)-------NamePrefix-------;
+npc               =   Tom                1           1 2 3 4 5 6 7 8 9 10         1  
+
+maximum-object		= 10
+
+[END-MAP-INFO]

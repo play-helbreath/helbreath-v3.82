@@ -1,0 +1,27 @@
+[MAP-INFO]							
+map-location	=	elvine					
+pk-mode = 0	
+maximum-object	     =	450					
+random-mob-generator   =	1   2
+npc-avoidrect          =	1  95  90  203  149
+
+//-----------------------Num-Type-RECT---------------Mob-MobNum
+// Slimes pits 25 x 15 / 40 x 20
+spot-mob-generator	=	1	1	148	28	168	48	10	10
+spot-mob-generator	=	2	1	253	175	269	198	10	10
+
+// Snake pits 25 x 15
+spot-mob-generator	=	3	1	129	226	148	246	22	10
+spot-mob-generator	=	4	1	134	260	165	272	22	10
+
+// Scorpions pit 40 x 15
+spot-mob-generator	=	7	1	230	205	260	225	17	10
+
+//Gardes
+spot-mob-generator	=	9	1	167	143	174	148	25	2
+spot-mob-generator	=	10	1	155	55	162	60	25	2
+spot-mob-generator	=	11	1	155	247	162	252	25	2
+spot-mob-generator	=	12	1	239	127	246	132   25	2
+spot-mob-generator	=	13	1	107	87	114	92	25	2
+
+[END-MAP-INFO]				

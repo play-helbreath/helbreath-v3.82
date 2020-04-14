@@ -1,0 +1,190 @@
+void CGame::PutString_SprFont(int iX, int iY, char * pStr, short sR, short sG, short sB)
+{
+ int iXpos;
+ DWORD iCnt;
+ DWORD dwTime = G_dwGlobalTime;
+ char  cTmpStr[100];
+
+	ZeroMemory(cTmpStr, sizeof(cTmpStr));
+	strcpy(cTmpStr, pStr);
+	iXpos = iX;
+	for (iCnt = 0; iCnt < strlen(cTmpStr); iCnt++) {
+		if ((cTmpStr[iCnt] >= 33) && (cTmpStr[iCnt] <= 122)) {
+			m_pSprite[DEF_SPRID_INTERFACE_FONT1]->PutSpriteRGB(iXpos+1, iY, cTmpStr[iCnt] - 33, sR+11, sG+7, sB+6, dwTime);	
+			if ((sR == 0) && (sG == 0) && (sB == 0)) 
+				 m_pSprite[DEF_SPRID_INTERFACE_FONT1]->PutSpriteFast(iXpos, iY, cTmpStr[iCnt] - 33, dwTime);	
+			else m_pSprite[DEF_SPRID_INTERFACE_FONT1]->PutSpriteRGB(iXpos, iY, cTmpStr[iCnt] - 33, sR, sG, sB, dwTime);	
+			 iXpos += __cSpace[cTmpStr[iCnt] - 33];
+		}
+		else iXpos += 5;
+	}
+}
+
+void CGame::PutString_SprFont2(int iX, int iY, char * pStr, short sR, short sG, short sB)
+{
+ int iXpos, iR, iG, iB;
+ DWORD iCnt;
+ DWORD dwTime = G_dwGlobalTime;
+ char  cTmpStr[200];
+ 
+	m_DDraw.ColorTransferRGB(RGB(sR, sG, sB), &iR, &iG, &iB);
+
+	ZeroMemory(cTmpStr, sizeof(cTmpStr));
+	strcpy(cTmpStr, pStr);
+
+	iXpos = iX;
+	for (iCnt = 0; iCnt < strlen(cTmpStr); iCnt++) {
+		if ((cTmpStr[iCnt] >= 33) && (cTmpStr[iCnt] <= 122)) {
+			m_pSprite[DEF_SPRID_INTERFACE_FONT1]->PutSpriteFast(iXpos+1, iY, cTmpStr[iCnt] - 33, dwTime);
+			m_pSprite[DEF_SPRID_INTERFACE_FONT1]->PutSpriteFast(iXpos+1, iY+1, cTmpStr[iCnt] - 33, dwTime);
+			if ((sR == 0) && (sG == 0) && (sB == 0)) 
+				 m_pSprite[DEF_SPRID_INTERFACE_FONT1]->PutSpriteFast(iXpos, iY, cTmpStr[iCnt] - 33, dwTime);	
+			else m_pSprite[DEF_SPRID_INTERFACE_FONT1]->PutSpriteRGB(iXpos, iY, cTmpStr[iCnt] - 33, iR, iG, iB, dwTime);	
+			 iXpos += __cSpace[cTmpStr[iCnt] - 33];
+		}
+		else iXpos += 5;
+	}
+}
+
+void CGame::PutString_SprFont3(int iX, int iY, char * pStr, short sR, short sG, short sB, BOOL bTrans, int iType)
+{
+ int iXpos, iAdd;
+ DWORD iCnt;
+ DWORD dwTime = G_dwGlobalTime;
+ char  cTmpStr[128];
+
+	ZeroMemory(cTmpStr, sizeof(cTmpStr));
+	strcpy(cTmpStr, pStr);
+
+	if (iType != -1) {
+		iAdd = 95*iType;
+		iXpos = iX;
+		for (iCnt = 0; iCnt < strlen(cTmpStr); iCnt++) {
+			if ((cTmpStr[iCnt] >= 32) && (cTmpStr[iCnt] <= 126)) {
+			
+				if (bTrans == FALSE) {
+					m_pSprite[DEF_SPRID_INTERFACE_SPRFONTS2]->PutSpriteFast(iXpos, iY+1, cTmpStr[iCnt] - 32 +iAdd, dwTime);	
+					m_pSprite[DEF_SPRID_INTERFACE_SPRFONTS2]->PutSpriteFast(iXpos+1, iY+1, cTmpStr[iCnt] - 32 +iAdd, dwTime);	
+					if ((sR == 0) && (sG == 0) && (sB == 0)) 
+						 m_pSprite[DEF_SPRID_INTERFACE_SPRFONTS2]->PutSpriteFast(iXpos, iY, cTmpStr[iCnt] - 32 +iAdd, dwTime);	
+					else m_pSprite[DEF_SPRID_INTERFACE_SPRFONTS2]->PutSpriteRGB(iXpos, iY, cTmpStr[iCnt] - 32 +iAdd, sR, sG, sB, dwTime);	
+				
+				}
+				else m_pSprite[DEF_SPRID_INTERFACE_SPRFONTS2]->PutTransSpriteRGB(iXpos, iY, cTmpStr[iCnt] - 32 +iAdd, sR, sG, sB, dwTime);	
+					
+				iXpos += (m_pSprite[DEF_SPRID_INTERFACE_SPRFONTS2]->m_stBrush[cTmpStr[iCnt] - 32 +iAdd].szx);
+			}
+			else iXpos += 5;
+		}
+	}
+	else {
+		iAdd = 0;
+		iXpos = iX;
+		for (iCnt = 0; iCnt < strlen(cTmpStr); iCnt++) {
+			if ((cTmpStr[iCnt] >= 32) && (cTmpStr[iCnt] <= 126)) {
+			
+				if (bTrans == FALSE) {
+					m_pSprite[DEF_SPRID_INTERFACE_FONT2]->PutSpriteFast(iXpos, iY+1, cTmpStr[iCnt] - 32 +iAdd, dwTime);	
+					m_pSprite[DEF_SPRID_INTERFACE_FONT2]->PutSpriteFast(iXpos+1, iY+1, cTmpStr[iCnt] - 32 +iAdd, dwTime);	
+					if ((sR == 0) && (sG == 0) && (sB == 0)) 
+						 m_pSprite[DEF_SPRID_INTERFACE_FONT2]->PutSpriteFast(iXpos, iY, cTmpStr[iCnt] - 32 +iAdd, dwTime);	
+					else m_pSprite[DEF_SPRID_INTERFACE_FONT2]->PutSpriteRGB(iXpos, iY, cTmpStr[iCnt] - 32 +iAdd, sR, sG, sB, dwTime);	
+				
+				}
+				else m_pSprite[DEF_SPRID_INTERFACE_FONT2]->PutTransSpriteRGB(iXpos, iY, cTmpStr[iCnt] - 32 +iAdd, sR, sG, sB, dwTime);	
+					
+				iXpos += (m_pSprite[DEF_SPRID_INTERFACE_FONT2]->m_stBrush[cTmpStr[iCnt] - 32 +iAdd].szx);
+			}
+			else iXpos += 5;
+		}
+	}
+}
+
+static char __cSpace2[] = {6,4,6,6,6,6,6,6,6,6,6}; //{8,6,9,8,8,9,8,8,8,8};
+void CGame::PutString_SprNum(int iX, int iY, char * pStr, short sR, short sG, short sB)
+{int iXpos;
+ unsigned char iCnt;
+ DWORD dwTime = G_dwGlobalTime;
+ char  cTmpStr[200];
+ WORD  wR, wG, wB;
+	ZeroMemory(cTmpStr, sizeof(cTmpStr));
+	strcpy(cTmpStr, pStr);
+	m_Misc.ColorTransfer(m_DDraw.m_cPixelFormat, RGB(sR, sG, sB), &wR, &wG, &wB);
+	iXpos = iX;
+	for (iCnt = 0; iCnt < strlen(cTmpStr); iCnt++) 
+	{	if ((cTmpStr[iCnt] >= 0x30) && (cTmpStr[iCnt] <= 0x39)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ADDINTERFACE]->PutTransSprite(iXpos+2, iY, cTmpStr[iCnt] - 0x30 +6, dwTime);	
+			m_pSprite[DEF_SPRID_INTERFACE_ADDINTERFACE]->PutTransSprite(iXpos+1, iY+1, cTmpStr[iCnt] - 0x30 +6, dwTime);	
+			if ((sR == 0) && (sG == 0) && (sB == 0)) 
+				 m_pSprite[DEF_SPRID_INTERFACE_ADDINTERFACE]->PutTransSprite(iXpos, iY, cTmpStr[iCnt] - 0x30 +6, dwTime);	
+			else m_pSprite[DEF_SPRID_INTERFACE_ADDINTERFACE]->PutTransSpriteRGB(iXpos, iY, cTmpStr[iCnt] - 0x30 +6, wR, wG, wB, dwTime);	
+			iXpos += __cSpace2[cTmpStr[iCnt] - 0x30];
+	}	}
+}
+
+void CGame::PutString(int iX, int iY, char * pString, COLORREF color, BOOL bHide, char cBGtype, BOOL bIsPreDC)
+{char * pTmp;
+ int i;	
+	if (strlen(pString) == 0) return;
+	if (bIsPreDC == FALSE) m_DDraw._GetBackBufferDC();
+	if (bHide == FALSE) 
+	{	switch (cBGtype) {
+		case 0:
+			m_DDraw.TextOut(iX+1, iY, pString, color);
+			break;
+		case 1:
+			m_DDraw.TextOut(iX, iY+1, pString, RGB(5,5,5));
+			m_DDraw.TextOut(iX+1, iY+1, pString, RGB(5,5,5));
+			m_DDraw.TextOut(iX+1, iY, pString, RGB(5,5,5));
+			break;
+		}
+		m_DDraw.TextOut(iX, iY, pString, color);
+	}else 
+	{ 	pTmp = new char[strlen(pString)+2];
+		ZeroMemory(pTmp, strlen(pString)+2);
+		strcpy(pTmp, pString);
+		for (i = 0; i < (int)strlen(pString); i++) 
+			if (pTmp[i] != NULL) pTmp[i] = '*';
+		
+		switch (cBGtype) {
+		case 0:
+			m_DDraw.TextOut(iX+1, iY, pTmp, color);
+			break;
+		case 1:
+			m_DDraw.TextOut(iX, iY+1, pTmp, RGB(5,5,5));
+			m_DDraw.TextOut(iX+1, iY+1, pTmp, RGB(5,5,5));
+			m_DDraw.TextOut(iX+1, iY, pTmp, RGB(5,5,5));
+			break;
+		}
+		m_DDraw.TextOut(iX, iY, pTmp, color);
+		delete[] pTmp;
+	}
+	if (bIsPreDC == FALSE) m_DDraw._ReleaseBackBufferDC();
+}
+
+
+void CGame::PutString(int iX, int iY, char * pString, COLORREF color)
+{
+	m_DDraw._GetBackBufferDC();
+	m_DDraw.TextOut(iX, iY, pString, color);
+	m_DDraw._ReleaseBackBufferDC();
+}
+
+void CGame::PutString2(int iX, int iY, char * pString, short sR, short sG, short sB)
+{
+	m_DDraw._GetBackBufferDC();
+	m_DDraw.TextOut(iX+1, iY, pString, RGB(0, 0, 0));
+	m_DDraw.TextOut(iX, iY+1, pString, RGB(0, 0, 0));
+	m_DDraw.TextOut(iX+1, iY+1, pString, RGB(0, 0, 0));
+	m_DDraw.TextOut(iX, iY, pString, RGB(sR, sG, sB));
+	m_DDraw._ReleaseBackBufferDC();
+}
+
+void CGame::PutAlignedString(int iX1, int iX2, int iY, char * pString, short sR, short sG, short sB)
+{
+	RECT rt;
+	m_DDraw._GetBackBufferDC();
+	SetRect(&rt, iX1, iY, iX2, iY+15);
+	m_DDraw.DrawText(&rt, pString, RGB(sR, sG, sB));
+	m_DDraw._ReleaseBackBufferDC();
+}

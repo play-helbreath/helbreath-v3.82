@@ -1,0 +1,103 @@
+// Spells for Equilibrium Project v3.51
+
+//-----Num-Name-----------------ManaCost--ReqInt--Cost---OnMenu
+magic = 0  Magic-Missile         8         18     100    4 5 6  1
+magic = 1  Heal                  15        20     100    4 5 6  1
+magic = 2  Create-Food           18        18     100    4 5 6  1
+magic = 3  Abaddons-terror       10        301 	  -1     4 5 6  0
+magic = 4  Abaddons-fury         10        301    -1     4 5 6  0
+magic = 5  Ultimate-Elixir       70        10     -1     4 5 6  0
+magic = 6  Forge-s-Breath        70        10     -1     4 5 6  0
+magic = 7  Test-Spell7           10        10     -1     4 5 6  0
+magic = 8  Test-Spell8           10        10     -1     4 5 6  0
+
+magic = 10 Energy-Bolt           15        24     200    4 5 6  1
+magic = 11 Staminar-Drain        14        22     200    4 5 6  1
+magic = 12 Recall                15        20     120    4 5 6  1
+magic = 13 Defense-Shield        19        26     200    4 5 6  1
+magic = 14 Celebrating-Light     20        25     400    4 5 6  1
+magic = 15 Staminar-Recovery     20        20     300    4 5 6  1
+magic = 16 Peace                 77        10     -1     4 5 6  0
+magic = 17 Wood-Mantle           44        10     -1     4 5 6  0
+magic = 18 Test-Spell18          10        11     -1     4 5 6  0
+
+magic = 20 Fire-Ball             27        26     500    4 5 6  1
+magic = 21 Great-Heal            28        28     500    4 5 6  1
+magic = 22 Tremor                34        33     -1     4 5 6  0
+magic = 23 Great-Staminar-Recovery 45      30     800    4 5 6  1
+magic = 24 Protection-From-Arrow 22        20     300    4 5 6  1
+magic = 25 Hold-Person           24        26     500    4 5 6  1
+magic = 26 Possession            25        26     500    4 5 6  1    
+magic = 27 Poison                28        29     700    4 5 6  1
+magic = 28 Mass-Staminar-Recov.  65        10     -1     4 5 6  0 
+
+magic = 30 Fire-Strike           36        34     1000   4 5 6  1       
+magic = 31 Summon-Creature       35        38     1000   4 5 6  1 
+magic = 32 Invisibility          31        30     800    4 5 6  1
+magic = 33 Protection-From-Magic 35        32     850    4 5 6  1
+magic = 34 Detect-Invisibility   33        30     700    4 5 6  1
+magic = 35 Paralyze              35        36     1000   4 5 6  1
+magic = 36 Cure                  32        35     700    4 5 6  1 
+magic = 37 Lightning-Arrow       32        38     1100   4 5 6  1 
+magic = 38 Prayer                40        10     -1     4 5 6  0
+
+magic = 40  Fire-Wall            42        45     1200   4 5 6  1
+magic = 41  Fire-Field           48        48     1400   4 5 6  1 
+magic = 42  Confuse-Language     40        42     1300   4 5 6  1
+magic = 43  Lightning            44        47     1700   4 5 6  1
+magic = 44  Great-Defense-Shield 45        46     1500   4 5 6  1
+magic = 45  Chill-Wind		   48        50     2000   4 5 6  1
+magic = 46  Poison-Cloud         48        49     1800   4 5 6  1
+magic = 47  Triple-Energy-Bolt   40        45     1700   4 5 6  1
+magic = 48  Critical-Heal        45        10     -1     4 5 6  0
+
+magic = 50  Berserk              57        59     2200   4 5 6  1
+magic = 51  Lightning-Bolt       58        58     2500   4 5 6  1
+magic = 52  Polymorph            66        10     -1     4 5 6  0
+magic = 53  Mass-Poison          54        52     2100   4 5 6  1
+magic = 54  Spike-Field          56        56     2300   4 5 6  1
+magic = 55  Ice-Storm            58        59     -1     4 5 6  0
+magic = 56  Mass-Lightning-Arrow 55        53     3000   4 5 6  1
+magic = 57  Ice-Strike           59        60     4200   4 5 6  1     
+magic = 58  Bloody-Mantle        90        65     -1     4 5 6  0
+
+magic = 60  Energy-Strike        65        67     5000   4 5 6  1
+magic = 61  Mass-Fire-Strike     80        85     -1     4 5 6  0
+magic = 62  Confusion            78        75     7500   4 5 6  1
+magic = 63  Mass-Chill-Wind	   90        93     9800   4 5 6  1
+magic = 64  Earthworm-Strike     80        97     12000  4 5 6  1
+magic = 65  Absolute-Magic-Protect. 90     112    13500  4 5 6  1
+magic = 66  Armor-Break          90        97     20000  4 5 6  1
+magic = 67  Scan          	   50        70     7500   4 5 6  1
+magic = 68  Mass-Heal            120       10     -1     4 5 6  0
+
+magic = 70  Bloody-Shock-Wave   120        105    -1     4 5 6  0 
+magic = 71  Mass-Confusion      125        130    15000  4 5 6  1
+magic = 72  Mass-Ice-Strike     120        133    21000  4 5 6  1
+magic = 73  Cloud-Kill          130        120    20000  4 5 6  1
+magic = 74  Lightning-Strike    90         123    35000  4 5 6  1
+magic = 75  Trance              90         90     22000  4 5 6  1
+magic = 76  Cancellation        220        135    -1     4 5 6  0
+magic = 77  Illusion-Movement   130        160    28000  4 5 6  1
+magic = 78  Divine-Revenge      80         10     -1     4 5 6  0
+
+magic = 80  Illusion            143        150    27000  4 5 6  1
+magic = 81  Meteor-Strike       120        169    40000  4 5 6  1
+magic = 82  Warrior-Spirit  	  500   	 156    -1     4 5 6  0
+magic = 83  Inhibition-Casting  180        180    -1     4 5 6  0
+magic = 84  Magic-Drain      	  200        166    53000  4 5 6  1
+magic = 85  Blizzard 	        170	       195    43000  4 5 6  1
+magic = 86  Regenerate          220        10     -1     4 5 6  0
+magic = 87  Magic-Mantle        120        10     -1     4 5 6  0
+magic = 88  Entangle            120        10     -1     4 5 6  0
+
+magic = 90 Mass-Illusion        200        180    35000  4 5 6  1
+magic = 91 Mass-Blizzard        319        250    43000  4 5 6  1 
+magic = 92 Mass-Armor-Break     145        208    20000  4 5 6  1 
+magic = 93 Mass-Lightning-Strike 254       231    55000  4 5 6  1 
+magic = 94 Resurrection	        200        10     -1     4 5 6  0
+magic = 95 Mass-Illusion-Movement 220      200    38000  4 5 6  1 
+magic = 96 Earth-Shock-Wave     220        215    -1     4 5 6  0
+magic = 97 Explosion            150        182    -1     4 5 6  0
+magic = 98 Medusa-Kiss          120        235    -1     4 5 6  0
+//-----Num-Name----------------ManaCost--ReqInt--Cost----OnMenu

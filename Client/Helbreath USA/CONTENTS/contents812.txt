@@ -1,0 +1,16 @@
+Construction position setting function 
+
+The commander has got the possibility to set
+the location which will make the building to
+the guild assigned erectors. This function
+makes the constructor to build as the
+commander's opinion with a systematize
+strategy in the place decided.
+
+The usual commander sets the position in the
+middle land near "Mana Stone" and also
+commands to build near the Mana collector.
+ 
+Only the commander can see the position of
+the "Mana Stone". If the location is not set
+the constructor can't build it.

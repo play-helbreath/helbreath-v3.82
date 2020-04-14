@@ -1,0 +1,78 @@
+One of the things that is a pain in the ass about having a server,
+ is when your ip changes and you have to compile a new client and
+ make everyone download it again...
+
+Here is a trick around it:
+
+-First of all, create an accound at No-IP.com, add a new host and
+ update your ip, let's use test.servegame.com to show how it works.
+
+-download the IP update program from no-ip.com, make it execute as
+ a service at windows, it will update the DNs with your ip every
+ time it changes.
+
+-open game.h and add the following lines:
+
+
+CODE 	
+void GetIPByDNS();
+
+char m_cLogServerAddrBuffer[100];	
+
+
+-open game.cpp and add the following lines:
+
+where is 
+strcpy(m_cLogServerAddr, xxx.xxx.xxx.xxx <- some IP);
+replace with 
+
+
+CODE 	
+
+strcpy(m_cLogServerAddrBuffer, "test.servegame.com");
+	
+
+
+add:
+
+CODE 	
+
+void CGame::GetIPByDNS()
+{
+ZeroMemory(m_cLogServerAddr, sizeof(m_cLogServerAddr));
+if (m_cLogServerAddrBuffer[0] >= 65 && m_cLogServerAddrBuffer[0] <= 122) {
+ char cDnsResult[40];
+ struct hostent *host_entry;
+
+ host_entry = gethostbyname(m_cLogServerAddrBuffer);
+ if (host_entry == NULL){
+  MessageBox(m_hWnd, "Failed to get DNS entry for the logserver!", "ERROR1", MB_ICONEXCLAMATION | MB_OK);
+  _exit(0);
+ }
+ ZeroMemory(cDnsResult, sizeof(cDnsResult));
+ wsprintf(cDnsResult, "%d.%d.%d.%d",
+ ( host_entry->h_addr_list[0][0] & 0x00ff ),
+ ( host_entry->h_addr_list[0][1] & 0x00ff ),
+ ( host_entry->h_addr_list[0][2] & 0x00ff ),
+ ( host_entry->h_addr_list[0][3] & 0x00ff ));
+
+ strcpy(m_cLogServerAddr, cDnsResult);
+ }
+else strcpy(m_cLogServerAddr, m_cLogServerAddrBuffer);
+}	
+
+
+and right after every 
+m_pLSock = new class XSocket(m_hWnd, DEF_SOCKETBLOCKLIMIT);
+add:
+
+CODE 	
+
+GetIPByDNS();
+	
+
+
+No need to do extra configs, as the function will check if it is a DNS
+ or an IP address. If your DNS begins with a number, just use http:// in front of it.
+
+Thats it. 

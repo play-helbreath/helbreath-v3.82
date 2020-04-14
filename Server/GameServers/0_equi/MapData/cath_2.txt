@@ -1,0 +1,26 @@
+// Eldiniel's Church
+[MAP-INFO]
+map-location  = elvine
+fixed-dayornight-mode = 1
+initial-point = 1  64 45
+pk-mode 	= -4
+type		= 3
+drop-type 	= 0
+limited-cast = 1
+
+//-Teleportation-Set----SX-----SY---DestMapName--DX--DY---Dir---;
+teleport-loc     =      36     40     lost       79   178   4
+teleport-loc     =      37     38     lost       79   178   4
+teleport-loc     =      37     39     lost       79   178   4
+teleport-loc     =      37     40     lost       79   178   4
+teleport-loc     =      38     39     lost       79   178   4
+
+teleport-loc     =      67     42     lost       101   166   4
+teleport-loc     =      68     42     lost       101   166   4
+
+teleport-loc     =      60     49     elvfarm     -1    -1   4
+teleport-loc     =      61     49     elvfarm     -1    -1   4
+teleport-loc     =      62     49     elvfarm     -1    -1   4
+teleport-loc     =      60     50     elvfarm     -1    -1   4
+
+[END-MAP-INFO]

@@ -1,0 +1,101 @@
+; ***************************************************
+; ****   Unique items for HB Master v6.0   ****
+; ***************************************************
+; INF created with the help of WillyPad.
+; Freeware from Snoopy 81
+
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+AddReg = Uniques.reg
+
+[Uniques.Reg]
+;  Armes uniques
+HKLM,%KEY_UNIQUE%,"EldinielHand",,"1"
+HKLM,%KEY_UNIQUE%,"AresienHand",,"1"
+HKLM,%KEY_UNIQUE%,"Excalibur",,"2"
+HKLM,%KEY_UNIQUE%,"DemonSlayer",,"5"
+HKLM,%KEY_UNIQUE%,"MedusaSword",,"2"
+
+HKLM,%KEY_UNIQUE%,"StormBringer",,"4"
+HKLM,%KEY_UNIQUE%,"IceGBH",,"4"
+HKLM,%KEY_UNIQUE%,"DefenderAxe",,"4"
+
+HKLM,%KEY_UNIQUE%,"DarkExecutor",,"6"
+HKLM,%KEY_UNIQUE%,"LightingBlade",,"6"
+HKLM,%KEY_UNIQUE%,"KlonessBlade",,"6"
+HKLM,%KEY_UNIQUE%,"KlonessEsterk",,"8"
+HKLM,%KEY_UNIQUE%,"RevivalAxe",,"10"
+
+HKLM,%KEY_UNIQUE%,"XelimaGiantHammer",,"5"
+HKLM,%KEY_UNIQUE%,"XelimaBow",,"3"
+HKLM,%KEY_UNIQUE%,"IceElementalBow",,"8"
+
+; rare Neck Rings
+HKLM,%KEY_UNIQUE%,"RingOfAbaddon",,"30"
+HKLM,%KEY_UNIQUE%,"RingOfXelima",,"40"
+HKLM,%KEY_UNIQUE%,"NecklaceOfMerien",,"5"
+HKLM,%KEY_UNIQUE%,"NecklaceOfKloness",,"5"
+HKLM,%KEY_UNIQUE%,"NecklaceOfXelima",,"5"
+HKLM,%KEY_UNIQUE%,"NeckMS15",,"8"
+HKLM,%KEY_UNIQUE%,"RingOfArchMage",,"5"
+HKLM,%KEY_UNIQUE%,"RingOfGrandMage",,"20"
+
+; rare Wands
+HKLM,%KEY_UNIQUE%,"ResurWandMS20",,"5"
+HKLM,%KEY_UNIQUE%,"XelimaWandMS0",,"3"
+HKLM,%KEY_UNIQUE%,"KlonessMS28",,"5"
+HKLM,%KEY_UNIQUE%,"BerserkWand",,"5"
+HKLM,%KEY_UNIQUE%,"BloodWandMS40",,"10"
+HKLM,%KEY_UNIQUE%,"LichMS10",,"8"
+
+; Protections and Shields
+HKLM,%KEY_UNIQUE%,"PinkLagiShield",,"15"
+HKLM,%KEY_UNIQUE%,"PinkTowerShield",,"8"
+HKLM,%KEY_UNIQUE%,"MerienHat",,"3"
+HKLM,%KEY_UNIQUE%,"MerienHelmM",,"4"
+HKLM,%KEY_UNIQUE%,"Storm-Bow",,"3"
+HKLM,%KEY_UNIQUE%,"DrowHelmM",,"7"
+HKLM,%KEY_UNIQUE%,"ElfCape",,"5"
+
+[STRINGS]
+KEY_UNIQUE  = "Software\Snoopy81\HBmaster\Uniques"
+
+[Added_from_C:\DocumentsandSettings\snoopy81\Bureau\kk.reg]
+; Modifiez éventuellement le nom de la section ci-dessus, et ajoutez-le à la ligne AddReg= appropriée.
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","EldinielHand",,"1"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","AresienHand",,"1"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","Excalibur",,"2"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","DemonSlayer",,"2"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","MedusaSword",,"2"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","StormBringer",,"3"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","IceGBH",,"3"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","DefenderAxe",,"3"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","DarkExecutor",,"5"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","LightingBlade",,"5"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","KlonessBlade",,"5"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","KlonessEsterk",,"hex(2):33,00,00,00"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","RevivalAxe",,"10"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","XelimaGiantHammer",,"2"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","XelimaBow",,"2"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","IceElementalBow",,"6"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","RingOfAbaddon",,"4"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","RingOfXelima",,"10"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","NecklaceOfMerien",,"3"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","NecklaceOfKloness",,"3"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","NecklaceOfXelima",,"3"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","NeckMS15",,"3"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","RingOfArchMage",,"3"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","RingOfGrandMage",,"10"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","ResurWandMS20",,"2"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","XelimaWandMS0",,"2"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","KlonessMS28",,"2"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","BerserkWand",,"3"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","BloodWandMS40",,"5"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","LichMS10",,"8"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","PinkLagiShield",,"12"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","PinkTowerShield",,"6"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","MerienHat",,"3"
+HKLM,"SOFTWARE\Snoopy81\HBmaster\Uniques","MerienHelmM",,"3"
+

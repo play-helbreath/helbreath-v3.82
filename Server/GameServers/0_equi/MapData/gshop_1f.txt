@@ -1,0 +1,57 @@
+[MAP-INFO]
+map-location  = aresden
+initial-point = 1  51 41
+fixed-dayornight-mode = 1
+pk-mode 	= -4
+type		= 3
+drop-type 	= 0
+limited-cast = 1
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc       =    49     36     arefarm             63     72    4
+teleport-loc       =    50     36     arefarm             63     72    4
+teleport-loc       =    49     37     arefarm             63     72    4
+teleport-loc       =    50     37     arefarm             63     72    4
+teleport-loc       =    51     37     arefarm             63     72    4
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     1      65    41
+waypoint          =     2      65    41
+waypoint          =     3      65    41
+waypoint          =     4      65    41
+waypoint          =     5      65    41
+waypoint          =     6      65    41
+waypoint          =     7      65    41
+waypoint          =     8      65    41
+waypoint          =    10      65    41
+
+waypoint          =    11      43    37
+waypoint          =    12      43    37
+waypoint          =    13      43    37
+waypoint          =    14      43    37
+waypoint          =    15      43    37
+waypoint          =    16      43    37
+waypoint          =    17      43    37
+waypoint          =    18      43    37
+waypoint          =    19      43    37
+waypoint          =    20      43    37
+
+waypoint          =    21      60    37
+waypoint          =    22      60    37
+waypoint          =    23      60    37
+waypoint          =    24      60    37
+waypoint          =    25      60    37
+waypoint          =    26      60    37
+waypoint          =    27      60    37
+waypoint          =    28      60    37
+waypoint          =    29      60    37
+waypoint          =    30      60    37
+
+//-NPC-setting-Name--MoveType-WaypointIndex(10)--NamePrefix-;
+npc  =   ShopKeeper-W   2     1 2 3 4 5 6 7 8 8 10            1  
+npc  =   Kennedy        1     11 12 13 14 15 16 17 18 19 20   1  
+npc  =   William        1     21 22 23 24 25 26 27 28 29 30   1  
+
+maximum-object		= 10
+
+[END-MAP-INFO]

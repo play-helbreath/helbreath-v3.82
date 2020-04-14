@@ -1,0 +1,341 @@
+00416130  /$ 83EC 50              SUB ESP,50
+00416133  |. 53                   PUSH EBX
+00416134  |. 55                   PUSH EBP
+00416135  |. 56                   PUSH ESI
+00416136  |. 57                   PUSH EDI
+00416137  |. 8BE9                 MOV EBP,ECX
+00416139  |. BB 10000000          MOV EBX,10
+0041613E  |. BF 19000000          MOV EDI,19
+00416143  |. BE 24000000          MOV ESI,24
+00416148  |. BA 31000000          MOV EDX,31
+0041614D  |. B9 40000000          MOV ECX,40
+00416152  |. B8 51000000          MOV EAX,51
+00416157  |. 895C24 44            MOV DWORD PTR SS:[ESP+44],EBX 10
+0041615B  |. 897C24 48            MOV DWORD PTR SS:[ESP+48],EDI 19
+0041615F  |. 897424 4C            MOV DWORD PTR SS:[ESP+4C],ESI 24
+00416163  |. 897424 20            MOV DWORD PTR SS:[ESP+20],ESI 24
+00416167  |. 8B7424 64            MOV ESI,DWORD PTR SS:[ESP+64]
+0041616B  |. 897C24 24            MOV DWORD PTR SS:[ESP+24],EDI 19
+0041616F  |. 895C24 28            MOV DWORD PTR SS:[ESP+28],EBX 10
+00416173  |. 8B5C24 68            MOV EBX,DWORD PTR SS:[ESP+68]
+00416177  |. C74424 38 01000000   MOV DWORD PTR SS:[ESP+38],1
+0041617F  |. C74424 3C 04000000   MOV DWORD PTR SS:[ESP+3C],4
+00416187  |. C74424 40 09000000   MOV DWORD PTR SS:[ESP+40],9
+0041618F  |. 895424 50            MOV DWORD PTR SS:[ESP+50],EDX 31
+00416193  |. 894C24 54            MOV DWORD PTR SS:[ESP+54],ECX 40
+00416197  |. 894424 58            MOV DWORD PTR SS:[ESP+58],EAX 51
+0041619B  |. C74424 5C 64000000   MOV DWORD PTR SS:[ESP+5C],64
+004161A3  |. C74424 10 64000000   MOV DWORD PTR SS:[ESP+10],64
+004161AB  |. 894424 14            MOV DWORD PTR SS:[ESP+14],EAX 51
+004161AF  |. 894C24 18            MOV DWORD PTR SS:[ESP+18],ECX 40
+004161B3  |. 895424 1C            MOV DWORD PTR SS:[ESP+1C],EDX 31
+004161B7  |. C74424 2C 09000000   MOV DWORD PTR SS:[ESP+2C],9
+004161BF  |. C74424 30 04000000   MOV DWORD PTR SS:[ESP+30],4
+004161C7  |. C74424 34 01000000   MOV DWORD PTR SS:[ESP+34],1
+004161CF  |. 33FF                 XOR EDI,EDI
+004161D1  |> B8 67666666          MOV EAX,66666667
+004161D6  |. 6A 01                PUSH 1
+004161D8  |. F7EF                 IMUL EDI
+004161DA  |. C1FA 02              SAR EDX,2
+004161DD  |. 8BC2                 MOV EAX,EDX
+004161DF  |. 6A 02                PUSH 2
+004161E1  |. C1E8 1F              SHR EAX,1F
+004161E4  |. 03D0                 ADD EDX,EAX
+004161E6  |. C1E2 02              SHL EDX,2
+004161E9  |. 895424 70            MOV DWORD PTR SS:[ESP+70],EDX
+004161ED  |. E8 B50F0900          CALL 004A71A7
+004161F2  |. 99                   CDQ
+004161F3  |. B9 0A000000          MOV ECX,0A
+004161F8  |. F7F9                 IDIV ECX
+004161FA  |. B8 05000000          MOV EAX,5
+004161FF  |. 2BC2                 SUB EAX,EDX
+00416201  |. 50                   PUSH EAX
+00416202  |. E8 A00F0900          CALL 004A71A7
+00416207  |. 99                   CDQ
+00416208  |. B9 0A000000          MOV ECX,0A
+0041620D  |. F7F9                 IDIV ECX
+0041620F  |. B8 05000000          MOV EAX,5
+00416214  |. 8BCB                 MOV ECX,EBX
+00416216  |. 2BC2                 SUB EAX,EDX
+00416218  |. 8B5424 74            MOV EDX,DWORD PTR SS:[ESP+74]
+0041621C  |. 50                   PUSH EAX
+0041621D  |. 2B4C14 20            SUB ECX,DWORD PTR SS:[ESP+EDX+20>
+00416221  |. 83C1 14              ADD ECX,14
+00416224  |. 51                   PUSH ECX
+00416225  |. E8 7D0F0900          CALL 004A71A7
+0041622A  |. 99                   CDQ
+0041622B  |. B9 0A000000          MOV ECX,0A
+00416230  |. F7F9                 IDIV ECX
+00416232  |. 8BC7                 MOV EAX,EDI
+00416234  |. 2BC2                 SUB EAX,EDX
+00416236  |. 8D4C30 9C            LEA ECX,DWORD PTR DS:[EAX+ESI-64>
+0041623A  |. 51                   PUSH ECX
+0041623B  |. 6A 00                PUSH 0
+0041623D  |. E8 650F0900          CALL 004A71A7
+00416242  |. 99                   CDQ                              ; |
+00416243  |. B9 0A000000          MOV ECX,0A                       ; |
+00416248  |. F7F9                 IDIV ECX                         ; |
+0041624A  |. 8BC7                 MOV EAX,EDI                      ; |
+0041624C  |. 2BC2                 SUB EAX,EDX                      ; |
+0041624E  |. 8D4C30 9C            LEA ECX,DWORD PTR DS:[EAX+ESI-64>; |
+00416252  |. 51                   PUSH ECX                         ; |Arg1
+00416253  |. 8BCD                 MOV ECX,EBP                      ; |
+00416255  |. E8 B6240300          CALL 00448710                    ; \Original.00448710
+0041625A  |. 6A 01                PUSH 1
+0041625C  |. 6A 02                PUSH 2
+0041625E  |. E8 440F0900          CALL 004A71A7
+00416263  |. 99                   CDQ
+00416264  |. B9 0A000000          MOV ECX,0A
+00416269  |. F7F9                 IDIV ECX
+0041626B  |. B8 05000000          MOV EAX,5
+00416270  |. 2BC2                 SUB EAX,EDX
+00416272  |. 50                   PUSH EAX
+00416273  |. E8 2F0F0900          CALL 004A71A7
+00416278  |. 99                   CDQ
+00416279  |. B9 0A000000          MOV ECX,0A
+0041627E  |. F7F9                 IDIV ECX
+00416280  |. B8 05000000          MOV EAX,5
+00416285  |. 8BCB                 MOV ECX,EBX
+00416287  |. 2BC2                 SUB EAX,EDX
+00416289  |. 8B5424 74            MOV EDX,DWORD PTR SS:[ESP+74]
+0041628D  |. 50                   PUSH EAX
+0041628E  |. 2B4C14 48            SUB ECX,DWORD PTR SS:[ESP+EDX+48>
+00416292  |. 83C1 14              ADD ECX,14
+00416295  |. 51                   PUSH ECX
+00416296  |. E8 0C0F0900          CALL 004A71A7
+0041629B  |. 99                   CDQ
+0041629C  |. B9 0A000000          MOV ECX,0A
+004162A1  |. F7F9                 IDIV ECX
+004162A3  |. 8BC7                 MOV EAX,EDI
+004162A5  |. 2BC2                 SUB EAX,EDX
+004162A7  |. 03C6                 ADD EAX,ESI
+004162A9  |. 50                   PUSH EAX
+004162AA  |. 6A 00                PUSH 0
+004162AC  |. E8 F60E0900          CALL 004A71A7
+004162B1  |. 99                   CDQ                              ; |
+004162B2  |. B9 0A000000          MOV ECX,0A                       ; |
+004162B7  |. F7F9                 IDIV ECX                         ; |
+004162B9  |. 8BC7                 MOV EAX,EDI                      ; |
+004162BB  |. 8BCD                 MOV ECX,EBP                      ; |
+004162BD  |. 2BC2                 SUB EAX,EDX                      ; |
+004162BF  |. 03C6                 ADD EAX,ESI                      ; |
+004162C1  |. 50                   PUSH EAX                         ; |Arg1
+004162C2  |. E8 49240300          CALL 00448710                    ; \Original.00448710
+004162C7  |. 83C7 0A              ADD EDI,0A
+004162CA  |. 83FF 64              CMP EDI,64
+004162CD  |.^0F8E FEFEFFFF        JLE 004161D1
+004162D3  |. 6A 01                PUSH 1
+004162D5  |. 6A 01                PUSH 1
+004162D7  |. E8 CB0E0900          CALL 004A71A7
+004162DC  |. 99                   CDQ
+004162DD  |. B9 0A000000          MOV ECX,0A
+004162E2  |. F7F9                 IDIV ECX
+004162E4  |. B8 05000000          MOV EAX,5
+004162E9  |. 2BC2                 SUB EAX,EDX
+004162EB  |. 50                   PUSH EAX
+004162EC  |. E8 B60E0900          CALL 004A71A7
+004162F1  |. 99                   CDQ
+004162F2  |. B9 0A000000          MOV ECX,0A
+004162F7  |. F7F9                 IDIV ECX
+004162F9  |. B8 05000000          MOV EAX,5
+004162FE  |. 2BC2                 SUB EAX,EDX
+00416300  |. 50                   PUSH EAX
+00416301  |. E8 A10E0900          CALL 004A71A7
+00416306  |. 99                   CDQ
+00416307  |. B9 1E000000          MOV ECX,1E
+0041630C  |. F7F9                 IDIV ECX
+0041630E  |. 8BC3                 MOV EAX,EBX
+00416310  |. 2BC2                 SUB EAX,EDX
+00416312  |. 2BC1                 SUB EAX,ECX
+00416314  |. 50                   PUSH EAX
+00416315  |. E8 8D0E0900          CALL 004A71A7
+0041631A  |. 99                   CDQ
+0041631B  |. B9 0A000000          MOV ECX,0A
+00416320  |. F7F9                 IDIV ECX
+00416322  |. 8BC6                 MOV EAX,ESI
+00416324  |. 2BC2                 SUB EAX,EDX
+00416326  |. 83E8 32              SUB EAX,32
+00416329  |. 50                   PUSH EAX
+0041632A  |. 6A 00                PUSH 0
+0041632C  |. E8 760E0900          CALL 004A71A7
+00416331  |. 99                   CDQ                              ; |
+00416332  |. B9 0A000000          MOV ECX,0A                       ; |
+00416337  |. F7F9                 IDIV ECX                         ; |
+00416339  |. 8BC6                 MOV EAX,ESI                      ; |
+0041633B  |. 8BCD                 MOV ECX,EBP                      ; |
+0041633D  |. 2BC2                 SUB EAX,EDX                      ; |
+0041633F  |. 83E8 32              SUB EAX,32                       ; |
+00416342  |. 50                   PUSH EAX                         ; |Arg1
+00416343  |. E8 C8230300          CALL 00448710                    ; \Original.00448710
+00416348  |. 6A 01                PUSH 1
+0041634A  |. 6A 01                PUSH 1
+0041634C  |. E8 560E0900          CALL 004A71A7
+00416351  |. 99                   CDQ
+00416352  |. B9 0A000000          MOV ECX,0A
+00416357  |. F7F9                 IDIV ECX
+00416359  |. B8 05000000          MOV EAX,5
+0041635E  |. 2BC2                 SUB EAX,EDX
+00416360  |. 50                   PUSH EAX
+00416361  |. E8 410E0900          CALL 004A71A7
+00416366  |. 99                   CDQ
+00416367  |. B9 0A000000          MOV ECX,0A
+0041636C  |. F7F9                 IDIV ECX
+0041636E  |. B8 05000000          MOV EAX,5
+00416373  |. 2BC2                 SUB EAX,EDX
+00416375  |. 50                   PUSH EAX
+00416376  |. E8 2C0E0900          CALL 004A71A7
+0041637B  |. 99                   CDQ
+0041637C  |. B9 1E000000          MOV ECX,1E
+00416381  |. F7F9                 IDIV ECX
+00416383  |. 8BC3                 MOV EAX,EBX
+00416385  |. 2BC2                 SUB EAX,EDX
+00416387  |. 50                   PUSH EAX
+00416388  |. E8 1A0E0900          CALL 004A71A7
+0041638D  |. 99                   CDQ
+0041638E  |. B9 0A000000          MOV ECX,0A
+00416393  |. F7F9                 IDIV ECX
+00416395  |. 8BC6                 MOV EAX,ESI
+00416397  |. 2BC2                 SUB EAX,EDX
+00416399  |. 83E8 14              SUB EAX,14
+0041639C  |. 50                   PUSH EAX
+0041639D  |. 6A 00                PUSH 0
+0041639F  |. E8 030E0900          CALL 004A71A7
+004163A4  |. 99                   CDQ                              ; |
+004163A5  |. B9 0A000000          MOV ECX,0A                       ; |
+004163AA  |. F7F9                 IDIV ECX                         ; |
+004163AC  |. 8BC6                 MOV EAX,ESI                      ; |
+004163AE  |. 2BC2                 SUB EAX,EDX                      ; |
+004163B0  |. 83E8 14              SUB EAX,14                       ; |
+004163B3  |. 8BCD                 MOV ECX,EBP                      ; |
+004163B5  |. 50                   PUSH EAX                         ; |Arg1
+004163B6  |. E8 55230300          CALL 00448710                    ; \Original.00448710
+004163BB  |. 6A 01                PUSH 1
+004163BD  |. 6A 01                PUSH 1
+004163BF  |. E8 E30D0900          CALL 004A71A7
+004163C4  |. 99                   CDQ
+004163C5  |. B9 0A000000          MOV ECX,0A
+004163CA  |. F7F9                 IDIV ECX
+004163CC  |. B8 05000000          MOV EAX,5
+004163D1  |. 2BC2                 SUB EAX,EDX
+004163D3  |. 50                   PUSH EAX
+004163D4  |. E8 CE0D0900          CALL 004A71A7
+004163D9  |. 99                   CDQ
+004163DA  |. B9 0A000000          MOV ECX,0A
+004163DF  |. F7F9                 IDIV ECX
+004163E1  |. B8 05000000          MOV EAX,5
+004163E6  |. 2BC2                 SUB EAX,EDX
+004163E8  |. 50                   PUSH EAX
+004163E9  |. E8 B90D0900          CALL 004A71A7
+004163EE  |. 99                   CDQ
+004163EF  |. B9 1E000000          MOV ECX,1E
+004163F4  |. F7F9                 IDIV ECX
+004163F6  |. 8BC3                 MOV EAX,EBX
+004163F8  |. 2BC2                 SUB EAX,EDX
+004163FA  |. 50                   PUSH EAX
+004163FB  |. E8 A70D0900          CALL 004A71A7
+00416400  |. 99                   CDQ
+00416401  |. B9 0A000000          MOV ECX,0A
+00416406  |. F7F9                 IDIV ECX
+00416408  |. 8BC6                 MOV EAX,ESI
+0041640A  |. 2BC2                 SUB EAX,EDX
+0041640C  |. 50                   PUSH EAX
+0041640D  |. 6A 00                PUSH 0
+0041640F  |. E8 930D0900          CALL 004A71A7
+00416414  |. 99                   CDQ                              ; |
+00416415  |. B9 0A000000          MOV ECX,0A                       ; |
+0041641A  |. F7F9                 IDIV ECX                         ; |
+0041641C  |. 8BC6                 MOV EAX,ESI                      ; |
+0041641E  |. 8BCD                 MOV ECX,EBP                      ; |
+00416420  |. 2BC2                 SUB EAX,EDX                      ; |
+00416422  |. 50                   PUSH EAX                         ; |Arg1
+00416423  |. E8 E8220300          CALL 00448710                    ; \Original.00448710
+00416428  |. 6A 01                PUSH 1
+0041642A  |. 6A 01                PUSH 1
+0041642C  |. E8 760D0900          CALL 004A71A7
+00416431  |. 99                   CDQ
+00416432  |. B9 0A000000          MOV ECX,0A
+00416437  |. F7F9                 IDIV ECX
+00416439  |. B8 05000000          MOV EAX,5
+0041643E  |. 2BC2                 SUB EAX,EDX
+00416440  |. 50                   PUSH EAX
+00416441  |. E8 610D0900          CALL 004A71A7
+00416446  |. 99                   CDQ
+00416447  |. B9 0A000000          MOV ECX,0A
+0041644C  |. F7F9                 IDIV ECX
+0041644E  |. B8 05000000          MOV EAX,5
+00416453  |. 2BC2                 SUB EAX,EDX
+00416455  |. 50                   PUSH EAX
+00416456  |. E8 4C0D0900          CALL 004A71A7
+0041645B  |. 99                   CDQ
+0041645C  |. B9 1E000000          MOV ECX,1E
+00416461  |. F7F9                 IDIV ECX
+00416463  |. 8BC3                 MOV EAX,EBX
+00416465  |. 2BC2                 SUB EAX,EDX
+00416467  |. 50                   PUSH EAX
+00416468  |. E8 3A0D0900          CALL 004A71A7
+0041646D  |. 99                   CDQ
+0041646E  |. B9 0A000000          MOV ECX,0A
+00416473  |. F7F9                 IDIV ECX
+00416475  |. 8BC6                 MOV EAX,ESI
+00416477  |. 2BC2                 SUB EAX,EDX
+00416479  |. 83C0 14              ADD EAX,14
+0041647C  |. 50                   PUSH EAX
+0041647D  |. 6A 00                PUSH 0
+0041647F  |. E8 230D0900          CALL 004A71A7
+00416484  |. 99                   CDQ                              ; |
+00416485  |. B9 0A000000          MOV ECX,0A                       ; |
+0041648A  |. F7F9                 IDIV ECX                         ; |
+0041648C  |. 8BC6                 MOV EAX,ESI                      ; |
+0041648E  |. 2BC2                 SUB EAX,EDX                      ; |
+00416490  |. 8BCD                 MOV ECX,EBP                      ; |
+00416492  |. 83C0 14              ADD EAX,14                       ; |
+00416495  |. 50                   PUSH EAX                         ; |Arg1
+00416496  |. E8 75220300          CALL 00448710                    ; \Original.00448710
+0041649B  |. 6A 01                PUSH 1
+0041649D  |. 6A 01                PUSH 1
+0041649F  |. E8 030D0900          CALL 004A71A7
+004164A4  |. 99                   CDQ
+004164A5  |. B9 0A000000          MOV ECX,0A
+004164AA  |. F7F9                 IDIV ECX
+004164AC  |. B8 05000000          MOV EAX,5
+004164B1  |. 2BC2                 SUB EAX,EDX
+004164B3  |. 50                   PUSH EAX
+004164B4  |. E8 EE0C0900          CALL 004A71A7
+004164B9  |. 99                   CDQ
+004164BA  |. B9 0A000000          MOV ECX,0A
+004164BF  |. F7F9                 IDIV ECX
+004164C1  |. B8 05000000          MOV EAX,5
+004164C6  |. 2BC2                 SUB EAX,EDX
+004164C8  |. 50                   PUSH EAX
+004164C9  |. E8 D90C0900          CALL 004A71A7
+004164CE  |. 99                   CDQ
+004164CF  |. B9 1E000000          MOV ECX,1E
+004164D4  |. F7F9                 IDIV ECX
+004164D6  |. 2BDA                 SUB EBX,EDX
+004164D8  |. 2BD9                 SUB EBX,ECX
+004164DA  |. 53                   PUSH EBX
+004164DB  |. E8 C70C0900          CALL 004A71A7
+004164E0  |. 99                   CDQ
+004164E1  |. B9 0A000000          MOV ECX,0A
+004164E6  |. F7F9                 IDIV ECX
+004164E8  |. 8BC6                 MOV EAX,ESI
+004164EA  |. 2BC2                 SUB EAX,EDX
+004164EC  |. 83C0 32              ADD EAX,32
+004164EF  |. 50                   PUSH EAX
+004164F0  |. 6A 00                PUSH 0
+004164F2  |. E8 B00C0900          CALL 004A71A7
+004164F7  |. 99                   CDQ                              ; |
+004164F8  |. B9 0A000000          MOV ECX,0A                       ; |
+004164FD  |. F7F9                 IDIV ECX                         ; |
+004164FF  |. 8BCD                 MOV ECX,EBP                      ; |
+00416501  |. 2BF2                 SUB ESI,EDX                      ; |
+00416503  |. 83C6 32              ADD ESI,32                       ; |
+00416506  |. 56                   PUSH ESI                         ; |Arg1
+00416507  |. E8 04220300          CALL 00448710                    ; \Original.00448710
+0041650C  |. 5F                   POP EDI
+0041650D  |. 5E                   POP ESI
+0041650E  |. 5D                   POP EBP
+0041650F  |. 5B                   POP EBX
+00416510  |. 83C4 50              ADD ESP,50
+00416513  \. C2 0800              RETN 8
+

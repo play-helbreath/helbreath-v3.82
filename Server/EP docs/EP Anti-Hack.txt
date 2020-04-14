@@ -1,0 +1,131 @@
+		EP Anti-hack features
+
+Equilibrium Project server is  based on HBX2.24b sources,
+but many things have been fixed and improved. Specially
+Anti-Hack features from Siementec were very poor, and 
+even if HBX introduced some fixes for various hacks, 
+many things were still open for the wouldbe hacker.
+
+
+
+       Anti-Hack features
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+	I added numerous anti-hack features to server. Some 
+anti-hack function already coded where improved or completelly 
+written anew.
+	All hack attempts or suspitions will be logged in HackEvents.log.
+Some important events will even be shown in red on server's window.
+
+	Note than some hack suspictions maybe caused by lagging
+clients. Depending the hack certitude, the possible hack maybe 
+only prevented, the probable hack may disconect the character,
+the sure hack will seem to disconnect the character for the hacker,
+but keep the character on game a few more seconds to prevent using
+this hack as an emergency disconnection.
+
+	Here is a list of Hacks detected or prevented:
+- TradeHack impossible.
+- SpeedHack could only be used for very short period,
+  but most certainlly be detected.
+- Move or Swing speeders.
+- PrecastHack, CastHack.
+- DisconectionHack
+- DashHack, SwingHack, FullSwingHack.
+- FlyHack (some false alarms here)
+- ExtasisHack prevention.
+- Edited Client prevention & detection.
+- HBHax351 double protection and detection.
+  (client side, and server side when applicable)
+- Generic Memory patcher detection.
+- Abnormal rich players detection.
+- Abnormal high XP detection.
+- Abnormal situations detection.
+- ResurectionHack prevention.
+- Dupe item processing improved.
+- Packet editor attack detection.
+- Packet editor to up skills prevention.
+- DOS attack detection and logging.
+
+	Many anti-hack functions are based on client patches
+linked to gserver's functions. Siementec made many mistakes
+with hack prevention, and some could be fixed simply by
+fixing the client's exe.
+
+
+
+     For Settings.cfg file
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+validation-number		= 0 (0 prevents the system from working)
+
+	This is a "key" system designed to check for the validation number
+on all character files. This is an anti-hack function. Should a hacker
+connect a gserver to your main/world servers to introduce edited characters,
+they would lack the right validation umber and would be rejected and logged.
+	HBMaster can be used to set the number for existing server characters.
+
+	Note that the "Extasis ready to use hack" will recover the character
+file with the key, so the validation number is obsolete. A new protection
+have been added to the Wserver.
+
+
+MSGID_REQUEST_REGISTERGAMESERVER = 12345678
+
+	This a way to protect against the extasis hack. This feature changes
+MSGID used to register the game server to the world server. The MGSID
+must also be fixed in the wserver to match the gserver.
+
+
+validation-crc1		= 0
+validation-crc2		= 0
+	0: don't use, other: expected WORD values (ascending order)
+	A good way to protect from hacked or memory patched clients is to ask
+the client to auto-check his own CRC and send it to server for checking. 
+Currentlly no function have been coded to cry havok on modifyed clients,
+
+
+
+connection-check-time	= 8000 (0 is defaut)
+
+	The client sends a connection check on a regular basis (8 seconds 
+or 8+1 seconds) the server can use this value to detect edited clients, 
+packet senders, speedhacks, etc... If you change this value in client
+change as well here!
+
+
+
+         New GM commands
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+/monitor CharName
+	I implemented special anti-hack routines. GM can activate them
+on suspect character. A file will be created that logs every action
+of this character. 
+	Beware this files grow very fast, and the character will no suffer
+from his possibles hacks.(no prevention disconection, only logging)
+	Can be used only on one character on a gserver at once. Use the 
+command without CharName to stop the logging.
+
+
+/getactivegservers"space"
+	Any very important server event (shown in red on the server
+window) is shown to a GM with this command.
+ 
+
+
+
+
+   Hack-like included features
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+	Some "hack-type" features have been included in EP
+for everybody to use:
+- Multi-client.
+- 5 shortcuts keys (F1 F2 F3 F11 F12)
+- Removed Badwords filtering.
+- Shows small trees in Medium detail level.
+
+___________________________________
+            ************
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯

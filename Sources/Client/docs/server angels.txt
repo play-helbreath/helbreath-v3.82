@@ -1,0 +1,409 @@
+Game.cpp:
+____________________________________________________________________
+void CGame::RequestItemUpgradeHandler(int iClientH, int iItemIndex)
+In the part that handles Majestic upgrade, add following code.
+You may need some variables adjustment/declarations, depending on your sources:
+		case 46: // Pendants are category 46
+			if (m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_cItemType != 1) 
+			{	SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_ITEMUPGRADEFAIL, 2, NULL, NULL, NULL);			
+				return; // Pendants are type 1
+			}
+			if (m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_cEquipPos < 11) 
+			{	SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_ITEMUPGRADEFAIL, 2, NULL, NULL, NULL);			
+				return; // Pendants are left finger or more
+			}
+			if (m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_sItemEffectType != 14) 
+			{	SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_ITEMUPGRADEFAIL, 2, NULL, NULL, NULL);			
+				return; // Pendants are EffectType 14
+			}
+			switch (m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_sItemEffectValue1) {
+			default: // Other items are not upgradable
+				SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_ITEMUPGRADEFAIL, 2, NULL, NULL, NULL);			
+				return; // Pendants are EffectType 14
+
+			case 16: // AngelicPandent(STR)
+			case 17: // AngelicPandent(DEX)
+			case 18: // AngelicPandent(INT)
+			case 19: // AngelicPandent(MAG)
+				if (m_pClientList[iClientH]->m_iGizonItemUpgradeLeft <= 0) 
+				{	SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_ITEMUPGRADEFAIL, 3, NULL, NULL, NULL);
+					return;
+				}
+				if(iValue >= 10)
+				{	SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_ITEMUPGRADEFAIL, 3, NULL, NULL, NULL);
+					return;
+				}
+				switch (iValue) {
+				case 0:	sItemUpgrade = 10; break;
+				case 1: sItemUpgrade = 11; break;
+				case 2: sItemUpgrade = 13; break;
+				case 3: sItemUpgrade = 16; break;
+				case 4: sItemUpgrade = 20; break;
+				case 5: sItemUpgrade = 25; break;
+				case 6: sItemUpgrade = 31; break;
+				case 7: sItemUpgrade = 38; break;
+				case 8: sItemUpgrade = 46; break;
+				case 9: sItemUpgrade = 55; break;
+				default:
+					SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_ITEMUPGRADEFAIL, 3, NULL, NULL, NULL);
+					return;
+					break;
+				}
+				if (   (m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_sTouchEffectValue1 != m_pClientList[iClientH]->m_sCharIDnum1) 
+					|| (m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_sTouchEffectValue2 != m_pClientList[iClientH]->m_sCharIDnum2) 
+					|| (m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_sTouchEffectValue3 != m_pClientList[iClientH]->m_sCharIDnum3)) 
+				{	SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_ITEMUPGRADEFAIL, 2, NULL, NULL, NULL);
+					return; 
+				}
+				if (( m_pClientList[iClientH]->m_iGizonItemUpgradeLeft - sItemUpgrade ) < 0) 
+				{	SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_ITEMUPGRADEFAIL, 3, NULL, NULL, NULL);
+					return; 
+				}
+				int iDicePTA = iDice(1,100);
+				if(iDicePTA <= 70)
+				{	m_pClientList[iClientH]->m_iGizonItemUpgradeLeft -= sItemUpgrade; 
+					SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_GIZONITEMUPGRADELEFT, m_pClientList[iClientH]->m_iGizonItemUpgradeLeft, NULL, NULL, NULL);
+					iValue++;
+					if (iValue > 10) iValue = 10;
+					dwTemp = m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_dwAttribute;
+					dwTemp = dwTemp & 0x0FFFFFFF;
+					m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_dwAttribute = dwTemp | (iValue << 28);
+					SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_ITEMATTRIBUTECHANGE, iItemIndex, m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_dwAttribute, NULL, NULL);
+					_bItemLog(DEF_ITEMLOG_UPGRADESUCCESS, iClientH, (int) -1, m_pClientList[iClientH]->m_pItemList[iItemIndex]);
+				}else
+				{	m_pClientList[iClientH]->m_iGizonItemUpgradeLeft--;
+					SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_GIZONITEMUPGRADELEFT, m_pClientList[iClientH]->m_iGizonItemUpgradeLeft, NULL, NULL, NULL);
+					SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_ITEMUPGRADEFAIL, 3, NULL, NULL, NULL);
+				}					
+				return;
+				break;
+			}
+		break;
+
+___________________________________________________________________
+void CGame::InitPlayerData(int iClientH, char * pData, DWORD dwSize)
+Be sure 
+CalcTotalItemEffect(iClientH, -1, TRUE); is called before bCheckMagicInt(iClientH);
+( no to loose spells at every loggin if MAG angel equiped.
+
+___________________________________________________________________
+void CGame::MsgProcess()
+Add a new case:
+			case DEF_REQUEST_ANGEL: // Angels by Snoopy...
+				m_pClientList[iClientH]->m_cMsgCount[1] +=1;
+				GetAngelHandler(iClientH, pData, dwMsgSize);
+				break;
+
+___________________________________________________________________
+void CGame::RequestStudyMagicHandler(int iClientH, char * pName, BOOL & bSucces, BOOL bIsPurchase)
+I sugest to declare:
+int iTempInt = m_pClientList[iClientH]->m_iInt;
+and if the spell is not a manual: iTempInt = m_pClientList[iClientH]->m_iInt + m_pClientList[iClientH]->m_iAngelicInt;
+Then use iTempInt to check for learning success.
+
+This is optional, the aim is to avoid people using a manual then crying because their
+ANgel was removed and their precious spell gone.
+
+
+___________________________________________________________________
+void CGame::CalcTotalItemEffect(int iClientH, int iEquipItemID, BOOL bNotify)
+Important part!
+At the beginning, add:
+
+	m_pClientList[iClientH]->m_iAngelicStr			= 0; // By Snoopy81
+	m_pClientList[iClientH]->m_iAngelicInt			= 0; // By Snoopy81
+	m_pClientList[iClientH]->m_iAngelicDex			= 0; // By Snoopy81
+	m_pClientList[iClientH]->m_iAngelicMag			= 0; // By Snoopy81	
+	SetAngelFlag(iClientH, DEF_OWNERTYPE_PLAYER, 0, 0);
+
+at case DEF_ITEMEFFECTTYPE_ADDEFFECT:
+add more subcase:
+			case 12: // Adds To Hit Bonus (Xelima Neck)
+				m_pClientList[iClientH]->m_iHitRatio += m_pClientList[iClientH]->m_pItemList[sItemIndex]->m_sItemEffectValue2;
+				break;
+
+			case 13: // Magin Ruby		Characters Hp recovery rate(% applied) added by the purity formula.
+				m_pClientList[iClientH]->m_iAddHP += (m_pClientList[iClientH]->m_pItemList[sItemIndex]->m_sItemSpecEffectValue2 /5);
+				break;
+
+			case 14: // Magin Diamond	Attack probability(physical&magic) added by the purity formula.
+				m_pClientList[iClientH]->m_iAddAR += (m_pClientList[iClientH]->m_pItemList[sItemIndex]->m_sItemSpecEffectValue2 /5);
+				break;
+
+			case 15: // Magin Emerald	Magical damage decreased(% applied) by the purity formula.				
+				m_pClientList[iClientH]->m_iAddMagicalDamage += (m_pClientList[iClientH]->m_pItemList[sItemIndex]->m_sItemSpecEffectValue2 /10);
+				break;
+/*Functions rates confirm.
+Magic Diamond: Completion rate / 5 = Functions rate. ? Maximum 20. (not%)
+Magic Ruby: Completion rate / 5 = Functions rate.(%) ? Maximum 20%.
+Magic Emerald: Completion rate / 10 = Functions rate.(%) ? Maximum 10%.
+Magic Sapphire: Completion rate / 10 = Functions rate.(%) ? Maximum 10%.*/
+
+// ******* Angel Code - Begin ******* //			
+			case 16: // Angel STR//AngelicPandent(STR)
+				iTemp = (m_pClientList[iClientH]->m_pItemList[sItemIndex]->m_dwAttribute & 0xF0000000) >> 28;
+				m_pClientList[iClientH]->m_iAngelicStr = iTemp +1;
+				SetAngelFlag(iClientH, DEF_OWNERTYPE_PLAYER, 1, iTemp);
+				SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_SETTING_SUCCESS, NULL, NULL, NULL, NULL);
+				break;
+			case 17: // Angel DEX //AngelicPandent(DEX)
+				iTemp = (m_pClientList[iClientH]->m_pItemList[sItemIndex]->m_dwAttribute & 0xF0000000) >> 28;
+				m_pClientList[iClientH]->m_iAngelicDex = iTemp +1;
+				SetAngelFlag(iClientH, DEF_OWNERTYPE_PLAYER, 2, iTemp);
+				SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_SETTING_SUCCESS, NULL, NULL, NULL, NULL);
+				break;
+			case 18: // Angel INT//AngelicPandent(INT)
+				iTemp = (m_pClientList[iClientH]->m_pItemList[sItemIndex]->m_dwAttribute & 0xF0000000) >> 28;
+				m_pClientList[iClientH]->m_iAngelicInt = iTemp +1;
+				SetAngelFlag(iClientH, DEF_OWNERTYPE_PLAYER, 3, iTemp);
+				SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_SETTING_SUCCESS, NULL, NULL, NULL, NULL);
+				break;
+			case 19: // Angel MAG//AngelicPandent(MAG)
+				iTemp = (m_pClientList[iClientH]->m_pItemList[sItemIndex]->m_dwAttribute & 0xF0000000) >> 28;
+				m_pClientList[iClientH]->m_iAngelicMag = iTemp +1;
+				SetAngelFlag(iClientH, DEF_OWNERTYPE_PLAYER, 4, iTemp);
+				SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_SETTING_SUCCESS, NULL, NULL, NULL, NULL);
+				break;
+
+At the very end of the function, add:
+	// Snoopy: Bonus for Angels	
+	m_pClientList[iClientH]->m_iDefenseRatio += m_pClientList[iClientH]->m_iAngelicDex * 2;
+	if (m_pClientList[iClientH]->m_iHP > iGetMaxHP(iClientH)) m_pClientList[iClientH]->m_iHP = iGetMaxHP(iClientH);
+	if (m_pClientList[iClientH]->m_iMP > iGetMaxMP(iClientH)) m_pClientList[iClientH]->m_iMP = iGetMaxMP(iClientH);
+	if (m_pClientList[iClientH]->m_iSP > iGetMaxSP(iClientH)) m_pClientList[iClientH]->m_iSP = iGetMaxSP(iClientH);
+
+
+___________________________________________________________________
+New function: (think to declare it...)
+/*********************************************************************************************************************
+**  BOOL CGame::SetAngelFlag(short sOwnerH, char cOwnerType, int iStatus, iTemp)		Snoopy			**	
+** description	  :: Sets the staus to send or not Angels to every client							**
+*********************************************************************************************************************/
+void CGame::SetAngelFlag(short sOwnerH, char cOwnerType, int iStatus, iTemp) 
+{  	if (cOwnerType != DEF_OWNERTYPE_PLAYER) return;
+	if (m_pClientList[sOwnerH] == NULL) return;
+	switch (iStatus) {
+	case 1: // STR Angel
+		m_pClientList[sOwnerH]->m_iStatus = m_pClientList[sOwnerH]->m_iStatus | 0x00001000;		
+		break;
+	case 2: // DEX Angel
+		m_pClientList[sOwnerH]->m_iStatus = m_pClientList[sOwnerH]->m_iStatus | 0x00002000;
+		break;
+	case 3: // INT Angel
+		m_pClientList[sOwnerH]->m_iStatus = m_pClientList[sOwnerH]->m_iStatus | 0x00004000;
+		break;
+	case 4: // MAG Angel
+		m_pClientList[sOwnerH]->m_iStatus = m_pClientList[sOwnerH]->m_iStatus | 0x00008000;
+		break;
+	default:
+	case 0: // Remove all Angels
+		m_pClientList[sOwnerH]->m_iStatus = m_pClientList[sOwnerH]->m_iStatus & 0xFFFF00FF;
+		break;
+	}
+	if (iTemp >4)
+	{	int iAngelicStars = (iTemp/3)*(iTemp/5);
+		m_pClientList[sOwnerH]->m_iStatus = m_pClientList[sOwnerH]->m_iStatus | (iAngelicStars << 8);
+	}
+	SendEventToNearClient_TypeA(sOwnerH, DEF_OWNERTYPE_PLAYER, MSGID_EVENT_MOTION, DEF_OBJECTNULLACTION, NULL, NULL, NULL);
+}
+
+___________________________________________________________________
+New function:
+/*********************************************************************************************************************
+**  BOOL CGame::GetAngelHandler(int iClientH, char * pData, DWORD dwMsgSize)										**	
+** description	  :: Reversed and coded by Snoopy																	**
+*********************************************************************************************************************/
+void CGame::GetAngelHandler(int iClientH, char * pData, DWORD dwMsgSize)
+{char  *cp, cData[256], cTmpName[21];
+ int   iAngel;
+ class CItem * pItem;
+ int   iRet, iEraseReq;
+ char  cItemName[21];
+ short * sp;
+ WORD  * wp;
+ int   * ip;
+ DWORD * dwp;
+	if (m_pClientList[iClientH] == NULL)					 return;
+	if (m_pClientList[iClientH]->m_bIsInitComplete == FALSE) return;
+	if (_iGetItemSpaceLeft(iClientH) == 0) 
+	{	SendItemNotifyMsg(iClientH,	DEF_NOTIFY_CANNOTCARRYMOREITEM, NULL, NULL);
+		return;
+	}
+	cp = (char *)(pData + DEF_INDEX2_MSGTYPE + 2);
+	ZeroMemory(cTmpName, sizeof(cTmpName));
+	strcpy(cTmpName, cp);
+	cp += 20;
+	ip = (int *)cp;
+	iAngel = (int) *ip; // 0x00 l a i
+	cp += 2;
+	wsprintf(G_cTxt, "PC(%s) obtained an Angel (%d).   %s(%d %d)"
+			, m_pClientList[iClientH]->m_cCharName
+			, iAngel
+			, m_pClientList[iClientH]->m_cMapName
+			, m_pClientList[iClientH]->m_sX
+			, m_pClientList[iClientH]->m_sY);	
+	PutLogList(G_cTxt);	
+	switch (iAngel) {
+	case 1: // STR
+		//iItemNbe = 1108;
+		wsprintf(cItemName, "AngelicPandent(STR)");
+		break;
+	case 2: // DEX
+		//iItemNbe = 1109;
+		wsprintf(cItemName, "AngelicPandent(DEX)");
+		break;
+	case 3: // INT
+		//iItemNbe = 1110;
+		wsprintf(cItemName, "AngelicPandent(INT)");
+		break;
+	case 4: // MAG
+		//iItemNbe = 1111;
+		wsprintf(cItemName, "AngelicPandent(MAG)");
+		break;
+	default:
+		PutLogList("Gail asked to create a wrong item!");	
+		break;
+	}
+	// Them create the summonScroll
+	pItem = NULL;
+	pItem = new class CItem;
+	if (pItem == NULL) return;
+	if ((_bInitItemAttr(pItem, cItemName) == TRUE)) 
+	{	pItem->m_sTouchEffectType = DEF_ITET_UNIQUE_OWNER;
+		pItem->m_sTouchEffectValue1 = m_pClientList[iClientH]->m_sCharIDnum1;
+		pItem->m_sTouchEffectValue2 = m_pClientList[iClientH]->m_sCharIDnum2;
+		pItem->m_sTouchEffectValue3 = m_pClientList[iClientH]->m_sCharIDnum3;
+		if (_bAddClientItemList(iClientH, pItem, &iEraseReq) == TRUE) 
+		{	ZeroMemory(cData, sizeof(cData));
+			dwp  = (DWORD *)(cData + DEF_INDEX4_MSGID);
+			*dwp = MSGID_NOTIFY;
+			wp   = (WORD *)(cData + DEF_INDEX2_MSGTYPE);
+			*wp  = DEF_NOTIFY_ITEMOBTAINED;				
+			cp = (char *)(cData + DEF_INDEX2_MSGTYPE + 2);				
+			*cp = 1;
+			cp++;				
+			memcpy(cp, pItem->m_cName, 20);
+			cp += 20;				
+			dwp  = (DWORD *)cp;
+			*dwp = pItem->m_dwCount;
+			cp += 4;				
+			*cp = pItem->m_cItemType;
+			cp++;				
+			*cp = pItem->m_cEquipPos;
+			cp++;				
+			*cp = (char)0; 
+			cp++;				
+			sp  = (short *)cp;
+			*sp = pItem->m_sLevelLimit;
+			cp += 2;				
+			*cp = pItem->m_cGenderLimit;
+			cp++;				
+			wp = (WORD *)cp;
+			*wp = pItem->m_wCurLifeSpan;
+			cp += 2;				
+			wp = (WORD *)cp;
+			*wp = pItem->m_wWeight;
+			cp += 2;				
+			sp  = (short *)cp;
+			*sp = pItem->m_sSprite;
+			cp += 2;				
+			sp  = (short *)cp;
+			*sp = pItem->m_sSpriteFrame;
+			cp += 2;
+			*cp = pItem->m_cItemColor;
+			cp++;
+			*cp = (char)pItem->m_sItemSpecEffectValue2; // v1.41 
+			cp++;				
+			dwp = (DWORD *)cp;
+			*dwp = pItem->m_dwAttribute;
+			cp += 4;
+			if (iEraseReq == 1) delete pItem;				
+			iRet = m_pClientList[iClientH]->m_pXSock->iSendMsg(cData, 53);
+			switch (iRet) {
+			case DEF_XSOCKEVENT_QUENEFULL:
+			case DEF_XSOCKEVENT_SOCKETERROR:
+			case DEF_XSOCKEVENT_CRITICALERROR:
+			case DEF_XSOCKEVENT_SOCKETCLOSED:
+				DeleteClient(iClientH, TRUE, TRUE);
+				break;
+			}
+		}else 
+		{	m_pMapList[ m_pClientList[iClientH]->m_cMapIndex ]->bSetItem(m_pClientList[iClientH]->m_sX, 
+				                                                         m_pClientList[iClientH]->m_sY, pItem);			
+			SendEventToNearClient_TypeB(MSGID_EVENT_COMMON, DEF_COMMONTYPE_ITEMDROP, m_pClientList[iClientH]->m_cMapIndex,
+				                        m_pClientList[iClientH]->m_sX, m_pClientList[iClientH]->m_sY,  
+				                        pItem->m_sSprite, pItem->m_sSpriteFrame, pItem->m_cItemColor); // v1.4			
+			dwp  = (DWORD *)(cData + DEF_INDEX4_MSGID);
+			*dwp = MSGID_NOTIFY;
+			wp   = (WORD *)(cData + DEF_INDEX2_MSGTYPE);
+			*wp  = DEF_NOTIFY_CANNOTCARRYMOREITEM;				
+			iRet = m_pClientList[iClientH]->m_pXSock->iSendMsg(cData, 6);
+			switch (iRet) {
+			case DEF_XSOCKEVENT_QUENEFULL:
+			case DEF_XSOCKEVENT_SOCKETERROR:
+			case DEF_XSOCKEVENT_CRITICALERROR:
+			case DEF_XSOCKEVENT_SOCKETCLOSED:
+				DeleteClient(iClientH, TRUE, TRUE);
+				break;
+		}	}
+	}else 
+	{	delete pItem;
+		pItem = NULL;
+	}
+}
+
+___________________________________________________________________
+
+And finally the bigger Game.cpp part:
+Search for all m_iStr, m_iInt, m_iDex, m_iMag
+Some of them a used to send to the client, or logserver, don't touch those.
+Many of them have in game effect. I all those cases add corresponding Angelic value:
+ie, in:
+void CGame::CheckClientResponseTime() 
+		(Activables items delays & resur spell)
+BOOL CGame::bEquipItemHandler(..) 
+		(item weight, wearing conditions, speed....)
+void CGame::PlayerMagicHandler(..)		( casting proba, Spell strengh)
+void CGame::RequestStudyMagicHandler(..)
+		(Buying spells)
+BOOL CGame::bCheckMagicInt(..)
+		(removing spells)
+int CGame::_iCalcMaxLoad(..)
+void CGame::CalculateSSN_SkillIndex(..)
+void CGame::CalculateSSN_ItemIndex(..)
+void CGame::Effect_Damage_Spot(..)
+void CGame::Effect_Damage_Spot_DamageMove(..)BOOL CGame::bCheckResistingMagicSuccess(..)
+void CGame::CalcTotalItemEffect(..)
+		(Maybe is special item conditions set)
+int CGame::iGetMaxHP(.. / MP /SP
+int CGame::iCalculateAttackEffect(..)
+		(Obvious !)
+BOOL CGame::_bCheckCharacterData(..)
+ And maybe some more places depending on your server...
+
+___________________________________________________________________
+___________________________________________________________________
+
+NetMessages.h
+Add a declaration:
+// Reversed by Snoopy from real 3.72 client
+#define DEF_REQUEST_ANGEL				0x0FC9421E
+
+
+___________________________________________________________________
+
+Client.h
+Add declarations:
+	int  m_iAngelicStr; // By Snoopy81
+	int  m_iAngelicInt; // By Snoopy81
+	int  m_iAngelicDex; // By Snoopy81
+	int  m_iAngelicMag; // By Snoopy81
+
+Client.cpp
+Initialise..	
+	m_iAngelicStr = 0; // By Snoopy81
+	m_iAngelicInt = 0;
+	m_iAngelicDex = 0;
+	m_iAngelicMag = 0;
+
+___________________________________________________________________

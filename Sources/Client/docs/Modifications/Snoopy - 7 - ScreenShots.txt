@@ -1,0 +1,111 @@
+___________________________________________________________________
+Passage des screenshots en JPG et datés
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+J'ai choisi une qualité un peu meilleure que sur la v3.51, car
+les screenshots sont vraiment horribles (120KO par screenshot)
+J'ai également corrigé un peu le datage en separant jour - heure
+
+NB: Les fonctions sont directement incluses dans le client,
+il n'utilise pas cximage.dll.
+(en fait, je m'en suis apercu à la fin, lol)
+
+Game.h
+¯¯¯¯¯¯
+Ajouter les déclarations suivantes:
+//Snoopy: Implementation JPG sreenshots
+#include "cximage/ximage.h" // Snoopy
+#include "cximage/ximajpg.h" // Snoopy
+
+Game.cpp
+¯¯¯¯¯¯¯¯
+Remplacer par la fonction suivante:
+/*********************************************************************************************************************
+** void CGame::CreateScreenShot() (snoopy) **
+** description :: Fixed Screen Shots **
+**********************************************************************************************************************/
+void CGame::CreateScreenShot()
+{ //HelShot20060307_173003_Warehouse000.jpg
+int i;
+FILE * pFile;
+char cFn[256];
+char LongMapName[128];
+char SStime[32];
+SYSTEMTIME SysTime;
+GetLocalTime(&SysTime);
+ZeroMemory(LongMapName, sizeof(LongMapName));
+GetOfficialMapName(m_cMapName, LongMapName);
+ZeroMemory(SStime, sizeof(SStime));
+wsprintf(SStime, "%02d:%02d - %02d:%02d:%02d"
+, SysTime.wMonth, SysTime.wDay
+, SysTime.wHour, SysTime.wMinute, SysTime.wSecond
+, LongMapName);
+PutAlignedString(500, 600, 30, SStime, 255, 255, 255); //ScreenShot time
+
+if (strcmp(m_cWorldServerName, "WS1") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME1,255,255,255);//"1st Server"
+//PutString_SprFont2(20, 450, "Coded by Alastor", 220, 200, 200);
+else if (strcmp(m_cWorldServerName, "WS2") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME2,255,255,255);//"2nd Server"
+else if (strcmp(m_cWorldServerName, "WS3") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME3,255,255,255);//"3rd Server"
+else if (strcmp(m_cWorldServerName, "WS4") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME4,255,255,255);//"4th Server"
+else if (strcmp(m_cWorldServerName, "WS5") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME5,255,255,255);//"5th Server"
+else if (strcmp(m_cWorldServerName, "WS6") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME6,255,255,255);//"6th Server"
+else if (strcmp(m_cWorldServerName, "WS7") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME7,255,255,255);//"7th Server"
+else if (strcmp(m_cWorldServerName, "WS8") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME8,255,255,255);//"8th Server"
+else if (strcmp(m_cWorldServerName, "WS9") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME9,255,255,255);//"9th Server"
+else if (strcmp(m_cWorldServerName, "WS10") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME10,255,255,255);//"10th Server"
+else if (strcmp(m_cWorldServerName, "WS11") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME11,255,255,255);//"11th Server"
+else if (strcmp(m_cWorldServerName, "WS12") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME12,255,255,255);//"12th Server"
+else if (strcmp(m_cWorldServerName, "WS13") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME13,255,255,255);//"13th Server"
+else if (strcmp(m_cWorldServerName, "WS14") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME14,255,255,255);//"14th Server"
+else if (strcmp(m_cWorldServerName, "WS15") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME15,255,255,255);//"15th Server"
+else if (strcmp(m_cWorldServerName, "WS16") == 0)
+PutAlignedString(500, 600, 15, MSG_WORLDNAME16,255,255,255);//"16th Server"
+
+for (i = 0; i < 1000; i++)
+{ ZeroMemory(cFn, sizeof(cFn));
+wsprintf(cFn, "Save\\HelShot%04d%02d%02d_%02d%02d%02d_%s%03d.jpg"
+, SysTime.wYear, SysTime.wMonth, SysTime.wDay
+, SysTime.wHour, SysTime.wMinute, SysTime.wSecond
+, LongMapName
+,i);
+_mkdir("SAVE");
+pFile = fopen(cFn, "rb");
+if (pFile == NULL)
+{ m_DDraw.Screenshot(cFn, m_DDraw.m_lpBackB4);
+CxImage image;
+image.Load(cFn, CXIMAGE_FORMAT_BMP);
+if (image.IsValid())
+{ if(!image.IsGrayScale()) image.IncreaseBpp(24);
+image.SetJpegQuality(80);
+image.Save(cFn,CXIMAGE_FORMAT_JPG);
+}
+wsprintf(G_cTxt, NOTIFYMSG_CREATE_SCREENSHOT1, cFn);
+AddEventList(G_cTxt, 10);
+return;
+}
+fclose(pFile);
+}
+AddEventList(NOTIFYMSG_CREATE_SCREENSHOT2, 10);
+}
+
+Inclusions:
+¯¯¯¯¯¯¯¯¯¯¯
+Bien sûr, il faudra inclure au projêt les répertoires /cximage/ et /jpeg/,
+et configurer en concequence...
+
+
+___________________________________________________________________

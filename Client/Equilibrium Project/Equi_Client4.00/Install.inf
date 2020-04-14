@@ -1,0 +1,45 @@
+; **********************************************
+; ****              Equilibrium 4.00            ****
+; **********************************************
+; INF crée à l'aide de WillyPad.
+; Freeware par Snoopy 81
+; Update 25 mai 2006
+
+[version]
+signature="$CHICAGO$"
+
+[DefaultInstall]
+AddReg = PatchIP.reg
+DelFiles = Delete.USA, Delete.Badwords
+
+[PatchIP.Reg]
+HKLM,"Software\Snoopy81\PatchIP\PlayEqui400","ClientName",,"equi400.exe"
+HKLM,"Software\Snoopy81\PatchIP\PlayEqui400","ININame",,"LOGIN.CFG"
+HKLM,"Software\Snoopy81\PatchIP\PlayEqui400","URL",,"http://www.lpmintekz.com/"
+HKLM,"Software\Snoopy81\PatchIP\EquilPath400",,,%01%
+
+[SourceDisksFiles]
+install.exe = 81
+install.hlp = 81
+install.inf = 81
+
+[Delete.USA]
+Helbreath.exe
+HelGame.exe
+Equi360.exe
+PlayEqui360.exe
+cximage.dll
+LOGIN.CFG
+Readme.htm
+update.lst_
+
+[Delete.Badwords]
+Curse.txt
+badword.txt
+
+[DestinationDirs]
+;info-> Corriger ici, les éventuels noms de répertoires long, sous la forme \XXXXXX~1\!
+Delete.USA         = 01
+Delete.Badwords = 01, CONTENTS
+  
+

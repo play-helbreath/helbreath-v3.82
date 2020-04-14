@@ -1,0 +1,35 @@
+Old cities server's notes
+----------------------------------------
+Game, history:
+
+- Cities have been invaded by Abaddon's armies
+Most population fled to Equilibrium, but the
+City Mayor left to farm in a reconquest hope.
+Some combatants still fight in the city.
+Some rogues try to plunder the other city.
+(All those are npcs)
+
+- In the city, only remains 1 WH, BS and shop.
+
+- Mayor and Guildhall services are available in 
+Farmr's shop.
+
+- Casting Recall from Cities or Farms go to
+Equilibrium.
+
+----------------------------------------
+Tech: 
+- Farm's maps have been removed from city servers 
+(CH, GH) for a coherent red chat.
+
+- Cities is a rear base for Executors.
+( They may have some RP about it.)
+
+----------------------------------------
+Misc:
+
+- Eggs will never drop here. 
+(due to npc killing npcs could drop many eggs)
+- Ogres, Clops, DE are friendlly to executors.
+
+----------------------------------------

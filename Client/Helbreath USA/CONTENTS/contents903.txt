@@ -1,0 +1,52 @@
+  
+Interface
+   
+ 
+The gauge which shows Health, Mana,
+Staminar is on the left corner of
+the screen.
+ 
+On the bottom of the screen there
+is a indicator of your position.
+And if you move the mouse cursor
+to that, you can see your experience.
+ 
+The 3 buttons with gray, red, yellow
+colors shows the attack mode.
+The red button to the attack mode,
+The gray button to the peace mode,
+and yellow one to safe attack mode.
+The number in the button shows
+the left counts of super attack.
+ 
+There are 6 icons on the right side
+of the screen. The first one with
+helmet is character info button.
+ 
+You can get the information of character
+and item equipment. And you can open
+Quest menu and Level-Up Setting menu
+on character info menu. (You should
+set up level-up point to decide which
+character you want to make)
+
+Bag icon toggles inventory menu.
+(To get more information about using
+item, see the item manual)  
+ 
+Magic icon toggles magic list menu.
+(To get more information about using
+magic, see the magic manual)
+  
+Hand icon toggles skill list menu.
+(To get more information about using
+skill, see the skill manual)
+ 
+Scroll icon toggles chat list.
+Message history menu shows the
+message that happened near the
+character.
+ 
+Diskette icon toggles system menu.
+You can adjust option on system
+menu and log out or restart. 

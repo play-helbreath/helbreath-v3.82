@@ -1,0 +1,531 @@
+___________________________________________________________________
+                  Changement des stats en utilisant les Gizons
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Bon, j'ai tellement galéré avec ce code que j'espère qu'on aurra pas de mauvaises surprises en le testant.
+Comme tu pourra le constater si tu regarde un peu le code, j'ai foutu tout un tas de vérifications avant de
+rendre les boutons actifs ou non, ou pour envoyer la commande au serveur, ça évitera peut-être quelques
+petits malins d'utiliser TSearch ou je ne sais quel autre programme d'édition mémoire (j'y connais kedal en
+hack dans les jeux...).
+
+En cas de problème, bug, ou incompatibilité avec le serveur EP tu me le dis et je modifierais au plus vite ;-)
+
+L'ID pour le DialogBox est 42
+
+Game.h
+¯¯¯¯¯¯
+Déclarations :
+
+	// MJ Stats Change Related functions - Alastor
+	void DrawDialogBox_ChangeStatsMajestic(short msX, short msY);		// Change stats using majestic - Alastor
+	void DlgBoxClick_ChangeStatsMajestic(short msX, short msY);			// Change stats using majestic - Alastor
+
+	// MJ Stats Change Related vars - Alastor
+	char cStateChange1;
+	char cStateChange2;
+	char cStateChange3;
+
+
+NetMessages.h
+¯¯¯¯¯¯¯¯¯¯¯¯
+Déclarations :
+
+ // MJ Stats Change - Alastor
+ #define DEF_NOTIFY_STATECHANGE_SUCCESS		0x0BB5
+ #define DEF_NOTIFY_STATECHANGE_FAILED			0x0BB6
+ #define MSGID_STATECHANGEPOINT						0x11A01001
+ #define DEF_STR												0x01
+ #define DEF_DEX												0x02
+ #define DEF_INT													0x03
+ #define DEF_VIT													0x04
+ #define DEF_MAG												0x05
+ #define DEF_CHR												0x06
+
+
+lan_eng.h
+¯¯¯¯¯¯¯¯¯¯¯¯
+Ici j'ai utilisé des messages basiques pour juste afficher l'essentiel et rendre la fenetre
+plus claire et compatible avec certains skins (apocalypse skin l'occurence).
+Les DRAW_DIALOGBOX_LEVELUP_SETTING sont quant à eux des remplacement de
+ceux déjà existants (j'ai remplacé les msg qui disaient que les settings level up étaient
+incorrects car au prochain level une de tes stats dépasserait le maximum...)
+
+Déclarations :
+
+// MJ Stats Change - Alastor
+#define DEF_NOTIFY_MSG_STATECHANGE_SUCCESS		"Stats has been changed"
+#define DEF_NOTIFY_MSG_STATECHANGE_FAILED			"Stats has NOT been changed"
+#define	DRAW_DIALOGBOX_LEVELUP_SETTING14			"You can change 3 stats point"
+#define	DRAW_DIALOGBOX_LEVELUP_SETTING15			"for each Majestic Point."
+#define	DRAW_DIALOGBOX_LEVELUP_SETTING16			"* Majestic Points Left"
+#define	DRAW_DIALOGBOX_LEVELUP_SETTING17			"Your stats has been changed using Majestic Points."
+
+
+game.cpp
+¯¯¯¯¯¯¯¯¯¯¯¯
+Et voilà le principal, y'a pas mal de trucs à ajouter un peu partout mais c'est assez rapide quand même.
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Code à ajouter dans le constructeur CGame :
+
+	// MJ Stats Change DialogBox - Alastor
+	m_stDialogBoxInfo[42].sX = 0;
+	m_stDialogBoxInfo[42].sY = 0;
+	m_stDialogBoxInfo[42].sSizeX = 258;
+	m_stDialogBoxInfo[42].sSizeY = 339;
+	
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Condition à ajouter dans la fonction _bCheckDlgBoxClick
+
+			case 42:
+				DlgBoxClick_ChangeStatsMajestic(msX, msY);
+				break;
+				
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯		
+Condition à ajouter dans la fonction DrawDialogBoxs
+
+		case 42:
+			DrawDialogBox_ChangeStatsMajestic(msX, msY); 
+			break;
+		}
+			
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Condition à ajouter dans la fonction bSendCommand
+
+	case MSGID_STATECHANGEPOINT:
+		// Alastor
+		dwp = (DWORD *)(cMsg + DEF_INDEX4_MSGID);
+		*dwp = dwMsgID;
+		wp  = (WORD *)(cMsg + DEF_INDEX2_MSGTYPE);
+		*wp = NULL;
+		
+		cp = (char *)(cMsg + DEF_INDEX2_MSGTYPE + 2);
+
+		*cp = cStateChange1;
+		cp++;
+
+		*cp = cStateChange2;
+		cp++;
+
+		*cp = cStateChange3;
+		cp++;
+
+		iRet = m_pGSock->iSendMsg(cMsg, 12);
+		break;
+			
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Initialisation de nos variables de controle d'utilisation des slates, dans InitGameSettings
+
+	cStateChange1 = 0;
+	cStateChange2 = 0;
+	cStateChange3 = 0;
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Dans la fonction NotifyMsgHandler, ajouter les conditions suivantes
+
+	// MJ Stats Change - Alastor
+	case DEF_NOTIFY_STATECHANGE_SUCCESS:
+		m_iLU_Point = m_iLevel*3 - ((m_iStr + m_iVit + m_iDex + m_iInt + m_iMag + m_iCharisma) - 70) - 3;
+		m_cLU_Str = m_cLU_Vit = m_cLU_Dex = m_cLU_Int = m_cLU_Mag = m_cLU_Char = 0;
+		AddEventList( DEF_NOTIFY_MSG_STATECHANGE_SUCCESS, 10 );
+		break;
+	case DEF_NOTIFY_STATECHANGE_FAILED:
+		AddEventList( DEF_NOTIFY_MSG_STATECHANGE_FAILED, 10 );
+		break;
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Condition à ajouter dans la fonction EnableDialogBox
+
+	case 42:
+		if (m_bIsDialogEnabled[42] == FALSE) {
+			m_stDialogBoxInfo[42].sX = m_stDialogBoxInfo[12].sX+10;
+			m_stDialogBoxInfo[42].sY = m_stDialogBoxInfo[12].sY+10;
+			m_stDialogBoxInfo[42].cMode	= 0;
+			m_stDialogBoxInfo[42].sView = 0;
+			m_bSkillUsingStatus = FALSE;
+		}
+		break;
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Condition à ajouter dans la fonction DisableDialogBox
+
+	case 42:
+		cStateChange1 = 0;
+		cStateChange2 = 0;
+		cStateChange3 = 0;
+		m_cLU_Str = 0;
+		m_cLU_Vit = 0;
+		m_cLU_Dex = 0;
+		m_cLU_Int = 0;
+		m_cLU_Mag = 0;
+		m_cLU_Char = 0;
+		break;
+ 	}
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Fonction pour afficher le DialogBox
+
+// 3.51 Level Up Dialog - Changes stats Using Majestic points - Alastor
+void CGame::DrawDialogBox_ChangeStatsMajestic(short msX, short msY)
+{
+ short sX, sY, szX;
+ DWORD dwTime = m_dwCurTime;
+ char cTxt[120];
+ int iStats;
+	sX = m_stDialogBoxInfo[42].sX;
+	sY = m_stDialogBoxInfo[42].sY;
+	szX = m_stDialogBoxInfo[42].sSizeX;
+	
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_GAME2, sX, sY, 0);
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_TEXT, sX, sY, 2);
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_GAME4, sX+16, sY+100, 4);
+
+	PutAlignedString(sX, sX + szX, sY + 50, DRAW_DIALOGBOX_LEVELUP_SETTING14);
+	PutAlignedString(sX, sX + szX, sY + 65, DRAW_DIALOGBOX_LEVELUP_SETTING15);
+
+	// Majestic Points Left - Display in green if > 0
+	PutString(sX + 20,  sY + 85, DRAW_DIALOGBOX_LEVELUP_SETTING16, RGB(0,0,0));
+	wsprintf(cTxt, "%d", m_iGizonItemUpgradeLeft);
+	if (m_iGizonItemUpgradeLeft > 0){
+		PutString(sX + 73,  sY + 102, cTxt, RGB(0,255,0));
+	}
+	else{
+		PutString(sX + 73,  sY + 102, cTxt, RGB(0,0,0));
+	}
+	// Display only MouseOver Button for - (+ is disabled)
+	// Strength
+	PutString(sX + 24, sY + 125, DRAW_DIALOGBOX_LEVELUP_SETTING4, RGB(5,5,5));
+	wsprintf(cTxt, "%d", m_iStr);
+	PutString(sX + 109, sY + 125, cTxt, RGB(25,35,25));
+	iStats = m_iStr + m_cLU_Str;
+	wsprintf(cTxt, "%d", iStats);
+	if (iStats < m_iStr){
+		PutString(sX + 162, sY + 125, cTxt, RGB(255,0,0));
+	}
+	else{
+		PutString(sX + 162, sY + 125, cTxt, RGB(25,35,25));
+	}
+	if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 127) && (msY <= sY + 133))
+		m_pSprite[DEF_SPRID_INTERFACE_ND_GAME4]->PutSpriteFast(sX + 210, sY + 127, 6, dwTime);
+	
+	// Vitality
+	PutString(sX + 24, sY + 144, DRAW_DIALOGBOX_LEVELUP_SETTING5, RGB(5,5,5));
+	wsprintf(cTxt, "%d", m_iVit);
+	PutString(sX + 109, sY + 144, cTxt, RGB(25,35,25));
+	iStats = m_iVit + m_cLU_Vit;
+	wsprintf(cTxt, "%d", iStats);
+	if (iStats < m_iVit){
+		PutString(sX + 162, sY + 144, cTxt, RGB(255,0,0));
+	}
+	else{
+		PutString(sX + 162, sY + 144, cTxt, RGB(25,35,25));
+	}
+	if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 146) && (msY <= sY + 152))
+		m_pSprite[DEF_SPRID_INTERFACE_ND_GAME4]->PutSpriteFast(sX + 210, sY + 146, 6, dwTime);
+	
+	// Dexterity
+	PutString(sX + 24, sY + 163, DRAW_DIALOGBOX_LEVELUP_SETTING6, RGB(5,5,5));
+	wsprintf(cTxt, "%d", m_iDex);
+	PutString(sX + 109, sY + 163, cTxt, RGB(25,35,25));
+	iStats = m_iDex + m_cLU_Dex;
+	wsprintf(cTxt, "%d", iStats);
+	if (iStats < m_iDex){
+		PutString(sX + 162, sY + 163, cTxt, RGB(255,0,0));
+	}
+	else{
+		PutString(sX + 162, sY + 163, cTxt, RGB(25,35,25));
+	}
+	if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 165) && (msY <= sY + 171))
+		m_pSprite[DEF_SPRID_INTERFACE_ND_GAME4]->PutSpriteFast(sX + 210, sY + 165, 6, dwTime);
+	
+	// Intelligence
+	PutString(sX + 24, sY + 182, DRAW_DIALOGBOX_LEVELUP_SETTING7, RGB(5,5,5));
+	wsprintf(cTxt, "%d", m_iInt);
+	PutString(sX + 109, sY + 182, cTxt, RGB(25,35,25));
+	iStats = m_iInt + m_cLU_Int;
+	wsprintf(cTxt, "%d", iStats);
+	if (iStats < m_iInt){
+		PutString(sX + 162, sY + 182, cTxt, RGB(255,0,0));
+	}
+	else{
+		PutString(sX + 162, sY + 182, cTxt, RGB(25,35,25));
+	}
+	if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 184) && (msY <= sY + 190))
+		m_pSprite[DEF_SPRID_INTERFACE_ND_GAME4]->PutSpriteFast(sX + 210, sY + 184, 6, dwTime);
+	
+	// Magic
+	PutString(sX + 24, sY + 201, DRAW_DIALOGBOX_LEVELUP_SETTING8, RGB(5,5,5));
+	wsprintf(cTxt, "%d", m_iMag);
+	PutString(sX + 109, sY + 201, cTxt, RGB(25,35,25));
+	iStats = m_iMag + m_cLU_Mag;
+	wsprintf(cTxt, "%d", iStats);
+	if (iStats < m_iMag){
+		PutString(sX + 162, sY + 201, cTxt, RGB(255,0,0));
+	}
+	else{
+		PutString(sX + 162, sY + 201, cTxt, RGB(25,35,25));
+	}
+	if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 203) && (msY <= sY + 209))
+		m_pSprite[DEF_SPRID_INTERFACE_ND_GAME4]->PutSpriteFast(sX + 210, sY + 203, 6, dwTime);
+	
+	// Charisma
+	PutString(sX + 24, sY + 220, DRAW_DIALOGBOX_LEVELUP_SETTING9, RGB(5,5,5));
+	wsprintf(cTxt, "%d", m_iCharisma);
+	PutString(sX + 109, sY + 220, cTxt, RGB(25,35,25));
+	iStats = m_iCharisma + m_cLU_Char;
+	wsprintf(cTxt, "%d", iStats);
+	if (iStats < m_iCharisma){
+		PutString(sX + 162, sY + 220, cTxt, RGB(255,0,0));
+	}
+	else{
+		PutString(sX + 162, sY + 220, cTxt, RGB(25,35,25));
+	}
+	if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 222) && (msY <= sY + 228))
+		m_pSprite[DEF_SPRID_INTERFACE_ND_GAME4]->PutSpriteFast(sX + 210, sY + 222, 6, dwTime);
+
+	if ((msX >= sX + DEF_LBTNPOSX) && (msX <= sX + DEF_LBTNPOSX + DEF_BTNSZX) && (msY > sY + DEF_BTNPOSY) && (msY < sY + DEF_BTNPOSY + DEF_BTNSZY)) 
+		 DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_BUTTON, sX + DEF_LBTNPOSX, sY + DEF_BTNPOSY, 16);
+	else DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_BUTTON, sX + DEF_LBTNPOSX, sY + DEF_BTNPOSY, 17);
+
+	if ((msX >= sX + DEF_RBTNPOSX) && (msX <= sX + DEF_RBTNPOSX + DEF_BTNSZX) && (msY > sY + DEF_BTNPOSY) && (msY < sY + DEF_BTNPOSY + DEF_BTNSZY)) 
+		 DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_BUTTON, sX + DEF_RBTNPOSX, sY + DEF_BTNPOSY, 1);
+	else DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_BUTTON, sX + DEF_RBTNPOSX, sY + DEF_BTNPOSY, 0);
+}
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Fonction pour gérer les clicks dans la fenêtre des stats
+
+// 3.51 LevelUp Box - Change stats using Majestic - Alastor
+void CGame::DlgBoxClick_ChangeStatsMajestic(short msX, short msY)
+{
+ short sX, sY;
+
+	sX = m_stDialogBoxInfo[42].sX;
+	sY = m_stDialogBoxInfo[42].sY;
+
+	if ((cStateChange1 != 0) || (cStateChange2 != 0) || (cStateChange3 != 0)){
+	// Strength UP - Alastor
+		if ((msX >= sX + 195) && (msX <= sX + 205) && (msY >= sY + 127) && (msY <= sY + 133) && (m_cLU_Str < 0)) {
+			if (cStateChange1 == DEF_STR){
+				cStateChange1 = 0;
+				m_cLU_Str += 1;
+			}
+			else if (cStateChange2 == DEF_STR){
+				cStateChange2 = 0;
+				m_cLU_Str += 1;
+			}
+			else if (cStateChange3 == DEF_STR){
+				cStateChange3 = 0;
+				m_cLU_Str += 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+
+		// Vitality UP - Alastor
+		if ((msX >= sX + 195) && (msX <= sX + 205) && (msY >= sY + 146) && (msY <= sY + 152) && (m_cLU_Vit < 0)) {
+			if (cStateChange1 == DEF_VIT){
+				cStateChange1 = 0;
+				m_cLU_Vit += 1;
+			}
+			else if (cStateChange2 == DEF_VIT){
+				cStateChange2 = 0;
+				m_cLU_Vit += 1;
+			}
+			else if (cStateChange3 == DEF_VIT){
+				cStateChange3 = 0;
+				m_cLU_Vit += 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+
+		// Dexterity UP - Alastor
+		if ((msX >= sX + 195) && (msX <= sX + 205) && (msY >= sY + 165) && (msY <= sY + 171) && (m_cLU_Dex < 0)) {
+			if (cStateChange1 == DEF_DEX){
+				cStateChange1 = 0;
+				m_cLU_Dex += 1;
+			}
+			else if (cStateChange2 == DEF_DEX){
+				cStateChange2 = 0;
+				m_cLU_Dex += 1;
+			}
+			else if (cStateChange3 == DEF_DEX){
+				cStateChange3 = 0;
+				m_cLU_Dex += 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+
+		// Intelligence UP - Alastor
+		if ((msX >= sX + 195) && (msX <= sX + 205) && (msY >= sY + 184) && (msY <= sY + 190) && (m_cLU_Int < 0)) {
+			if (cStateChange1 == DEF_INT){
+				cStateChange1 = 0;
+				m_cLU_Int += 1;
+			}
+			else if (cStateChange2 == DEF_INT){
+				cStateChange2 = 0;
+				m_cLU_Int += 1;
+			}
+			else if (cStateChange3 == DEF_INT){
+				cStateChange3 = 0;
+				m_cLU_Int += 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+
+		// Magic UP - Alastor
+		if ((msX >= sX + 195) && (msX <= sX + 205) && (msY >= sY + 203) && (msY <= sY + 209) && (m_cLU_Mag < 0)) {
+			if (cStateChange1 == DEF_MAG){
+				cStateChange1 = 0;
+				m_cLU_Mag += 1;
+			}
+			else if (cStateChange2 == DEF_MAG){
+				cStateChange2 = 0;
+				m_cLU_Mag += 1;
+			}
+			else if (cStateChange3 == DEF_MAG){
+				cStateChange3 = 0;
+				m_cLU_Mag += 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+
+		// Charisma UP - Alastor
+		if ((msX >= sX + 195) && (msX <= sX + 205) && (msY >= sY + 222) && (msY <= sY + 228) && (m_cLU_Char < 0)) {
+			if (cStateChange1 == DEF_CHR){
+				cStateChange1 = 0;
+				m_cLU_Char += 1;
+			}
+			else if (cStateChange2 == DEF_CHR){
+				cStateChange2 = 0;
+				m_cLU_Char += 1;
+			}
+			else if (cStateChange3 == DEF_CHR){
+				cStateChange3 = 0;
+				m_cLU_Char += 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+	}
+
+	if ((cStateChange1 == 0) || (cStateChange2 == 0) || (cStateChange3 == 0) && (m_iGizonItemUpgradeLeft > 0)){
+		// Strength DOWN - Alastor
+		if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 127) && (msY <= sY + 133) && (m_iStr > 10)) {
+			if (cStateChange1 == 0){
+				cStateChange1 = DEF_STR;
+				m_cLU_Str -= 1;
+			}
+			else if (cStateChange2 == 0){
+				cStateChange2 = DEF_STR;
+				m_cLU_Str -= 1;
+			}
+			else{
+				cStateChange3 = DEF_STR;
+				m_cLU_Str -= 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+
+		// Vitality DOWN - Alastor
+		if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 146) && (msY <= sY + 152) && (m_iVit > 10)) {
+			if (cStateChange1 == 0){
+				cStateChange1 = DEF_VIT;
+				m_cLU_Vit -= 1;
+			}
+			else if (cStateChange2 == 0){
+				cStateChange2 = DEF_VIT;
+				m_cLU_Vit -= 1;
+			}
+			else{
+				cStateChange3 = DEF_VIT;
+				m_cLU_Vit -= 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+
+		// Dexterity DOWN - Alastor
+		if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 165) && (msY <= sY + 171) && (m_iDex > 10)) {
+			if (cStateChange1 == 0){
+				cStateChange1 = DEF_DEX;
+				m_cLU_Dex -= 1;
+			}
+			else if (cStateChange2 == 0){
+				cStateChange2 = DEF_DEX;
+				m_cLU_Dex -= 1;
+			}
+			else{
+				cStateChange3 = DEF_DEX;
+				m_cLU_Dex -= 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+
+		// Intelligence DOWN - Alastor
+		if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 184) && (msY <= sY + 190) && (m_iInt > 10)) {
+			if (cStateChange1 == 0){
+				cStateChange1 = DEF_INT;
+				m_cLU_Int -= 1;
+			}
+			else if (cStateChange2 == 0){
+				cStateChange2 = DEF_INT;
+				m_cLU_Int -= 1;
+			}
+			else{
+				cStateChange3 = DEF_INT;
+				m_cLU_Int -= 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+
+		// Magic DOWN - Alastor
+		if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 203) && (msY <= sY + 209) && (m_iMag > 10)) {
+			if (cStateChange1 == 0){
+				cStateChange1 = DEF_MAG;
+				m_cLU_Mag -= 1;
+			}
+			else if (cStateChange2 == 0){
+				cStateChange2 = DEF_MAG;
+				m_cLU_Mag -= 1;
+			}
+			else{
+				cStateChange3 = DEF_MAG;
+				m_cLU_Mag -= 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+
+		// Charisma DOWN - Alastor
+		if ((msX >= sX + 210) && (msX <= sX + 220) && (msY >= sY + 222) && (msY <= sY + 228) && (m_iCharisma > 10)) {
+			if (cStateChange1 == 0){
+				cStateChange1 = DEF_CHR;
+				m_cLU_Char -= 1;
+			}
+			else if (cStateChange2 == 0){
+				cStateChange2 = DEF_CHR;
+				m_cLU_Char -= 1;
+			}
+			else{
+				cStateChange3 = DEF_CHR;
+				m_cLU_Char -= 1;
+			}
+			PlaySound('E', 14, 5);
+		}
+	}
+	else {
+		if ((msX >= sX + DEF_RBTNPOSX) && (msX <= sX + DEF_RBTNPOSX + DEF_BTNSZX) && (msY > sY + DEF_BTNPOSY) && (msY < sY + DEF_BTNPOSY + DEF_BTNSZY)) {
+			// Send command to HG - Alastor
+			bSendCommand(MSGID_STATECHANGEPOINT, NULL, NULL, NULL, NULL, NULL, NULL);
+			DisableDialogBox(42);
+			PlaySound('E', 14, 5);
+		}
+	}
+	if ((msX >= sX + DEF_LBTNPOSX) && (msX <= sX + DEF_LBTNPOSX + DEF_BTNSZX) && (msY > sY + DEF_BTNPOSY) && (msY < sY + DEF_BTNPOSY + DEF_BTNSZY)) {
+		DisableDialogBox(42);
+		PlaySound('E', 14, 5);
+	}
+}
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Et voilà, c'est terminé, vivement l'ajout des auras pour avoir un truc vraiment complet !
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+

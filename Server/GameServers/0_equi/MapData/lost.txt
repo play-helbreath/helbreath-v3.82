@@ -1,0 +1,204 @@
+[MAP-INFO]
+//This is a Safe map (see HB background)
+map-location  = lost
+
+initial-point = 0  138 141
+initial-point = 1  137 140
+initial-point = 2  139 142
+
+pk-mode 	= 4
+type		= 0
+drop-type 	= -1
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+// To the old cities
+teleport-loc     =      133   150  	elvine 	-1 	-1    5
+teleport-loc     =      134   150  	elvine 	-1 	-1    5
+teleport-loc     =      135   150  	elvine 	-1 	-1    5
+teleport-loc     =      133   151  	elvine 	-1 	-1    5
+teleport-loc     =      134   151  	elvine 	-1 	-1    5
+teleport-loc     =      135   151  	elvine 	-1 	-1    5
+
+teleport-loc     =      128   135  	aresden 	-1 	-1    5
+teleport-loc     =      129   135  	aresden 	-1 	-1    5
+teleport-loc     =      130   135  	aresden 	-1 	-1    5
+teleport-loc     =      128   136  	aresden 	-1 	-1    5
+teleport-loc     =      129   136  	aresden 	-1 	-1    5
+teleport-loc     =      130   136  	aresden 	-1 	-1    5
+
+// QusMarsh
+teleport-loc     =      213   22  	qusmarsh 	64 	107   2
+teleport-loc     =      214   22  	qusmarsh 	64 	107   2
+teleport-loc     =      215   22  	qusmarsh 	64 	107   2
+teleport-loc     =      216   22  	qusmarsh 	64 	107   2
+teleport-loc     =      217   22  	qusmarsh 	64 	107   2
+teleport-loc     =      218   22  	qusmarsh 	64 	107   2
+teleport-loc     =      219   22  	qusmarsh 	64 	107   2
+teleport-loc     =      220   22  	qusmarsh 	64 	107   2
+teleport-loc     =      221   22  	qusmarsh 	64 	107   1
+teleport-loc     =      222   22  	qusmarsh 	64 	107   1
+teleport-loc     =      223   22  	qusmarsh 	64 	107   1
+teleport-loc     =      224   22  	qusmarsh 	64 	107   1
+teleport-loc     =      225   22  	qusmarsh 	64 	107   1
+
+// Eternal Fields
+teleport-loc     = 	47 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	48 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	49 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	50 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	51 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	52 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	53 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	54 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	55 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	56 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	57 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	58 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	59 	257 	huntzone2 	68 	23   	5
+teleport-loc     = 	60 	257 	huntzone2 	68 	23   	5
+
+// Dongeons
+teleport-loc     = 	227 	29 	aresdend1 	96 	133   6
+teleport-loc     = 	228 	29 	aresdend1 	96 	133   6
+teleport-loc     = 	227 	30 	aresdend1 	96 	133   6
+teleport-loc     = 	228 	30 	aresdend1 	96 	133   6
+
+// TP NW
+teleport-loc     =      41    27    catacombs   25    27    4
+teleport-loc     =      42    27    catacombs   25    27    4
+teleport-loc     =      41    28    catacombs   25    27    4
+teleport-loc     =      42    28    catacombs   25    27    4
+// TP Licornes
+teleport-loc     =      49    213   catacombs   60    113   4
+teleport-loc     =      49    214   catacombs   60    113   4
+// TP Guildhall
+teleport-loc     =      152   110   catacombs   121   28    4
+teleport-loc     =      153   110   catacombs   121   28    4
+teleport-loc     =      153   109   catacombs   121   28    4
+// TP Desert
+teleport-loc     =      193   88    catacombs   174   28    4
+
+// Churchs
+teleport-loc     =      82    175   cath_2      40    40    5
+teleport-loc     =      82    176   cath_2      40    40    5
+teleport-loc     =      83    176   cath_2      40    40    5
+teleport-loc     =      98    166   cath_2      63    45    5
+teleport-loc     =      98    167   cath_2      63    45    5
+
+teleport-loc     =      105   120   cath_1      34    42    5
+teleport-loc     =      106   120   cath_1      34    42    5
+teleport-loc     =      106   119   cath_1      34    42    5
+teleport-loc     =      107   119   cath_1      34    42    5
+
+// West WareHouse
+teleport-loc     =      58    150   elvwrhus    56    36    3
+teleport-loc     =      59    150   elvwrhus    56    36    3
+
+// East WareHouse
+teleport-loc     =      196   174   arewrhus    56    36    3
+teleport-loc     =      197   174   arewrhus    56    36    3
+
+// BS
+teleport-loc     =      148   198   bsmith_3    34    37    3
+teleport-loc     =      149   198   bsmith_3    34    37    3
+
+// Shop
+teleport-loc     =      144   170   gshop_3     50    39    4
+teleport-loc     =      145   170   gshop_3     50    39    4
+
+// Magic Tower
+teleport-loc     =      205   148   wzdtwr_1    43    34    4
+teleport-loc     =      206   148   wzdtwr_1    43    34    4
+
+
+//-No-Attack-Area----------Num-----RECT-------------
+
+maximum-object		= 250
+random-mob-generator	= 1  1    
+//-----------------------Num-Type-RECT---------------Mob-MobNum
+//Slimes pits Tailles 375 = 25x15									
+spot-mob-generator	= 1 1  228 187 243 212	10	20
+spot-mob-generator	= 2 1  142 225 167 240	10	20
+spot-mob-generator	= 3 1   25  53  50  68	10	20
+
+//Snakes pits Tailles 375 = 25x15	
+spot-mob-generator	= 4 1  217  82 237  102	22	20
+
+//Scorps pits Tailles 40x15
+spot-mob-generator	= 5 1  60  30  85  55	17	20
+
+// Guards Neutrals
+spot-mob-generator	= 6 1  127 136 143 150	101	2
+spot-mob-generator	= 7 1  147 107 160 117	101	2
+spot-mob-generator	= 8 1  188  87 201  96	101	2
+spot-mob-generator	= 9 1   42 208  59 220	101	2
+//----------------------Num-Type---RECT------------Mob-MobNum
+// Unicorn grove
+spot-mob-generator	= 10 1    26 194  60 227   32  5
+spot-mob-generator	= 11 1    42 208  60 223   32  3
+
+// Old Dragon pit, now 12 Orcs, 6 orcsmages, 3 Frogs, 3 HHs
+spot-mob-generator	= 12 1   127 20 250 80    5  12
+spot-mob-generator	= 13 1   127 20 250 80    14  6
+spot-mob-generator	= 14 1   127 20 250 80    57  3
+spot-mob-generator	= 15 1   127 20 250 80    27  3
+
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       58    43
+waypoint          =     1       127   50
+waypoint          =     2       169   92
+waypoint          =     3       182   122
+waypoint          =     4       155   139
+waypoint          =     5       177   157
+waypoint          =     6       124   169
+waypoint          =     7       97    184
+waypoint          =     8       58    150
+waypoint          =     9       89    107
+
+max-fish	=	15														
+fish-point	=	0	90	150
+fish-point	=	1	82	159
+fish-point	=	2	80	163
+fish-point	=	3	59	168
+fish-point	=	4	66	166
+fish-point	=	5	60	170
+fish-point	=	6	66	175
+fish-point	=     7	70	174
+fish-point	=	8	74	172
+fish-point	=	9	61	170
+fish-point	=	10	63	165						
+fish-point	=	11	57	175
+fish-point	=	12	64	180
+fish-point	=	13	69	178
+fish-point	=	14	76	187
+fish-point	=	15	81	184
+fish-point	=	16	81	191
+fish-point	=     17	88	193
+fish-point	=	18	93	187
+fish-point	=	19	95	192
+fish-point	=	20	99	182
+fish-point	=	21	106	180
+fish-point	=	22	104	178
+fish-point	=	23	104	176
+fish-point	=	24	105	175
+fish-point	=	25	107	174
+fish-point	=	26	108	173
+fish-point	=     27	117	168
+fish-point	=	28	116	166
+fish-point	=	29	116	164
+fish-point	=	30	118	163
+fish-point	=	31	109	159
+fish-point	=	32	99	173
+fish-point	=	33	101	174
+fish-point	=	34	104	171
+fish-point	=	36	106	170
+fish-point	=     37	110	167
+fish-point	=	38	98	161
+
+[END-MAP-INFO]
+
+
+
+
+

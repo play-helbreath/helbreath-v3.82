@@ -1,0 +1,34 @@
+//--------------------Name---------------------------------Elements------------------------------------------------------------------------
+CraftItem  =  	MagicNecklace(DF+15)  MagicNecklace(DF+10)  1   MagicNecklace(DF+10)  1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   0     0   
+CraftItem  =  	MagicNecklace(DF+20)  MagicNecklace(DF+15)  1   MagicNecklace(DF+10)  1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   0     0   
+CraftItem  =  	MagicNecklace(DF+25)  MagicNecklace(DF+20)  1   MagicNecklace(DF+10)  1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   Crystal   1   
+CraftItem  =  	MagicNecklace(DF+30)  MagicNecklace(DF+25)  1   MagicNecklace(DF+10)  1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   Crystal   1 
+
+CraftItem  =    MagicNecklace(DM+2)   MagicNecklace(DM+1)   1   MagicNecklace(DM+1)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   0     0   
+CraftItem  =    MagicNecklace(DM+3)   MagicNecklace(DM+2)   1   MagicNecklace(DM+1)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   0     0   
+CraftItem  =    MagicNecklace(DM+4)   MagicNecklace(DM+3)   1   MagicNecklace(DM+1)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   Crystal   1   
+CraftItem  =    MagicNecklace(DM+5)   MagicNecklace(DM+4)   1   MagicNecklace(DM+1)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   Crystal   1   
+
+CraftItem  =    MagicNecklace(MS12)   MagicNecklace(MS10)   1   MagicNecklace(MS10)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   0     0   
+CraftItem  =    MagicNecklace(MS14)   MagicNecklace(MS12)   1   MagicNecklace(MS10)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   0     0   
+CraftItem  =    MagicNecklace(MS16)   MagicNecklace(MS14)   1   MagicNecklace(MS10)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   Crystal   1   
+CraftItem  =    MagicNecklace(MS18)   MagicNecklace(MS16)   1   MagicNecklace(MS10)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   Crystal   1
+
+CraftItem  =    MagicNecklace(RM15)   MagicNecklace(RM10)   1   MagicNecklace(RM10)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   0     0   
+CraftItem  =    MagicNecklace(RM20)   MagicNecklace(RM15)   1   MagicNecklace(RM10)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   0     0   
+CraftItem  =    MagicNecklace(RM25)   MagicNecklace(RM20)   1   MagicNecklace(RM10)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   Crystal   1   
+CraftItem  =    MagicNecklace(RM30)   MagicNecklace(RM25)   1   MagicNecklace(RM10)   1   GoldNugget  1   SilverNugget  1   StoneOfMerien   1   Crystal   1   
+
+CraftItem  =    DiamondWare	     Diamond   1   	    Diamond   1   	   Crystal   1     0    0       0   0    	0   0   
+CraftItem  =    RubyWare             Ruby      1   	    Ruby      1   	   Crystal   1     0    0       0   0    	0   0   
+CraftItem  =    SapphireWare         Sapphire  1   	    Sapphire  1   	   Crystal   1     0    0       0   0   	0   0   
+CraftItem  =    EmeraldWare          Emerald   1   	    Emerald   1   	   Crystal   1     0    0       0   0   	0   0   
+CraftItem  =    CrystalWare          Crystal   1   	    Crystal   1		   Crystal   1     0    0       0   0   	0   0 
+
+CraftItem  =    MaginDiamond       DiamondWare   1   DiamondWare   1   CrystalWare   1    StoneOfMerien  1     0   0    	0     0     
+CraftItem  =    MaginRuby          RubyWare      1   RubyWare      1   CrystalWare   1    StoneOfMerien  1     0   0    	0     0
+CraftItem  =    MagicEmerald       EmeraldWare   1   EmeraldWare   1   CrystalWare   1    StoneOfMerien  1     0   0    	0     0
+CraftItem  =    MagicSapphire      SapphireWare  1   SapphireWare  1   CrystalWare   1    StoneOfMerien  1     0   0    	0     0
+
+
+

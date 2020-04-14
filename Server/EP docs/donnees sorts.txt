@@ -1,0 +1,23 @@
+Ice-Strike		(cercle 6)  59  (G)  1er sort de zone efficace
+Lightning-Bolt	(cercle 6)  58  (E)  1/2 IS, mais peut taper 1 à 4 fois
+
+Energy-Strike 	(cercle 7)  65  (E)  la référence
+Lightning		(cercle 5)	24  (E)  = ES sur cible (risque de rater sa cible)
+Mass-Light.-Arrow (cercle 6)  55  (E)  = ES sur cible
+Mass-Fire-Strike 	(cercle 7)  80  (F)  = ES(+2) sur zone + 1/2 ES sur cible
+Mass-Chill-Wind 	(cercle 7)	90  (G)  = ES sur grande zone + Freeze
+Earthworm-Strike	(cercle 7)	80  (T)  = ES + Enleve SP
+Armor-Break   	(cercle 7)  90  (T)  = ES + use armure
+
+Lightning-Strike 	(cercle 8)	90  (E)  la 2eme référence
+Divine-Revenge 	(cercle 8)	80  (F)  = LS + 1/2 LS sur cible
+Mass-Armor-Break  (cercle 10) 145 (T)  = LS + usure importante de l'armure
+
+Mass-Ice-Strike	(cercle 8)	120 (G)  LS amélioré, grande zone 
+Meteor-Strike	(cercle 9)  120 (F)  = MiS + 1/2 Mis sur cible 
+Bloody-Shock-Wave (cercle 8)	120 (F)  = 1/2 Mis, mais peut taper 1 à 4 fois
+
+Blizzard 		(cercle 9)	170 (G)  = LS, mais tape 1 à 4 fois.
+Earth-Shock-Wave	(cercle 10) 220 (T)  = Blizz, enlève bcp de SP
+Mass-Blizzard	(cercle 10) 319 (G)  = Blizz x 1.5
+Mass-Light.Strike (cercle 10)	254 (E)  = LS x1.5 sur grande zone

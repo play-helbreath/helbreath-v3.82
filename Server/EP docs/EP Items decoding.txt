@@ -1,0 +1,298 @@
+				Items definitions   
+
+Most information here was found and written by Snoopy81...
+Some information is standard HB, some is EP specific addition.
+Some InGame effects are given per Item number
+HBx server, Siementec and client, often uses item sprite nbe, 
+but EP server uses item number for InGame effects most of the time.
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+item.cfg, item2.cfg, item3.cfg:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+	Those files have a size limit, it's not the number of items, but
+the file's size. So, remove useless comments if applicable, replace
+spaces by a single TAB, or use my patch to allow WLserver to send bigger
+files.
+
+	If one item file is too big, the server may show an error in some
+other config file, seeminglly not related.
+
+
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+Colors & Dye pots:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Added almost all possible colors...
+1:  Indigo		2:  "Manu"		3:  Gold	
+4:  Crimson		5:  Green		6:  Grey
+7:  Aqua		8:  Pink		9:  Violet
+10: Blue		11: Tan 		12: Kakhi
+13: Yellow		14: Red		15: Black
+0:  Decoloration...
+
+Colors for Weapons... ( they're different...)
+0:  	Normal		
+1/3:	Dark (Strong/ Agile)
+4:  	Green (Poison)
+5:	Orange (Critical)
+6:	Blue (sharp)
+7:	White (rite)
+8:	Violet (ancient)
+9:	Red (Blood)
+10:	Black
+11:  	Black (DarkBlue)
+12:	Black & red glows
+13: 	White & gold glow
+14: 	Bleu<->red (Wizard's weapons)
+15: Gold with my patch
+
+Note that coloured shields/wands use one value in the Bag,
+and the other (as weapons) on the character!
+I wrote a specific patch to fix that in 3.51 client.
+
+Colors for other items (such as AncientTablet)
+32, 18: red
+3: Yellow
+5, 7: Green
+36, 37: Blue
+-10: Black
+
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Items definition:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+;-------Num-Name----Type-EPos-Effect--ETValue---------MaxLife-SEffect-Spri-SFrame-Price 
+Item  = 1   Dagger  1    8    1       1 4 0  1 3 0    300     0       1    0      25   
+ 
+----Weigth--ApprV-Speed-L.Lmt--G.Lmt--HR--HR----Skil-Cat-Color 
+    200     1     0     0      0      0   -10   7    1   0
+
+Type: (main category of object)
+-1: Colored item (image is alreaddy colored)	
+    Obsolete, now will remove item from all client having it.	
+0: No stackable ( alch parts, stones, balls)			
+1: Weapon, equipable things 
+3: Manual, Ticket, Scroll 		(always depleted)
+5: Stackable
+6: Arrow
+7: Can eat it, potion, meal.  	(always depleted)
+8: Fishing rod
+9: Map, permanent scroll		(use does not deplete, or Heldenian soldiars)
+10: Alchemy bowl, Anvil
+11: Dye pot, Flag, SeedBags. 		(depleted if used successfully)
+12: Manufactured Bars (have purity)¯¯¯¯¯
+
+EPos: (position to Equip the object)
+¯¯¯¯¯
+0: Not equipable
+1: Head
+2: Armor
+3: Under Armor (hauberk)
+4: Legs
+5: Feet 
+6: Neck
+7: Shield
+8: Weapon 1hand
+9: Weapon 2hands
+10: Finger
+11: Left Finger (does't show)
+12: Cape
+13: Remove all (SantaSuit)
+
+Effect: (Main effect of the object)
+¯¯¯¯¯¯¯
+0: None
+1: Physical damage
+2: Increase defense
+3: Ranged physical damage (bow)
+4: Health increase
+5: Mana increase
+6: Stamina increase
+7: Nutrition
+8: DEF_ITEMEFFECTTYPE_GET (unused)
+9: Learn a skill
+	EtValue1: Skill
+	EtValue2: Min skill value
+	Etvalue3: 0, or X to upgrade a skill by X
+	EtValue4: Max available value if using EtValue 3
+10: Map
+11: Spell effect		// set iV6 at -1 to allow use with weapon equiped
+	1: Recall		// but all TP scrolls can be used weapon equiped
+	2: Invi
+	3: Detect
+	4: TP: 1=BI, 3=Temple, 4=Equi, 11..19=Arenas
+	5: Summon		// Heldenian scrolls must be Type 9, other summons Type 3 or 7	
+	6: Berzerk	
+	7: PFM	
+	8: PFA	
+	0: Any Spell (iv2)
+	9: Delayed explosion (iv3=1/10sec)
+	31:Beholder Potion
+
+12: Skin, hair change
+13: Magic cost reduction for wands
+14: Ring/Necklace next figure says effect:
+	1: Magic resistance
+	2: Magic cost reduction
+	3: Adds physical damage
+	4: Adds defense ratio
+	5: % to avoid death!
+	6: Add magic damage
+	7: Lightning protection, etV2: Light_Prot,   etV3: Light_AddDmg,Earth_hRemoveDmg  etV6: Earth_Prot
+	8: Earth Protection,     etV2: Earth_Prot,   etV3: Earth_hAddDmg,Light_RemoveDmg  etV6: Light_Prot 
+	9: Fire protection ,     etV2: Fire_Prot,    etV3: Fire_hAddDmg,Ice_RemoveDmg     etV6: Ice_Prot
+	10: Ice protection,      etV2: Ice_Prot,     etV3: Ice_AddDmg,Fire_hRemoveDmg     etV6: Fire_Prot
+	11: Poison protection
+	12: (v3.51) HitProba
+	13: MaginRuby Characters Hp recovery rate(% applied) added by the purity formula.
+	14: MaginDiamond Attack probability(physical&magic) added by the purity formula.
+	15: MaginEmerald  Magical damage decreased(% applied) by the purity formula.
+	16: Angel STR
+	17: Angel DEX
+	18: Angel INT
+	19: Angel MAG
+
+15: Ruby/Emerald Ring (MA 10/20 % set in server for item number) 
+16: Flag
+17: Dye
+18: Learn spell
+19: Blood weapons -> Decreases HP & HPrecovery by 20% 
+20: Weapon plus, PA as an body armor(will not drop with stats)
+21: DEF_ITEMEFFECTTYPE_MATERIAL_ATTR (unused)
+22: PG & SPG potions
+23: Lottery (implemented , to be improved)
+24: Weapons with special effect
+25: Armor with special effect
+26: ZemStone
+27: Crusade construction Kit (HS)
+28: Unfreeze pot
+30: Farming SeedBag
+31: Slates
+32: Armor Dye
+33: Crit restore.
+66: Delayed explosion (iv1=1/10th sec)
+67: Can be used, and will always drop if dead (along with normal/Zem drop)
+
+ETValue: ( Depends on above value)
+¯¯¯¯¯¯¯¯
+Can be damage for weapons, value of above effect, ...
+Armors: 
+1: Protection (def ratio)
+2: PA         (even for shields)
+4: Requested charac (10=Str, 11=Dex, 12=Vit, 13=Int, 14=Mag, 15= Chr, 16=Contrib, 17=EK, 18=reputation
+			20..25= Max Srt..Chr, 27=Max EK, 66=for Crims or Executors )
+5: Min/max charac
+		
+
+SEffect: (Special effect, sometimes on activation only)
+¯¯¯¯¯¯¯¯
+0: None
+1: Xelima 		(Ability that decreases oponnent HP by 50%)
+2: Ice weapons	(Ability that freezes oponnent)
+3: Medusa     	(Ability that paralyzes oponnent)
+4: Death          (Ability that Kills eneny at one time)
+5: Vampiric       (Ability that earn some HP as you decrease enemy HP)
+			(Will not work on blood weapons, needs effect 24 & not 19)
+10: Wizard wands  (Defense +10)
+30: ShieldWand  	(Defense +30 <=> Permanent Defense Shield Spell)
+50: Merien plate  (Ability that exhaust ennemy weapon)
+51: GM Power ring (Ability that Protect from physical attacks)
+52: Merien Shield (Ability that Makes you untouchable)
+53: GM Shield
+
+Value of PA for type 20 weapons.
+
+Sprite & SFrame: (Image n° & Frame in image)
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Refers to item-ground.pak & item-pack.pak files.
+Note tha Capes and Helms have strange values?!?
+Cape: 20 instead of 18
+Helms: 21 instead of 19
+Note that many effects (ie Crit) are given by client using this number
+
+ApprValue: (Item animations)
+¯¯¯¯¯¯¯¯¯¯
+-1 : Not stackable (not always...)
+1  : Stackable
+
+For weapons, designates the animation 
+1..12: Msw.pak (Swords) (Fencing=7)
+20..27: Maxe1+.pax (axes, pickaxe, hoe)
+30..31: Hammers
+35,36: Wands
+40,41: Bows
+Note that many effects (ie: Crit, cast ability) are given
+by client using this number
+
+For Armors & Shields, 1 more than Frame value. (some exeptions!)
+
+
+L.Lmt: (Minimum level to use it)
+¯¯¯¯¯
+G.Lmt: (Gender)
+¯¯¯¯¯
+0: everyboby
+1: Male
+2: Female
+
+HR: (Hit Ratio)
+¯¯¯
+Two figures here.
+Weapon ToHit bonus against SmallMedium / Large.
+Doesn't work for armors...
+(in case of special weapons/armors, with effect 24/25,
+the first figure is duration of the activation)
+
+R.Skill: (Requested skill)
+¯¯¯¯¯¯¯¯¯
+Needed skill to use the objet.
+-1: No skill needed to use it (and Helms/Caps/Cape)
+0:  Equipable (armors/clothes/Shoes)
+
+Category: (No sure idea of the use here!)
+¯¯¯¯¯¯¯¯¯
+But some clue: 
+Should have a rapport with hows the item
+can be repaired/sold/dyed
+n°1->10:  When selling to BS, use stats for better price
+n°11->50: When selling to BS, 1/2 price for travellers
+
+0: Never sell this...
+1: Weapons
+3: Bows
+4: Single arrow
+5: Shields
+6: Armor pieces can be repaired at BS...
+8: Wands
+9:  Never Dyable armors by snoopy
+10: Dyeable armors by Snoopy
+11: Clothes can be repared at Shop...(Can be dyed)
+12: Boots/Cape (Can be dyed)
+13: HeroCape/ WizRobes (repared at shop but no dye)
+15: Santa suits
+21: Potions (+ AlBowl & SAnvil)
+31: Alchemy parts + M/S stones + balls
+42: Objet with some ingame effect
+43: Fishing rod
+46: Manu Parts / Necklaces, Pendants & Rings
+(Snoopy: changed some values here:
+1..10  repair at BS
+11..20 repair at shop
+stated 1..20 increase value.
+21..50: half price for travellers
+21: Potions, food
+31: Alchi parts + Manu parts
+
+
+Color: ( Item color)
+¯¯¯¯¯¯
+Normally 0, but you can adjust the image's default color.
+See above for colors definitions.
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+
+

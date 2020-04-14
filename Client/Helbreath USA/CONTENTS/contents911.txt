@@ -1,0 +1,126 @@
+   
+F.A.Q.
+ 
+Q.How to stop the hunger message?
+ 
+A.You must eat food regularly.
+If you are very hungry, you wont
+recover staminar as time goes by. 
+You can buy some meat and baguettes
+in the store. Also you can get
+food by casting a magic spell called
+Create-Food or by monster hunting.
+ 
+ 
+Q. I can't move.
+ 
+A. If you can't move, network traffic
+is very terrible or you caught a magic
+which can't be moved. In both cases,
+you can move after few munitues.
+
+ 
+
+Q. I can't run.
+ 
+A. If you hope to run, you need some
+stamina. If your stamina is empty, you
+can't run any more.
+ 
+ 
+Q. Even if I used weapon, I can't hit. Why?
+ 
+A. Check if you learned skill related
+weapon or not. For example, if you hope
+to use over the long sword, you must buy
+skill manual from black smith' related
+weapon. Once you learn that skill, the
+more and more you use weapon, you are
+becoming skill level.
+ 
+ 
+Q. I don't raise skill any longer.
+ 
+A. Each the maximum value of skill is
+decided as character's specific point.
+For instance, you can raise long sword
+skill as much as Dex * 2.
+ 
+  
+Q. How can I recover life, mana and staminar?
+  
+A. If you aren't hungry, you can recover
+little by little as time passes by. To
+recover more quickly, you'd better buy
+some potions. If you hope to raise Hit
+Points, use a red potion, to raise mana, 
+buy a blue potion, and finally to raise
+stamina, use green potion.
+  
+  
+Q. Because of addiction, I decrease my
+strength, what shall I do?
+  
+A. If using green potion, you can be 
+detoxified.
+ 
+ 
+Q. To hope to be out of criminal condition?
+ 
+A. As times as you kill others, you must
+be killed same times. Never kill other
+character not enemy.
+  
+ 
+Q. I don't raise level any more.
+ 
+A. If you're a traveler, you can't raise
+level over fixed point. In city hall of
+nation which you want to be a citizen,
+you apply for citizenship. And then if
+you become a citizen, level will be raised.
+ 
+ 
+Q. I don't know where I am.
+ 
+A. You'd better use a given map
+basically. If you click double a map
+in item inventory, you can know where
+you are. Also, you can know a way to
+want to go. If you lose your map, you
+can buy again.
+ 
+ 
+Q. Where can I get rare items?
+ 
+A. You can get them while hunting
+monsters. When monster die or 
+disappear, rare items can be 
+created there.
+ 
+ 
+Q. I can't  put on cause of broken weapon?
+ 
+A. You can repair in black smith'.
+ 
+ 
+Q. What is a crusade?
+ 
+A. A crusade takes place everywhere.
+Once started the main battlefields are
+in the cities and middleland. If you 
+want to join that battle, you must be 
+a citizen. If you hope to know more 
+information, you can read references 
+on the interface when a front war is 
+started.
+ 
+ 
+Q. How to get screen shot?
+ 
+A. At first, press button 'Printscreen'.
+After converting window as using an
+Alt-Tab, you execute picture board.
+After making image size 640*480, if
+attaching them, you can restore that
+in file.

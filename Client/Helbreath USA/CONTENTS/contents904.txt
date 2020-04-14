@@ -1,0 +1,31 @@
+  
+Magic
+ 
+If you want to use magic, you
+should learn magic before use it.
+ 
+You can learn the magic at magic
+tower in the town. But there are
+some magic you can't learn at the
+magic tower like 'Ice-Storm', 
+'Mass-Fire-Strike', 'Bloody-Shock-
+Wave'. To learn that magic, you
+can get the magic manual from the
+high level monster like Demon or Liche.
+ 
+You should meet the condition to
+learn the magic. Usually you
+need enough Int and Gold.
+ 
+Press F7 key to see your magic
+list. And press the magic you want
+to cast on the magic menu. After
+casting finishes, click the
+target which you want to use.
+ 
+Magic casting probability depends
+on many factors that are Level, Int,
+Magic Skill. And the power of magic
+depends on level, Mag, Magic skill.
+For the more detail information,
+see the Helbreath Manual. 

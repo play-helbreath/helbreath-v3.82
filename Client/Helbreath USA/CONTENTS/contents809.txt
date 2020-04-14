@@ -1,0 +1,14 @@
+Teleport location setting
+    
+It sets the commander's guild members such as
+warriors and constructors to a teleport location.
+
+When the location is set the constructor
+uses that ability to teleport in the middle
+land teleport location.
+
+You can't use the teleport ability 
+without setting the location. 
+
+ 
+

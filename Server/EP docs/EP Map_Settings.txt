@@ -1,0 +1,234 @@
+		Map definition
+Some things have been fixed or improved, som new 
+options added, and new commands added.
+
+___________________________________
+      PvP, Safe, drops
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+type = 0,1 -> added 2,3
+	0 = normal 
+	    (default)
+	1 = NoPenalty NoReward
+	2 = No PC Drop
+	3 = No PC Drop, No EK, No PK
+
+pk-mode = 0,1,2,3,4,5 -> new command as Patch by Sobame for serveur v2.191
+pk-mode = -1,-2,-3,-4,-5
+	0 = All EK & PK allowed 
+	    (default)
+	1 = EK allowed, but no PK
+	2 = No PK, EK only available with Executors
+	3 = No PK or EK possible (safe map)
+	4 = No PK or EK possible (safe map),
+	    but Executors can be victims.
+	5 = No EK possible, but you may PK
+	    (5 is not allowed in map definition, usable by GM)
+negative values have same effect but apply to crims as well.
+
+
+drop-type 	= 1 (default as normal Player drops)
+
+	This setting will change chances to drop item on considered map.
+Default is 1 (normal drops). 
+2+ is not implemented and is considered same than 1.
+-1 will only drop potions or food.
+0 will drop nothing. 
+This setting is taken into account at drop time, so after maps's type.
+
+
+NB: GM can adjust those values in game:
+/setmaptype 3
+/setpkmode 4
+/setdroptype 0
+
+
+___________________________________
+        Mobs generation
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Added many things here: "Magic Pits", "Random Pits", 
+				"Pits that attract spawns"
+
+
+random-mob-generator	= 1 5
+
+	The 1st number here can normally be 0 or 1. The 1 value is
+standard, and 0 would mean non mob generated at all (still can be
+used to force some pits in the map to have zerk mobs).
+	I introduced the possibility to kill automatically some mobs
+on the map, to generate some activity. (If the mob number is close
+to the maximum possible, you can go in a small pit, and never kill
+enougth mobs to lower the mob total number enougth to generate a big
+spawn... ie: if you're alone at Dung2 at the clop pit, you'll never
+be disturbed by a spawn!)
+	This autamatic npc killing will not affect bigger than ogre npc,
+and will take place just before big spawn time. Killed mobs will not
+drop.
+The number is a percent of total npcs to be killed. 
+random-mob-generator	= 15 5, would mean kill 15% of npcs.
+
+
+
+spot-mob-generator	= 1  9    159 21 200 55      13   5
+
+	Initially HB allows Type 2 for WayPoint list (never 
+seen that in use) or Type 1 for a pit.
+	I added the possibility to add other types. They have the
+effect too attract large spawns in this pit. 1/3 of all spawns
+wiil take place in this pit, using the creature given by Type.
+Type 1: sdr area SMG
+     2: sdr waypoint (Random order)
+     3: waypoints sequencial order
+     4+ attracts spawns
+     0-: "Magic Pit" special moving pit with ramdom mobs
+NB: Mob type is not the same used by mog gen, but the one used
+    in server for random-mobs. You may need to experiment! 
+    ( Often same as npc.cfg, +100 forsometimes HC/TW/Wyv/FireW, 
+    +200 for tougher mobs, 100+ for city mobs... )
+NB: Mob type -1 will generated random Ogre, WW, clops, & rare others.
+    ("Random Pit") Creature nbe is adjusted according creature might.
+
+
+mobevent-amount  		= 30
+
+	The number of mobs of a big spawn is fixed by server programmer.
+The standard is 15, but this new command allows to change it per map.
+
+
+
+___________________________________
+      Apocalypse & Heldenian
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Those events need special maps settings,
+Few wer coded, so I added or coded needed
+map settings.
+
+
+RecallImpossible        = 1 or 0 (default)
+
+	This setting will forbid any type of recall, scroll,
+spell, BI tickets, 
+
+
+not-permanent-map 	= 1 or 0 (default)
+
+	This setting will recall any character trying to disconnect
+from the current map. The Aim is prevent "lost" characters if the
+player tries to connect later when the map is no more hosted.
+
+
+ApocalypseMap 		= 1 or 0 (default)
+
+	This setting will force recall players from map if
+Apocalypse event is not running.
+
+ApocalypseMobGenType	= 2, 1, 0 (default)
+//------------------------NpcID---RECT---------
+ApocalypseBossMob       = 73      49 186 70 207
+
+	This setting prevents creatures spawning, as soon as 
+Apocalypse event is started. the "2" means spawn the boss
+when the map is empty.
+
+
+//------------------------RECT-----------------TargetMap---TargetCoord
+DynamicGateCoord		= 59 196 60 197        abaddon	   -1  -1
+DynamicGateType		= 3, 2, 1
+
+The dynamic Gate type 1 is openned 20 minutes when Apocalypse
+start. It can be forced Open/Close by GMs.
+
+The dynamic Gate type 2 is openned when map is empty, all npc
+and boss spawned and killed.
+
+The dynamic Gate type 3 is openned when map is empty, at the
+same time the boss is spawned.
+
+NB: If you want, you can create a subfolder \mapcrus\ and put
+Crusade map-definition here; if you want to launch a crusade
+from EQUILIBRIUM mode.
+
+HeldenianMap  	= 1 or 0 (default)
+
+	Used to detect if a map is used by Heldenian event, for various
+tasks, such as spell limitations, summons, mob regens, Heldenian
+contribution....
+
+//-heldenianDoor---Direction---X----Y
+HeldenianGateDoor  	3	 98	49
+	
+	Put the gates, area around is set impossible to cross. 
+Only Dir 3 or 5 possible.
+
+HeldenianWinningZone  	=	x	y
+
+	Place GodH flag here.
+
+//-Heldenian Tower ID ---------Side----------sX------sY
+HeldenianTower  =  87            1           53      212
+
+	Put Hedenian buildings, can as well put some crusade
+buildings. Side is automatically computed for type 2.
+
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+initial-point = i x y
+	When character is TP to -1 -1, he will go to fixed point if a point
+of his side exists. Ares will go pt1, Elvine pt2, executors pt4. But random
+points still apply to recall / forced recalls...
+
+
+CitizenLimit		= 1 or 0 (default)
+
+	This setting prevents civilians to enter the map.
+
+
+___________________________________
+            Event maps
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Some Miceleanous settings here.
+
+xp-rate = 100 (default)
+
+	Gives a percentage for XP scored on this map. Normal is 100% xp,
+200% is twice xp, 50% is half xp... GM can change this in game.
+
+
+extra-drop = 7800 (1..10000)
+
+	Changes the secondary drop rate for a map.
+0 or negative have no effect. The stated drop rate replaces global one for this map.
+NB: The lower secondary drop rate => the max items.
+
+
+limited-cast = 0(default), 1
+
+	Prevent from casting spell from category 1, as if in a
+save area.
+
+
+item-event = 1 Token2 	1	5	11	3	0	Plant Ogre Orc Zombie Scorpion EOL	
+//item-event_=_index__itemName__amount__TotalNumber__month__day__type__mobList[Max:5]
+	This feature is not coded in HBx server, and Siementec server
+version was not complete and seemed buggy. Fixed.
+NB: Will never gived stated items.
+
+
+initial-point = i x y
+
+	When character is TP to -1 -1, he will go to fixed point if a point
+of his side exists. Ares will go pt1, Elvine pt2, executors pt4. But random
+points still apply to recall / forced recalls...
+	If you want no fixed point for a side, avoid this side in the list.
+
+
+CitizenLimit		= 1 or 0 (default)
+
+	This setting prevents civilians to enter the map.
+
+
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯

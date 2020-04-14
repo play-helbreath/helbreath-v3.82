@@ -1,0 +1,26 @@
+[MAP-INFO]
+							
+pk-mode = 0	
+maximum-object	   = 450							
+random-mob-generator = 1  2
+				
+//---------------------------Num--Type---RECT---------------------Mob--MobNum
+//Slimes pits Tailles 375 = 25x15									
+spot-mob-generator	=	1	1	240	200	265	215	10	10
+spot-mob-generator	=	2	1	127	235	152	250	10	10
+
+//Snakes pits Tailles 375 = 25x15	
+spot-mob-generator	=	3	1	99    31	128	45	22	10
+spot-mob-generator	=	4	1	152	33	177	48	22	10
+
+//Scorps pits Tailles 40x15
+spot-mob-generator	=	5	1	190	230	230	245	17	10
+
+// Gardes
+spot-mob-generator	=	6	1	167	142	174	149	24	2
+spot-mob-generator	=	7	1	137	202	144	208	24	2
+spot-mob-generator	=	8	1	137	47	144	53	24	2							
+spot-mob-generator	=	9	1	113	242	120	248	24	2
+spot-mob-generator	=	10	1	65	122	72	129	24	2	
+
+[END-MAP-INFO]				

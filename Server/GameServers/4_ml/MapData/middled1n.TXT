@@ -1,0 +1,55 @@
+[MAP-INFO]
+map-location  = middled1n
+initial-point = 1  34 36
+initial-point = 2  181 124
+level-limit   = 20
+upper-level-limit = 100
+// To change from lvl 80, need to patch the client...
+fixed-dayornight-mode = 1
+pk-mode = 0
+drop-type = -1
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =      31     34     elvfarm             133     205   5
+teleport-loc     =      32     34     elvfarm             133     205   5
+teleport-loc     =      32     33     elvfarm             133     205   5
+teleport-loc     =      33     33     elvfarm             133     205   5
+
+teleport-loc     =      183    122    arefarm             75    68   5
+teleport-loc     =      184    122    arefarm             75    68   5
+teleport-loc     =      184    123    arefarm             75    68   5
+teleport-loc     =      185    123    arefarm             75    68   5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       107   105
+waypoint          =     1       145   116
+waypoint          =     2       200   146
+waypoint          =     3       184   176
+waypoint          =     4       151   204
+waypoint          =     5       134   137
+waypoint          =     6       37    152
+waypoint          =     7       123   188
+waypoint          =     8       129   126
+waypoint          =     9       113   153
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area           = 1       24  29 43  45
+no-attack-area           = 2       174 116 194 136
+
+maximum-object		= 150
+random-mob-generator	= 1 12
+
+mineral-generator = 1 4
+max-mineral   = 7
+
+mineral-point = 0  129 146
+mineral-point = 1  158  42
+mineral-point = 2  130 145
+mineral-point = 3  159  47
+mineral-point = 4  135 144
+mineral-point = 5  21  107
+mineral-point = 6  36  155
+mineral-point = 7  21  106
+mineral-point = 8  37  155
+
+[END-MAP-INFO]

@@ -1,0 +1,22 @@
+Welcome to the Helbreath continent.
+ 
+In this continent there are 
+two great city nations. One is the nation 
+of Aresden where the God Aresien is
+worshiped and the other is the nation of 
+Elvine which worships the God Elvine.
+ 
+You will be teleported to the designated
+nation depending on the symbol you step on.
+
+
+For now, you are just a traveller who can 
+freely pass through both nations.
+However, after you chose a nationality
+you will enter into a fierce battle
+with the other side as Aresden and Elvine 
+are at war with each another.
+
+For more detailed instructions on the
+game, refer to the 'Help Guide'(Help).
+To view the Help Guide(Help) press F1.

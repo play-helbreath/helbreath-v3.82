@@ -1,0 +1,64 @@
+Roles quality 
+
+Soldier
+
+
+The role of the soldier which from the
+forefront of warfare conducts the direct
+battle with the enemy with important task. 
+
+The case which keeps the role of the soldier,
+the physical attack power and magical attack
+power improve to 1.3 point. As the commander
+sets the soldier has got the ability to
+teleport directly to a certain position.
+
+The task of the soldier is to permeates to
+the hostile country to destroy the 'energy
+shield', 'grand magic generator', or occupate
+the 'Mana stone' and protect with the
+constructor the warfare infrastructure from
+enemy attack. 
+
+
+Constructor
+
+The constructor can construct multi branch
+warfare infrastructure such as 'Mana collector'
+The type of warfare infrastructure are.. 
+* Bow guard tower: The position construction
+infrastructure which affixes the anger flesh
+firing turret. 
+
+* Cannon guard tower:
+The position construction infrastructure which
+affixes the cannon firing turret. 
+
+* Mana collector: Install near the Mana Stone.
+Recharges the mana for near players near.
+
+* Detector: When the enemy approaches, occurs
+a warning message, the enemy transparent
+condition disables.
+
+The mission of the constructor is to build
+'Mana collector' near 'Mana stone' To save
+Mana collector, and construct defensive
+construction.
+ 
+
+
+Commander 
+Only the guild master can become a commander, 
+and must grasp the warfare situation ability.
+The commander can set the soldier where to
+teleport and construction of the constructor
+position.
+
+
+The commander sets the strength committed
+location of our soldiers who hits to warfare
+situation with warfare whole flows. Also the
+commander follows the soldier and the
+constructor of the oneself and he can powerful
+it will be able to recall the units. 

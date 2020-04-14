@@ -1,0 +1,1050 @@
+
+void CGame::DrawDialogBox_Commander(int msX, int msY) // Snoopy: Fixed for 351
+{short sX, sY, szX, szY, MapSzX, MapSzY;	
+ DWORD dwTime = G_dwGlobalTime;
+ double dV1, dV2, dV3;
+ int i, tX, tY; 
+	sX = m_stDialogBoxInfo[36].sX;
+	sY = m_stDialogBoxInfo[36].sY;
+	szX = m_stDialogBoxInfo[36].sSizeX;
+	if ((dwTime - m_dwCommanderCommandRequestedTime) > 1000*10) 
+	{	_RequestMapStatus("middleland", 3);
+		_RequestMapStatus("middleland", 1);
+		m_dwCommanderCommandRequestedTime = dwTime; 
+	}
+
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX, sY-5, 0, FALSE, m_bDialogTrans); // Main image
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_TEXT, sX, sY, 15, FALSE, m_bDialogTrans);
+
+	switch (m_stDialogBoxInfo[36].cMode) {
+	case 0: // Main dlg
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20,          sY + 340, 3, dwTime); // btn
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50,      sY + 340, 1, dwTime); // btn
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100,     sY + 340, 2, dwTime); // btn
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150,     sY + 340, 30,dwTime); // Btn TP
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 +74, sY + 340, 4, dwTime); // btn ?
+		//PutAlignedString(sX, sX + szX, sY + 40, DRAW_DIALOGBOX_COMMANDER1);//"Middleland warfare building structure situation"
+		PutAlignedString(sX, sX + szX, sY + 37, DRAW_DIALOGBOX_COMMANDER1);//"Middleland warfare building structure situation"
+		
+		if (   (msX >= sX +20) && (msX <= sX +20 +46) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY + 340, 17, dwTime); 
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER2, 255,255,255);//"Middleland teleport position set"
+		}else if ( (msX >= sX +20 +50) && (msX <= sX +20 +46 +50)
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY + 340, 15, dwTime); 
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER3, 255,255,255);//"Teleport to the selected area"
+		}else if ( (msX >= sX +20 +100) && (msX <= sX +20 +46 +100) 
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) {
+			m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100, sY + 340, 16, dwTime); 
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER4, 255,255,255);//"Recall warfare units"
+		}else if ((msX >= sX +20 +150) && (msX <= sX +20 +46 +150) 
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150, sY + 340, 24,dwTime); 
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER5, 255,255,255);//"Middleland construction building set"
+		}else if ( (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 18, dwTime); 
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER6, 255,255,255);//"Commander's duty help"
+		}		
+		DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX, sY, 21, FALSE, m_bDialogTrans);// Map
+		break;
+
+	case 1: // Set TP
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 340, 20, dwTime); //btn <-
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 4, dwTime);  //btn ?
+		PutAlignedString(sX, sX + szX, sY + 40,  DRAW_DIALOGBOX_COMMANDER7); // "Click and select the teleport location."
+
+		if (   (msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 340, 19, dwTime); 
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER8, 255,255,255);
+		}else if ( (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 18, dwTime); 
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER9, 255,255,255);
+		}		
+		DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX, sY, 21, FALSE, m_bDialogTrans);
+		
+		if (   (msX >= sX + 15) && (msX <= sX + 15 + 278) 
+			&& (msY >= sY + 60) && (msY <= sY + 60 + 272)) // shows TP posit on map following the mouse
+		{	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, msX, msY, 42, FALSE, TRUE); 
+		}
+		break; 
+
+	case 2: // Use TP 
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50,  sY + 340, 1, dwTime);       // Btn TP
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 340, 20, dwTime); // Btn <-
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 4, dwTime);  // Btn ?
+		PutAlignedString(sX, sX + szX, sY + 40,  DRAW_DIALOGBOX_COMMANDER10); // "Teleport to the selected area"
+		
+		if (   (msX >= sX +20 +50) && (msX <= sX +20 +46 +50) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50,  sY + 340, 15, dwTime); 
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER11, 255,255,255);
+		}else if ( (msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) 
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 340, 19, dwTime); 
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER12, 255,255,255);
+		}else if ( (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74)
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 18, dwTime); 
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER13, 255,255,255);
+		}		
+		DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX, sY, 21, FALSE, m_bDialogTrans);
+		break;
+
+	case 3: // Choose summon
+		if( (m_bCitizen == TRUE) && (m_bAresden == TRUE) ) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY +220, 6, dwTime); 
+			m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY +220, 5, dwTime); 
+			m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100, sY +220, 7, dwTime); 
+			m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150, sY +220, 35, dwTime); 
+		}else if ( (m_bCitizen == TRUE) && (m_bAresden == FALSE) ) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY +220, 9, dwTime); 
+			m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY +220, 8, dwTime);
+			m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100, sY +220, 7, dwTime); 
+			m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150, sY +220, 35, dwTime);
+		}		
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 340, 20, dwTime); 
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 4, dwTime);
+		
+		PutAlignedString(sX, sX + szX, sY + 40,  DRAW_DIALOGBOX_COMMANDER14); // "Recall warfare units"
+
+		wsprintf(G_cTxt, "%s %d",DRAW_DIALOGBOX_COMMANDER15, m_iConstructionPoint);
+		PutAlignedString(sX, sX +323, sY +190,  G_cTxt);
+
+		if( (m_bCitizen == TRUE) && (m_bAresden == TRUE) ) 
+		{	if ((msX >= sX +20) && (msX <= sX +20 +46) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 3000) 
+				{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY +220, 11, dwTime);
+				}
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER16, 255,255,255);//"¹(Battle Golem)"
+				PutString2(msX +20, msY +50, DRAW_DIALOGBOX_COMMANDER17, 255,255,255);//"3000"				
+			}else if ((msX >= sX +20 +50) && (msX <= sX +20 +50 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 2000) 
+				{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY +220, 10, dwTime);
+				}
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER18, 255,255,255);//"(Temple Knight)"
+				PutString2(msX +20, msY +50, DRAW_DIALOGBOX_COMMANDER19, 255,255,255);//"2000"
+			}else if ((msX >= sX +20 +100) && (msX <= sX +20 +100 +45) && (msY >= sY +220) && (msY <= sY +220 +50))
+			{	if (m_iConstructionPoint >= 1000) 
+				{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100, sY +220, 12, dwTime); 
+				}
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER20, 255,255,255);//"(Light War Beetle)"   
+				PutString2(msX +20, msY +50, DRAW_DIALOGBOX_COMMANDER21, 255,255,255);//" 1000"
+			}else if ((msX >= sX +20 +150) && (msX <= sX +20 +150 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{ 	if (m_iConstructionPoint >= 5000) 
+				{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150, sY +220, 29, dwTime);
+				}
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER22, 255,255,255);//"(Catapult)"
+				PutString2(msX +20, msY +50, DRAW_DIALOGBOX_COMMANDER23, 255,255,255);// 1500"
+			}else if ((msX >= sX +20) && (msX <= sX +380) && (msY > sY +140) && (msY < sY +160)) 
+			{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER24, 255,255,255);
+			}else if ((msX >= sX +20) && (msX <= sX +380) && (msY > sY +160) && (msY < sY +175)) 
+			{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER25, 255,255,255);
+			}else if ( (msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) 
+					&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+			{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 340, 19, dwTime); 
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER26, 255,255,255);				
+			}else if ( (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+					&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+			{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 18, dwTime); 		
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER27, 255,255,255); //"Warfare units recall related help"			
+			}
+		}else if ( (m_bCitizen == TRUE) && (m_bAresden == FALSE) ) 
+		{	if ((msX >= sX +20) && (msX <= sX +20 +46) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 3000) 
+				{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY +220, 14, dwTime);
+				}
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER28, 255,255,255);//"(God's Hand Knight Cavalry)"
+				PutString2(msX +20, msY +50, DRAW_DIALOGBOX_COMMANDER29, 255,255,255);//"3000"
+			}else if ( (msX >= sX +20 +50) && (msX <= sX +20 +50 +45) 
+					&& (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 2000) 
+				{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY +220, 13, dwTime);
+				}
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER30, 255,255,255);//"°(God's Hand Knight)"
+				PutString2(msX +20, msY +50, DRAW_DIALOGBOX_COMMANDER31, 255,255,255);//"2000"
+			}else if ((msX >= sX +20 +100) && (msX <= sX +20 +100 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 1000) 
+				{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100, sY +220, 12, dwTime);
+				}
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER32, 255,255,255);//"(Light War Beetle)"
+				PutString2(msX +20, msY +50, DRAW_DIALOGBOX_COMMANDER33, 255,255,255);//" 1000"
+			}else if ((msX >= sX +20 +150) && (msX <= sX +20 +150 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 5000)
+				{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150, sY +220, 29, dwTime);
+				}
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER34, 255,255,255);//"(Catapult)"
+				PutString2(msX +20, msY +50, DRAW_DIALOGBOX_COMMANDER35, 255,255,255);//" 1500"
+			}else if ((msX >= sX +20) && (msX <= sX +380) && (msY > sY +140) && (msY < sY +160)) 
+			{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER36, 255,255,255);
+			}else if ((msX >= sX +20) && (msX <= sX +380) && (msY > sY +160) && (msY < sY +175)) 
+			{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER37, 255,255,255);
+			}else if ( (msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) 
+					&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+			{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 340, 19, dwTime); 
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER38, 255,255,255);
+				
+			}else if ( (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74)
+					&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+			{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 18, dwTime); 		
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER39, 255,255,255);
+		}	}	
+		PutAlignedString(sX, sX +323, sY +80,  DRAW_DIALOGBOX_COMMANDER40);
+		PutAlignedString(sX, sX +323, sY +95,  DRAW_DIALOGBOX_COMMANDER41);
+		PutAlignedString(sX, sX +323, sY +110, DRAW_DIALOGBOX_COMMANDER42);
+
+		switch (m_stDialogBoxInfo[36].sV1) {
+		case 0:
+			PutAlignedString(sX, sX +323, sY +140,  DRAW_DIALOGBOX_COMMANDER43, 255, 255, 255);//"Guard Mode"
+			PutAlignedString(sX, sX +323, sY +160,  DRAW_DIALOGBOX_COMMANDER44, 4,0,50);//"Hold Mode"
+			break;
+		case 1:
+			PutAlignedString(sX, sX +323, sY +140,  DRAW_DIALOGBOX_COMMANDER43, 4,0,50);//"Guard Mode"
+			PutAlignedString(sX, sX +323, sY +160,  DRAW_DIALOGBOX_COMMANDER44, 255, 255, 255);//"Hold Mode"
+			break;
+		} 
+		break;
+
+	case 4: // Set Construction point
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 340, 20, dwTime); 
+		m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 4, dwTime); 
+		PutAlignedString(sX, sX + szX, sY + 40,  DRAW_DIALOGBOX_COMMANDER47); // "Select the construction area and click."
+
+		if (   (msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 340, 19, dwTime); 
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER48, 255,255,255); // "Returns to commander's main menu"
+		}else if ( (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 18, dwTime);
+			PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER49, 255,255,255); // "Construction area set related help"
+		}				
+		DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX, sY, 21);
+		if (   (msX >= sX + 15) && (msX <= sX + 15 + 278) 
+			&& (msY >= sY + 60) && (msY <= sY + 60 + 272)) // shows posit on map following the mouse
+		{	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, msX, msY, 41, FALSE, TRUE); 
+		}
+		break;
+	}	
+
+	switch (m_stDialogBoxInfo[36].cMode) {
+	case 0: // Main
+	case 1: // Set TP
+	case 2: // Use TP
+	case 4: // Set construc
+		szX = NULL;
+		szY = NULL;
+		MapSzX = NULL;
+		MapSzY = NULL;
+		if (strcmp(m_cStatusMapName, "aresden") == 0) 
+		{	szX = 250;
+			szY = 250;	
+		}else if (strcmp(m_cStatusMapName, "elvine") == 0) 
+		{	szX = 250;
+			szY = 250;
+		}else if (strcmp(m_cStatusMapName, "middleland") == 0) 
+		{	szX = 279;
+			szY = 280;
+			MapSzX = 524;
+			MapSzY = 524;
+		}
+		if (szX != NULL) 
+		{	for (i = 0; i < DEF_MAXCRUSADESTRUCTURES; i++) 
+			if (m_stCrusadeStructureInfo[i].cType != NULL) 
+			{	dV1 = (double)MapSzX;
+				dV2 = (double)m_stCrusadeStructureInfo[i].sX;
+				dV3 = (dV2*(double)szX)/dV1;
+				tX  = (int)dV3;
+				dV1 = (double)MapSzY;
+				dV2 = (double)m_stCrusadeStructureInfo[i].sY;
+				dV3 = (dV2*(double)szY)/dV1;
+				tY  = (int)dV3;
+				switch (m_stCrusadeStructureInfo[i].cType) {
+				case 38:
+					if (m_stCrusadeStructureInfo[i].cSide == 1)
+						 DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 39, FALSE, TRUE); // Base
+					else DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 37, FALSE, TRUE); 
+					break;				
+				case 36:
+				case 37:
+				case 39:
+					if (m_stCrusadeStructureInfo[i].cSide == 1)
+						 DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 38, FALSE, TRUE); // Base 
+					else DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 36, FALSE, TRUE); 
+					break;	
+				case 42:
+					DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 40); // ManaStone
+					break;
+			}	}
+			if (m_iTeleportLocX != -1) 
+			{	dV1 = (double)MapSzX;
+				dV2 = (double)m_iTeleportLocX;
+				dV3 = (dV2*(double)szX)/dV1;
+				tX  = (int)dV3; 
+				dV1 = (double)MapSzY;
+				dV2 = (double)m_iTeleportLocY;
+				dV3 = (dV2*(double)szY)/dV1;
+				tY  = (int)dV3;
+				if ((m_stDialogBoxInfo[36].cMode == 1) && (tY >= 30) && (tY <= 494)) // Place the TP
+				{	  DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 42, FALSE, TRUE); //TP
+				}else DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 42, FALSE, TRUE); //TP 
+			}			
+			if ((m_stDialogBoxInfo[36].cMode != 2) && (m_iConstructLocX != -1)) 
+			{	dV1 = (double)MapSzX;
+				dV2 = (double)m_iConstructLocX;
+				dV3 = (dV2*(double)szX)/dV1;
+				tX  = (int)dV3;
+				dV1 = (double)MapSzY;
+				dV2 = (double)m_iConstructLocY;
+				dV3 = (dV2*(double)szY)/dV1;
+				tY  = (int)dV3;
+				DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 41, FALSE, TRUE); // Contr pt
+			}
+			if (strcmp(m_cMapName, "middleland") == 0) 
+			{	dV1 = (double)MapSzX;//m_pMapData->m_sMapSizeX;
+				dV2 = (double)m_sPlayerX;
+				dV3 = (dV2*(double)szX)/dV1;
+				tX  = (int)dV3;
+				dV1 = (double)MapSzY;//m_pMapData->m_sMapSizeY;
+				dV2 = (double)m_sPlayerY;
+				dV3 = (dV2*(double)szY)/dV1;
+				tY  = (int)dV3;
+				DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 43); // Player place
+		}	}
+		if (m_stDialogBoxInfo[36].cMode != 3)
+		{	if (   (msX >= sX + 15) && (msX <= sX + 15 +278) 
+				&& (msY >= sY + 60) && (msY <= sY + 60 +272)) // Draw mouse coordinates
+			{	dV1 = (double)(msX - (sX + 15));
+				dV2 = (double)MapSzX;//(752.0f); 
+				dV3 = (dV2*dV1)/szX;//280.0f;
+				tX = (int)dV3;
+				dV1 = (double)(msY - (sY + 60));
+				dV2 = (double)MapSzX;//(680.0f); 
+				dV3 = (dV2*dV1)/szY;//253.0f;
+				tY = (int)dV3;
+				if (tX < 30) tX = 30;
+				if (tY < 30) tY = 30;
+				if (tX > MapSzX-30) tX = MapSzX-30;
+				if (tY > MapSzY-30) tY = MapSzY-30;		
+				wsprintf(G_cTxt, "%d,%d", tX, tY);
+				PutString_SprFont3(msX + 10, msY -10, G_cTxt, m_wR[13]*4, m_wG[13]*4, m_wB[13]*4, FALSE, 2);
+		}	}
+		break;
+	}
+}
+
+void CGame::DrawDialogBox_Constructor(int msX, int msY) // Snoopy: Fixed for 351
+{short sX, sY, szX, szY, MapSzX, MapSzY;	
+ DWORD dwTime = G_dwGlobalTime;
+ double dV1, dV2, dV3;
+ int tX, tY;
+ char cMapName[12]; 
+	sX = m_stDialogBoxInfo[37].sX;
+	sY = m_stDialogBoxInfo[37].sY;
+	szX = m_stDialogBoxInfo[37].sSizeX;
+	if ((dwTime - m_dwCommanderCommandRequestedTime) > 1000*10) 
+	{	_RequestMapStatus("middleland", 1);
+		m_dwCommanderCommandRequestedTime = dwTime;
+	}
+
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX, sY-5, 0, FALSE, m_bDialogTrans); // Main image
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_TEXT, sX, sY, 16, FALSE, m_bDialogTrans);
+	
+	switch (m_stDialogBoxInfo[37].cMode) {
+	case 0: // Main dlg
+		if (m_iConstructLocX != -1) 
+		{	ZeroMemory(cMapName, sizeof(cMapName));
+			GetOfficialMapName(m_cConstructMapName, cMapName);
+			wsprintf(G_cTxt, DRAW_DIALOGBOX_CONSTRUCTOR1, cMapName, m_iConstructLocX, m_iConstructLocY);
+			PutAlignedString(sX, sX + szX, sY + 40, G_cTxt);
+		}else PutAlignedString(sX, sX + szX, sY + 40, DRAW_DIALOGBOX_CONSTRUCTOR2); //"Construction unavailable: Unable to construct"
+		DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX, sY, 21, FALSE, m_bDialogTrans); // Map
+		
+		if (   (msX >= sX +20) && (msX <= sX +20 +46) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY + 340, 24, dwTime); 
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY + 340, 30, dwTime);
+
+		if (   (msX >= sX +20 +50) && (msX <= sX +20 +46 +50) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY + 340, 15, dwTime); 
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY + 340,  1, dwTime);
+		
+		if (   (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{     m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 18, dwTime);  
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340,  4, dwTime); 
+
+		if (   (msX >= sX +20) && (msX <= sX +20 +46) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR3, 255,255,255);
+		}else if ( (msX >= sX +20 +50) && (msX <= sX +20 +46 +50) 
+				&& (msY >= sY + 322) && (msY <= sY + 322 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR4, 255,255,255);
+		}else if ( (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+				&& (msY >= sY + 322) && (msY <= sY + 322 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR5, 255,255,255);
+		}
+		break;
+
+	case 1: // Select building
+		PutAlignedString(sX, sX +szX, sY +40,  DRAW_DIALOGBOX_CONSTRUCTOR6); //"Select war building"
+		PutAlignedString(sX, sX +323, sY +80,  DRAW_DIALOGBOX_CONSTRUCTOR7); //"Constructs the war building here."
+		PutAlignedString(sX, sX +323, sY +95,  DRAW_DIALOGBOX_CONSTRUCTOR8); //"Press the building icon and"
+		PutAlignedString(sX, sX +323, sY +110, DRAW_DIALOGBOX_CONSTRUCTOR9); //"the base will be formed and slowly finished"
+		PutAlignedString(sX, sX +323, sY +125, DRAW_DIALOGBOX_CONSTRUCTOR10);//"Attack the building with Pickaxe."
+		PutAlignedString(sX, sX +323, sY +140, DRAW_DIALOGBOX_CONSTRUCTOR11);//"Building is not activated"
+		PutAlignedString(sX, sX +323, sY +155, DRAW_DIALOGBOX_CONSTRUCTOR12);//"while constructing."
+		
+		if ((msX >= sX +20) && (msX <= sX +20 +46) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY +220, 27, dwTime);	
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY +220, 33, dwTime);	
+
+		if ((msX >= sX +20 +50) && (msX <= sX +20 +50 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY +220, 28, dwTime);
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY +220, 34, dwTime);	
+
+		if ((msX >= sX +20 +100) && (msX <= sX +20 +100 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100, sY +220, 26, dwTime);	
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100, sY +220, 32, dwTime);
+
+		if ((msX >= sX +20 +150) && (msX <= sX +20 +150 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150, sY +220, 25, dwTime);	
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150, sY +220, 31, dwTime);
+
+		if ((msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) && (msY >= sY + 322) && (msY <= sY + 322 + 52)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 322, 19, dwTime); 
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 322, 20, dwTime); 
+
+		if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 322) && (msY <= sY + 322 + 52)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 322, 18, dwTime); 
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 322, 4, dwTime); 
+
+		if ((msX >= sX +20) && (msX <= sX +20 +46) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR13, 255,255,255);//"(Mana Collector)"
+		}else if ((msX >= sX +20 +50) && (msX <= sX +20 +50 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR14, 255,255,255);//"(Detector)"
+		}else if ((msX >= sX +20 +100) && (msX <= sX +20 +100 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR15, 255,255,255);//"(Arrow Guard Tower)"
+		}else if ((msX >= sX +20 +150) && (msX <= sX +20 +150 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR16, 255,255,255);//(Cannon Guard Tower)"
+		}else if ((msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) && (msY >= sY + 322) && (msY <= sY + 322 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR17, 255,255,255);
+		}else if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 322) && (msY <= sY + 322 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR18, 255,255,255);
+		}
+		break;
+
+	case 2: // Teleport
+		PutAlignedString(sX, sX + szX, sY + 40,  DRAW_DIALOGBOX_CONSTRUCTOR19); //"Teleport to position that commander pointed"
+		DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX, sY, 21, FALSE, m_bDialogTrans); // map
+		
+		if (   (msX >= sX +20 +50) && (msX <= sX +20 +46 +50) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY + 340, 15, dwTime); 
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY + 340, 1, dwTime); 
+		
+		if (   (msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 340, 19, dwTime); 
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +100 + 74, sY + 340, 20, dwTime);
+
+		if (   (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 18, dwTime);
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 4, dwTime); 
+
+		if ((msX >= sX +20 +50) && (msX <= sX +20 +46 +50) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR20, 255,255,255);
+		}else if ( (msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) 
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR21, 255,255,255);
+		}else if ( (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_CONSTRUCTOR22, 255,255,255);
+		}
+		break;
+	}
+	
+	switch (m_stDialogBoxInfo[37].cMode) {
+	case 0: // Main dlg
+	case 2: // TP
+		szX = NULL;
+		szY = NULL;
+		MapSzX = NULL;
+		MapSzY = NULL;
+		if (strcmp(m_cStatusMapName, "aresden") == 0) 
+		{	szX = 250;
+			szY = 250;	
+		}else if (strcmp(m_cStatusMapName, "elvine") == 0) 
+		{	szX = 250;
+			szY = 250;
+		}else if (strcmp(m_cStatusMapName, "middleland") == 0) 
+		{	szX = 279;
+			szY = 280;
+			MapSzX = 524;
+			MapSzY = 524;
+		}
+		if (szX != 0) 
+		{	for (int i = 0; i < DEF_MAXCRUSADESTRUCTURES; i++) 
+			if (m_stCrusadeStructureInfo[i].cType == 42) 
+			{	dV1 = (double)MapSzX;
+				dV2 = (double)m_stCrusadeStructureInfo[i].sX;
+				dV3 = (dV2*(double)szX)/dV1;
+				tX  = (int)dV3;
+				dV1 = (double)MapSzY;
+				dV2 = (double)m_stCrusadeStructureInfo[i].sY;
+				dV3 = (dV2*(double)szY)/dV1;
+				tY  = (int)dV3;
+				switch (m_stCrusadeStructureInfo[i].cType) {
+				case 42:
+					DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 40); // ManaStone
+					break;
+			}	}
+			if (m_iTeleportLocX != -1)
+			{	dV1 = (double)MapSzX;
+				dV2 = (double)m_iTeleportLocX;
+				dV3 = (dV2*(double)szX)/dV1;
+				tX  = (int)dV3;
+				dV1 = (double)MapSzY;
+				dV2 = (double)m_iTeleportLocY;
+				dV3 = (dV2*(double)szY)/dV1;
+				tY  = (int)dV3;
+				DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 42, FALSE, TRUE); //TP 		
+			}	
+			if ((m_stDialogBoxInfo[37].cMode != 2) && (m_iConstructLocX != -1)) 
+			{	dV1 = (double)MapSzX;
+				dV2 = (double)m_iConstructLocX;
+				dV3 = (dV2*(double)szX)/dV1;
+				tX  = (int)dV3;
+				dV1 = (double)MapSzY;
+				dV2 = (double)m_iConstructLocY;
+				dV3 = (dV2*(double)szY)/dV1;
+				tY  = (int)dV3; 
+				DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 41, FALSE, TRUE); // Contr pt 
+			} 	
+			if (strcmp(m_cMapName, "middleland") == 0) 
+			{	dV1 = (double)MapSzX;//m_pMapData->m_sMapSizeX;
+				dV2 = (double)m_sPlayerX;
+				dV3 = (dV2*(double)szX)/dV1;
+				tX  = (int)dV3;
+				dV1 = (double)MapSzY;//m_pMapData->m_sMapSizeY;
+				dV2 = (double)m_sPlayerY;
+				dV3 = (dV2*(double)szY)/dV1;
+				tY  = (int)dV3;
+				DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 43); // Player place 
+		}	}
+		if (   (msX >= sX + 15) && (msX <= sX + 15 +278) 
+			&& (msY >= sY + 60) && (msY <= sY + 60 +272))  // Draw mouse coordinates
+		{	dV1 = (double)(msX - (sX + 15));
+			dV2 = (double)MapSzX;//(752.0f); 
+			dV3 = (dV2*dV1)/szX;//280.0f;
+			tX = (int)dV3;
+			dV1 = (double)(msY - (sY + 60));
+			dV2 = (double)MapSzX;//(680.0f); 
+			dV3 = (dV2*dV1)/szY;//253.0f;
+			tY = (int)dV3;
+			if (tX < 30) tX = 30;
+			if (tY < 30) tY = 30;
+			if (tX > MapSzX-30) tX = MapSzX-30;
+			if (tY > MapSzY-30) tY = MapSzY-30;			
+			wsprintf(G_cTxt, "%d,%d", tX, tY);
+			PutString_SprFont3(msX + 10, msY -10, G_cTxt, m_wR[13]*4, m_wG[13]*4, m_wB[13]*4, FALSE, 2);
+		}
+		break;
+	}
+}
+
+void CGame::DrawDialogBox_Soldier(int msX, int msY) // Snoopy: Fixed for 351
+{short sX, sY, szX, szY, MapSzX, MapSzY;	
+ DWORD dwTime = G_dwGlobalTime;
+ char cMapName[120];
+ double dV1, dV2, dV3;
+ int tX, tY;
+	sX = m_stDialogBoxInfo[38].sX;
+	sY = m_stDialogBoxInfo[38].sY;	
+	szX = m_stDialogBoxInfo[38].sSizeX;	
+	if ((dwTime - m_dwCommanderCommandRequestedTime) > 1000*10) 
+	{	_RequestMapStatus("middleland", 1);
+		m_dwCommanderCommandRequestedTime = dwTime;		
+	}
+
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX, sY-5, 0, FALSE, m_bDialogTrans);
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX, sY, 21, FALSE, m_bDialogTrans);
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_TEXT, sX, sY, 17, FALSE, m_bDialogTrans); // Crusade Soldier Menu Text
+	
+	switch (m_stDialogBoxInfo[38].cMode) {
+	case 0: // Main dlg, Map				
+		if (m_iTeleportLocX != -1) 
+		{	ZeroMemory(cMapName, sizeof(cMapName));
+			GetOfficialMapName(m_cTeleportMapName, cMapName);
+			wsprintf(G_cTxt, DRAW_DIALOGBOX_SOLDIER1, cMapName, m_iTeleportLocX, m_iTeleportLocY);
+			PutAlignedString(sX, sX + szX, sY + 40, G_cTxt);					// "Teleport position: %s near %d, %d"
+		}else PutAlignedString(sX, sX + szX, sY + 40, DRAW_DIALOGBOX_SOLDIER2); //"Teleport position is not set."
+
+		if (   (msX >= sX +20) && (msX <= sX +20 +46) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY + 340, 15, dwTime); 
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY + 340, 1, dwTime); 
+				
+		if (   (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 18, dwTime); 
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 4, dwTime); 
+
+		if (   (msX >= sX +20) && (msX <= sX +20 +46) 
+			&& (msY >= sY +340) && (msY <= sY + 340 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_SOLDIER3, 255,255,255); // "Teleport to position that commander pointed"
+		}else if ( (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+				&& (msY >= sY +340) && (msY <= sY + 340 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_SOLDIER4, 255,255,255); // "Help for soldier"
+		}
+		break;
+	
+	case 1: // TP now
+		PutAlignedString(sX, sX + szX, sY + 40,  DRAW_DIALOGBOX_SOLDIER5); // "Teleport to position that commander pointed"
+		if (   (msX >= sX +20) && (msX <= sX +20 +46) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY + 340, 15, dwTime); 
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY + 340, 1, dwTime); 
+		
+		if (   (msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	  m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74 -50, sY + 340, 19, dwTime); 
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74 -50, sY + 340, 20, dwTime); 
+
+		if (   (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{     m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 18, dwTime);
+		}else m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +150 + 74, sY + 340, 4, dwTime);
+
+		if (   (msX >= sX +20) && (msX <= sX +20 +46) 
+			&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_SOLDIER6, 255,255,255);
+		}else if ( (msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) 
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_SOLDIER7, 255,255,255);
+		}else if ( (msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) 
+				&& (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	PutString2(msX +20, msY +35, DRAW_DIALOGBOX_SOLDIER8, 255,255,255);//"Help for teleport"
+		}
+		break;
+	}
+		
+	switch (m_stDialogBoxInfo[38].cMode) {
+	case 0: // Main
+	case 1: // TP
+		szX = NULL;
+		szY = NULL;
+		MapSzX = NULL;
+		MapSzY = NULL;
+		if (strcmp(m_cStatusMapName, "aresden") == 0) 
+		{	szX = 250;
+			szY = 250;	
+		}else if (strcmp(m_cStatusMapName, "elvine") == 0) 
+		{	szX = 250;
+			szY = 250;
+		}else if (strcmp(m_cStatusMapName, "middleland") == 0) 
+		{	szX = 279;
+			szY = 280;	  // Fix for ML
+			MapSzX = 524; // Fix for ML
+			MapSzY = 524; // Fix for ML
+		}
+		if (szX != 0) 
+		{	for (int i = 0; i < DEF_MAXCRUSADESTRUCTURES; i++) 
+			if (m_stCrusadeStructureInfo[i].cType == 42) 
+			{	dV1 = (double)MapSzX;
+				dV2 = (double)m_stCrusadeStructureInfo[i].sX;
+				dV3 = (dV2*(double)szX)/dV1;
+				tX  = (int)dV3;
+				dV1 = (double)MapSzY;
+				dV2 = (double)m_stCrusadeStructureInfo[i].sY;
+				dV3 = (dV2*(double)szY)/dV1;
+				tY  = (int)dV3;
+				switch (m_stCrusadeStructureInfo[i].cType) {
+				case 42:
+					DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 40); // ManaStone 
+					break;
+			}	}			
+			if (m_iTeleportLocX != -1) 		 
+			{	dV1 = (double)MapSzX;
+				dV2 = (double)m_iTeleportLocX;
+				dV3 = (dV2*(double)szX)/dV1;
+				tX  = (int)dV3;
+				dV1 = (double)MapSzY;
+				dV2 = (double)m_iTeleportLocY;
+				dV3 = (dV2*(double)szY)/dV1;
+				tY  = (int)dV3;
+				DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 42, FALSE, TRUE); //TP
+			}
+			if (strcmp(m_cMapName, "middleland") == 0) 
+			{	dV1 = (double)MapSzX;//m_pMapData->m_sMapSizeX;
+				dV2 = (double)m_sPlayerX;
+				dV3 = (dV2*(double)szX)/dV1;
+				tX  = (int)dV3;
+				dV1 = (double)MapSzY;//m_pMapData->m_sMapSizeY;
+				dV2 = (double)m_sPlayerY;
+				dV3 = (dV2*(double)szY)/dV1;
+				tY  = (int)dV3;
+				DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_CRUSADE, sX +tX + 15, sY +tY + 60, 43); // Player place
+		}	}	
+		if (   (msX >= sX + 15) && (msX <= sX + 15 +278) 
+			&& (msY >= sY + 60) && (msY <= sY + 60 +272))  // Draw mouse coordinates 
+		{	dV1 = (double)(msX - (sX + 15));
+			dV2 = (double)MapSzX;//(752.0f); 
+			dV3 = (dV2*dV1)/szX;//280.0f;
+			tX = (int)dV3;
+			dV1 = (double)(msY - (sY + 60));
+			dV2 = (double)MapSzX;//(680.0f); 
+			dV3 = (dV2*dV1)/szY;//253.0f;
+			tY = (int)dV3;
+			if (tX < 30) tX = 30;
+			if (tY < 30) tY = 30;
+			if (tX > MapSzX-30) tX = MapSzX-30;
+			if (tY > MapSzY-30) tY = MapSzY-30;		
+			wsprintf(G_cTxt, "%d,%d", tX, tY);
+			PutString_SprFont3(msX + 10, msY -10, G_cTxt, m_wR[13]*4, m_wG[13]*4, m_wB[13]*4, FALSE, 2);
+		}
+		break;
+	}
+}
+
+
+
+void CGame::DlgBoxClick_Commander(int msX, int msY) // Snoopy: Fixed for 351
+{short sX, sY, tX, tY;	  
+ double d1, d2, d3;  
+	if (m_bIsCrusadeMode == FALSE) return;
+	sX = m_stDialogBoxInfo[36].sX;
+	sY = m_stDialogBoxInfo[36].sY;
+		
+	switch (m_stDialogBoxInfo[36].cMode) {
+	case 0: // Main
+		if ((msX >= sX +20) && (msX <= sX +20 +46) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_stDialogBoxInfo[36].cMode = 1;
+			PlaySound('E', 14, 5); 
+		}
+		if ((msX >= sX +20 +50) && (msX <= sX +20 +46 +50) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	if (m_iTeleportLocX == -1) 
+			{	SetTopMsg(m_pGameMsgList[15]->m_pMsg, 5);
+			}else if (strcmp(m_cMapName, m_cTeleportMapName) == 0) 
+			{	SetTopMsg(m_pGameMsgList[16]->m_pMsg, 5);
+			}else 
+			{	m_stDialogBoxInfo[36].cMode = 2;
+				PlaySound('E', 14, 5);
+		}	}
+		if ((msX >= sX +20 +100) && (msX <= sX +20 +46 +100) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_stDialogBoxInfo[36].cMode = 3;
+			m_stDialogBoxInfo[36].sV1   = 0; 
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150) && (msX <= sX +20 +46 +150) && (msY >= sY + 340) && (msY <= sY + 340 + 52))
+		{	m_stDialogBoxInfo[36].cMode = 4;
+			PlaySound('E', 14, 5);
+		}		
+		if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	DisableDialogBox(18);
+			EnableDialogBox(18, 808, NULL, NULL);
+			PlaySound('E', 14, 5);
+		}
+		break; 
+
+	case 1: // Set TP
+		if ((msX >= sX + 15) && (msX <= sX + 15 + 278) && (msY >= sY + 60) && (msY <= sY + 60 + 272)) 
+		{	d1 = (double)(msX - (sX + 15));
+			d2 = (double)(524.0f); //(752.0f); 
+			d3 = (d2*d1)/279.0f;
+			tX = (int)d3;
+			d1 = (double)(msY - (sY + 60));
+			d2 = (double)(524.0f); //(680.0f); 
+			d3 = (d2*d1)/(280.0f); //253.0f;
+			tY = (int)d3;
+			if (tX < 30) tX = 30;
+			if (tY < 30) tY = 30;
+			if (tX > 494) tX = 494;//722;
+			if (tY > 494) tY = 494;//650;		
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SETGUILDTELEPORTLOC, NULL, tX, tY, NULL, "middleland");
+			m_stDialogBoxInfo[36].cMode = 0;
+			PlaySound('E', 14, 5);
+			_RequestMapStatus("middleland", 1);
+		}
+		if ((msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_stDialogBoxInfo[36].cMode = 0;
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	DisableDialogBox(18);
+			EnableDialogBox(18, 809, NULL, NULL);
+			PlaySound('E', 14, 5);
+		}
+		break;
+
+	case 2: // Use TP 
+		if ((msX >= sX +20 +50) && (msX <= sX +20 +46 +50) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_GUILDTELEPORT, NULL, NULL, NULL, NULL, NULL);
+			DisableDialogBox(36);
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_stDialogBoxInfo[36].cMode = 0;
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	DisableDialogBox(18);
+			EnableDialogBox(18, 810, NULL, NULL);
+			PlaySound('E', 14, 5);
+		}
+		break;  
+
+	case 3: // Summon Unit
+		if( m_bAresden == TRUE ) 
+		{	if ((msX >= sX +20) && (msX <= sX +20 +46) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 3000) 
+				{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 47, 1, m_stDialogBoxInfo[36].sV1, NULL);
+					PlaySound('E', 14, 5);
+					DisableDialogBox(36);
+			}	}
+			if ((msX >= sX +20 +50) && (msX <= sX +20 +50 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 2000) 
+				{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 46, 1, m_stDialogBoxInfo[36].sV1, NULL);
+					PlaySound('E', 14, 5);
+					DisableDialogBox(36);
+			}	}
+			if ((msX >= sX +20 +100) && (msX <= sX +20 +100 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 1000) 
+				{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 43, 1, m_stDialogBoxInfo[36].sV1, NULL);
+					PlaySound('E', 14, 5);
+					DisableDialogBox(36);
+			}	}
+			if ((msX >= sX +20 +150) && (msX <= sX +20 +150 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 1500) 
+				{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 51, 1, m_stDialogBoxInfo[36].sV1, NULL);
+					PlaySound('E', 14, 5);
+					DisableDialogBox(36);
+			}	} 
+		}else if (m_bAresden == FALSE) 
+		{	if ((msX >= sX +20) && (msX <= sX +20 +46) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 3000) 
+				{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 45, 1, m_stDialogBoxInfo[36].sV1, NULL);
+					PlaySound('E', 14, 5);
+					DisableDialogBox(36); 			
+			} 	}
+			if ((msX >= sX +20 +50) && (msX <= sX +20 +50 +45) && (msY >= sY +220) && (msY <= sY +220 +50))
+			{	if (m_iConstructionPoint >= 2000) 
+				{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 44, 1, m_stDialogBoxInfo[36].sV1, NULL);
+					PlaySound('E', 14, 5);
+					DisableDialogBox(36);
+			} 	}   
+			if ((msX >= sX +20 +100) && (msX <= sX +20 +100 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 1000)
+				{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 43, 1, m_stDialogBoxInfo[36].sV1, NULL);
+					PlaySound('E', 14, 5);
+					DisableDialogBox(36);
+			}	}
+			if ((msX >= sX +20 +150) && (msX <= sX +20 +150 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+			{	if (m_iConstructionPoint >= 1500) 
+				{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 51, 1, m_stDialogBoxInfo[36].sV1, NULL);
+					PlaySound('E', 14, 5);
+					DisableDialogBox(36);
+		}	}	}
+		if ((msX >= sX +20) && (msX <= sX +380) && (msY > sY +140) && (msY < sY +160)) 
+		{	m_stDialogBoxInfo[36].sV1   = 0; 
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20) && (msX <= sX +380) && (msY > sY +160) && (msY < sY +175)) 
+		{	m_stDialogBoxInfo[36].sV1   = 1; 
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_stDialogBoxInfo[36].cMode = 0;
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	DisableDialogBox(18);
+			EnableDialogBox(18, 811, NULL, NULL);
+			PlaySound('E', 14, 5);
+		}
+		break;
+
+	case 4: // Set constr
+		if (   (msX >= sX + 15) && (msX <= sX + 15 + 278)
+			&& (msY >= sY + 60) && (msY <= sY + 60 + 272))
+		{	d1 = (double)(msX - (sX + 15));
+			d2 = (double)(524.0);//(752.0f); 
+			d3 = (d2*d1)/279.0f;
+			tX = (int)d3;
+			d1 = (double)(msY - (sY + 60));
+			d2 = (double)(524.0);//(680.0f); 
+			d3 = (d2*d1)/(280.0);//253.0f;
+			tY = (int)d3;
+			if (tX < 30) tX = 30;
+			if (tY < 30) tY = 30;
+			if (tX > 494) tX = 494;//722;
+			if (tY > 494) tY = 494;//650;			
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SETGUILDCONSTRUCTLOC, NULL, tX, tY, NULL, "middleland");
+			m_stDialogBoxInfo[36].cMode = 0;
+			PlaySound('E', 14, 5);
+			_RequestMapStatus("middleland", 1);
+		}
+		if ((msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_stDialogBoxInfo[36].cMode = 0;
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	DisableDialogBox(18);
+			EnableDialogBox(18, 812, NULL, NULL);
+			PlaySound('E', 14, 5);
+		}
+		break;
+	}     
+}
+
+
+void CGame::DlgBoxClick_Constructor(int msX, int msY)  // Snoopy: Fixed for 351
+{ short sX, sY;	   
+	if (m_bIsCrusadeMode == FALSE) return;
+	sX = m_stDialogBoxInfo[37].sX;
+	sY = m_stDialogBoxInfo[37].sY;
+		
+	switch (m_stDialogBoxInfo[37].cMode) {
+	case 0: // Main
+		if ((msX >= sX +20) && (msX <= sX +20 +46) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	if (m_iConstructLocX == -1) 
+			{	SetTopMsg(m_pGameMsgList[14]->m_pMsg, 5);
+			}else 
+			{	m_stDialogBoxInfo[37].cMode = 1;
+				PlaySound('E', 14, 5);
+		}	}
+		if ((msX >= sX +20 +50) && (msX <= sX +20 +46 +50) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	if (m_iTeleportLocX == -1) 
+			{	SetTopMsg(m_pGameMsgList[15]->m_pMsg, 5);
+			}else if (strcmp(m_cMapName, m_cTeleportMapName) == 0) 
+			{	SetTopMsg(m_pGameMsgList[16]->m_pMsg, 5);
+			}else 
+			{	m_stDialogBoxInfo[37].cMode = 2;
+				PlaySound('E', 14, 5);
+		}	}		
+		if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	DisableDialogBox(18);
+			EnableDialogBox(18, 805, NULL, NULL);
+			PlaySound('E', 14, 5);
+		}
+		break;
+
+	case 1: // Choose building
+		if ((msX >= sX +20) && (msX <= sX +20 +46) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 38, 1, m_stDialogBoxInfo[36].sV1, NULL);
+			PlaySound('E', 14, 5);
+			DisableDialogBox(37);
+		}
+		if ((msX >= sX +20 +50) && (msX <= sX +20 +50 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 39, 1, m_stDialogBoxInfo[36].sV1, NULL);
+			PlaySound('E', 14, 5);
+			DisableDialogBox(37);
+		}
+		if ((msX >= sX +20 +100) && (msX <= sX +20 +100 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 36, 1, m_stDialogBoxInfo[36].sV1, NULL);
+			PlaySound('E', 14, 5);
+			DisableDialogBox(37);
+		}
+		if ((msX >= sX +20 +150) && (msX <= sX +20 +150 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
+		{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SUMMONWARUNIT, NULL, 37, 1, m_stDialogBoxInfo[36].sV1, NULL);
+			PlaySound('E', 14, 5);
+			DisableDialogBox(37);
+		}
+				
+		if ((msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) && (msY >= sY + 322) && (msY <= sY + 322 + 52)) 
+		{	m_stDialogBoxInfo[37].cMode = 0;
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 322) && (msY <= sY + 322 + 52)) 
+		{	DisableDialogBox(18);
+			EnableDialogBox(18, 806, NULL, NULL);
+			PlaySound('E', 14, 5);
+		}
+		break;
+
+	case 2: // Use TP
+		if ((msX >= sX +20 +50) && (msX <= sX +20 +46 +50) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_GUILDTELEPORT, NULL, NULL, NULL, NULL, NULL);
+			DisableDialogBox(37);
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_stDialogBoxInfo[37].cMode = 0;
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	DisableDialogBox(18);
+			EnableDialogBox(18, 807, NULL, NULL);
+			PlaySound('E', 14, 5);
+		}
+		break;
+	}     
+}
+
+
+void CGame::DlgBoxClick_Soldier(int msX, int msY) // Snoopy: Fixed for 351
+{ short sX, sY;	    
+	if (m_bIsCrusadeMode == FALSE) return;
+	sX = m_stDialogBoxInfo[38].sX;
+	sY = m_stDialogBoxInfo[38].sY;
+		
+	switch (m_stDialogBoxInfo[38].cMode) {
+	case 0: // Main dlg
+		if ((msX >= sX +20) && (msX <= sX +20 +46) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	if (m_iTeleportLocX == -1)
+			{	SetTopMsg(m_pGameMsgList[15]->m_pMsg, 5);
+			}else if (strcmp(m_cMapName, m_cTeleportMapName) == 0)
+			{	SetTopMsg(m_pGameMsgList[16]->m_pMsg, 5);
+			}else 
+			{	m_stDialogBoxInfo[38].cMode = 1;
+				PlaySound('E', 14, 5);
+		}	}				
+		if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	DisableDialogBox(18);
+			EnableDialogBox(18, 803, NULL, NULL);
+			PlaySound('E', 14, 5);
+		}
+		break;
+
+	case 1: // Use TP
+		if ((msX >= sX +20) && (msX <= sX +20 +46+50) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_GUILDTELEPORT, NULL, NULL, NULL, NULL, NULL);
+			DisableDialogBox(38);
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150 + 74 -50) && (msX <= sX +20 +46 +150 + 74 -50) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	m_stDialogBoxInfo[38].cMode = 0;
+			PlaySound('E', 14, 5);
+		}
+		if ((msX >= sX +20 +150 + 74) && (msX <= sX +20 +46 +150 + 74) && (msY >= sY + 340) && (msY <= sY + 340 + 52)) 
+		{	DisableDialogBox(18);
+			EnableDialogBox(18, 804, NULL, NULL);
+			PlaySound('E', 14, 5);
+		}
+		break;
+	}     
+}
+
+
+						case 15: // ShopKeeper-W°
+							/*switch (cName[0]) {
+							case '1':*/
+								EnableDialogBox(20, 5, 11, 1);
+								tX = msX - 117;
+								tY = msY - 50;
+								if (tX < 0) tX = 0;
+								if ((tX + 235) > 639) tX = 639 - 235;
+								if (tY < 0) tY = 0;
+								if ((tY + 100) > 479) tY = 479 - 100;
+								m_stDialogBoxInfo[20].sX  = tX;
+								m_stDialogBoxInfo[20].sY  = tY;
+								m_stDialogBoxInfo[20].sV3 = 15;
+							/*	break;
+							}*/
+							break;

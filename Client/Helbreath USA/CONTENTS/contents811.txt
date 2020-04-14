@@ -1,0 +1,23 @@
+Commander warfare recall skill
+
+Depends on the activity and points of the
+constructor the commander would be able
+to recall warfare soldiers.
+
+It recalls a unit to accompany the
+commander who is burnt, the guard mode
+which it protects Guard Mode which stays
+from the place where it is recalled and
+the hall where attacks the enemy whom
+approaches to Hold Mode. 
+
+It recalls a unit to respect, there must be
+a recall point which the recall unit does
+in necessity.
+
+
+When the assigned guild soldier kills an
+enemy or a warfare unit in the battle and
+when the constructor completes the
+construction of warfare building, there is
+a possibility of getting a recall point. 

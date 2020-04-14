@@ -1,0 +1,164 @@
+[MAP-INFO]							
+map-location	=	aresden					
+initial-point	=	11	170	146			
+initial-point	=	12	140	206			
+initial-point	=	13	140	50			
+initial-point	=	14	116	246			
+initial-point	=	15	68	126
+pk-mode = 0			
+maximum-object	   = 250							
+random-mob-generator = 1  23						
+npc-avoidrect        = 1  76 70 209 219
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;							
+// Only remaining Shop, BS & 1 WH
+teleport-loc	=	167	195	bsmith_1	34	37	4
+teleport-loc	=	168	195	bsmith_1	34	37	4
+teleport-loc	=	169	195	bsmith_1	34	37	4
+teleport-loc	=	169	194	bsmith_1	34	37	4
+
+teleport-loc	=	157	200	bsmith_1	43	32	5
+teleport-loc	=	157	201	bsmith_1	43	32	5
+teleport-loc	=	158	201	bsmith_1	43	32	5
+
+teleport-loc	=	107	185	wrhus_1	56	36	4
+teleport-loc	=	102	184	wrhus_1	56	36	4
+teleport-loc	=	103	185	wrhus_1	56	36	4
+teleport-loc	=	101	183	wrhus_1	56	36	4
+
+teleport-loc	=	126	166	gshop_1	50	39	4
+teleport-loc	=	126	167	gshop_1	50	39	4
+teleport-loc	=	127	167	gshop_1	50	39	4
+teleport-loc	=	130	167	gshop_1	50	39	4
+teleport-loc	=	131	166	gshop_1	50	39	4
+
+// Note: Aresien Temple is at Equilibrium
+teleport-loc	=	185	93	cath_1	34	42	4
+teleport-loc	=	186	93	cath_1	34	42	4
+teleport-loc	=	186	92	cath_1	34	42	4
+teleport-loc	=	187	92	cath_1	34	42	4
+
+teleport-loc	=	27	20	middleland	152	496	1
+teleport-loc	=	28	20	middleland	152	496	1
+teleport-loc	=	29	20	middleland	152	496	1
+teleport-loc	=	30	20	middleland	152	496	1
+teleport-loc	=	31	20	middleland	152	496	1
+teleport-loc	=	32	20	middleland	152	496	1
+teleport-loc	=	33	20	middleland	152	496	1
+teleport-loc	=	34	20	middleland	152	496	1
+teleport-loc	=	35	20	middleland	152	496	1
+
+teleport-loc	=	258	20	middleland	356	497	1
+teleport-loc	=	259	20	middleland	356	497	1
+teleport-loc	=	260	20	middleland	356	497	1
+teleport-loc	=	261	20	middleland	356	497	1
+teleport-loc	=	262	20	middleland	356	497	1
+teleport-loc	=	263	20	middleland	356	497	1
+teleport-loc	=	264	20	middleland	356	497	1
+teleport-loc	=	265	20	middleland	356	497	1
+teleport-loc	=	266	20	middleland	356	497	1
+
+teleport-loc	=	80	209	aresdend1	96	39	5
+teleport-loc	=	79	209	aresdend1	96	39	5
+teleport-loc	=	79	210	aresdend1	96	39	5
+teleport-loc	=	78	210	aresdend1	96	39	5
+teleport-loc	=	78	211	aresdend1	96	39	5
+
+teleport-loc	=	279	202	arefarm	23	27	5
+teleport-loc	=	279	203	arefarm	23	27	5
+teleport-loc	=	279	204	arefarm	23	27	5
+teleport-loc	=	279	205	arefarm	23	27	5
+teleport-loc	=	279	206	arefarm	23	27	5
+teleport-loc	=	279	207	arefarm	23	27	5
+teleport-loc	=	279	208	arefarm	23	27	5
+teleport-loc	=	279	209	arefarm	23	27	5
+teleport-loc	=	279	210	arefarm	23	27	5
+
+teleport-loc     =     94    161     CmdHall_1   51    50    5
+teleport-loc     =     95    161     CmdHall_1   51    50    5
+teleport-loc     =     95    160     CmdHall_1   51    50    5
+teleport-loc     =    101    159     CmdHall_1   40    52    5
+teleport-loc     =    102    159     CmdHall_1   40    52    5
+teleport-loc     =    103    159     CmdHall_1   40    52    5
+
+
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       60    55
+waypoint          =     1       140   60
+waypoint          =     2       250   75
+waypoint          =     3       60    125
+waypoint          =     4       150   130
+waypoint          =     5       200   130
+waypoint          =     6       255   135
+waypoint          =     7       70    220
+waypoint          =     8       170   230
+waypoint          =     9       255   225
+
+//-No-Attack-Area----------Num-----RECT-------------							
+no-attack-area	=	1	27	20	35	28	
+no-attack-area	=	2	252	20	264	29
+
+no-attack-area	=	3	137	47	144	53	
+no-attack-area	=	4	167	142	174	149	
+no-attack-area	=	5	65	122	72	129	
+no-attack-area	=	6	137	202	144	208	
+no-attack-area	=	7	113	242	120	248			
+
+//-----------------------Num-Type-RECT---------------Mob-MobNum
+// Gardes East Vivines, West Ares.
+spot-mob-generator	= 	1  	1    215 100 265 205    25  6
+spot-mob-generator	= 	2  	1    100 155 160 205    24  6
+
+//Slimes pits Tailles 375 = 25x15									
+spot-mob-generator	=	3	1	240	200	265	215	10	10
+spot-mob-generator	=	4	1	127	235	152	250	10	10
+
+//Snakes pits Tailles 375 = 25x15	
+spot-mob-generator	=	5	1	100    31	129	45	22	10
+spot-mob-generator	=	6	1	151	33	176	48	22	10
+
+//Scorps pits Tailles 40x15
+spot-mob-generator	=	7	1	190	230	230	245	17	10
+
+// Evil-Stone on all the map
+spot-mob-generator	=	8	1	30	30	270	270	112	6
+
+//-strike-point--------Num----dX----dY----Hp----EffectLoc-------------------------------------Related-Map-Name																
+strike-point	=	1	148	126	13	132  111	138  108	147  113	139  119	132  119	cityhall_1
+strike-point	=	2	115	183	13	98   176	106  173	113  177	109  181	102  180	wrhus_1
+strike-point	=	3	171	197	13	154  191	161  192	169  191	164  196	157  197	bsmith_1
+strike-point	=	4	132	165	13	118  161	126  159	133  161	128  164	123  164	gshop_1
+
+max-fish   = 6
+fish-point = 0  59   99
+fish-point = 1  60   98
+fish-point = 2  60   99
+fish-point = 3  76   88
+fish-point = 4  77   87
+fish-point = 5  78   87
+fish-point = 6  90   91
+fish-point = 7  91   92
+fish-point = 8  79   98
+fish-point = 9  79   98
+fish-point = 10 80   98
+fish-point = 11 81   98
+fish-point = 12 89   107
+fish-point = 13 89   108
+fish-point = 14 90   107
+fish-point = 15 108  103
+fish-point = 16 109  104
+fish-point = 17 67   108
+fish-point = 18 68   109
+fish-point = 19 69   109
+fish-point = 20 85   120
+fish-point = 21 86   121
+fish-point = 22 87   121
+fish-point = 23 99   113
+fish-point = 24 100  112
+fish-point = 25 252  277
+fish-point = 26 252  278
+fish-point = 27 273  275
+fish-point = 28 274  275
+
+[END-MAP-INFO]				

@@ -1,0 +1,89 @@
+[MAP-INFO]
+map-location  = 2ndmiddle
+initial-point = 1  168 130
+upper-level-limit = 100
+pk-mode = 1
+CitizenLimit = 1
+drop-type = -1
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+//-Dir
+//------7(8)---8(1)---9(2)
+//------4(7)---5------6(3)
+//------1(6)---2(5)---3(4)
+teleport-loc     =      135    228    arefarm             120    28    4
+teleport-loc     =      136    228    arefarm             120    28    4
+teleport-loc     =      137    228    arefarm             120    28    4
+teleport-loc     =      138    228    arefarm             120    28    4
+teleport-loc     =      139    228    arefarm             120    28    4
+teleport-loc     =      140    228    arefarm             120    28    4
+teleport-loc     =      141    228    arefarm             120    28    4
+teleport-loc     =      142    228    arefarm             120    28    4
+teleport-loc     =      143    228    arefarm             120    28    4
+teleport-loc     =      144    228    arefarm             120    28    4
+teleport-loc     =      145    228    arefarm             120    28    4
+teleport-loc     =      146    228    arefarm             120    28    4
+
+teleport-loc     =      121    21     elvfarm             161    227   5
+teleport-loc     =      122    21     elvfarm             161    227   5
+teleport-loc     =      123    21     elvfarm             161    227   5
+teleport-loc     =      124    21     elvfarm             161    227   5
+teleport-loc     =      125    21     elvfarm             161    227   5
+teleport-loc     =      126    21     elvfarm             161    227   5
+teleport-loc     =      127    21     elvfarm             161    227   5
+teleport-loc     =      128    21     elvfarm             161    227   5
+teleport-loc     =      129    21     elvfarm             161    227   5
+teleport-loc     =      130    21     elvfarm             161    227   5
+teleport-loc     =      131    21     elvfarm             161    227   5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       75    75
+waypoint          =     1       75   200
+waypoint          =     2      200   200
+waypoint          =     3      200    75
+waypoint          =     4      125   125
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area           = 1       115  18 135  25
+no-attack-area           = 2       130 224 150 234
+
+maximum-object		= 380
+random-mob-generator	= 1  8
+
+
+//----------------------Num-Type---RECT------------Mob-MobNum
+// My Pits inspired from China ones but improved!
+// XP supposed easy here, up to lvl 100 !
+// Scorpions
+spot-mob-generator	= 1  1     50 160  75 180   17  20
+spot-mob-generator	= 2  1     45  75  65 100   17  20
+
+// Cyclops
+spot-mob-generator	= 3  1    105 110 135 140   13   7
+
+// Zombies
+spot-mob-generator	= 4  1    115 195 135 215   18  22
+spot-mob-generator	= 5  1    130  40 150  60   18  22
+
+// Orcs
+spot-mob-generator	= 6  1    165 180 185 200   14  14
+spot-mob-generator	= 7  1     45  35  65  55   14  14
+
+// Skeletons
+spot-mob-generator	= 8  1     85 195 100 210   11  20
+spot-mob-generator	= 9  1     60  70  75  85   11  20
+
+// StoneG
+spot-mob-generator	= 10 1    190 145 220 165   12  15
+spot-mob-generator	= 11 1    200  50 220  80   12  15
+
+// ClayG
+spot-mob-generator	= 12 1    205 170 225 200   23  12
+spot-mob-generator	= 13 1    180  25 200  55   23  12
+
+// Ants
+spot-mob-generator	= 14 1    180 140 240 210   16  10
+spot-mob-generator	= 15 1    180  20 230  80   16  10
+spot-mob-generator	= 16 1    20   20 240 240   16  30
+
+[End-Map-Info]

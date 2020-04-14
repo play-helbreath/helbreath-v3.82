@@ -1,0 +1,142 @@
+;-------Name----------------Type--EPos--Effect--ETValue--------MaxLife--MFixC--Spr--SFrame--Price--Wgt--ApprV-Speed--L.Lmt 
+
+Item  = HandAttackManual      3     0     9      5 20 0 0 0 0   0        0      6    9       100     1   -1    0       0       
+Item  = ShortSwordManual      3     0     9      7 20 0 0 0 0   0        0      6    9       100     1   -1    0       0       
+
+Item  = BleedingIslandTicket  3     0     11    4 1 0 0 0 0     0        0      6    9       100     1    -1   0       0
+Item  = PretendCorpseManual   3     0     9     19 20 0 0 0 0   0        0      6    9       100     1    -1   0       0
+
+Item  = ManufacturingManual   3     0     9     13 20 0 0 0 0   0        0      6    9       100     1    -1   0       0       
+Item  = ManufacturingHammer  10     0     0     1 0 0 0 0 0     300      0      6    113    1500  2000    -1   0       0       
+
+Item  = Dagger                1     8     1     1 4 0  1 3 0    300      0      1    0       25     200  1     0       0    
+Item  = Dagger+1              1     8     1     1 4 1  1 3 1    800      0      1    0      100     200  1     0       10     
+Item  = ShortSword            1     8     1     1 6 0  1 4 0    500      0      1    1       50     800  2     2       0      
+Item  = ShortSword+1          1     8     1     1 6 1  1 4 1    800      0      1    1      200     800  2     2       10       
+Item  = MainGauche            1     8     1     1 6 0  1 4 0    500      0      1    1       50     800  2     2       0      
+Item  = MainGauche+1          1     8     1     1 6 1  1 4 1    800      0      1    1      200     800  2     2       15      
+Item  = Gradius               1     8     1     1 6 0  1 6 0    500      0      1    1       90     800  2     2       0      
+Item  = Gradius+1             1     8     1     1 6 1  1 6 1    800      0      1    1      350     800  2     2       20      
+
+Item  = LongSwordManual       3     0     9     8 20 0 0 0 0    0        0      6    9       100     1    -1   0       0
+Item  = Sabre                 1     8     1     1 8 0  1 8  0   800      0      1    3       150   1200   4    5       0      
+Item  = Sabre+1               1     8     1     1 8 1  1 8  1   1000     0      1    3       600   1200   4    5       20     
+Item  = LongSword             1     8     1     1 8 0  1 10 0   800      0      1    2       150   1400   3    6       0      
+Item  = LongSword+1           1     8     1     1 8 1  1 10 1   1400     0      1    2       650   1400   3    6       40     
+Item  = Scimitar              1     8     1     1 8 0  1 12 0   800      0      1    4       200   1800   5    6       0      
+Item  = Scimitar+1            1     8     1     1 8 1  1 12 1   1400     0      1    4       800   1800   5    6       30      
+Item  = Falchion              1     8     1     1 8 0  2 6 0    800      0      1    5       250   2200   6    6       0       
+Item  = Falchion+1            1     8     1     1 8 1  2 6 1    1400     0      1    5      1000   2200   6    6       35     
+Item  = BroadSword            1     9     1     1 10 0  2 6 0   800      0      1    7       250   2800   8    6       0      
+Item  = BroadSword+1          1     9     1     1 10 1  2 6 1   1400     0      1    7      1100   2800   8    6       30      
+Item  = BastadSword           1     9     1     2 5 0  2 7 0    1000     0      1    8       300   3300   9    6       0      
+Item  = BastadSword+1         1     9     1     2 5 1  2 7 1    1400     0      1    8      1200   3300   9    6       35      
+Item  = Claymore              1     9     1     2 6 0  2 8 0    1000     0      1    9       400   4000   10   7       0     
+Item  = Claymore+1            1     9     1     2 6 1  2 8 1    1400     0      1    9      1800   4000   10   7       40      
+Item  = GreatSword            1     9     1     2 8 0  2 10 0   1000     0      1    10      500   5200   11   8       0      
+Item  = GreatSword+1          1     9     1     2 8 1  2 10 1   1400     0      1    10      2300  5200   11   8       50      
+Item  = KnightGreatSword      1     9     1     2 8 2  2 10 2   1200     0      1    10      3500  5200   11   8       85
+Item  = Flameberge            1     9     1     2 10 0  2 12 0  1000     0      1    11      700   6000   12   10      0      
+Item  = Flameberge+1          1     9     1     2 10 1  2 12 1  1400     0      1    11      3300  6000   12   10      60      
+Item  = KnightFlameberge      1     9     1     2 10 2  2 12 2  1200     0      1    11      3700  6000   12   10     100
+Item  = GiantSword            1     9     1     2 11 3 2 12 3  1500      0      1    18    8000 13000   13    12   100
+Item  = BlackShadowSword    1     9      1     2 12 3 2 12 3  2800      0       1    25    10000   15000    33    14    120
+
+;-------Name----------------Type--EPos--Effect--ETValue--------MaxLife--MFixC--Spr-Frame--Price--Wgt--ApprV-Speed 
+
+Item  = FencingManual         3     0     9     9 20 0 0 0 0    0        0      6    9       100     1    -1   0       0
+Item  = Esterk                1     8     1     1 7 0  1 10 0   800      0      1    6       200   1200   7    4       0     
+Item  = Esterk+1              1     8     1     1 7 1  1 10 1   1400     0      1    6       800   1200   7    4       20      
+Item  = Rapier                1     8     1     1 7 0  1 7  0   800      0      1    6       300   1100   7    3       0      
+Item  = Rapier+1              1     8     1     1 7 1  1 7  1   1000     0      1    6      1300   1100   7    3       30      
+Item  = KnightRapier          1     8     1     1 7 2  1 7  2   1100     0      1    6      3200   1200    7   3      100
+
+Item  = AxeManual             3     0     9     10 20 0 0 0 0   0        0      6    9       100     1    -1   0       0
+Item  = LightAxe              1     8     1     1 6  0  1 5  0  500      0      15   2       100   1400   22   3       0    
+Item  = LightAxe+1            1     8     1     1 6  1  1 5  1  500      0      15   2       350   1400   22   3       10     
+Item  = Tomahoc               1     8     1     2 3  0  1 5  0  500      0      15   2       180   1700   22   4       0   
+Item  = Tomahoc+1             1     8     1     2 3  1  1 5  1  500      0      15   2       700   1700   22   4       20       
+Item  = SexonAxe              1     8     1     1 6  0  1 6  0  700      0      15   3       200   2000   23   4       0    
+Item  = SexonAxe+1            1     8     1     1 6  1  1 6  1  700      0      15   3       800   2000   23   4       30      
+Item  = DoubleAxe             1     8     1     3 3  0  2 4  0  800      0      15   0       560   3300   20   5       0      
+Item  = DoubleAxe+1           1     8     1     3 3  1  2 4  1  800      0      15   0      1200   3300   20   5       40    
+Item  = WarAxe                1     8     1     2 6  0  2 8  0  1000     0      15   1       700   4400   21   8       0    
+Item  = WarAxe+1              1     8     1     2 6  1  2 8  1  1000     0      15   1      2000   4400   21   8       60      
+Item  = KnightWarAxe          1     8     1     2 6  2  2 8  2  1200     0      15   1      3000   4400   21   8       85
+Item  = BattleAxe             1     9     1     3 8  0  3 9  0  1500     0      15   6      3500   9000   26   13       0
+Item  = BattleAxe+1           1     9     1     3 8  1  3 9  1  2000     0      15   6      6000   9000   26   13     110
+
+Item  = HammerAttackManual    3     0     9    14 20 0  0 0  0     0     0       6  92       100     1    -1    0      0
+Item  = Hammer     	      1     9     1     3 7  0  3 9  0  2000     0      15   7     6000   9000    30    12     0
+Item  = BattleHammer          1     9     1     3 7  2  3 9  2  4000     0      15   8     9000  12000    31    14   110
+Item  = BarbarianHammer       1     9      1     3 9  2 3 10 2  4500     0       15   10   15000   20000    32    15 110
+
+Item  = ArcheryManual         3     0     9     6 20 0 0 0 0    0       0       6    9       100     1    -1   0       0
+Item  = ShortBow              1     9     3     0 0 0  0 0 0    500     0       2    0       100    800   40   4       0  
+Item  = LongBow               1     9     3     0 0 0  0 0 0    800     0       2    1       200   1200   41   5       0   
+Item  = CompositeBow          1     9     3     1 6 0  1 6 0   1200     0       2    2      3000   4000   41   5      70
+Item  = Fire-Bow    	      1     9     3     2 5 0  2 5 0   1400      0	2    5     6000  7000   43     6    70 
+Item  = Direction-Bow         1     9     3     2 6 0  2 6 0   1500      0	2    4     7000  10000   42     8    70
+Item  = 10Arrows              6     0     0     1 4 0  1 4 0    0       0       6    10       10    100   -1   3       0
+Item  = 100Arrows             6     0     0     1 4 0  1 4 0    0       0       6    10      100    1000  -1   3       0
+
+Item  = ShieldManual          3     0     9     11 20 0 0 0 0   0       0      6    9       100     1    -1     0      0
+Item  = WoodShield            1     7     2     8  1 1  1 1 1   300     0      3    0       100    800    1     0      0       
+Item  = LeatherShield         1     7     2     10 1 1  1 1 1   300     0      3    1       150   1000    2     0      0      
+Item  = TargeShield           1     7     2     13 1 1  1 1 1   500     0      3    2       250   1800    3     0      0      
+Item  = ScootermShield        1     7     2     16 1 1  1 1 1   500     0      3    3       300   2000    4     0      0      
+Item  = BlondeShield          1     7     2     18 1 1  1 1 1   500     0      3    4       450   2000    5     0      0     
+Item  = IronShield            1     7     2     22 1 1  1 1 1   500     0      3    5       700   2500    6     0      0      
+Item  = LagiShield            1     7     2     26 1 1  1 1 1   800     0      3    6       1300  3000    7     0      0       
+Item  = KnightShield          1     7     2     30 1 1  1 1 1   800     0      3    7       1500  3200    8     0      0       
+Item  = TowerShield           1     7     2     35 1 1  1 1 1   800     0      3    8       1800  4000    9     0      0       
+
+Item  = WandAttackManual      3     0     9     21 20 0 0 0 0   0       0      6    9       100     1    -1     0      0
+Item  = MagicWand(MS0)        1     8     13    1 6 0 0 0 0     1200    0      17   1      1000  1000    36     3     30
+Item  = MagicWand(MS10)       1     8     13    1 6 0 0 0 0     2400    0      17   1      2500  1000    36     3     40
+Item  = MagicWand(MS20)       1     8     13    1 6 0 0 0 0     3600    0      17   1      5000  1000    36     3     50
+Item  = WizMagicWand(MS10)    1     8     13    1 6 0 0 0 0     3600    10     17   1      5500  1000    36     3     90
+Item  = WizMagicWand(MS20)    1     8     13    1 6 0 0 0 0     3600    10     17   1      6000  1000    36     3    100
+
+Item  = MiningManual          3     0     9     0 20 0 0 0 0    0       0      6    9       100     1    -1     0      0 
+Item  = PickAxe               1     8     1     2 4 0 2 4 0     1000    0      15   5       500  1000    25     8      0
+Item  = Hoe                   1     8     1     2 4 0 2 4 0      800    0      15   9       300  1000    27     5      0
+
+;-------Name----------------Type--EPos--Effect--ETValue--------MaxLife--MFixC--Spr-Frame--Price--Wgt--ApprV-Speed 
+
+Item  = Hauberk(M)            1     3     2     8  1 1  1 1 1   300     0      7    1     400     1200    2     0      0     
+Item  = WizardHauberk(M)      1     3     2    12 12 0 14 100 0 1000    0      7   1     2400     1200    2     0     90   
+Item  = KnightHauberk(M)      1     3     2    12 12 0 11 100 0 1000    0      7   1     2400     1200    2     0     70
+Item  = LeatherArmor(M)       1     2     2     10 1 1  1 1 1   400     0      9    0     500     1500    1     0      0     
+Item  = ScaleMail(M)          1     2     2     20 1 1  1 1 1   600     0      9    2     900     2000    3     0      0     
+Item  = ChainMail(M)          1     2     2     30 1 1  1 1 1   1000    0      9    1    1200     3000    2     0      0     
+Item  = PlateMail(M)          1     2     2     37 1 1  1 1 1   3000    0      9    3    4500    10000    4     0      0     
+Item  = KnightPlateMail(M)    1     2     2    40 42 0  0 0 0   3500    0      9   3     6000    10000    4     0     85
+Item  = ChainHose(M)          1     4     2     6  1 1  1 1 1   500     0      8    2     400     1000    3     0      0     
+Item  = PlateLeggings(M)      1     4     2     12 1 1  1 1 1   1000    0      8    3    1000     2000    4     0      0
+Item  = KnightPlateLeg(M)     1     4     2    15 22 1  1 1 1   1000    0      8   3     3000     2000    4     0     80
+
+Item  = Hauberk(W)            1     3     2     8  1 1  1 1 1   300     0      11   2     400     1200    3     0      0
+Item  = WizardHauberk(W)      1     3     2    12 12 0 14 100 0 1000    0      11   2    2400     1200    3     0     90   
+Item  = KnightHauberk(W)      1     3     2    12 12 0 11 100 0 1000    0      11   2    2400     1200    3     0     70   
+Item  = LeatherArmor(W)       1     2     2     10 1 1  1 1 1   400     0      13   2     500     1500    3     0      0  
+Item  = ScaleMail(W)          1     2     2     20 1 1  1 1 1   600     0      13   4     900     2000    5     0      0  
+Item  = ChainMail(W)          1     2     2     30 1 1  1 1 1   1000    0      13   3    1200     3000    4     0      0  
+Item  = PlateMail(W)          1     2     2     37 1 1  1 1 1   3000    0      13   5    4500    10000    6     0      0  
+Item  = KnightPlateMail(W)    1     2     2     40 42 0  0 0 0  3500    0      13   5    6000    10000    6     0     85  
+Item  = ChainHose(W)          1     4     2     6  1 1  1 1 1   500     0      12   3     400     1000    4     0      0    
+Item  = PlateLeggings(W)      1     4     2     12 1 1  1 1 1   1000    0      12   4    1000     2000    5     0      0 
+Item  = KnightPlateLeg(W)     1     4     2     15 22 1  1 1 1  100     0      12   4    3000     2000    5     0     80
+
+Item  = Helm(M)               1     1     2     5 10 0 0 0 0    1500     0      21   0    800     5200    4     0      0
+Item  = FullHelm(M)           1     1     2     10 20 0 0 0 0   2000     0      21   1   1500     8500    1     0      0
+Item  = KnightFullHelm(M)     1     1     2    12 22 0  0 0 0   2000     0      21   1   3500     8500    1     0     80
+Item  = Horned-Helm(M)        1    1    2     17 24 0 0 0 0   3500      0      21   2    4000 16000    5     0   120
+Item  = Wings-Helm(M)         1    1    2     15 22 0 0 0 0   2500      0      21   3    5000 13000    6     0   100
+
+Item  = Helm(W)               1     1     2     5 10 0 0 0 0    1500      0      21   0    800     5200    4     0      0
+Item  = FullHelm(W)           1     1     2     10 20 0 0 0 0   2000      0      21   1   1500     8500    1     0      0
+Item  = KnightFullHelm(W)     1     1     2    12 22 0  0 0 0   2000      0     21   1    3500     8500    1     0     80
+Item  = Horned-Helm(W)        1    1    2     17 24 0 0 0 0    3500      0      21   2    4000 16000    5     0   120
+Item  = Wings-Helm(W)         1    1    2     15 22 0 0 0 0    2500      0      21   3    5000 13000    6     0   100
+

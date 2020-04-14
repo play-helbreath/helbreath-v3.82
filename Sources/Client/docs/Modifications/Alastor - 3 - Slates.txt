@@ -1,0 +1,381 @@
+___________________________________________________________________
+                  Les Slates (sans les auras)
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Voilà tout ce qui concerne les slates, à l'exception des auras, puisque je ne me
+suis pas encore attaqué aux effects des sorts...
+
+L'ID pour le DialogBox est 40
+
+Game.h
+¯¯¯¯¯¯
+Déclarations :
+
+	// Slates Related functions - Alastor
+	void bItemDrop_Slates(); 										// Vérifie les items relachés dans la boite de dialogue slates
+	void DlgBoxClick_Slates(short msX, short msY); 		// Vérifie les clicks dans la boite de dialogue slates
+	void DrawDialogBox_Slates(short msX, short msY, short msZ, char cLB); // ID : 40 - Affiche la boite de dialogue slates	
+	
+	// Slates Related vars - Alastor
+	BOOL m_bUsingSlate;
+
+
+NetMessages.h
+¯¯¯¯¯¯¯¯¯¯¯¯
+Déclarations :
+
+	// Slates - Alastor
+	#define DEF_NOTIFY_SLATE_CREATESUCCESS				0x0BC1
+	#define DEF_NOTIFY_SLATE_CREATEFAIL						0x0BC2
+	#define DEF_NOTIFY_SLATE_INVINCIBLE						0x0BD8
+	#define DEF_NOTIFY_SLATE_MANA								0x0BD9
+	#define DEF_NOTIFY_SLATE_EXP 								0x0BE0
+	#define DEF_NOTIFY_SLATE_STATUS							0x0BE1
+	#define DEF_NOTIFY_SLATECLEAR								99
+	#define DEF_COMMONTYPE_REQ_CREATESLATE				0x0A61
+
+
+lan_eng.h
+¯¯¯¯¯¯¯¯¯¯¯¯
+Ici j'ai utilisé les messages originaux du client 3.51, à art peut être le message pour dire que tu
+utilises déjà une autre slate mais je ne pense pas que ce soit vraiment important d'avoir le même
+message au mot près pour un cas de figure qui ne risque pas de se présenter très souvent... Je
+vois mal un mec attendre d'avoir 3 ou 4 ancient slates pour les utiliser en même temps.
+
+Déclarations :
+
+	// Slates - Alastor
+	#define DEF_MSG_NOTIFY_SLATE_CREATESUCCESS			"The ancient prophecy slate is completed."
+	#define DEF_MSG_NOTIFY_SLATE_CREATEFAIL					"The slates are broken with a sharp clink."
+	#define DEF_MSG_NOTIFY_SLATECLEAR							"The effect of the prophecy-slate is disappeared."
+	#define DEF_MSG_NOTIFY_SLATE_INVINCIBLE					"You are invincible by divine protection of Kloness, the GOD OF JUSTICE."
+	#define DEF_MSG_NOTIFY_SLATE_MANA							"Your mana will be refilled by great Wizard."
+	#define DEF_MSG_NOTIFY_SLATE_EXP							"You've got the wisdom. Now, the amount of experience, wich you get from enermy, is icreased."
+	#define DEF_MSG_NOTIFY_SLATE_ALREADYUSING				"You're already using another slate."
+
+
+game.cpp
+¯¯¯¯¯¯¯¯¯¯¯¯
+Et voilà le principal, y'a pas mal de trucs à ajouter un peu partout mais c'est assez rapide quand même.
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Code à ajouter dans le constructeur CGame :
+
+	// Slates Dialog - Alastor
+	m_stDialogBoxInfo[40].sX = 100;
+	m_stDialogBoxInfo[40].sY = 60;
+	m_stDialogBoxInfo[40].sSizeX = 180; 
+	m_stDialogBoxInfo[40].sSizeY = 182;
+	
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Condition à ajouter dans la fonction _bCheckDlgBoxClick
+
+			case 40:
+				DlgBoxClick_Slates(msX, msY);
+				break;
+				
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Condition à ajouter dans la fonction _bCheckDraggingItemRelease
+
+			case 40:
+				bItemDrop_Slates();
+				break;
+				
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯		
+Condition à ajouter dans la fonction DrawDialogBoxs
+
+		case 40: // Slates DialogBox - Alastor
+			DrawDialogBox_Slates(msX, msY, msZ, cLB); 
+			break;
+			
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Condition à ajouter dans la fonction bSendCommand, dans la condition MSGID_COMMAND_COMMON
+
+		// Create Slate Request - Alastor
+		case DEF_COMMONTYPE_REQ_CREATESLATE:
+			*cp = (char)m_stDialogBoxInfo[40].sV1;
+			cp++;
+			*cp = (char)m_stDialogBoxInfo[40].sV2;
+			cp++;
+			*cp = (char)m_stDialogBoxInfo[40].sV3;
+			cp++;
+			*cp = (char)m_stDialogBoxInfo[40].sV4;
+			cp++;
+			*cp = (char)m_stDialogBoxInfo[40].sV5;
+			cp++;
+			*cp = (char)m_stDialogBoxInfo[40].sV6;
+			cp++;
+
+			iRet = m_pGSock->iSendMsg(cMsg, 18);
+			break;
+			
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Initialisation de notre variables de controle d'utilisation des slates, juste
+en dessous de 	m_bItemUsingStatus  = FALSE;
+	
+	m_bUsingSlate = FALSE;
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Condition à ajouter dans la fonction EnableDialogBox
+
+	case 40:
+		if (m_bIsDialogEnabled[40] == FALSE) {
+			m_stDialogBoxInfo[40].sView = 0;
+			m_stDialogBoxInfo[40].cMode	= cType;
+			m_stDialogBoxInfo[40].sV1   = -1;		
+			m_stDialogBoxInfo[40].sV2   = -1;
+			m_stDialogBoxInfo[40].sV3   = -1;
+			m_stDialogBoxInfo[40].sV4   = -1;
+			m_stDialogBoxInfo[40].cStr[0] = 0;
+			m_stDialogBoxInfo[40].cStr[1] = 0;
+			m_stDialogBoxInfo[40].cStr[4] = 0;
+
+			m_stDialogBoxInfo[40].sSizeX = 180;
+			m_stDialogBoxInfo[40].sSizeY = 183;
+
+			DisableDialogBox(17);
+			DisableDialogBox(20);
+			DisableDialogBox(23);
+			DisableDialogBox(26);
+		}
+		break;
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Condition à ajouter dans la fonction DisableDialogBox
+
+	case 40:
+		m_bIsItemDisabled[m_stDialogBoxInfo[40].sV1] = FALSE;
+		m_bIsItemDisabled[m_stDialogBoxInfo[40].sV2] = FALSE;
+		m_bIsItemDisabled[m_stDialogBoxInfo[40].sV3] = FALSE;
+		m_bIsItemDisabled[m_stDialogBoxInfo[40].sV4] = FALSE;
+
+		ZeroMemory(m_stDialogBoxInfo[40].cStr, sizeof(m_stDialogBoxInfo[40].cStr));
+		ZeroMemory(m_stDialogBoxInfo[40].cStr2, sizeof(m_stDialogBoxInfo[40].cStr2));
+		ZeroMemory(m_stDialogBoxInfo[40].cStr3, sizeof(m_stDialogBoxInfo[40].cStr3));
+		ZeroMemory(m_stDialogBoxInfo[40].cStr4, sizeof(m_stDialogBoxInfo[40].cStr4));
+		m_stDialogBoxInfo[40].sV1   = -1;		
+		m_stDialogBoxInfo[40].sV2   = -1;
+		m_stDialogBoxInfo[40].sV3   = -1;
+		m_stDialogBoxInfo[40].sV4   = -1;
+		break;
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Dans la fonction NotifyMsgHandler, ajouter les conditions suivantes
+
+	// Slates Messages - Alastor
+	case DEF_NOTIFY_SLATE_CREATESUCCESS:
+		AddEventList( DEF_MSG_NOTIFY_SLATE_CREATESUCCESS, 10 );
+		break;
+	case DEF_NOTIFY_SLATE_CREATEFAIL:
+		AddEventList( DEF_MSG_NOTIFY_SLATE_CREATEFAIL, 10 );
+		break;
+	case DEF_NOTIFY_SLATECLEAR:
+		AddEventList( DEF_MSG_NOTIFY_SLATECLEAR, 10 );
+		m_bUsingSlate = FALSE;
+		break;
+	case DEF_NOTIFY_SLATE_INVINCIBLE:
+		AddEventList( DEF_MSG_NOTIFY_SLATE_INVINCIBLE, 10 );
+		m_bUsingSlate = TRUE;
+		break;
+	case DEF_NOTIFY_SLATE_MANA:
+		AddEventList( DEF_MSG_NOTIFY_SLATE_MANA, 10 );
+		m_bUsingSlate = TRUE;
+		break;
+	case DEF_NOTIFY_SLATE_EXP:
+		AddEventList( DEF_MSG_NOTIFY_SLATE_EXP, 10 );
+		m_bUsingSlate = TRUE;
+		break;
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Vérification à ajouter dans la fonction bCheckItemOperationEnabled
+
+	// Notify : Already Using Another Slate - Alastor
+	if ((m_pItemList[cItemID]->m_sSpriteFrame == 155) && (m_bUsingSlate == TRUE)){
+		AddEventList(DEF_MSG_NOTIFY_SLATE_ALREADYUSING, 10);
+		return FALSE;
+	}
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Fonction pour afficher le DialogBox des slates
+
+// Slates DialogBox - Alastor
+void CGame::DrawDialogBox_Slates(short msX, short msY, short msZ, char cLB)
+{
+ int iAdjX, iAdjY;
+ short sX, sY;
+ DWORD dwTime = m_dwCurTime;
+
+	iAdjX = 5 ;
+	iAdjY = 8 ;
+	
+	switch (m_stDialogBoxInfo[40].cMode) {
+	case 1:
+		sX = m_stDialogBoxInfo[40].sX;
+		sY = m_stDialogBoxInfo[40].sY;
+		iAdjX = -1;
+		iAdjY = -7;
+
+		DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_INVENTORY, sX, sY, 4);
+
+		if (m_stDialogBoxInfo[40].sV1 != -1){
+			DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_INVENTORY, sX+20, sY+12, 5);
+		}
+		if (m_stDialogBoxInfo[40].sV2 != -1){
+			DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_INVENTORY, sX+20, sY+87, 6);
+		}
+		if (m_stDialogBoxInfo[40].sV3 != -1){
+			DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_INVENTORY, sX+85, sY+32, 7);
+		}
+		if (m_stDialogBoxInfo[40].sV4 != -1){
+			DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_INVENTORY, sX+70, sY+97, 8);
+		}
+
+		if ((m_stDialogBoxInfo[40].sV1 != -1) && (m_stDialogBoxInfo[40].sV2 != -1) && (m_stDialogBoxInfo[40].sV3 != -1) && (m_stDialogBoxInfo[40].sV4 != -1)){
+			if ((msX >= sX + 120) && (msX <= sX + 180) && (msY >= sY + 150) && (msY <= sY + 165)) 
+				PutString_SprFont(sX + 120, sY + 150, "Casting", 6,6,20);
+			else PutString_SprFont(sX + 120, sY + 150, "Casting", 0, 0, 7);
+		}
+		
+		break;
+
+	// Slates Dialog - Alastor
+	case 2:
+		PlaySound('E', 16, 0);
+		if (m_stDialogBoxInfo[40].cStr[0] != 0) {
+			sX = m_stDialogBoxInfo[40].sX + iAdjX + (m_stDialogBoxInfo[40].cStr[0] - (rand() % (m_stDialogBoxInfo[40].cStr[0]*2)));
+			sY = m_stDialogBoxInfo[40].sY + iAdjY + (m_stDialogBoxInfo[40].cStr[0] - (rand() % (m_stDialogBoxInfo[40].cStr[0]*2)));
+		}
+		else {
+			sX = m_stDialogBoxInfo[40].sX;
+			sY = m_stDialogBoxInfo[40].sY;
+		}
+		m_pSprite[DEF_SPRID_INTERFACE_ND_INVENTORY]->PutSpriteFast(sX, sY, 4, dwTime);
+		m_pSprite[DEF_SPRID_INTERFACE_ND_INVENTORY]->PutSpriteFast(sX+22, sY+14, 3, dwTime);
+
+		PutString_SprFont(sX + iAdjX + 170, sY + iAdjY + 170, "KURURURURURURURURU!!!", 20,6,6);
+		
+		if ((dwTime - m_stDialogBoxInfo[40].dwT1) > 1000) {
+			m_stDialogBoxInfo[40].dwT1 = dwTime;
+			m_stDialogBoxInfo[40].cStr[0]++;   //  Ä«¿îÆ® 	
+		}
+
+		if (m_stDialogBoxInfo[40].cStr[0] >= 5) {
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_REQ_CREATESLATE, NULL, m_stDialogBoxInfo[40].sV1, m_stDialogBoxInfo[40].sV2, m_stDialogBoxInfo[40].sV3, NULL, m_stDialogBoxInfo[40].sV4);
+			DisableDialogBox(40);
+		}
+		break;
+	}
+}
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Fonction pour gérer les clicks dans la fenêtre des slates
+
+// Slates DialogBox Clicks - Alastor
+void CGame::DlgBoxClick_Slates(short msX, short msY)
+{
+ int iAdjX, iAdjY;
+ short sX, sY;
+	
+	sX = m_stDialogBoxInfo[40].sX;
+	sY = m_stDialogBoxInfo[40].sY;
+
+	iAdjX = 5 ;
+	iAdjY = 8 ;
+	
+
+	switch (m_stDialogBoxInfo[40].cMode) {
+	// Slates DialogBox - Alastor
+	case 1:
+		if ((m_stDialogBoxInfo[40].sV1 != -1) && (m_stDialogBoxInfo[40].sV2 != -1) && (m_stDialogBoxInfo[40].sV3 != -1) && (m_stDialogBoxInfo[40].sV4 != -1)){
+			if ((msX >= sX + 120) && (msX <= sX + 180) && (msY >= sY + 150) && (msY <= sY + 165)){
+				m_stDialogBoxInfo[40].cMode = 2;
+				PlaySound('E', 14, 5);
+			}
+		}
+		break;
+
+	}
+}
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Fonction qui vérifie les objets relachés dans la fenetre des slates
+
+// Slates Item Drag&Drop - Alastor
+void CGame::bItemDrop_Slates()
+{	
+ char cItemID;
+
+	if (m_cCommand < 0) return;
+
+	cItemID = (char)m_stMCursor.sSelectedObjectID;
+	if (m_pItemList[cItemID] == NULL) return;
+
+	if (m_bIsItemDisabled[cItemID] == TRUE) return;
+
+	if ( m_bIsDialogEnabled[17] == TRUE ) {
+		AddEventList(BITEMDROP_SKILLDIALOG1, 10);
+		return;
+	}
+
+	if ( (m_bIsDialogEnabled[20] == TRUE) && 
+		 ((m_stDialogBoxInfo[20].cMode == 1) || (m_stDialogBoxInfo[20].cMode == 2)) ) {
+		AddEventList(BITEMDROP_SKILLDIALOG1, 10);
+		return;
+	}
+
+	if (m_bIsDialogEnabled[23] == TRUE) {
+		AddEventList(BITEMDROP_SKILLDIALOG1, 10);
+		return;
+	}
+
+	switch (m_stDialogBoxInfo[40].cMode) {
+	case 1:
+		if ((m_pItemList[cItemID]->m_cItemType == DEF_ITEMTYPE_USE_SKILL_ENABLEDIALOGBOX) && (m_pItemList[cItemID]->m_sSpriteFrame >= 151) && (m_pItemList[cItemID]->m_sSpriteFrame <= 154)) {
+			char cItemIDText[20];
+			switch(m_pItemList[cItemID]->m_sSpriteFrame){
+				case 151:
+					if (m_stDialogBoxInfo[40].sV1 == -1){
+						m_bIsItemDisabled[cItemID] = TRUE;
+						m_stDialogBoxInfo[40].sV1 = cItemID;
+						wsprintf(cItemIDText, "Item ID : %d", cItemID);
+						AddEventList(cItemIDText, 10);
+					}
+					break;
+				case 152:
+					if (m_stDialogBoxInfo[40].sV2 == -1){
+						m_bIsItemDisabled[cItemID] = TRUE;
+						m_stDialogBoxInfo[40].sV2 = cItemID;
+						wsprintf(cItemIDText, "Item ID : %d", cItemID);
+						AddEventList(cItemIDText, 10);
+					}
+					break;
+				case 153:
+					if (m_stDialogBoxInfo[40].sV3 == -1){
+						m_bIsItemDisabled[cItemID] = TRUE;
+						m_stDialogBoxInfo[40].sV3 = cItemID;
+						wsprintf(cItemIDText, "Item ID : %d", cItemID);
+						AddEventList(cItemIDText, 10);
+					}
+					break;
+				case 154:
+					if (m_stDialogBoxInfo[40].sV4 == -1){
+						m_bIsItemDisabled[cItemID] = TRUE;
+						m_stDialogBoxInfo[40].sV4 = cItemID;
+						wsprintf(cItemIDText, "Item ID : %d", cItemID);
+						AddEventList(cItemIDText, 10);
+					}
+					break;
+			}
+		}
+		break;
+
+	default:
+		break;
+	}
+}
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Et voilà, c'est terminé, vivement l'ajout des auras pour avoir un truc vraiment complet !
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+

@@ -1,0 +1,41 @@
+[MAP-INFO]
+map-location = toh1
+initial-point = 1  145 32
+fixed-dayornight-mode = 1
+pk-mode = 0
+level-limit   = 100
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =     146    29      middleland          382    285   5
+teleport-loc     =     147    29      middleland          382    285   5
+teleport-loc     =     147    30      middleland          382    285   5
+
+teleport-loc     =     37     218     toh2                39     38    5
+teleport-loc     =     37     219     toh2                39     38    5
+teleport-loc     =     38     219     toh2                39     38    5
+
+teleport-loc     =     218    213     toh2                272    28    5
+teleport-loc     =     219    213     toh2                272    28    5
+teleport-loc     =     219    214     toh2                272    28    5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       64    54
+waypoint          =     1       126   54
+waypoint          =     2       195   49
+waypoint          =     3       75    97
+waypoint          =     4       121   109
+waypoint          =     5       197   149
+waypoint          =     6       40    153
+waypoint          =     7       45    214
+waypoint          =     8       107   179
+waypoint          =     9       215   219
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area           = 1       141 27 149 35
+no-attack-area           = 2       31 216 39 224
+no-attack-area           = 3       213 211 221 219
+
+maximum-object		= 200
+random-mob-generator	= 1  13
+
+[END-MAP-INFO]

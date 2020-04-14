@@ -1,0 +1,5 @@
+[MAP-INFO]
+random-mob-generator	= 1  14
+maximum-object		= 10
+pk-mode 			= 0
+[END-MAP-INFO]

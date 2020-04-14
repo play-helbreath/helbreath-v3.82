@@ -1,0 +1,2 @@
+HeldenianGUID = 120401807
+winner-side = 1

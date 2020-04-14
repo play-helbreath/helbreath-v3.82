@@ -1,0 +1,889 @@
+___________________________________________________________________
+                  Implémentation du MultiTrade
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Bon, ce coup ci, ce n'est pas un petit morceau!
+Y a plein d'endroits ou j'ai du jouer....
+
+Game.h
+¯¯¯¯¯¯
+J'ai ajouté une structure pour stocker les 8 objêts, 
+et des nouvelles fonctions.
+Les structures et tableaux qui servent a stocker les diverses
+dlgbox ou fenêtres ont du être augmentée.
+Je suis directement passé à 61, comme ca il y aura de la marge
+pour la suite ! 
+(ca ne représente pas beaucoup de mémoire en fait)
+
+
+Déclarations:
+void DrawDialogBox_ConfirmExchange(short msX, short msY);
+void DlgBoxClick_ConfirmExchange(short msX, short msY);
+m_stDialogBoxExchangeInfo[8];
+
+Correctif:
+char m_cDialogBoxOrder[61]; 		(au lieu de 41 ou 60)
+CInt m_bIsDialogEnabled[61]; 		(au lieu de 41 ou 60)
+struct(..)m_stDialogBoxInfo[61]; 	(au lieu de 60)
+
+CODE:
+¯¯¯¯¯	
+	struct {
+		int   sV1, sV2, sV3, sV4, sV5, sV6, sV7, sV8, sV9, sV10, sV11, sV12, sV13, sV14; // v1.4 short
+		DWORD dwV1, dwV2, dwT1;
+		BOOL  bFlag;
+		short sX, sY;
+		short sSizeX, sSizeY;
+		short sView;
+		char  cStr[32], cStr2[32], cStr3[32], cStr4[32];
+		char  cMode;
+		BOOL  bIsScrollSelected;
+	} m_stDialogBoxInfo[61];	 // Snoopy passé à 61 (origine 41, Alastor 60), j'ai mis +20 car plus pratique.	
+	char m_cDialogBoxOrder[61];	
+	CInt m_bIsDialogEnabled[61];//was BOOL
+//Snoopy=>>>>>>>>>>>>>>>>>>>>>
+	struct {
+		int   sV1, sV2, sV3, sV4, sV5, sV6, sV7, sItemID; 
+		DWORD dwV1;
+		char  cStr1[32], cStr2[32];
+	} m_stDialogBoxExchangeInfo[8];
+//Snoopy end<<<<<<<<<<<<<<<<<<
+
+
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+
+Game.cpp:
+¯¯¯¯¯¯¯¯¯
+Enfin, ici le gros morceau. Il y a beaucoup de fonctions qui ont du être modifiées
+principalement pour l'ajout des 20 nouvelles dlgbox possibles:
+
+
+
+CGame::CGame()
+Correction:
+	// Snoopy: Fixed here
+	for (i = 0; i < 61; i++) m_cDialogBoxOrder[i] = NULL;
+
+Vers la fin:
+	// Snoopy: Added Item exchange confirmation
+	m_stDialogBoxInfo[41].sX = 285;
+	m_stDialogBoxInfo[41].sY = 200;
+	m_stDialogBoxInfo[41].sSizeX = 270; 
+	m_stDialogBoxInfo[41].sSizeY = 105;
+
+
+
+
+
+
+BOOL CGame::bInit(HWND hWnd, HINSTANCE hInst, char * pCmdLine)
+Corriger:
+// Snoopy: fixed here
+	m_cDialogBoxOrder[60] = 29;
+	m_cDialogBoxOrder[59] = 30; // 29¹ø GaugePannel
+
+
+
+
+
+BOOL CGame::_bCheckDlgBoxClick(short msX, short msY)
+Corrections:
+	// Snoopy: 41->61
+	for (i = 0; i < 61; i++) 
+	// Snoopy: 40->60
+	if (m_cDialogBoxOrder[60 - i] != NULL) {
+	// Snoopy: 40->60
+		cDlgID = m_cDialogBoxOrder[60 - i];
+
+Vers la fin rajouter le cas 41:
+	// Snoopy: Boite de dialogue de confirmation d'échange
+			case 41:
+				DlgBoxClick_ConfirmExchange(msX, msY);
+				break;
+
+
+
+
+BOOL CGame::_bCheckDlgBoxDoubleClick(short msX, short msY)
+Corrections:
+	//Snoopy: 41->61
+	for (i = 0; i < 61; i++) 
+	//Snoopy: 40->60
+	if (m_cDialogBoxOrder[60 - i] != NULL) {
+	//Snoopy: 40->60
+		cDlgID = m_cDialogBoxOrder[60 - i];
+
+
+
+
+
+BOOL CGame::_bCheckDraggingItemRelease(short msX, short msY)
+Correction:
+	//Snoopy: 41->61
+	for (i = 0; i < 61; i++) 
+	//Snoopy: 40->60
+	if (m_cDialogBoxOrder[60 - i] != NULL) {
+	//Snoopy: 40->60
+		cDlgID = m_cDialogBoxOrder[60 - i];
+
+
+
+
+
+void CGame::InitGameSettings()
+Corriger:
+	//Snoopy: 61 
+	for (i = 0; i < 61; i++)
+		m_bIsDialogEnabled[i] = FALSE;
+	//Snoopy: 58 because 2 last ones already defined
+	for (i = 0; i < 58; i++)
+		m_cDialogBoxOrder[i] = NULL;
+
+
+
+
+
+
+int CGame::_iCheckDlgBoxFocus(short msX, short msY, char cButtonSide)
+Corriger:
+		// Snoopy: 41->61
+		for (i = 0; i < 61; i++) 
+		// Snoopy: 40->60
+		if (m_cDialogBoxOrder[60 - i] != NULL) {
+		// Snoopy: 40->60
+			cDlgID = m_cDialogBoxOrder[60 - i];
+
+Après le case 27: du 1er gros switch, ajouter:
+					//Snoopy: Drag exchange confirmation dialog
+				case 41:
+					m_stMCursor.cSelectedObjectType	= DEF_SELECTEDOBJTYPE_DLGBOX;
+					m_stMCursor.sSelectedObjectID   = cDlgID;
+					break;
+
+Corriger vers la fin:
+		// Snoopy: 40->60
+		for (i = 0; i < 61; i++) 
+		// Snoopy: 40->60
+		if (m_cDialogBoxOrder[60 - i] != NULL) {
+		// Snoopy: 40->60
+			cDlgID = m_cDialogBoxOrder[60 - i];
+
+
+
+
+
+
+
+void CGame::DrawDialogBoxs(short msX, short msY, short msZ, char cLB)
+Corriger:
+	//Snoopy: 41->61
+	for (i = 0; i < 61; i++) 
+
+Ajouter a la fin du switch:
+		case 41:	//Snoopy: Confirmation Exchange
+			DrawDialogBox_ConfirmExchange(msX, msY); 
+			break;
+
+
+
+
+
+
+void CGame::EnableDialogBox(int iBoxID, int cType, int sV1, int sV2, char * pString)
+Remplacer le case 27: 
+	case 27: // Snoopy: 7 mar 06 (multitrade) case rewriten
+		if (m_bIsDialogEnabled[27] == FALSE) 
+		{	m_stDialogBoxInfo[27].cMode = cType;
+			for (i=0; i<8;i++)
+			{	ZeroMemory(m_stDialogBoxExchangeInfo[i].cStr1, sizeof(m_stDialogBoxExchangeInfo[i].cStr1));
+				ZeroMemory(m_stDialogBoxExchangeInfo[i].cStr2, sizeof(m_stDialogBoxExchangeInfo[i].cStr2));
+				m_stDialogBoxExchangeInfo[i].sV1 = -1;
+				m_stDialogBoxExchangeInfo[i].sV2 = -1;
+				m_stDialogBoxExchangeInfo[i].sV3 = -1;
+				m_stDialogBoxExchangeInfo[i].sV4 = -1;
+				m_stDialogBoxExchangeInfo[i].sV5 = -1;
+				m_stDialogBoxExchangeInfo[i].sV6 = -1;
+				m_stDialogBoxExchangeInfo[i].sV7 = -1;
+				m_stDialogBoxExchangeInfo[i].dwV1 = 0;
+			}
+			DisableDialogBox(17);
+			DisableDialogBox(20);
+			DisableDialogBox(23);
+			DisableDialogBox(26);
+		} 
+		break;
+
+Ajouter le case 41:
+	case 41: // Snoopy: 7 mar 06 (MultiTrade) Confirmation dialog
+		break;
+
+Corriger à la fin:
+	//Snoopy: 39->59
+	for (i = 0; i < 59; i++)
+	if (m_cDialogBoxOrder[i] == iBoxID) m_cDialogBoxOrder[i] = NULL;
+	//Snoopy: 39->59
+	for (i = 1; i < 59; i++)
+	if ((m_cDialogBoxOrder[i-1] == NULL) && (m_cDialogBoxOrder[i] != NULL)) {
+		m_cDialogBoxOrder[i-1] = m_cDialogBoxOrder[i];	
+		m_cDialogBoxOrder[i] = NULL;
+	}
+	//Snoopy: 39->59
+	for (i = 0; i < 59; i++)
+	if (m_cDialogBoxOrder[i] == NULL) {
+		m_cDialogBoxOrder[i] = iBoxID;
+		return;
+
+
+
+
+
+void CGame::DisableDialogBox(int iBoxID)
+Remplacer le case 27:
+	case 27: //Snoopy: 7 mar 06 (multiTrade) case rewriten
+		for (i=0; i<8;i++)
+		{	ZeroMemory(m_stDialogBoxExchangeInfo[i].cStr1, sizeof(m_stDialogBoxExchangeInfo[i].cStr1));
+			ZeroMemory(m_stDialogBoxExchangeInfo[i].cStr2, sizeof(m_stDialogBoxExchangeInfo[i].cStr2));
+			m_stDialogBoxExchangeInfo[i].sV1 = -1;
+			m_stDialogBoxExchangeInfo[i].sV2 = -1;
+			m_stDialogBoxExchangeInfo[i].sV3 = -1;
+			m_stDialogBoxExchangeInfo[i].sV4 = -1;
+			m_stDialogBoxExchangeInfo[i].sV5 = -1;
+			m_stDialogBoxExchangeInfo[i].sV6 = -1;
+			m_stDialogBoxExchangeInfo[i].sV7 = -1;
+			m_stDialogBoxExchangeInfo[i].dwV1 = 0;
+			if (m_bIsItemDisabled[m_stDialogBoxExchangeInfo[i].sItemID] == TRUE)
+				m_bIsItemDisabled[m_stDialogBoxExchangeInfo[i].sItemID] = FALSE;
+		}
+		break;	
+
+Corriger a la fin:
+	// Snoopy: 39->59
+	for (i = 0; i < 59; i++)	
+	if (m_cDialogBoxOrder[i] == iBoxID)
+		m_cDialogBoxOrder[i] = NULL;
+
+	// Snoopy: 39->59
+	for (i = 1; i < 59; i++)
+	if ((m_cDialogBoxOrder[i-1] == NULL) && (m_cDialogBoxOrder[i] != NULL)) 
+	{	m_cDialogBoxOrder[i-1] = m_cDialogBoxOrder[i];	
+		m_cDialogBoxOrder[i] = NULL;
+	}
+
+
+
+
+
+int CGame::iGetTopDialogBoxIndex()
+Corriger:
+	//Snoopy: 38->58
+	for (i = 58; i >= 0; i--)	
+
+
+
+
+
+void CGame::NotifyMsgHandler(char * pData)
+Remplacer les cases ci dessous:
+	case DEF_NOTIFY_EXCHANGEITEMCOMPLETE:
+		AddEventList(NOTIFYMSG_EXCHANGEITEM_COMPLETE1, 10);
+		DisableDialogBox(27);
+		//Snoopy: MultiTrade
+		DisableDialogBox(41);
+		PlaySound('E', 23, 5);
+		break;
+	
+	case DEF_NOTIFY_CANCELEXCHANGEITEM:
+		PlaySound('E', 24, 5);
+		AddEventList(NOTIFYMSG_CANCEL_EXCHANGEITEM1, 10);
+		AddEventList(NOTIFYMSG_CANCEL_EXCHANGEITEM2, 10);
+		//Snoopy: MultiTrade		
+		DisableDialogBox(41);
+		DisableDialogBox(27);
+		break;
+
+
+
+
+
+
+void CGame::bItemDrop_ExchangeDialog(short msX, short msY)
+Remplacer par la fonction ci-dessous:
+/*********************************************************************************************************************
+**  void CGame::bItemDrop_ExchangeDialog(short msX, short msY)	(snoopy)							**
+**  description			:: modifyed for MultiTrade										**
+**********************************************************************************************************************/
+void CGame::bItemDrop_ExchangeDialog(short msX, short msY)
+{char cItemID;
+	if (m_cCommand < 0) return;	
+	if (m_stDialogBoxExchangeInfo[3].sV1 != -1) return; //Do not accept item's drop if already 4 items.
+
+	cItemID = (char)m_stMCursor.sSelectedObjectID;
+	if ( ((m_pItemList[cItemID]->m_cItemType == DEF_ITEMTYPE_CONSUME) || (m_pItemList[cItemID]->m_cItemType == DEF_ITEMTYPE_ARROW)) && 
+		 (m_pItemList[cItemID]->m_dwCount > 1) ) 
+	{	m_stDialogBoxInfo[17].sX  = msX - 140;
+		m_stDialogBoxInfo[17].sY  = msY - 70;
+		if (m_stDialogBoxInfo[17].sY < 0) m_stDialogBoxInfo[17].sY = 0;					
+		m_stDialogBoxInfo[17].sV1 = m_sPlayerX+1; 
+		m_stDialogBoxInfo[17].sV2 = m_sPlayerY+1;
+		m_stDialogBoxInfo[17].sV3 = 1000;
+		m_stDialogBoxInfo[17].sV4 = cItemID;		
+		//m_stDialogBoxInfo[27].sView = cItemID;
+		if (m_stDialogBoxExchangeInfo[0].sV1 == -1)			m_stDialogBoxExchangeInfo[0].sItemID = cItemID;
+		else if (m_stDialogBoxExchangeInfo[1].sV1 == -1)	m_stDialogBoxExchangeInfo[1].sItemID = cItemID;
+		else if (m_stDialogBoxExchangeInfo[2].sV1 == -1)	m_stDialogBoxExchangeInfo[2].sItemID = cItemID;
+		else if (m_stDialogBoxExchangeInfo[3].sV1 == -1)	m_stDialogBoxExchangeInfo[3].sItemID = cItemID;
+		else return; // Impossible case, tested at function beginning
+		ZeroMemory(m_stDialogBoxInfo[17].cStr, sizeof(m_stDialogBoxInfo[17].cStr));
+		EnableDialogBox(17, cItemID, m_pItemList[cItemID]->m_dwCount, NULL);
+		return;
+	}else // hum? déjà on affiche? , bon je désactive, ca devrait plutôt s'afficher lors du retour du serveur.
+	{	/*m_stDialogBoxInfo[27].sV1 = m_pItemList[cItemID]->m_sSprite;
+		m_stDialogBoxInfo[27].sV2 = m_pItemList[cItemID]->m_sSpriteFrame;
+		m_stDialogBoxInfo[27].sV3 = 1;
+		m_stDialogBoxInfo[27].sV4 = m_pItemList[cItemID]->m_cItemColor;
+		m_stDialogBoxInfo[27].sView = cItemID;*/
+		if (m_stDialogBoxExchangeInfo[0].sV1 == -1)			m_stDialogBoxExchangeInfo[0].sItemID = cItemID;
+		else if (m_stDialogBoxExchangeInfo[1].sV1 == -1)	m_stDialogBoxExchangeInfo[1].sItemID = cItemID;
+		else if (m_stDialogBoxExchangeInfo[2].sV1 == -1)	m_stDialogBoxExchangeInfo[2].sItemID = cItemID;
+		else if (m_stDialogBoxExchangeInfo[3].sV1 == -1)	m_stDialogBoxExchangeInfo[3].sItemID = cItemID;
+		else return; // Impossible case, tested at function beginning			
+		m_bIsItemDisabled[cItemID] = TRUE;
+		bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SETEXCHANGEITEM, NULL, cItemID, 1, NULL, NULL);
+//	   :bSendCommand(DWORD dwMsgID,        WORD wCommand,             char cDir, int iV1, int iV2, int iV3, char * pString, int iV4)	
+		return;
+	}
+}
+
+
+
+
+
+void CGame::DlgBoxClick_Exchange(short msX, short msY)
+Remplacer par la fonction ci-dessous:
+/*********************************************************************************************************************
+**  void CGame::DlgBoxClick_Exchange(short msX, short msY)		(snoopy)											**
+**  description			:: modifyed for MultiTrade																	**
+**********************************************************************************************************************/
+void CGame::DlgBoxClick_Exchange(short msX, short msY)
+{short sX, sY;	
+	sX = m_stDialogBoxInfo[27].sX ;
+	sY = m_stDialogBoxInfo[27].sY ;
+	switch (m_stDialogBoxInfo[27].cMode) {
+	case 1: // Not yet confirmed the exchange
+		if ((msX >= sX + 220) && (msX <= sX + 220 + DEF_BTNSZX) && (msY >= sY + 310) && (msY <= sY + 310 + DEF_BTNSZY)) // Exchange			
+		{	if ( (m_stDialogBoxExchangeInfo[0].sV1 != -1) && (m_stDialogBoxExchangeInfo[4].sV1 != -1))
+			{	/*bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_CONFIRMEXCHANGEITEM, NULL
+					, m_stDialogBoxExchangeInfo[0].sV1 // ItemID; inutilisé par serveur
+					, m_stDialogBoxExchangeInfo[0].sV3 // Amount; inutilisé par serveur
+					, NULL, NULL);	*/			
+				PlaySound('E', 14, 5);
+				m_stDialogBoxInfo[27].cMode = 2;
+				// Show confirmation Diag instead.
+				//DebugLog("avant EnableDialogBox(41, NULL, NULL, NULL);");
+				EnableDialogBox(41, NULL, NULL, NULL);
+				//DebugLog("Après EnableDialogBox(41, NULL, NULL, NULL);");
+				m_stDialogBoxInfo[41].cMode = 1;
+			}
+			return;
+		}		
+		if (   (msX >= sX + 450) && (msX <= sX + 450 + DEF_BTNSZX) && (msY >= sY + 310) && (msY <= sY + 310 + DEF_BTNSZY)
+			&& (m_bIsDialogEnabled[41] == FALSE)) // Cancel only possible if confirmation is not activated
+		{	DisableDialogBox(27);
+			DisableDialogBox(22);
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_CANCELEXCHANGEITEM, NULL, NULL, NULL, NULL, NULL);			
+			PlaySound('E', 14, 5);
+			return;
+		}
+		break;
+
+	case 2: // Someone already confirmed the exchange
+	/*	if ((msX >= sX + 450) && (msX <= sX + 450 + DEF_BTNSZX) && (msY >= sY + 310) && (msY <= sY + 310 + DEF_BTNSZY))  // Cancel
+		{	DisableDialogBox(27);
+			DisableDialogBox(22);
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_CANCELEXCHANGEITEM, NULL, NULL, NULL, NULL, NULL);	
+			PlaySound('E', 14, 5);
+			return;
+		}*/
+		break;
+	}
+}
+
+
+
+
+
+
+
+void CGame::DlgBoxClick_ConfirmExchange(short msX, short msY)
+Rajouter la fonction ci dessous en dessous de la précédente:
+/*********************************************************************************************************************
+**  void CGame::DlgBoxClick_ConfirmExchange(short msX, short msY)		(snoopy)						**
+**  description			:: click on confirmation diag										**
+**********************************************************************************************************************/
+void CGame::DlgBoxClick_ConfirmExchange(short msX, short msY)
+{short sX, sY;	
+	sX = m_stDialogBoxInfo[41].sX ;
+	sY = m_stDialogBoxInfo[41].sY ;	
+
+	switch (m_stDialogBoxInfo[41].cMode) {		
+	case 1: // Not yet confirmed the exchange
+		// yes
+		if ((msX >= sX + 30) && (msX <= sX + 30 + DEF_BTNSZX) && (msY >= sY + 55) && (msY <= sY + 55 + DEF_BTNSZY)) 
+		{	if ( (m_stDialogBoxExchangeInfo[0].sV1 != -1) && (m_stDialogBoxExchangeInfo[4].sV1 != -1))
+			{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_CONFIRMEXCHANGEITEM, NULL
+					, m_stDialogBoxExchangeInfo[0].sV1 // ItemID; inutilisé par serveur
+					, m_stDialogBoxExchangeInfo[0].sV3 // Amount; inutilisé par serveur
+					, NULL, NULL);				
+				PlaySound('E', 14, 5);
+				m_stDialogBoxInfo[27].cMode = 2;
+				m_stDialogBoxInfo[41].cMode = 2;
+			}
+			return;
+		}	
+		// No
+		if ((msX >= sX + 170 ) && (msX <= sX + 170 + DEF_BTNSZX ) && (msY >= sY + 55 ) && (msY <= sY + 55 + DEF_BTNSZY)) 
+		{	DisableDialogBox(41);
+			DisableDialogBox(27);
+			DisableDialogBox(22);
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_CANCELEXCHANGEITEM, NULL, NULL, NULL, NULL, NULL);			
+			PlaySound('E', 14, 5);
+			return;
+		}
+		break;
+	case 2: // waiting for other side to confirm
+		break;
+	}
+}
+
+
+
+
+
+void CGame::NotifyMsg_SetExchangeItem(char *pData)
+Remanié pour prendre en compte 4 items et code 0/1 -> x/x+1000
+Remplacer par:
+/*********************************************************************************************************************
+**  void CGame::NotifyMsg_SetExchangeItem(char *pData)		(snoopy)												**
+**  description			:: Recieve a msg from gserver and sets the item												**
+**********************************************************************************************************************/
+void CGame::NotifyMsg_SetExchangeItem(char *pData)
+{short * sp, sDir, sSprite, sSpriteFrame, sCurLife, sMaxLife, sPerformance;
+ int * ip, iAmount, i;
+ char * cp, cColor, cItemName[24], cCharName[12];
+ DWORD * dwp, dwAttribute;
+	ZeroMemory(cItemName, sizeof(cItemName));
+	ZeroMemory(cCharName, sizeof(cCharName));
+
+	cp = (char *)(pData	+ DEF_INDEX2_MSGTYPE + 2);
+	sp = (short *)cp;
+	sDir = *sp;
+	cp += 2;	
+	sp = (short *)cp;
+	sSprite = *sp;
+	cp += 2;	
+	sp = (short *)cp;
+	sSpriteFrame = *sp;
+	cp += 2;	
+	ip = (int *)cp;
+	iAmount = *ip;
+	cp += 4;
+	cColor = *cp;
+	cp++;
+	sp = (short *)cp;
+	sCurLife = *sp;
+	cp += 2;
+	sp = (short *)cp;
+	sMaxLife = *sp;
+	cp += 2;
+	sp = (short *)cp;
+	sPerformance = *sp;
+	cp += 2;	
+	memcpy(cItemName, cp, 20);
+	cp += 20;	
+	memcpy(cCharName, cp, 10);
+	cp += 10;
+	dwp = (DWORD *)cp;
+	dwAttribute = *dwp;
+	cp += 4;
+
+	if (sDir >= 1000)  // Set the item I want to exchange
+	{	i = 0;		
+		while (m_stDialogBoxExchangeInfo[i].sV1 !=-1)
+		{	i++;
+			if (i>=4) return; // Error situation
+		}
+	}else // Set the item he proposes me.
+	{	i = 4;		
+		while (m_stDialogBoxExchangeInfo[i].sV1 !=-1)
+		{	i++;
+			if (i>=8) return; // Error situation
+	}	}
+	m_stDialogBoxExchangeInfo[i].sV1 = sSprite;
+	m_stDialogBoxExchangeInfo[i].sV2 = sSpriteFrame;
+	m_stDialogBoxExchangeInfo[i].sV3 = iAmount;
+	m_stDialogBoxExchangeInfo[i].sV4 = cColor;
+	m_stDialogBoxExchangeInfo[i].sV5 = (int)sCurLife;
+	m_stDialogBoxExchangeInfo[i].sV6 = (int)sMaxLife;
+	m_stDialogBoxExchangeInfo[i].sV7 = (int)sPerformance;
+	memcpy(m_stDialogBoxExchangeInfo[i].cStr1, cItemName, 20);
+	memcpy(m_stDialogBoxExchangeInfo[i].cStr2, cCharName, 10);
+	m_stDialogBoxExchangeInfo[i].dwV1 = dwAttribute;	
+	//if (i<4) m_stDialogBoxExchangeInfo[i].sItemID = sDir -1000;
+}
+
+
+
+
+
+void CGame::NotifyMsg_OpenExchageWindow(char *pData)
+Remanié pour prendre en compte 4 items et code 0/1 -> x/x+1000
+Remplacer par:
+/*********************************************************************************************************************
+**  void CGame::NotifyMsg_OpenExchageWindow(char *pData)		(snoopy)											**
+**  description			:: Recieve a msg from gserver and sets the item	and opens trade windows						**
+**********************************************************************************************************************/
+void CGame::NotifyMsg_OpenExchageWindow(char *pData)
+{short * sp, sDir, sSprite, sSpriteFrame, sCurLife, sMaxLife, sPerformance;
+ int * ip, iAmount;
+ char * cp, cColor, cItemName[24], cCharName[12];
+ DWORD * dwp, dwAttribute;
+	ZeroMemory(cItemName, sizeof(cItemName));
+	ZeroMemory(cCharName, sizeof(cCharName));
+
+	cp = (char *)(pData	+ DEF_INDEX2_MSGTYPE + 2);
+	sp = (short *)cp;
+	sDir = *sp;
+	cp += 2;	
+	sp = (short *)cp;
+	sSprite = *sp;
+	cp += 2;	
+	sp = (short *)cp;
+	sSpriteFrame = *sp;
+	cp += 2;	
+	ip = (int *)cp;
+	iAmount = *ip;
+	cp += 4;
+	cColor = *cp;
+	cp++;
+	sp = (short *)cp;
+	sCurLife = *sp;
+	cp += 2;
+	sp = (short *)cp;
+	sMaxLife = *sp;
+	cp += 2;
+	sp = (short *)cp;
+	sPerformance = *sp;
+	cp += 2;	
+	memcpy(cItemName, cp, 20);
+	cp += 20;	
+	memcpy(cCharName, cp, 10);
+	cp += 10;
+	dwp = (DWORD *)cp;
+	dwAttribute = *dwp;
+	cp += 4;
+
+	EnableDialogBox(27, 1, 0, 0, NULL);
+	int i;
+	if (sDir >= 1000)  // Set the item I want to exchange
+	{	i = 0;		
+		while (m_stDialogBoxExchangeInfo[i].sV1 !=-1)
+		{	i++;
+			if (i>=4) return; // Error situation
+		}
+		if ((sDir >1000) && (i == 0)) 
+		{	m_bIsItemDisabled[sDir -1000] = TRUE;
+			m_stDialogBoxExchangeInfo[0].sItemID = sDir -1000;
+		}
+	}else // Set the item he proposes me.
+	{	i = 4;		
+		while (m_stDialogBoxExchangeInfo[i].sV1 !=-1)
+		{	i++;
+			if (i>=8) return; // Error situation
+	}	}
+	m_stDialogBoxExchangeInfo[i].sV1 = sSprite;
+	m_stDialogBoxExchangeInfo[i].sV2 = sSpriteFrame;
+	m_stDialogBoxExchangeInfo[i].sV3 = iAmount;
+	m_stDialogBoxExchangeInfo[i].sV4 = cColor;
+	m_stDialogBoxExchangeInfo[i].sV5 = (int)sCurLife;
+	m_stDialogBoxExchangeInfo[i].sV6 = (int)sMaxLife;
+	m_stDialogBoxExchangeInfo[i].sV7 = (int)sPerformance;
+	memcpy(m_stDialogBoxExchangeInfo[i].cStr1, cItemName, 20);
+	memcpy(m_stDialogBoxExchangeInfo[i].cStr2, cCharName, 10);
+	m_stDialogBoxExchangeInfo[i].dwV1 = dwAttribute;
+}
+
+
+
+
+
+void CGame::UpdateScreen_OnGame()
+Trouver et remplacer le case 1000:
+	case 1000: // Trade stackable items
+								// hum, déjà affiché? , j'attends le retour et je désactive!
+								/*m_stDialogBoxInfo[27].sV1 = m_pItemList[m_stDialogBoxInfo[17].sV4]->m_sSprite;
+								m_stDialogBoxInfo[27].sV2 = m_pItemList[m_stDialogBoxInfo[17].sV4]->m_sSpriteFrame;
+								m_stDialogBoxInfo[27].sV3 = iAmount;
+								m_stDialogBoxInfo[27].sV4 = m_pItemList[m_stDialogBoxInfo[17].sV4]->m_cItemColor;*/
+								
+								if (m_stDialogBoxExchangeInfo[0].sV1 == -1)			m_stDialogBoxExchangeInfo[0].sItemID = m_stDialogBoxInfo[17].sV4;
+								else if (m_stDialogBoxExchangeInfo[1].sV1 == -1)	m_stDialogBoxExchangeInfo[1].sItemID = m_stDialogBoxInfo[17].sV4;
+								else if (m_stDialogBoxExchangeInfo[2].sV1 == -1)	m_stDialogBoxExchangeInfo[2].sItemID = m_stDialogBoxInfo[17].sV4;
+								else if (m_stDialogBoxExchangeInfo[3].sV1 == -1)	m_stDialogBoxExchangeInfo[3].sItemID = m_stDialogBoxInfo[17].sV4;
+								else return; // Impossible case, tested at function beginning	
+													
+								bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_SETEXCHANGEITEM, NULL, m_stDialogBoxInfo[17].sV4, iAmount, NULL, NULL);
+								break;
+
+
+
+
+
+
+
+void CGame::DrawDialogBox_Exchange(short msX, short msY)
+Enfin le gros morceau!
+Remplacer complètement la fonction:
+/*********************************************************************************************************************
+**  void CGame::DrawDialogBox_Exchange(short msX, short msY)	(snoopy)											**
+**  description			:: paints the trade windows																	**
+**********************************************************************************************************************/
+void CGame::DrawDialogBox_Exchange(short msX, short msY)
+{
+ short sX, sY, szX, sXadd;
+ DWORD dwTime = m_dwCurTime;
+ char cItemColor, cTxt[120], cTxt2[128];
+ char cNameStr[120], cSubStr1[120], cSubStr2[120];
+ int iLoc, i;
+
+	sX = m_stDialogBoxInfo[27].sX;
+	sY = m_stDialogBoxInfo[27].sY ;
+	szX = m_stDialogBoxInfo[27].sSizeX;
+
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_NEWEXCHANGE, sX, sY, 0);
+
+//	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_TEXT, sX, sY, 9);
+	/*m_stDialogBoxExchangeInfo[i].sV1 = sSprite;	// ANciennne donnée pour référence.
+	m_stDialogBoxExchangeInfo[i].sV2 = sSpriteFrame;
+	m_stDialogBoxExchangeInfo[i].sV3 = iAmount;
+	m_stDialogBoxExchangeInfo[i].sV4 = cColor;
+	m_stDialogBoxExchangeInfo[i].sV5 = (int)sCurLife;
+	m_stDialogBoxExchangeInfo[i].sV6 = (int)sMaxLife;
+	m_stDialogBoxExchangeInfo[i].sV7 = (int)sPerformance;
+	memcpy(m_stDialogBoxExchangeInfo[i].cStr1, cItemName, 20);
+	memcpy(m_stDialogBoxExchangeInfo[i].cStr2, cCharName, 10);
+	m_stDialogBoxExchangeInfo[i].dwV1 = dwAttribute;*/	
+	switch (m_stDialogBoxInfo[27].cMode) {
+	case 1: // Not yet confirmed exchange
+		PutAlignedString(sX + 80, sX + 180, sY + 38, m_cPlayerName, 35,55,35); // my name
+		if (m_stDialogBoxExchangeInfo[4].sV1 != -1) // Other name if applicable
+			PutAlignedString(sX + 250, sX + 540, sY + 38, m_stDialogBoxExchangeInfo[4].cStr2, 35,55,35);
+		for (i=0; i<8; i++) // draw items
+		{	sXadd = (58 * i) + 48; if (i>3) sXadd += 20;
+			if ( m_stDialogBoxExchangeInfo[i].sV1 != -1) 
+			{	cItemColor = m_stDialogBoxExchangeInfo[i].sV4;
+				if (cItemColor == 0)
+				{	 m_pSprite[DEF_SPRID_ITEMPACK_PIVOTPOINT + m_stDialogBoxExchangeInfo[i].sV1]->PutSpriteFast(sX + sXadd, sY + 130, m_stDialogBoxExchangeInfo[i].sV2, dwTime);
+				}else 
+				{	switch (m_stDialogBoxExchangeInfo[i].sV1) {
+					case 1:
+					case 2:
+					case 3:  m_pSprite[DEF_SPRID_ITEMPACK_PIVOTPOINT + m_stDialogBoxExchangeInfo[i].sV1]->PutSpriteRGB(sX + sXadd, sY + 130, m_stDialogBoxExchangeInfo[i].sV2,
+																								           m_wWR[cItemColor] -m_wR[0], m_wWG[cItemColor] -m_wG[0], m_wWB[cItemColor] -m_wB[0], dwTime); break;
+					default: m_pSprite[DEF_SPRID_ITEMPACK_PIVOTPOINT + m_stDialogBoxExchangeInfo[i].sV1]->PutSpriteRGB(sX + sXadd, sY + 130, m_stDialogBoxExchangeInfo[i].sV2,
+																								           m_wR[cItemColor] -m_wR[0], m_wG[cItemColor] -m_wG[0], m_wB[cItemColor] -m_wB[0], dwTime); break;
+				}	}
+				GetItemName(m_stDialogBoxExchangeInfo[i].cStr1, m_stDialogBoxExchangeInfo[i].dwV1, cNameStr, cSubStr1, cSubStr2);
+				// If pointer over item then show this item data
+				if ( (msX >= sX + sXadd - 6) && (msX <= sX + sXadd + 42) 
+					&& (msY >= sY + 61) && (msY <= sY + 200) )
+				{	wsprintf(cTxt, "%s", cNameStr);			
+					if (m_bIsSpecial)
+					{	PutAlignedString(sX + 15, sX + 205, sY + 215, cTxt, 0,255,50);
+						PutAlignedString(sX + 16, sX + 206, sY + 215, cTxt, 0,255,50);
+					}else
+					{	PutAlignedString(sX + 15, sX + 205, sY + 215, cTxt, 35,35,35);
+						PutAlignedString(sX + 16, sX + 206, sY + 215, cTxt, 35,35,35);
+					}
+					iLoc = 0;
+					if (strlen(cSubStr1) != 0) 
+					{	PutAlignedString(sX + 16, sX + 205, sY + 235 +iLoc, cSubStr1, 0,0,0);
+						iLoc += 15;
+					}
+					if (strlen(cSubStr2) != 0) 
+					{	PutAlignedString(sX + 16, sX + 205, sY + 235 +iLoc, cSubStr2, 0,0,0);
+						iLoc += 15;
+					}			
+					if (m_stDialogBoxExchangeInfo[i].sV3 != 1) // Item avec Quantity			
+					{	if(m_stDialogBoxExchangeInfo[i].sV3 > 1)
+						{	DisplayGold(m_stDialogBoxExchangeInfo[i].sV3);
+							strcpy(cTxt2, G_cTxt);
+						}else wsprintf(cTxt2, DRAW_DIALOGBOX_EXCHANGE2, m_stDialogBoxExchangeInfo[i].sV3);				
+						PutAlignedString(sX + 16, sX + 205, sY +235 +iLoc, cTxt2, 35,35,35);
+						iLoc += 15;
+					}
+					if (m_stDialogBoxExchangeInfo[i].sV5 != -1) // completion
+					{	wsprintf(cTxt, DRAW_DIALOGBOX_EXCHANGE4, m_stDialogBoxExchangeInfo[i].sV7);
+						PutAlignedString(sX + 16, sX + 205, sY + 235 +iLoc, cTxt, 35,35,35);
+						iLoc += 15;
+					}
+					if (iLoc < 45) // Endurance
+					{	wsprintf(cTxt, DRAW_DIALOGBOX_EXCHANGE3, m_stDialogBoxExchangeInfo[i].sV5, m_stDialogBoxExchangeInfo[i].sV6);
+						PutAlignedString(sX + 16, sX + 205, sY + 235 +iLoc, cTxt, 35,35,35);
+						iLoc += 15;				
+		}	}	}	}
+		if ((m_stDialogBoxExchangeInfo[0].sV1 != -1) && (m_stDialogBoxExchangeInfo[4].sV1 == -1)) 
+		{	PutAlignedString(sX, sX + szX, sY + 235 +10, DRAW_DIALOGBOX_EXCHANGE9, 55,25,25); // Please wait until other player decides
+			PutAlignedString(sX, sX + szX, sY + 250 +10, DRAW_DIALOGBOX_EXCHANGE10, 55,25,25);// to exchange. If you want to cancel the
+			PutAlignedString(sX, sX + szX, sY + 265 +10, DRAW_DIALOGBOX_EXCHANGE11, 55,25,25);// exchange press the CANCEL button now.
+			PutString_SprFont(sX + 220,  sY + 310, "Exchange", 15,15,15);
+		}else if ((m_stDialogBoxExchangeInfo[0].sV1 == -1) && (m_stDialogBoxExchangeInfo[4].sV1 != -1)) 
+		{	PutAlignedString(sX, sX + szX, sY + 205 +10, DRAW_DIALOGBOX_EXCHANGE12, 55,25,25);// Other player offered an item exchange
+			PutAlignedString(sX, sX + szX, sY + 220 +10, DRAW_DIALOGBOX_EXCHANGE13, 55,25,25);// Select an item which you want to exc-
+			PutAlignedString(sX, sX + szX, sY + 235 +10, DRAW_DIALOGBOX_EXCHANGE14, 55,25,25);// hange with above item, drag it to the
+			PutAlignedString(sX, sX + szX, sY + 250 +10, DRAW_DIALOGBOX_EXCHANGE15, 55,25,25);// blank and press the EXCHANGE button. 
+			PutAlignedString(sX, sX + szX, sY + 265 +10, DRAW_DIALOGBOX_EXCHANGE16, 55,25,25);// And you can also reject an offer by 
+			PutAlignedString(sX, sX + szX, sY + 280 +10, DRAW_DIALOGBOX_EXCHANGE17, 55,25,25);// pressing the CANCEL button.
+			PutString_SprFont(sX + 220,  sY + 310, "Exchange", 15,15,15);
+		}else if ((m_stDialogBoxExchangeInfo[0].sV1 != -1) && (m_stDialogBoxExchangeInfo[4].sV1 != -1)) 
+		{	PutAlignedString(sX, sX + szX, sY + 205 +10, DRAW_DIALOGBOX_EXCHANGE18, 55,25,25);// The preparation for item exchange
+			PutAlignedString(sX, sX + szX, sY + 220 +10, DRAW_DIALOGBOX_EXCHANGE19, 55,25,25);// has been finished. Press the EXCHANGE
+			PutAlignedString(sX, sX + szX, sY + 235 +10, DRAW_DIALOGBOX_EXCHANGE20, 55,25,25);// button to exchange as above. Press the
+			PutAlignedString(sX, sX + szX, sY + 250 +10, DRAW_DIALOGBOX_EXCHANGE21, 55,25,25);// CANCEL button to cancel. Occasionally
+			PutAlignedString(sX, sX + szX, sY + 265 +10, DRAW_DIALOGBOX_EXCHANGE22, 55,25,25);// when you press the EXCHANGE button, you
+			PutAlignedString(sX, sX + szX, sY + 280 +10, DRAW_DIALOGBOX_EXCHANGE23, 55,25,25);// will not be able to cancel the exchange.
+			if ( (msX >= sX + 200) && (msX <= sX + 200 + DEF_BTNSZX) && (msY >= sY + 310) && (msY <= sY + 310 + DEF_BTNSZY) )  
+				 PutString_SprFont(sX + 220,  sY + 310, "Exchange", 6,6,20);
+			else PutString_SprFont(sX + 220,  sY + 310, "Exchange", 0,0,7);
+		}	
+		if (   (msX >= sX + 450) && (msX <= sX + 450 + DEF_BTNSZX) && (msY >= sY + 310) && (msY <= sY + 310 + DEF_BTNSZY) 
+			&& (m_bIsDialogEnabled[41] == FALSE))
+			 PutString_SprFont(sX + 450, sY + 310, "Cancel", 6,6,20);
+		else PutString_SprFont(sX + 450, sY + 310, "Cancel", 0,0,7);
+		break;
+	
+	case 2: // You have confirmed the exchange
+		PutAlignedString(sX + 80, sX + 180, sY + 38, m_cPlayerName, 35,55,35); // my name
+		if (m_stDialogBoxExchangeInfo[4].sV1 != -1) // Other name if applicable
+			PutAlignedString(sX + 250, sX + 540, sY + 38, m_stDialogBoxExchangeInfo[4].cStr2, 35,55,35);
+		for (i=0; i<8; i++) // draw items
+		{	sXadd = (58 * i) + 48; if (i>3) sXadd += 20;
+			if ( m_stDialogBoxExchangeInfo[i].sV1 != -1) 
+			{	cItemColor = m_stDialogBoxExchangeInfo[i].sV4;
+				if (cItemColor == 0)
+				{	 m_pSprite[DEF_SPRID_ITEMPACK_PIVOTPOINT + m_stDialogBoxExchangeInfo[i].sV1]->PutSpriteFast(sX + sXadd, sY + 130, m_stDialogBoxExchangeInfo[i].sV2, dwTime);
+				}else 
+				{	switch (m_stDialogBoxExchangeInfo[i].sV1) {
+					case 1:
+					case 2:
+					case 3:  m_pSprite[DEF_SPRID_ITEMPACK_PIVOTPOINT + m_stDialogBoxExchangeInfo[i].sV1]->PutSpriteRGB(sX + sXadd, sY + 130, m_stDialogBoxExchangeInfo[i].sV2,
+																								           m_wWR[cItemColor] -m_wR[0], m_wWG[cItemColor] -m_wG[0], m_wWB[cItemColor] -m_wB[0], dwTime); break;
+					default: m_pSprite[DEF_SPRID_ITEMPACK_PIVOTPOINT + m_stDialogBoxExchangeInfo[i].sV1]->PutSpriteRGB(sX + sXadd, sY + 130, m_stDialogBoxExchangeInfo[i].sV2,
+																								           m_wR[cItemColor] -m_wR[0], m_wG[cItemColor] -m_wG[0], m_wB[cItemColor] -m_wB[0], dwTime); break;
+				}	}
+				GetItemName(m_stDialogBoxExchangeInfo[i].cStr1, m_stDialogBoxExchangeInfo[i].dwV1, cNameStr, cSubStr1, cSubStr2);
+				// If pointer over item then show this item data
+				if ( (msX >= sX + sXadd - 6) && (msX <= sX + sXadd + 42) 
+					&& (msY >= sY + 61) && (msY <= sY + 200) )
+				{	wsprintf(cTxt, "%s", cNameStr);			
+					if (m_bIsSpecial)
+					{	PutAlignedString(sX + 15, sX + 205, sY + 215, cTxt, 0,255,50);
+						PutAlignedString(sX + 16, sX + 206, sY + 215, cTxt, 0,255,50);
+					}else
+					{	PutAlignedString(sX + 15, sX + 205, sY + 215, cTxt, 35,35,35);
+						PutAlignedString(sX + 16, sX + 206, sY + 215, cTxt, 35,35,35);
+					}
+					iLoc = 0;
+					if (strlen(cSubStr1) != 0) 
+					{	PutAlignedString(sX + 16, sX + 205, sY + 235 +iLoc, cSubStr1, 0,0,0);
+						iLoc += 15;
+					}
+					if (strlen(cSubStr2) != 0) 
+					{	PutAlignedString(sX + 16, sX + 205, sY + 235 +iLoc, cSubStr2, 0,0,0);
+						iLoc += 15;
+					}			
+					if (m_stDialogBoxExchangeInfo[i].sV3 != 1) // Item avec Quantity			
+					{	if(m_stDialogBoxExchangeInfo[i].sV3 > 1)
+						{	DisplayGold(m_stDialogBoxExchangeInfo[i].sV3);
+							strcpy(cTxt2, G_cTxt);
+						}else wsprintf(cTxt2, DRAW_DIALOGBOX_EXCHANGE2, m_stDialogBoxExchangeInfo[i].sV3);				
+						PutAlignedString(sX + 16, sX + 205, sY +235 +iLoc, cTxt2, 35,35,35);
+						iLoc += 15;
+					}
+					if (m_stDialogBoxExchangeInfo[i].sV5 != -1) // completion
+					{	wsprintf(cTxt, DRAW_DIALOGBOX_EXCHANGE4, m_stDialogBoxExchangeInfo[i].sV7);
+						PutAlignedString(sX + 16, sX + 205, sY + 235 +iLoc, cTxt, 35,35,35);
+						iLoc += 15;
+					}
+					if (iLoc < 45) // Endurance
+					{	wsprintf(cTxt, DRAW_DIALOGBOX_EXCHANGE3, m_stDialogBoxExchangeInfo[i].sV5, m_stDialogBoxExchangeInfo[i].sV6);
+						PutAlignedString(sX + 16, sX + 205, sY + 235 +iLoc, cTxt, 35,35,35);
+						iLoc += 15;				
+		}	}	}	}
+		wsprintf(cTxt, DRAW_DIALOGBOX_EXCHANGE33, m_stDialogBoxExchangeInfo[4].cStr2);						
+		PutAlignedString(sX, sX + szX, sY + 205 +10, cTxt, 55,25,25);                     // Please wait until %s agrees to
+		PutAlignedString(sX, sX + szX, sY + 220 +10, DRAW_DIALOGBOX_EXCHANGE34, 55,25,25);// exchange. The exchange can't be achieved
+		PutAlignedString(sX, sX + szX, sY + 235 +10, DRAW_DIALOGBOX_EXCHANGE35, 55,25,25);// unless both people agree.
+		PutAlignedString(sX, sX + szX, sY + 250 +10, DRAW_DIALOGBOX_EXCHANGE36, 55,25,25);//  If other player does not decide to exchange
+		PutAlignedString(sX, sX + szX, sY + 265 +10, DRAW_DIALOGBOX_EXCHANGE37, 55,25,25);// you can cancel the exchange by pressing the
+		PutAlignedString(sX, sX + szX, sY + 280 +10, DRAW_DIALOGBOX_EXCHANGE38, 55,25,25);// CANCEL button. But if other player already
+		PutAlignedString(sX, sX + szX, sY + 295 +10, DRAW_DIALOGBOX_EXCHANGE39, 55,25,25);// decided to exchange, you can't cancel anymore
+	
+	/*	if ( (msX >= sX + 450) && (msX <= sX + 450 + DEF_BTNSZX) && (msY >= sY + 310) && (msY <= sY + 310 + DEF_BTNSZY) )
+			 PutString_SprFont(sX + 450, sY + 310, "Cancel", 6,6,20);
+		else PutString_SprFont(sX + 450, sY + 310, "Cancel", 0,0,7);*/
+		break;
+	}
+}
+
+
+
+
+
+
+void CGame::DrawDialogBox_ConfirmExchange(short msX, short msY)
+Fonction rajoutée pour afficher la boite de Dialogue de confirmation.
+Rajouter la fonction au dessus de la précédente:
+/*********************************************************************************************************************
+**  void CGame::DrawDialogBox_ConfirmExchange(short msX, short msY)	(snoopy)											**
+**  description			:: paints the trade windows	Added confirmation window in v3.51																**
+**********************************************************************************************************************/
+void CGame::DrawDialogBox_ConfirmExchange(short msX, short msY)
+{short sX, sY;	
+	sX = m_stDialogBoxInfo[41].sX;
+	sY = m_stDialogBoxInfo[41].sY;	
+	
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_GAME1, sX, sY, 2);
+	switch (m_stDialogBoxInfo[41].cMode) {
+	case 1: // Question
+		PutString(sX + 35, sY + 30, "Do you really want to exchange?", RGB(4,0,50));
+		PutString(sX + 36, sY + 30, "Do you really want to exchange?", RGB(4,0,50));
+
+		if ((msX >= sX + 30) && (msX <= sX + 30 + DEF_BTNSZX) && (msY >= sY + 55) && (msY <= sY + 55 + DEF_BTNSZY)) 
+			 DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_BUTTON, sX + 30, sY + 55 , 19);
+		else DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_BUTTON, sX + 30, sY + 55 , 18);
+
+		if ((msX >= sX + 170 ) && (msX <= sX + 170 + DEF_BTNSZX ) && (msY >= sY + 55 ) && (msY <= sY + 55 + DEF_BTNSZY)) 
+			 DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_BUTTON, sX + 170, sY + 55 , 3);
+		else DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_BUTTON, sX + 170, sY + 55 , 2);
+		break;
+
+	case 2: // Waiting for response
+		PutString(sX + 45, sY + 36, "Waiting for response...", RGB(4,0,50));
+		PutString(sX + 46, sY + 36, "Waiting for response...", RGB(4,0,50));
+		break;
+	}
+}
+
+
+-----------------------------------------------------------------------------
+Voilà, beaucoup de choses comme tu peux le voir....
+
+A toi de décider si tu modifies ton game.cpp, ou si tu reprends
+le mien pour ajouter ce que tu as fait depuis...
+
+Par contre stp, envoie moi le nouveau stp, car il ne faudrait pas que nos
+modifs entrent en conflit ....
+
+NB1: les txt 1, 2, 3, 4 sont déjà inclus ds le game.cpp inclus.
+NB2: l'autre modif incluse est la deco instantanée (pratique pour tester)

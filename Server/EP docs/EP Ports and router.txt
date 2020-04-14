@@ -1,0 +1,50 @@
+				Ports & router 
+
+You must forward some ports from hosting computer to the web, if you want
+to host for both LAN & WAN from your LAN.
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+Used ports:
+¯¯¯¯¯¯¯¯¯¯¯
+	When the client first contact the server, it calls the MLS ( checks
+password & selects world). The IP & port are most often hard coded in the
+client, but EP put them in the login.cfg file.
+	
+	Then the MLS gives the WLS IP & port to the client. The client
+initiates a connection to the WLS. This server enable character selection,
+and sends the clients the IP & Port of the Game server.
+	This server is also used for some inter-game server connectivity;
+and that's a safety issue.
+
+	The Gate server is ONLY used for communication between Game servers,
+along with the WLS. So Gate port never need to be forwarded (except if
+multi-hosting)
+
+	Each Game server use a port given to the client by the WLS.
+
+	My server status detection system also uses some ports.
+
+	The main issue with hosting both LAN & WAN players is that most
+routers with forward WAN->LAN, but not LAN->LAN. When the client wants
+to connect the Game server to the IP given by the WLS, it's the WAN IP.
+If the router is not able the route this internal request to the right
+internal comuter, it's not possible to play from LAN. That's the
+reason I introduced the command:
+		game-server-mode 		= LAN
+in LOGIN.CFG. Using this will allow to host with virtually any router,
+as asking the client to ignore the IP sent by WLS and use instead the
+rigth IP.
+
+	Note that MLS & WLS may use a range of 3 ports.
+
+Forwarded ports:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Here the ports you need to forward:
+- MLS (MainLog server): find in HMLServer.cfg
+- WLS (World log server): find in WLserver.cfg ( not the internal ! )
+- Gate: NEVER forward
+- Game servers: find in gserver.cfg
+- Status detection: Game server port + 20
+
+

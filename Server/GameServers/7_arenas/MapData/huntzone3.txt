@@ -1,0 +1,71 @@
+[MAP-INFO]
+map-location  = lost
+initial-point = 1  47 165
+level-limit   = 30
+pk-mode = 0
+boss-rate  = 9000
+extra-drop = 5000
+
+//-Teleportation-Set----SX-----SY-----DestMapName----DX-----DY----Dir---;
+teleport-loc     =      45     168  lost        -1    -1   5  
+teleport-loc     =      46     168  lost        -1    -1   5    
+teleport-loc     =      47     168  lost        -1    -1   5    
+teleport-loc     =      48     168  lost        -1    -1   5     
+teleport-loc     =      49     168  lost        -1    -1   5      
+teleport-loc     =      50     168  lost        -1    -1   5   
+
+// olds TP to Equilibrium
+teleport-loc     =      44     77    qusmarsh         -1   -1    5
+teleport-loc     =      44     78    qusmarsh         -1   -1    5  
+teleport-loc     =      45     77    qusmarsh         -1   -1    5 
+teleport-loc     =      45     78    qusmarsh         -1   -1    5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       55    94
+waypoint          =     1       113   76
+waypoint          =     2       156   104
+waypoint          =     3       187   140
+waypoint          =     4       161   164
+waypoint          =     5       135   169
+waypoint          =     6       109   191
+waypoint          =     7       98    162
+waypoint          =     8       64    137
+waypoint          =     9       198   105
+
+
+maximum-object		= 361
+random-mob-generator	= 1  6
+
+// Pits
+// liches
+spot-mob-generator	= 1  1     120 112 140 132  30  6
+// DD
+spot-mob-generator	= 2  1     110 40 130 60    31  4
+// MG
+spot-mob-generator	= 3  1     150 164 160 174  58  3
+// Ettins
+spot-mob-generator	= 4  1     160 90 175 105   59  5
+// Stones + Clay
+spot-mob-generator	= 5  1     45 70 60 85      12  8
+spot-mob-generator	= 6  1     45 70 60 85      23  8
+// DE
+spot-mob-generator	= 7  1     40 25 60 45      54  12
+// HC 
+spot-mob-generator	= 8  1     150 50 170 70    49  2
+// BB
+spot-mob-generator	= 9  1     100 78 150 98    53  8
+
+
+//item-event_=_index____itemName__Amount_MaxNbe_Month_Day_Type__Mob_list[Max:5]
+item-event   = 	1	Arrow	    20 	40	12	25	0	Slime Giant-Ant Scorpion Zombie Orc EOL
+item-event   = 	2	Arrow     30	30	12	25	0	Skeleton Hellbound Frog Clay-Golem Stone-Golem EOL
+item-event   = 	3	Arrow     40	20	12	25	0	Cyclops Troll Ogre Plant Tentocle EOL
+item-event   = 	4	Arrow     50	10	12	25	0	Ettin WereWolf Stalker Mountain-Giant Minotaurs EOL
+
+item-event   = 	5	Boom	    1 	10	12	25	0	Slime Giant-Ant Scorpion Zombie Orc EOL
+item-event   = 	6	Boum	    1		8	12	25	0	Skeleton Hellbound Frog Clay-Golem Stone-Golem EOL
+item-event   = 	7	Boum      1		8	12	25	0	Cyclops Troll Ogre Plant Tentocle EOL
+item-event   = 	8	Boum      1		10	12	25	0	Ettin WereWolf Stalker Mountain-Giant Minotaurs EOL
+item-event   = 	9	NecklaceOfBeholder 1 1 12	25	0	Beholder EOL
+
+[END-MAP-INFO]

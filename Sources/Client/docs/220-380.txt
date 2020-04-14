@@ -1,0 +1,788 @@
+3.51 to 3.80
+
+3.0
+
+The Apocalypse Version Items & Magic
+
+-The information below is subject to alteration.-
+
+Players can obtain \'Rare\" items from monsters.
+Players can purchase \'For Sales\' items at Black Smith and Magic Tower.
+
+
+
+I. Weapons
+
+
+[Storm Bringer] – Rare
+
+\"A legendary sword – it brings a storm-\"
+
+- Specificity required: INT 65
+- Endurance: 3000 Weight: 110 Attack Speed: 11
+- Drop Monsters: Ice Wyvern, Frost, Nizie
+
+
+
+[The Devastator] - Rare
+
+\"An ultimate sword – called devastator-\"
+
+- Endurance: 3000 Weight: 200 Attack Speed: 15
+- Drop Monsters: Abaddon, Tiger Worm
+
+
+
+[Dark Executor] - Rare
+
+\"A noted, excellent sword – called Dark Executor\"
+
+- During the nighttime: Damage +4
+- Endurance: 4000 Weight: 140 Attack Speed: 13
+- Drop Monsters: Abaddon, Fire Wyvern, Barlog, Gargoyle
+
+
+
+[Lightning Blade] – Rare
+
+\"Light, a legendary sword – is incompatible with Dark Executor-\"
+
+- it shows its power during the daytime.
+- During the daytime: Damage: +4
+- Endurance: 4000 Weight: 140 Attack Speed: 13
+- During Monsters: Unicorn, Ice Wyvern, Centaurus,
+
+
+
+[Kloness Blade] – Rare
+
+\"A sword with divine power of Kloness, the god of justice\"
+
+- It has the supreme capability among righteous swords.
+- Endurance:8000 Weight: 120 Attack Speed: 12
+- Drop Monster: Unicorn
+
+
+
+[Kloness Axe] – Rare
+
+\"An axe of Kloness\"- Same characteristic as blade –
+
+- Endurance: 5000 Weight: 150 Attack Speed: 14
+- Drop Monster: Unicorn
+
+
+
+[Kloness Esterk] – Rare
+
+\"An esterk of Kloness\"- Same characteristic as blade –
+
+- Endurance: 5000 Weight: 50 Attack Speed: 5
+- Drop Monster: Unicorn
+
+
+
+
+
+II. Necklace Items
+
+
+
+[Necklace of Merien] - Rare
+
+It has additional effect of physical damage defense. (DF+50)
+
+- Drop Monsters: Tiger Worm, Ettin, Giant Mountain, Clay Golem, Stone Golem
+
+
+
+[Necklace of Kloness] - Rare
+
+It causes sudden attack damage to infamous player.
+
+- Drop Monsters: Unicorn
+
+
+
+[Necklace of Xelima] – Rare
+
+The value of hitting rate: +100 (The value is applicable to physical attack and magic attack)
+
+- Drop Monsters: Abaddon, Demon, Fire Wyvern
+
+
+
+
+
+III. Magic spells
+
+
+
+[Cancellation] - Rare
+
+- Antipersonnel Magic, Magic Spell Book
+- It cancels every magic that is applied to the character. (Absolute-Magic-Protection included)
+- The effect is not continuous.
+- Circle: 8 INT required: 135 MANA: 120
+- Drop Monsters: Liche, Beholder, Master Mage Orc, Cyclops, Tiger Worm
+
+
+
+[Earth-Shock-Wave] - Rare
+
+- Range Magic, Magic Spell Book
+- It is a magic spell, which causes an explosion of the ground in a straight line to the target.
+- Like the Blizzard spell, it gave a damage in a straight line.
+- In addition, this spell causes decreasing SP and endurance of armor. In case of magic protection: 1/2
+- Circle: 10 INT required: 200 MANA: 180
+- Drop Monsters: Tiger Worm, Barlog, Ettin, Clay Golem, Stone Golem
+
+
+
+[Mass-Magic-Missile] – For Sales
+
+- Range Magic, Possible to purchase at Magic Tower
+- It has an knock-back effect
+- Price: 42000 Circle: 9 INT required: 185 MANA: 160
+
+
+
+[Illusion-Movement(Normal), Mass-Illusion-Movement] – For Sales
+
+- Antipersonnel Magic, Possible to purchase at Magic Tower
+- It causes an illusion in a character to disturb movement.
+- ??Mass?? is effective for 1 minute, and ??Normal?? is effective for 30 seconds.
+- Price: 28000/38000 Circle: 8/10 INT reuqired: 160/200 MANA: 150/200
+
+
+
+[Inhibition-Magic-Casting] - Rare
+
+- Antipersonnel Magic, Magic Spell Book
+- The Character, who is attacked by this spell, can NOT use any spell for about 40 seconds.
+- It has different property from Illusion and cancellation.
+- It is not applied to character, who is in effect of (Absolute) Magic Protection.
+- If a character is exposed to this spell, he cannot cast any spell at all. Only possible to use Scrolls and Potions.
+- Circle: 9 INT required: 180 MANA: 180
+- Drop Monsters: Tiger Wrom, Liche, Beholder, Master Mage Orc
+
+
+
+!!!ATTENTION!!!
+
+There are 3 rare magic spells. (Cancellation, Inhabition-Casting, Earth-Shock-Wave)
+
+Cancellation INT 135
+Inhabition-Casting INT 180
+Earth-Shock-Wave INT 200
+
+Make sure that the character has enough INT to learn rare magic spell. If character try to read the book and learn the spell WITHOUT INT required, the spell book might be gone, and the character does not learn the magic spell.
+
+IV. Mage’s Wands
+
+[Berserk-Magic Wand (MS 10, MS 20)] - Rare
+
+??Berserk Staff?? If a character cast a spell with this Wand, the damage increases 30%.
+
+- Wand Setting Value: Same as Normal Wand(Weight etc.)
+- Level Limit: Above Lvl 100, MANA for casting: additional +20(The character will need additional +20 MANA to cast each magic spell.)
+- Drop Monsters: Ettin, Giant Lizard, Centaurus, Demon
+
+[Kloness-Magic Wand (MS 10, MS 20)] - Rare
+
+??A Wand with divine power of Kloness, the god of justice?? The every magic spell has same righteous effect with this wand. Like Kloness weapons, additional damage is 
+given to infamous character.
+
+- Wand Setting Value: Same as Normal Wand(Weight etc.)
+- Level Limit: Above Lvl 120
+- Drop Monster: Unicorn
+
+[Resurrection wand (MS 10, MS 20)] - Rare
+
+- Antipersonnel Magic
+- If the character hold this want, the Resurrection is activated in the Magic Casting Window.
+- It make you can revive the character (who died) with 50% HP.
+- Way to use: After casting this magic spell, click a character (who you want to revive)
+- Wand Setting Value: Same as Normal Wand(Weight etc.)
+- Level Limit: Above Lvl 100 INT Limit: 100 MAG Limit: 100 Time to use Limit: 600 second
+- Circle: 10 MANA required: 200
+- Drop Monsters: Abaddon, Demon, Liche
+
+Dear Helbreath International Players,
+
+
+
+1. General Idea of APOCALYPSE
+
+
+According to dictional sense, meaning is ??the Book of Revelation??
+By definition of Helbreath; it is the World behind the darkness.
+The portal for the Apocalypse will be opened in Tower of Hell 3rd floor and Icebound.
+
+
+2. Beginning of Apocalypse
+
+
+The portal is generated at Icebound and Tower of Hell 3F
+
+The portal is generated randomly. If the portal is opened, a message is shown at left-lower part. The period of opening is between 10 to 20 minutes. Once the portal is 
+closed, players can not get into the map of Apocalypse. If some players fails to get into it, they should wait next chance. In other words, only the players, who enter the map 
+of Apocalypse for regular time, can go toward the ABADDON.
+
+Monsters are always generated around the portal.
+Hellclaw and Gagoyle are generated. (in Tower of Hell 3F)
+Ice Wyvern is generated. (in Icebound)
+
+
+
+II. Stage to Stage : STS
+
+
+
+The basic set up to move from stage to stage!
+
+-1. In case of that players combat with monsters in the map and defeat them all(a kind of quest concept), players can move to next map. (Make sure all monsters in the map 
+have to be gone.)
+
+-2. Just go through the monsters in the map, and get into the portal for next map.
+
+After entering in Apocalypse maps, players can not use a type of Recall spell (Bleeding Island Ticket included) and scroll. This rule is applied every map of Apocalypse equally.
+Warning! In case of Disconnect (rebooting with a purpose included), players start in the town or farm. The regulation is same as Fight Zone. After the portal for Apocalypse is closed, players can not get into it at that time. For the next time, players, who can not get into, should wait and train hard.
+
+
+
+Tower of Hell 3F, Icebound
+
+Two places where the portal is opened.
+
+
+Each map has one portal for Apocalypse.
+
+
+Druncnian City
+
+Monsters are regenerated constantly. It is possible to move forward to the Infernia Map regardless of the number of monsters.
+
+Two portals exists in this map. Player can stay in the map if players keep maintenance of the connection continuously.
+
+Kind of Monsters
+
+: Hellcraw, Nizie, Claw Turtle, Giant Crayfish, Stalker, Giant Frog
+
+
+InferniaA, B
+
+Players must fight and defeat all monsters in the map to open next portal for Maze Map.
+
+If monsters in Infernia A are defeated all, the portal is opened in Infernia A.
+If monsters in Infernia B are defeated all, the portal is opened in Infernia B.
+
+From Druncnian City, players can choose a way between Infernia A and Infernia B The generation time of monsters is beginning of Apocalypse.
+The number of monsters are fixed at the beginning, so no more monsters will be generated that players should clear up all monsters in the map. Similar kind of monsters are 
+generated in both Infernia A and Infernia B.
+
+Kind of Monsters
+
+Infernia A: Fire Wyvern, Barlog, Demon, Tentocle, Cyclops, zombi
+
+Infernia B: Fire Wyvern, Barlog, Demon, Liche, Tentocle, Cyclops, zombi
+
+
+Maze
+
+This map is composed of maze, and players should pass through it to perform the quest. Monsters are always regenerated, and the portal to next map is always opened. As 
+Druncnian City Map, players can go to Procella or (Creperum) through this map. Players should choose one map to go forward between Procella and (Creperum).
+
+(Creperum map is not added now, so only Procella map is opened. Creperum is coming soon.)
+
+Warning! The mini map used to be helpful; however, the mini map is NOT working in the Maze Map. Please make sure!!
+
+Kind of Monsters
+
+: Centaurus, Minotaurs , Gargoyle, Tentocle, Dark Elf, Beholder
+
+
+Procella
+
+As Infernia(A,  Map, players have to defeat all monsters in the map.
+
+If there is no more monsters left, players can go to final map, Abaddon Map.
+
+Kind of Monsters
+
+Centaurus , Minotaurs, Giant Lizard, Master Mage Orc, Giant Plant, Cannibal plant, Stalker
+
+
+Abaddon
+
+Here is the place where, the monarch of the destruction, absolute evil, Abaddon has gone to his long sleep. This map is the last stage of the Apocalypse quest. All of the 
+monsters that players have fought against on the way to Abaddon come out and players should get rid of these monsters to encounter with Abaddon.
+
+The condition that Abaddon appears: Players must defeat monsters without exception.
+Conceptually, Abaddon do not be killed, but disappeared.
+
+The place, where Abaddon is disappeared, several items will be dropped.
+The boss monsters of each map drop an item without exception.
+
+Kind of Monsters
+
+: Abaddon, Fire Wyvern, Ice Wyvern, Tiger wrom, Hellclaw, Barlog, Tentocle, Minotaurs
+
+3.51
+
+Heledians:
+Requirements and Opening time of Seize Warfare
+Requirement
+Anyone with Level 81 or higher can participate in Castle Seize. In Helbreath, we consider those below 80 as beginning players, thus they are eliminated from this event.
+
+*Plus if the character's status is citizen, can not participate in Heldenian.
+The concept of Heldenian
+Heldenian: The Hidden Castle
+Concept in the game: Located west of Middle land, it was built by Gods of Helbreath. The Castle (Heldenian) was disappeared during the war between Gods, so-called the 
+Prime Event in Helbreath year 2192. Later, the castle was found by the princess of Elvine, Helien.
+
+Heldenian : Located on the west of Middle Land and some says ancient Gods were dwelling in the castle.
+Heldenian - Features
+The Core essence of Helbreath
+The core essence of Helbreath is mass warfare in the game, such as the Crusade.
+
+Heldenian is enhanced version of current Crusade system.
+
+There will be new NPCs and Units with Artificial Intelligence that it will be like whole new experience for our players.
+Utilizing Units used in Strategic Simulations Games
+Like in the Crusades, you will also see special Units and Towers during Heldenian
+However in the past, only certain players were authorized to purchase those Units. 
+In Heldenien, anyone can purchase any units without restriction, and players can actually control those units they summoned
+
+Following condition must be met to win Castle Seize
+Type 1
+Whoever destroys opponent's guard tower first wins Heldenian.
+
+If Guard towers were not destroyed in a certain time (in about 90 minutes), the following conditions will be used to determine the winning nation. Condition numbers represent the priority in winning condition.
+
+* Winning condition 1: Number of remaining towers.
+* Winning condition 2: Number of flags put on fields.
+* Winning condition 3: If above 1 and 2 are same, whoever destroyed the first tower wins. 
+
+Type2
+
+* When the flag inside Heldenian is replaced, the Castle Seize ends.
+* Only guild master is eligible to replace flag inside Heldenian.
+* When the flag was not replaced in a certain time frame (in about 90 minutes), defendant wins.. 
+
+Heldenian-Castle Seize
+Components of Heldenian
+Map1 Name:
+Battle Field
+(Outside Castle)
+
+Map2 Name:
+Heldenian Rampart
+(Outside Castle)
+
+Map3 Name:
+God's Heldenian 1Floor
+(Inside Castle)
+Initial stage of Castle Seize
+
+There are two types of Castle Seize, Type 1 and 2. In Type1, Heldenian is in neural status, and any nation which destroys the other nation's Unit wins the battle and acquires 
+Heldenian. In Type2, Heldenian is owned by one of the nations, thus there are defense (Nation who owns the Castle) and offense (Nation who wish to capture the Castle). 
+Offending nation must get inside the castle and put their nation's flag inside Heldenian to win.
+
+To give both nations equal opportunities on benefit of owning Heldenian, the ownership of Heldenian will be reset in every two weeks.
+
+Week1: Type1
+Week2: Type2
+Week3: Type2
+
+Preparing for Castle Seize
+Participating in Castle Seize
+You can teleport to Battlefields of Castle seize by clicking NPC in Command Hall (New building for Castle Seize).
+When Heldenian is owned by one of the nations
+The defending party starts the battle inside the Castle and offending party starts outside the Castle
+When Heldenian is in neutral mode
+Both nations start the battle in battle field
+
+Rules of Castle Seize!:
+" During Castle Seize, PK is also allowed for the same nation's characters and those who kills will turn to criminal status and will be sent to prison in Village.
+" During Castle Seize, players can use recall or other scrolls but when they are disconnected from the game, they will be restarted in village.
+" Regular Magic can not be used to summon monsters
+" When character dies during Castle Seize, its exp will be reduced as usual.
+* When character kills opponent nation's character, it receives EK point.
+* When EK Point is obtained, it will receive 3 times more than EXP. 
+" Regardless of Summoned Unit System's HP, it dies when character who summoned moves to village
+
+" Characters will be given 300 summon points Per one CHR Point(ex: CHR 10 = 3000 Point).
+" Only guild member can get summon points.
+" Characters cannot get more than 12000 summon points regardless of CHR points.
+Limitation: Regardless of CHR points, only 4 can be summoned per a Castle Seize
+* Only 4 scrolls can be bought per a Castle Seize. 
+
+" In Castle Seize type1 : ! “
+* Getting the flag: Can be obtained at defendant's Castle with EK Point
+* EK Point 10 per 1 flag
+* Effect of the flag: When the flag is used in the field, corresponding nation's attack ability increase by 1.3 times.
+* Flag disappears when Castle Seize is over.
+* When flag was not used, it can be used in next Castle Seize type1.
+
+" PK is enabled only during Castle Seize.
+" Can not use the Units inside Castle.
+Benefits to winning nation of Castle Seize
+" Teleporting feature appears in certain area.
+* Defeated nation doesn't get this teleporting feature
+* Teleport to Middleland, BattleField. 
+" There is no price change in winning nation. But in defeated nation, price of all items sold in the shop will double.
+" The chance of getting an item for winning nation's characters is increase by 150%.”
+" Winning nation can enter Heldenian even not during Castle seize, but defeated nation can not.
+
+3.62
+
+- New function 'Craftsmanship' will be applied tomorrow
+- Price change on shops by the Crusade results has ended and prices will now only chages by the Heldenien results.
+- You can by lottery tickets at the shop.
+
+[ Craftsmanship ]
+
+You can make your item better by Craftsmanship.
+You can buy the Craftsmanship bowl at the shop to do it.
+Craftsmanship has no relation to the manufacturing or alchemy.
+
+** You need at least 10 contribution points to use Craftsmanship **
+
+A. Items availiable to craftsmanship
+
+1. DF Series.
+
+DF 15= (DF 10)+(DF 10)+gold bar+silver bar+merien stone+10 contribution points
+- when process is failed, merien stone gets depleted and 1 of the items may get depleted.
+
+DF 20= (DF 10)+(DF 15)+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1 of the items gets depleted when fail.
+
+DF 25= (DF 10)+(DF 20)+crystal+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1~2 of the items gets depleted when fail.
+
+DF 30= (DF 10)+(DF 25)+crystal+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1~3 of the items gets depleted when fail.
+
+2. RM Series
+
+RM 15= (RM 10)+(RM 10)+gold bar+silver bar+merien stone+10 contribution points
+- when process is failed, merien stone gets depleted and 1 of the items may get depleted.
+
+RM 20= (RM 10)+(RM 15)+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1 of the items gets depleted when fail.
+
+RM 25= (RM 10)+(RM 20)+crystal+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1~2 of the items gets depleted when fail.
+
+RM 30= (RM 10)+(RM 25)+crystal+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1~3 of the items gets depleted when fail.
+
+3. DM Series
+
+DM 2= (DM 1)+(DM 1)+gold bar+silver bar+merien stone+10 contribution points
+- when process is failed, merien stone gets depleted and 1 of the items may get depleted.
+
+DM 3= (DM 1)+(DM 2)+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1 of the items gets depleted when fail.
+
+DM 4= (DM 1)+(DM 3)+crystal+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1~2 of the items gets depleted when fail.
+
+DM 5= (DM 1)+(DM 4)+crystal+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1~3 of the items gets depleted when fail.
+
+4. MS Series
+
+MS 12= (MS 10)+(MS 10)+gold bar+silver bar+merien stone+10 contribution points
+- when process is failed, merien stone gets depleted and 1 of the items may get depleted.
+
+MS 14= (MS 10)+(MS 12)+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1 of the items gets depleted when fail.
+
+MS 16= (MS 10)+(MS 14)+crystal+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1~2 of the items gets depleted when fail.
+
+MS 18= (MS 10)+(MS 16)+crystal+gold bar+silver bar+merien stone+10 contribution points
+- merien stone and 1~3 of the items gets depleted when fail.
+
+
+
+5.Jewel Series
+
+Making a new mixture of Jewel with property and functions by using minerals of jewel.
+Jewel with property and functions can be equipped to be used.
+(Max purity 100)
+
+- Jewel Craftsmanship Orders.
+
+1.Make a 'Ware item' by using jewels.
+2.Make a 'Magic Jewel' by usin made 'Ware item'.
+3.Press the F5 window and equip the 'Magic Jewel' on the blank of the right side of the character.
+
+Diamondware = diamond + diamond + crystal
+Crystalware = crystal + crystal + crystal
+Rubyware = ruby + ruby + crystal
+Emeraldware = emerald + emerald + crystal
+Sapphireware = sapphire + sapphire + crystal
+
+- Craftsmanship made jewels mas purities which has a maximum of 100.
+- Purity has no relations with skill points.
+- Purity gets applied randomly.
+
+
+Magical Jewel Craftsmanship terms (completion %: maximum 100)
+
+Magic Diamond = DIAMONDWARE + DIAMONDWARE + CRYSTALWARE + Merien stone
+- merien stone and 1~2 of the items gets depleted when fail.
+Function : Attack probability(physical&magic) added by the purity formula.
+
+Magic Ruby = RUBYWARE + RUBYWARE + CRYSTALWARE + Merien stone
+- merien stone and 1~2 of the items gets depleted when fail.
+Function : Characters Hp recovery rate(% applied) added by the purity formula.
+
+Magic Emerald = EMERALDWARE + EMERALDWARE + CRYSTALWARE + Merien stone
+- merien stone and 1~2 of the items gets depleted when fail.
+Function : Magical damage decreased(% applied) by the purity formula.
+
+Magic Sapphire = SAPPHIREWARE + SAPPHIREWARE + CRYSTALWARE + Merien stone
+- merien stone and 1~2 of the items gets depleted when fail.
+Function : Physical damage decreased(% applied) by the purity formula.
+
+6. Completion and function rates added by it.
+
+-Necklaces does not have completion rate.
+-Completion rate are only appied to the Jewel Craftsmanship.
+
+Completion rate confirm.
+-Average of the purities(every purity rates/4) multipied by 4/5.
+-Maximum rate of the completion cannot be lager than the average of the purities.
+-EX: When the average of the purities are 100%, completion rate is confirmed by 100%~80%.
+
+Functions rates confirm.
+Magic Diamond: Completion rate / 5 = Functions rate. ? Maximum 20. (not%)
+Magic Ruby: Completion rate / 5 = Functions rate.(%) ? Maximum 20%.
+Magic Emerald: Completion rate / 10 = Functions rate.(%) ? Maximum 10%.
+Magic Sapphire: Completion rate / 10 = Functions rate.(%) ? Maximum 10%.
+
+Price of new items.
+Crafting Vessel: 1000gold
+Diamond ware: 5000gold / Ruby ware: 3000gold / Sapphire ware: 3000gold
+Emerald ware: 3000gold / Crystal ware: 500gold
+
+Magic Diamond: 8000gold / Magic Ruby: 5000gold
+Magic Emerald: 5000gold / Magic Emerald: 5000gold
+
+***These are the prices of the items it selfs, and it is sold to the shops by the half of the prices.***
+
+II. Helbeath Lottery
+
+- Players can buy the Helbeath Lottery at the shop and get prizes according to it.
+- Price of the Helbeath Lottery : 50000 gold.
+- Every Rare items has a possibility to be given as a prize.
+- The percentage of the prize given is totally random.
+- You can use the lottery ticket by double-clicking it.
+- The item’s gotten from lottery do not have any charistics (such as ancient or hitting probality) their just plain items.
+
+3.70
+
+I. Tutelary angel System
+
+Tutelary angel plays assistant (support) role in game.
+Tutelary angel is an supporting item that can increase a character's stat point additionally.
+There are 4(four) kinds of Tutelary angels, and each Tutelary angel has its specific characteristic.
+
+Players can upgrade(level-up) Tutelary angel; therefore, Tutelary angel has a upgrade value.
+If the upgrade value high, Tutelary angel has more powerful.
+
+There will be an item that can summon Tutelary angel, and it can be traded between players.
+With the item, players summon specific Tutelary angel.
+
+I-1. The item of Tutelary angel
+
+The item of Tutelary angel is a Pendant. **(PTA,Pendant of Tutelary angel)**
+The kind of Tutelary angel is changed depend on which Pendant character equips.
+There are 4(four) Pendants of Tutelary angels that summon different Tutelary angels.
+
+Required Majesty Point for upgrade Tutelary angel Pendant
+
+PTA+1: Required Majesty Point 3
+PTA+2: Required Majesty Point 4
+PTA+3: Required Majesty Point 5
+PTA+4: Required Majesty Point 6
+PTA+5: Required Majesty Point 7
+PTA+6: Required Majesty Point 8
+PTA+7: Required Majesty Point 9
+PTA+8: Required Majesty Point 10
+PTA+9: Required Majesty Point 11
+PTA+10 Required Majesty Point 12
+PTA+11 Required Majesty Point 13
+PTA+12 Required Majesty Point 14
+PTA+13 Required Majesty Point 15
+PTA+14 Required Majesty Point 16
+PTA+15 Required Majesty Point 17
+PTA+16 Required Majesty Point 18
+PTA+17 Required Majesty Point 19
+PTA+18 Required Majesty Point 20
+PTA+19 Required Majesty Point 21
+PTA+20 Required Majesty Point 22
+
+
+-Each + numerical value is a character's increased stat value.
+-There is success probability as the other items upgrade.
+-The upgrade probability is same on each upgrade value.
+-As the upgrade is failed, the majesty point is decreased -1.
+-30 Level required to wear PTA(Pendant of Tutelary angel).
+
+
+
+
+I-2. How to upgrade PTA(Pendant of Tutelary angel).
+The upgrade method is same as Majesty weapon's.
+
+F6 Upgrade click ->Item Upgrade Dial Box -> Move the PTA on the Upgrade window -> Upgrade PTA(Pendant of Tutelary angel) -> Specific Majesty points decrease as 
+Upgrade level:
+-Upgraded PTA(Pendant of Tutelary angel) can be used by the other characters.
+-Upgrade PTA(Pendant of Tutelary angel) is possible only on Majesty Item upgrade window.
+
+I-3. How to receive PTA(Pendant of Tutelary angel) - Requirement
+
+*Requirement for receiving PTA.
+
+Only majesty character can receive the item PTA.
+It does not related with character's characteristic(stat point) to receive PTA.
+
+-5 majesty points are required to receive PTA(PTA+0).
+-5 majesty points decrease as receiving a PTA.
+
+*NPC for PTA
+
+A character can receive the PTA FROM NPC(?? [] in the Command Hall of each town
+The character MUST meet requirements for PTA(Pendant of Tutelary angel).
+
+Receiving PTA(Pendant of Tutelary angel) -> Check the PTA List -> Choose a PTA player wants
+
+I-4 Tutelary angels' characteristic
+
+Tutelary angels has each characteristic stat. - STR, DEX, INT, MAG
+
+STR Tutelary angel (Name: Staria)
+STR PTA - As a character equips the STR PTA, STR Tutelary angel, Staria, is appeared immediatly.
+While the character is with STR Tutelary angel, its STR stat point increases as the Angel's upgrade value.
+
+
+DEX Tutelary angel (Name: Doely)
+DEX PTA - As a character equips the DEX PTA, DEX Tutelary angel, Doely, is appeared immediatly.
+While the character is with DEX Tutelary angel, its DEX stat point increases as the Angel's upgrade value.
+
+
+INT Tutelary angel (Name: Inairia)
+INT PTA - As a character equips the INT PTA, INT Tutelary angel, Inairia, is appeared immediatly.
+While the character is with INT Tutelary angel, its INT stat point increases as the Angel's upgrade value.
+
+***!!!CAUTION!!!***
+""PLEASE MAKE SURE ABOUT THIS AND CAREFUL WITH INT Tutelary angel""
+In case of INT Tutelary angel, the spells, which the character learn with INT PTA, will be deleted, after taking off the Pendant.
+SPECAIL RARE MAGICS WILL BE DELETED TOO, IF THE INT IS NOT ENOUGH TO LEARN, AFTER TAKEING OFF THE PTA.
+
+
+MAG Tutelary angel (Name: Maria)
+MAG PTA - As a character equips the MAG PTA, MAG Tutelary angel, Maria, is appeared immediatly.
+While the character is with MAG Tutelary angel, its MAG stat point increases as the Angel's upgrade value.
+
+
+I-5. How to summon the Tutelary angel
+
+How to equip the Pendant, players move the Pendant on the circle of Character Info. Window-(F5)(where a character uses magic jewels)
+Or players just double-click the Pendant to equip.
+
+* The Pendant and magic jewels can not be equipped at the same time.
+
+II. The other changes in game
+
+-The number of rabbits and cats in game decrease.
+
+-Recall spell in Towns
+In case of the existing recall system, the recall point is random, so sometimes characters recall in same places.
+This system is changed in new version.
+Once recalled place can not be next time. (In other words, the probability to be recalled at same place decreases.
+
+-One more gate is made at Warehouse.
+-Armor Break Magic spell's decreasing armor endurance value is set higher.
+-Add more Pit in Farm of each town. (for lower level characters.)
+-Golem pit is added in Farm of each town.
+
+Elvine Farm (35,40~80,75), Aresden Farm (185,80~220,115)
+
+-Guards' Attack Damage increases.
+Phisical Damage : 3D8 -> 4D8, Magic Damage is same as before.
+-Stone Golem's Necklace of Stone Golem drop rate increases.
+
+
+
+
+
+
+3.80
+
+I. Heldenian Seize War
+
+I.1. The location of the portal for the Winners of Heldenian has been changed.
+
+The location of the Middleland portal for the winners of the Heldenian has been changed.
+
+The new Middleland portal location.
+
+Elvine Middleland Portal : 394 , 247
+Aresden Middleland Portal : 420 , 274
+
+I.2. The rules of Heldenian Part#1 has been regulated.
+
+From version 3.80 players cannot cross the bridge before the war begins.
+Players must destroy the bridge to cross it.
+
+II. Helbreath Master set items.
+
+Players can change their DarkMage Robe to DarkMage Hat inside the game.
+
+Go to the Wizard Tower with the Robe >> Click the npc >> Click Exchange >> Check the messege and click ok.
+(!) Players can one exchange the item only once. Exchanging the Hat back to Robe is not possible.
+
+III. HelBreath Items settings.
+
+III.1. Staff & Wand attack speed settled.
+
+Attack speed 3 has been changed to 1.
+Players can reach to highest speed when STR is 13.
+
+III.2. Item Upgrade percentage of Xelima & Merien stones has been settled.
+
+The success percentage of the stones has been higher.
+Only the stones will be deleted and items will not be depleted until +3.
+Both items and stones may be depleted from +4.
+
+IV. Map settings.
+
+IV.1. Damage of some Maps has been settled.
+
+Damage will be higher of the maps where war is frequent.
+
+Maps which is settled.
+Middlelamd, Icebound, Middleland Dungeon, Promise land.
+
+Damage application.
+The maps above will have 1.2 times more Damage, and 1.5 times Damage which Crusade.
+Other Maps will maintain 1.3 times more damage as usual(while Crusade).
+
+IV.2. Unpopular Maps settlement.
+
+Unpopular Maps functions has been settled.
+
+Settled Maps.
+Dungeon 2F, Dungeon 3F, Dungeon 4F
+
+Settlement
+Apocalypse Monster will appear on maps above.
+Tentocle will appear at Dungeon 2F, 3F, 4F.
+Barlog will appear at Dungeon 4F Map.

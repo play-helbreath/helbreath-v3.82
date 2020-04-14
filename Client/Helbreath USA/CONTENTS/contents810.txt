@@ -1,0 +1,12 @@
+Commander's teleport ability  
+
+The commander can teleport to a certain location. 
+
+In the commander's menu you will be able to see
+yellow X mark which is the teleport location.
+ 
+If the teleport location is not located you
+can not use this ability.
+ 
+Clicking in the commander's menu you can
+locate the teleport position.

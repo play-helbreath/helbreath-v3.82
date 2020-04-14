@@ -1,0 +1,336 @@
+___________________________________
+      For Settings.cfg file
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+map-mode = EQUILIBRIUM, CLASSIC(default)
+
+	In this mode, many game features are changed to suit the
+Equilibrium Project map settings. This setting is not suited
+for crusade times. We uselly reboot server before crusades.
+
+Here a list of most important things changed:
+- Recall Scroll or spells will TP you to Equilibrium instead
+  of old cities.
+- Can stay in enemy cities (including Shop/BS/WHTower...)
+- Can Recall from enemy cities.
+- PKillers go to Jail in maps around Equilibrium and no more
+  in old cities.
+- Dont go to Jail if dead in enemy city.
+- Ares can party Elvine 
+- Ares can resurect Elvine if in same party
+- No Eggs or rare 2nd drops if random-mob 
+- Area spells (FireWalls...) Forbiden in Equilibrium instead
+  of old cities.
+- Poison calls Guards in Equilibrium instead of old cities.
+- Forced Recall goes to Equilibrium.
+- Can get Quests from William outside old cities.
+
+
+
+pvp-hp-mode = HIGH or LOW (default)
+
+	HB uses Dext once for hitting bonus and Dext Twice for
+defence. So PvP is hard for Warrior with high dext, and even
+a 250 dext fencer can have hard time wounding a 150 Dext
+character. With HIGH mode, the Defence is lowered for PvP only!
+Lowering the defense gives a better advantage for low dext
+chars using critic attacks than to dextis. So it was changed
+also.
+
+Things changed in game formulas: (only PvP)
+- Defense changed from: 
+  Armors + Dext x2 + defence items + Magic DefenceRatio
+  to:
+  Armors + Dext + defence items + Magic DefenceRatio/2
+- Critical Attacks changed:
+  +100 to hit bonus
+  to:
+  -50 to defence ratio of opponent (10 minima)
+  Note that the over bonus to hit (0 to +30) depending
+  on weapon type, is not changed.
+
+
+
+alchi-item-upgrade  	= ON or OFF (defaut)
+gizon-item-upgrade   	= ON or OFF (defaut)
+
+Allows player to upgrade items directly from game interface
+Either with Alchemy Oils, Elixirs and Balls; 
+or gizon points...
+
+
+
+xp-mode 			= EQUILIBRIUM (default), USA, or HB
+
+ 	I added this to choose the XP mode for the server. Three
+modes can be choosen:
+- HB (0)  is standard Helbreath XP 
+  (bonus up to level 80, reduced in farms above lvl 80)
+- USA (1) as on HB-USA, gives huge XP bonusses up to lvl 120.
+- EQUILIBRIUM (2) is my standard:
+  - bonus up to lvl 120 instead of 80, no malus in farms at high levels
+  - malus for 10 max levels of the server (ie: 140 -> 150 (2% per level)
+  - XP20% weapons are counted AFTER the party XP sharing.
+
+
+
+party-log 			= VERBOSE or STANDARD (default)
+
+	To debug Party problems, I implemented a very complete Party-log.
+But such a big log can introduce some lag, on populated server, so
+I introduced a way to enable/disable it.
+
+
+
+absolute-max-player-level = 153
+
+	As I introduced gizon to gain some extra levels, I needed to set
+this somewhere. The max level is set in npc.cfg (world-server-max-level),
+but the absolute max level you can obtain with gizons is set here.
+The cost is 4 gizons per level above the max level.
+ie: if world-server-max-level = 150, 
+    lvl151 will cost 4 gizons, 152 cost 8, 153 cost 12... 
+
+
+
+
+evil-max-player-level   = 170
+
+	The Evil characters, or Executors, can PvP almost everywhere.
+(defined by "character-location   = evil") They are intended only to
+be Abaddon's friends and should be reserved to few players (maybe
+paying for that with 3 gizons). 
+They are set manually by admin.
+Those character could be a too heavy threat for lower levels, and could
+be overpowerfull, so I needed to restrain their level possibilities.
+They have special Armors (set special-event-id = 666, to have the
+server give them those items) they have -500 reputation, and no access
+to stated items.
+
+
+validation-number		= 0 (0 prevents the system from working)
+
+	This is a "key" system designed to check for the validation number
+on all character files. This is an anti-hack function. Should a hacker
+connect a gserver to your main/world servers to introduce edited characters,
+they would lack the right validation umber and would be rejected and logged.
+	Note that the Extasis ready to use hack will recover the character file
+with the key, so the validation number is obsolete. A new protection have
+been added to the Wserver.
+
+MSGID_REQUEST_REGISTERGAMESERVER = 67896789
+
+	This a way to protect against the extasis hack. This feature changes
+MSGID used to register the game server to the world server. The MGSID
+must also be fixed in the wserver to match the gserver.
+
+
+validation-crc1		= 0
+validation-crc2		= 0
+	A good way to protect from hacked or memory patched clients is to ask
+the client to auto-check his own CRC and send it to server for checking. 
+Currentlly no function have been coded to cry havok on modifyed clients,
+
+
+connection-check-time	= 8000 (0 is defaut)
+
+	The client sends a connection check on a regular basis (8 seconds 
+or 8+1 seconds) the server can use this value to detect edited clients, 
+packet senders, speedhacks, etc... If you change this value in client
+change as well here!
+
+show-city-power		= 1 (0 is default)
+
+	The gserver window shows player/npc activiy, with this setting, 
+it'll show relative strenths.
+Note that the Key [F2] can toggle modes...
+
+killer-indicator		= 0(default), 1, 2
+
+	Sends a killed client a message to tell him who killed him.
+0: No message (default)
+1: Message unless crusade time
+2: Message even at crusade time
+
+heldenian-war-time 	= 15  (default)
+heldenian-end-time 	= 105 (default)
+heldenian-summon	 	= 0(default), 1, 2
+
+	Set values for war beginning afet event's start, and 
+total event's duration. (in minutes)
+	Set summon control type. 
+-0: summons don't survive master
+-1: summons survive master and wait for master return forever.
+-2: summons survive and can be mobilized by anybody (/mobilize)
+
+
+
+primary-drop-rate 	= EQUILIBRIUM or 1~10000
+secondary-drop-rate 	= EQUILIBRIUM or 1~10000
+gold-drop-rate 		= EQUILIBRIUM or 1~10000
+rep-drop-modifier	 	= 2
+
+	I changed and extended the drop rate modifiers.
+Primary drop rate is chances of not dropping something:
+- 0 would mean npc always drop
+- 6500 HBX default
+- 7750 or 9000 for v2.191 server (I don't know witch reason lowers drop rate)
+- 8670 for REVIVAL server (Lower because Gold proportion is reduced later)
+- 8720 for EQUILIBRIUM server (same as REVIVAL for character with 100 reputation)
+  With Reputation adjustement, will be 8220 (19% droprate) to 9220(8% droprate)
+
+Gold drop rate is chances to get gold
+- 0 means only drops, never gold
+- 6000 HBX defaut 
+- 6500 on v2.191 server
+- 3000 for EQUILIBRIUM server ( because too much Gold in HB)
+
+Secondary drop rate is chances to get som potion as 2nd drop,
+instead of some stated item (weapons wands, armors or shields)
+- 0 means only items never potions
+- 9000 HBX default (was stronglly adjusted for reputation)
+- 9000 on v2.191 server
+- 7800 for Equilibrium Project 
+  (more items, because less total drops)
+
+
+	Reputation drop modifier was introduced by HBX to adjust 
+the secondary drop rate only. But the effect was hudge with very
+high reputation. I changed this to affect primary drop rate,
+and to a lesser extend. 
+	The primary drop rate is modified by the 1/2 per reputation
+point. The rep-drop-modifier acts as as multiplicator of reputation
+points. The maximum effect is +-500 on primary drop rate.
+(This is still a nice increase, provided the low drop rate
+on Equilibrium project)
+
+       New GM commands
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+/setpkmode	0..4
+	See above.
+
+/setmaptype	0..3
+	See above.
+/setdroptype -1..1
+	See above.
+
+/setmapmobnum 0..999
+	Changes the max possible of npcs for the GM's map.
+
+/beginapocalypse"space"
+/endapocalypse"space"
+/closeapocalypsegate"space"
+/openapocalypsegate"space"
+	Apocalypse event related commands.
+
+/start ..\ServerDir\
+	Use with care! Can restart a crashed server.
+
+/restartthisserverrightnow"space"
+	Restarts the server.
+
+/getactivegservers"space"
+	List currentlly active game servers. Usefull in
+conjunction with previous command. Also gives connected
+player number on each server. 
+Can be used by players without giving the player number.
+
+/popoenabled 0/1 (default)
+	Value 0 forbids any usage of HPup, MPup, SPup
+consume items, such as Red, Blue, Green potions. Works
+on current map.
+
+/gns MobName
+	Originally, works only by mob's NamingValue, now
+can search around the GM, by mob's type name.
+
+/monitor CharName
+	I intend to implement special anti-hack routines.
+GM can activate them on suspect character.
+
+/setxprate 100
+	Changes the XP rate (from 1% to 1000% on current map.
+Without nbe, gives current XP rate.
+
+/setextradrop
+	Changes the map secondary extra drop rate.
+(Low figure => many items) 0 or -1 restores default.
+
+/setbossrate = 100 (1..1000)
+	Set at a % the nbe of mobs you need to kill before a Boss will spawn
+(not for SMG boss spawns)
+
+/thunder 0,1,2
+	2 sets fire explosions as on Abaddon map.
+	1 set lightning (thunderstorms) (do be done)
+	0 reset to normal.
+Duration is as long as weather do not change.
+
+/gate MapName x y
+/gateto MapName x y
+	Opens a gate to destination, doesnt work if map 
+has an apocalypse gate, cannot go inside buildings 
+(BS, WH...). Without MapName, removes current gate. 
+
+/forcegate MapName x y
+	same as "/gate", but even allow to open the gate if
+map is not hosted on current mode.
+
+/createtoken Token0
+	Used to create a special item for events "Find this Item"
+Usable by GMs allowed to summon. Those tokens show creation date
+when used.
+
+/itemeventnow
+	If an itemevent is schedulled for current map, useing this
+command enables the event today, and/or reset the number of items
+already dropped.
+
+/summonboss
+	Same as "Summon", but for a Boss type creature.
+
+/forcetp xxx
+	Same as tp but does not check for equilibrium mode.
+TP will occur even if map not hosted on current mode.....
+
+/logpits
+	Will show on server's screen pits of current map. For
+debugging purpose only...
+
+___________________________________
+       New player commands
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+/readgizon
+	Gives the nbe of gizon points you have, and XP % for
+the next gizon point.
+
+/getgizonlevel
+	Level up using gizons points.
+
+/savechar
+	Save you character immediatelly, so if the server
+crashes the just found nice item is still here!
+
+/readmapinfo
+	Gives player some information about danger level of
+the current map. 
+	For GMs the information is more technically precise.
+
+/getactivegservers"space"
+	List currentlly active game servers.
+
+/checkstats 
+	Gives the player's Hit and def ratios.
+
+/mobilise
+	Usable at heldenian war, if heldenian-summon is set to 2.
+Takes over the control of all "free" summons...
+
+/summons
+	Tells number of available summons following you.
+
+/unpretend
+	if you're Pretending corpse and are unable to raise,
+try this command!
+___________________________________
+            ************
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯

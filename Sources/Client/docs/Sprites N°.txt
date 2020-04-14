@@ -1,0 +1,21 @@
+"effect"   ,   0, 10, FALSE);
+"effect2"  ,  10,  3, FALSE);
+"effect3"  ,  13,  6, FALSE);
+"effect4"  ,  19,  5, FALSE);
+"effect5"  ,  24, 7, n°0 = Energy sphere 
+"CruEffect1", 31,  9, FALSE);
+"effect6"  ,  40,  5, FALSE);
+"effect7"  ,  45, 12, FALSE);
+"effect8"  ,  57,  9, FALSE);
+"effect9"  ,  66, 21, FALSE);
+"effect10" ,  87,  2, FALSE); // Effets Hero items
+"effect11" ,  89, 14, FALSE); // Cancel, stormBlade, resu, GateHeldenian....etc
+"effect11s", 104,  1, FALSE); // effet sort mais je ne sais pas lequel
+
+"effect13" , 105,  3, FALSE); // mon PAK 13
+"effect14" , 108, 10, FALSE); // effect14 de HBChina
+
+"yseffect2", 140,  8, FALSE); // Abaddon's death
+"effect12" , 148,  4, FALSE); // Slates auras
+"yseffect3", 152, 16, FALSE); // Fumerolles ou ame qui s'envole
+"yseffect4", 133,  7, FALSE); // Abaddon's map thunder.

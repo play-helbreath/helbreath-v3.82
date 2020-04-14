@@ -1,0 +1,155 @@
+  
+Crusade
+     
+The crusade system of helbreath is
+realtime strategy system applied on
+current base system of RPG MUG.
+You can not find this system on the
+other MUG.
+ 
+The crusade is a portal war between
+Elvine and Aresden. it happens about
+twice a week. Once a crusade mode
+began, it continues to the time
+when one side win.
+    
+If the crusade breaks out, you
+can decide your part in the town.
+ 
+Most of all, people take part
+soldier who fight the front.
+If you have manufacturing skill,
+you can do constructor who constructs
+war building. 
+ 
+If you are a guildmaster,
+you can be a commander who
+instruct your guildsman.
+ 
+If you want to change your
+part on crusade, you can
+change it at cityhall.
+   
+The purpose of crusade is to
+lead your country winner by
+destroying enemy's base buildings.
+These buildings are not destroyed
+by people's normal attack.
+ 
+To destroy enemy's buildings
+operate the 'Grand Magic Generator'
+that is located in your town.
+
+To operate 'Grand Magic Generator'
+you should collect mana of 'Mana
+Stone' by constructing 'Mana
+Collector' near 'Mana Stone'
+in the middleland. 
+ 
+'Mana Collector' is a war building
+which collects the mana from the
+'Mana Stone'. And the constructor
+can construct this building.
+ 
+If The mana charge of 'Grand
+Magic Generator' is enough to
+generate 'Metheo-Strike', it
+attacks enemy's base building
+by 'Metheo-Strike'.
+ 
+By the blowing of magic, if
+you destroy enemy's building,
+the function of that building
+will stop and the capability
+of enemy for the crusade will
+be decreased. And you can make
+this crusade by destroying whole
+the building.
+ 
+With the crusade mode on,
+'Energy Shield Generator' will
+be installed near the base
+buildings to protect them.
+ 
+You can protect base buildings
+from enemy's magic attack if
+there are more than 1 'Energy
+Shield Generator'. But if there
+are less than 2, the base buildings
+will have damage from the magic.
+   
+So, to make your nation winner,
+infiltrate into enemy's nation
+and destroy 'Energy Shield Generator'
+and construct 'Mana Collector'
+near the 'Mana Stone' in the
+middleland to collect the
+mana which is needed for magic.
+   
+ 
+Crusade Job
+  
+Soldier
+
+Soldiers fight the front of
+the crusade. Your power will
+be increased by 30% if you
+select soldier. Soldier can
+teleport the position in the
+middleland that the commander
+set. Soldier's duty is to
+infitrate into enemy's nation
+and destroy 'Energy Shield' or
+'Grand Magic Generator' or to
+conquer 'Mana Stone' in the middleland.
+Or he can protect our units.
+  
+Constructor
+ 
+Constructor can build many
+buildings included 'Mana
+Collector'. The buildings
+are as follows.
+ 
+* Arrow Guard Tower: warfare
+building with arrow
+ 
+* Cannon Guard Tower: warfare
+building with cannon
+ 
+* Mana Collector: A building
+collects mana from the 'Mana
+Stone'. And it recover mana
+of character near it.
+ 
+* Detector: Alert if the enemy
+comes close. And if the enemy is
+in invisibility, we can detect it
+ 
+Constructor's duty is to
+construct 'Mana Collector' near
+the 'Mana Stone' in the
+middleland. And build 'Guard
+Tower' or 'Detector' to
+protect 'Mana Collector'.
+ 
+ 
+Commander
+ 
+Only guildmaster can do a
+commander. and he can see
+the state of war in the
+middleland. Commander can
+set the teleport position
+that his soldiers would
+teleport.
+ 
+Commander controls the current
+of war by setting the position
+of throwing army as the state
+of war. And he can recall strong
+warfare units.
+ 
+For crusade schedule and other
+information, see the board on
+homepage.

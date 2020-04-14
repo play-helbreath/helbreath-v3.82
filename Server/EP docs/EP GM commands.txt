@@ -1,0 +1,216 @@
+
+        New GM & Player commands
+___________________________________
+
+	Equilibrium project server adds many new 
+GM commands, and som older commands have been improved
+or fixed.
+
+	There is no comment below on unmodifyed older
+commands. The GM commands are logged into various files
+as needed.
+
+___________________________________
+          adminuserlevel
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+	The system has been clarifyed, to group most
+commands for some specific GM's tasks.
+1: Basic GM with very few commands (only /tp)
+2: Police GM, for player monitoring.
+3: Event GM, to organize misc. events.
+4: Admin GM, can create items, and set crusade, apoc, Heldenian.
+-1: Speciaml technical GM, may start a server from another running
+server, usefull is a server crashed, and hoster not available to
+restart it.
+5: AdminGM + Technical GM.
+
+	Some command have been grouped into AdminSettings.cfg
+entries. The need for "/enableadmincommand XXXX" is now more 
+logic.
+___________________________________
+          New GM commands
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+/setmaptype	0..3
+	0 = normal 
+	    (default)
+	1 = NoPenalty NoReward
+	2 = No PC Drop
+	3 = No PC Drop, No EK, No PK
+
+
+/setpkmode	-5..5
+	0 = All EK & PK allowed 
+	    (default)
+	1 = EK allowed, but no PK
+	2 = No PK, EK only available with Executors
+	3 = No PK or EK possible (safe map)
+	4 = No PK or EK possible (safe map),
+	    but Executors can be victims.
+	5 = No EK possible, but you may PK
+	    (5 is not allowed in map definition, usable by GM)
+negative values have same effect but apply to crims as well.
+
+
+/setdroptype -1..1
+	This setting will change chances to drop item on considered map.
+Default is 1 (normal drops). 
+2+ is not implemented and is considered same than 1.
+-1 will only drop potions or food.
+0 will drop nothing. 
+This setting is taken into account at drop time, so after maps's type.
+
+
+/setmapmobnum 0..999
+	Changes the max possible of npcs for the GM's map.
+
+
+/beginapocalypse"space"
+/endapocalypse"space"
+/closeapocalypsegate"space"
+/openapocalypsegate"space"
+	Apocalypse event related commands.
+
+
+/start ..\ServerDir\
+	Use with care! Can restart a crashed server.
+
+
+/restartthisserverrightnow"space"
+	Restarts the server.
+
+
+/getactivegservers"space"
+	List currentlly active game servers. Usefull in
+conjunction with previous command. Also gives connected
+player number on each server. 
+Can be used by players without giving the player number.
+
+
+/popoenabled 0/1 (default)
+	Value 0 forbids any usage of HPup, MPup, SPup
+consume items, such as Red, Blue, Green potions. Works
+on current map.
+
+/gns MobName
+	Originally, works only by mob's NamingValue, now
+can search around the GM, by mob's type name.
+	If no argument, will give info above the tile just below
+gm's tile, and creature there.
+
+
+/monitor CharName
+	I  implemented special anti-hack routines. GM can
+activate them on suspect character. 
+Use with caution huge log created!
+
+
+/setxprate 100
+	Changes the XP rate (from 1% to 1000% on current map.
+Without nbe, gives current XP rate.
+
+
+/setextradrop
+	Changes the map secondary extra drop rate.
+(Low figure => many items) 0 or -1 restores default.
+
+
+/setbossrate = 100 (1..1000)
+	Set at a % the nbe of mobs you need to kill before a Boss will spawn
+(not for SMG boss spawns)
+
+
+/thunder 0,1,2
+	2 sets fire explosions as on Abaddon map.
+	1 set lightning (thunderstorms) (do be done)
+	0 reset to normal.
+Duration is as long as weather do not change.
+
+
+/gate MapName x y
+/gateto MapName x y
+	Opens a gate to destination, doesnt work if map 
+has an apocalypse gate, cannot go inside buildings 
+(BS, WH...). Without MapName, removes current gate. 
+
+
+/forcegate MapName x y
+	same as "/gate", but even allow to open the gate if
+map is not hosted on current mode.
+
+
+/forcetp xxx
+	Same as tp but does not check for equilibrium mode.
+TP will occur even if map not hosted on current mode.....
+
+
+/createtoken Token0
+	Used to create a special item for events "Find this Item"
+Usable by GMs allowed to summon. Those tokens show creation date
+when used.
+
+
+/itemeventnow
+	If an itemevent is schedulled for current map, useing this
+command enables the event today, and/or reset the number of items
+already dropped.
+
+
+/summonboss
+	Same as "Summon", but for a Boss type creature.
+
+
+/logpits
+	Will show on server's screen pits of current map. For
+debugging purpose only...
+
+
+/cleanbumps MapName or /chearbumps MapName
+	Try to detect any unvalid owner and remove it. If no 
+MapName is given, will work on current map.
+
+
+___________________________________
+       New player commands
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+/readgizon
+	Gives the nbe of gizon points you have, and XP % for
+the next gizon point.
+
+/getgizonlevel
+	Level up using gizons points. 
+(Extra levels above normal max level, price 4, 8, 12 pts)
+
+/savechar
+	Save you character immediatelly, so if the server
+crashes the just found nice item is still here!
+
+/readmapinfo
+	Gives player some information about danger level of
+the current map. 
+	For GMs the information is more technically precise.
+
+/getactivegservers"space"
+	List currentlly active game servers.
+
+/checkstats 
+	Gives the player's Hit and def ratios.
+
+/mobilise
+	Usable at heldenian war, if heldenian-summon is set to 2.
+Takes over the control of all "free" summons...
+
+/summons
+	Tells number of available summons following you.
+
+/unpretend
+	if you're Pretending corpse and are unable to raise,
+try this command!
+
+/plraider 90
+	This command is irreversible, and will block your
+character to lvl 90 forever. Only for Elvines Aresdens 
+of course not civilians to enjoy unlimited nooby PvP at PL.
+
+___________________________________
+            ************
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯

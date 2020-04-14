@@ -1,0 +1,279 @@
+EBX: sY 	EDI: sX	EBP: dwTime 
+ESP+98: rand%12	
+
+0041ABF1  |> 66:833D 3C914C00 51   CMP WORD PTR DS:[4C913C],51
+0041ABF9  |. 0F85 3A030000         JNZ 0041AF39
+0041ABFF  |. B8 1F85EB51           MOV EAX,51EB851F
+0041AC04  |. B9 0C000000           MOV ECX,0C
+0041AC09  |. F7E5                  MUL EBP 		EAXxEBP ->EDX:EAX
+0041AC0B  |. 8BFA                  MOV EDI,EDX		
+0041AC0D  |. 33D2                  XOR EDX,EDX
+0041AC0F  |. C1EF 05               SHR EDI,5		EDI/32
+0041AC12  |. 8BC7                  MOV EAX,EDI		EAX = rand?
+0041AC14  |. 55                    PUSH EBP                              ; /Arg4 dwTime
+0041AC15  |. F7F1                  DIV ECX            EAX/12             ; |
+0041AC17  |. 8B8C24 88000000       MOV ECX,DWORD PTR SS:[ESP+88]         ; |
+0041AC1E  |. 8D43 CE               LEA EAX,DWORD PTR DS:[EBX-32]         ; |
+0041AC21  |. 83C1 CE               ADD ECX,-32                           ; |
+0041AC24  |. 898C24 84000000       MOV DWORD PTR SS:[ESP+84],ECX         ; |
+0041AC2B  |. 52                    PUSH EDX                              ; |Arg3 rand%12
+0041AC2C  |. 50                    PUSH EAX                              ; |Arg2 sY-50
+0041AC2D  |. 51                    PUSH ECX                              ; |Arg1 [ESP+88]-50
+0041AC2E  |. 8B8E 54E80600         MOV ECX,DWORD PTR DS:[ESI+6E854]      ; |154
+0041AC34  |. 899424 98000000       MOV DWORD PTR SS:[ESP+98],EDX         ; |
+0041AC3B  |. E8 504E0800           CALL 0049FA90                         ; \Original.0049FA90
+
+0041AC40  |. 8B9424 84000000       MOV EDX,DWORD PTR SS:[ESP+84]
+0041AC47  |. 8B8C24 88000000       MOV ECX,DWORD PTR SS:[ESP+88]
+0041AC4E  |. 55                    PUSH EBP                              ; /Arg4 dwTime
+0041AC4F  |. 51                    PUSH ECX                              ; |Arg3 rand%12
+0041AC50  |. 8B8E 58E80600         MOV ECX,DWORD PTR DS:[ESI+6E858]      ; |155
+0041AC56  |. 8D42 EC               LEA EAX,DWORD PTR DS:[EDX-14]         ; |
+0041AC59  |. 8D53 B0               LEA EDX,DWORD PTR DS:[EBX-50]         ; |
+0041AC5C  |. 898424 98000000       MOV DWORD PTR SS:[ESP+98],EAX         ; |
+0041AC63  |. 52                    PUSH EDX                              ; |Arg2 sY-80
+0041AC64  |. 50                    PUSH EAX                              ; |Arg1 sX-20
+0041AC65  |. E8 264E0800           CALL 0049FA90                         ; \Original.0049FA90
+0041AC6A  |. 8B8424 88000000       MOV EAX,DWORD PTR SS:[ESP+88]
+0041AC71  |. 8B8C24 84000000       MOV ECX,DWORD PTR SS:[ESP+84]
+0041AC78  |. 55                    PUSH EBP                              ; /Arg4
+0041AC79  |. 50                    PUSH EAX                              ; |Arg3
+0041AC7A  |. 8D43 CE               LEA EAX,DWORD PTR DS:[EBX-32]         ; |
+0041AC7D  |. 83C1 46               ADD ECX,46                            ; |
+0041AC80  |. 50                    PUSH EAX                              ; |Arg2 sY-50
+0041AC81  |. 51                    PUSH ECX                              ; |Arg1 sX+70
+0041AC82  |. 8B8E 5CE80600         MOV ECX,DWORD PTR DS:[ESI+6E85C]      ; |156
+0041AC88  |. E8 034E0800           CALL 0049FA90                         ; \Original.0049FA90
+0041AC8D  |. 8B9424 84000000       MOV EDX,DWORD PTR SS:[ESP+84]
+0041AC94  |. 8B8C24 88000000       MOV ECX,DWORD PTR SS:[ESP+88]
+0041AC9B  |. 55                    PUSH EBP                              ; /Arg4
+0041AC9C  |. 51                    PUSH ECX                              ; |Arg3
+0041AC9D  |. 8B8E 60E80600         MOV ECX,DWORD PTR DS:[ESI+6E860]      ; |157
+0041ACA3  |. 8D42 E2               LEA EAX,DWORD PTR DS:[EDX-1E]         ; |
+0041ACA6  |. 53                    PUSH EBX                              ; |Arg2 sY
+0041ACA7  |. 50                    PUSH EAX                              ; |Arg1 sX-30
+0041ACA8  |. 898424 9C000000       MOV DWORD PTR SS:[ESP+9C],EAX         ; |
+0041ACAF  |. E8 DC4D0800           CALL 0049FA90                         ; \Original.0049FA90
+0041ACB4  |. 8B8E 64E80600         MOV ECX,DWORD PTR DS:[ESI+6E864]
+0041ACBA  |. 8D43 5A               LEA EAX,DWORD PTR DS:[EBX+5A]
+0041ACBD  |. 8B9424 88000000       MOV EDX,DWORD PTR SS:[ESP+88]
+0041ACC4  |. 55                    PUSH EBP                              ; /Arg4
+0041ACC5  |. 52                    PUSH EDX                              ; |Arg3
+0041ACC6  |. 50                    PUSH EAX                              ; |Arg2 sY +90
+0041ACC7  |. 8B8424 90000000       MOV EAX,DWORD PTR SS:[ESP+90]         ; |
+0041ACCE  |. 83C0 C4               ADD EAX,-3C                           ; |158  
+0041ACD1  |. 50                    PUSH EAX                              ; |Arg1 sX -60
+0041ACD2  |. E8 B94D0800           CALL 0049FA90                         ; \Original.0049FA90
+0041ACD7  |. 8D53 55               LEA EDX,DWORD PTR DS:[EBX+55]
+0041ACDA  |. 8B8C24 88000000       MOV ECX,DWORD PTR SS:[ESP+88]
+0041ACE1  |. 8B8424 84000000       MOV EAX,DWORD PTR SS:[ESP+84]
+0041ACE8  |. 55                    PUSH EBP                              ; /Arg4
+0041ACE9  |. 51                    PUSH ECX                              ; |Arg3
+0041ACEA  |. 8B8E 68E80600         MOV ECX,DWORD PTR DS:[ESI+6E868]      ; |159
+0041ACF0  |. 83C0 41               ADD EAX,41                            ; |
+0041ACF3  |. 52                    PUSH EDX                              ; |Arg2 sY+85
+0041ACF4  |. 50                    PUSH EAX                              ; |Arg1 sX+65
+0041ACF5  |. E8 964D0800           CALL 0049FA90                         ; \Original.0049FA90
+
+
+0041ACFA  |. 0FBE05 8C914C00       MOVSX EAX,BYTE PTR DS:[4C918C]
+0041AD01  |. 48                    DEC EAX                               ;  Switch (cases 1..8)
+0041AD02  |. 83F8 07               CMP EAX,7
+0041AD05  |. 0F87 2E020000         JA 0041AF39
+0041AD0B  |. FF2485 64B04100       JMP NEAR DWORD PTR DS:[EAX*4+41B064]
+0041AD12  |> 8BC7                  MOV EAX,EDI                           ;  Case 1 of switch 0041AD01
+0041AD14  |. 33D2                  XOR EDX,EDX
+0041AD16  |. B9 1B000000           MOV ECX,1B
+0041AD1B  |. 55                    PUSH EBP                              ; /Arg4 dwTime
+0041AD1C  |. F7F1                  DIV ECX  sX/27                        ; |
+0041AD1E  |. 8B8424 88000000       MOV EAX,DWORD PTR SS:[ESP+88]         ; |
+0041AD25  |. 8B8E 50E80600         MOV ECX,DWORD PTR DS:[ESI+6E850]      ; |153
+0041AD2B  |. 52                    PUSH EDX                              ; |Arg3 rand%27
+0041AD2C  |. 8D53 6E               LEA EDX,DWORD PTR DS:[EBX+6E]         ; |
+0041AD2F  |. 52                    PUSH EDX                              ; |Arg2 sY +108
+0041AD30  |. 50                    PUSH EAX                              ; |Arg1 sX
+0041AD31  |. E8 5A4D0800           CALL 0049FA90                         ; \Original.0049FA90
+0041AD36  |. 8BC7                  MOV EAX,EDI
+0041AD38  |. 33D2                  XOR EDX,EDX
+0041AD3A  |. B9 0F000000           MOV ECX,0F
+0041AD3F  |. 55                    PUSH EBP					 ; /Arg4 dwTime
+0041AD40  |. F7F1                  DIV ECX                               ; |
+0041AD42  |. 83C3 0A               ADD EBX,0A                            ; |
+0041AD45  |. 52                    PUSH EDX                              ; |Arg3 rand%27
+0041AD46  |. 8B9424 88000000       MOV EDX,DWORD PTR SS:[ESP+88]         ; |
+0041AD4D  |. 53                    PUSH EBX                              ; |Arg2 sY+10
+0041AD4E  |. E9 DA010000           JMP 0041AF2D                          ; |
+
+
+0041AD53  |> 8BC7                  MOV EAX,EDI                           ;  Case 2 of switch 0041AD01
+0041AD55  |. 33D2                  XOR EDX,EDX
+0041AD57  |. B9 1B000000           MOV ECX,1B
+0041AD5C  |. 55                    PUSH EBP                              ; /Arg4
+0041AD5D  |. F7F1                  DIV ECX                               ; |
+0041AD5F  |. 8B8424 94000000       MOV EAX,DWORD PTR SS:[ESP+94]         ; |
+0041AD66  |. 8B8E 50E80600         MOV ECX,DWORD PTR DS:[ESI+6E850]      ; |
+0041AD6C  |. 52                    PUSH EDX                              ; |Arg3
+0041AD6D  |. 8D53 5F               LEA EDX,DWORD PTR DS:[EBX+5F]         ; |
+0041AD70  |. 52                    PUSH EDX                              ; |Arg2 sY +95
+0041AD71  |. 50                    PUSH EAX                              ; |Arg1
+0041AD72  |. E8 194D0800           CALL 0049FA90                         ; \Original.0049FA90
+0041AD77  |. 8BC7                  MOV EAX,EDI
+0041AD79  |. 33D2                  XOR EDX,EDX
+0041AD7B  |. B9 0F000000           MOV ECX,0F
+0041AD80  |. 55                    PUSH EBP
+0041AD81  |. F7F1                  DIV ECX
+0041AD83  |. 83C3 0A               ADD EBX,0A
+0041AD86  |. 52                    PUSH EDX
+0041AD87  |. 8B9424 8C000000       MOV EDX,DWORD PTR SS:[ESP+8C]
+0041AD8E  |. 53                    PUSH EBX
+0041AD8F  |. 83C2 BA               ADD EDX,-46
+0041AD92  |. E9 96010000           JMP 0041AF2D
+
+0041AD97  |> 8BC7                  MOV EAX,EDI                           ;  Case 3 of switch 0041AD01
+0041AD99  |. 33D2                  XOR EDX,EDX
+0041AD9B  |. B9 1B000000           MOV ECX,1B
+0041ADA0  |. 55                    PUSH EBP                              ; /Arg4
+0041ADA1  |. F7F1                  DIV ECX                               ; |
+0041ADA3  |. 8B8424 90000000       MOV EAX,DWORD PTR SS:[ESP+90]         ; |
+0041ADAA  |. 8B8E 50E80600         MOV ECX,DWORD PTR DS:[ESI+6E850]      ; |
+0041ADB0  |. 52                    PUSH EDX                              ; |Arg3
+0041ADB1  |. 8D53 69               LEA EDX,DWORD PTR DS:[EBX+69]         ; |
+0041ADB4  |. 52                    PUSH EDX                              ; |Arg2 sY+105
+0041ADB5  |. 50                    PUSH EAX                              ; |Arg1
+0041ADB6  |. E8 D54C0800           CALL 0049FA90                         ; \Original.0049FA90
+0041ADBB  |. 8BC7                  MOV EAX,EDI
+0041ADBD  |. 33D2                  XOR EDX,EDX
+0041ADBF  |. B9 0F000000           MOV ECX,0F
+0041ADC4  |. 55                    PUSH EBP
+0041ADC5  |. F7F1                  DIV ECX
+0041ADC7  |. 83C3 0A               ADD EBX,0A
+0041ADCA  |. 52                    PUSH EDX
+0041ADCB  |. 8B9424 8C000000       MOV EDX,DWORD PTR SS:[ESP+8C]
+0041ADD2  |. 53                    PUSH EBX
+0041ADD3  |. 83C2 A6               ADD EDX,-5A
+0041ADD6  |. E9 52010000           JMP 0041AF2D
+
+0041ADDB  |> 8BC7                  MOV EAX,EDI                           ;  Case 4 of switch 0041AD01
+0041ADDD  |. 33D2                  XOR EDX,EDX
+0041ADDF  |. B9 1B000000           MOV ECX,1B
+0041ADE4  |. 55                    PUSH EBP                              ; /Arg4
+0041ADE5  |. F7F1                  DIV ECX                               ; |
+0041ADE7  |. 8B8424 88000000       MOV EAX,DWORD PTR SS:[ESP+88]         ; |
+0041ADEE  |. 8B8E 50E80600         MOV ECX,DWORD PTR DS:[ESI+6E850]      ; |
+0041ADF4  |. 83C0 DD               ADD EAX,-23                           ; |
+0041ADF7  |. 52                    PUSH EDX                              ; |Arg3
+0041ADF8  |. 8D53 64               LEA EDX,DWORD PTR DS:[EBX+64]         ; |
+0041ADFB  |. 52                    PUSH EDX                              ; |Arg2 sY+100
+0041ADFC  |. 50                    PUSH EAX                              ; |Arg1 sX-35
+0041ADFD  |. E8 8E4C0800           CALL 0049FA90                         ; \Original.0049FA90
+0041AE02  |. 8BC7                  MOV EAX,EDI
+0041AE04  |. 33D2                  XOR EDX,EDX
+0041AE06  |. B9 0F000000           MOV ECX,0F
+0041AE0B  |. 55                    PUSH EBP
+0041AE0C  |. F7F1                  DIV ECX
+0041AE0E  |. 83C3 0A               ADD EBX,0A
+0041AE11  |. 52                    PUSH EDX
+0041AE12  |. 8B9424 8C000000       MOV EDX,DWORD PTR SS:[ESP+8C]
+0041AE19  |. 53                    PUSH EBX
+0041AE1A  |. 83C2 B0               ADD EDX,-50
+0041AE1D  |. E9 0B010000           JMP 0041AF2D
+
+0041AE22  |> 8BC7                  MOV EAX,EDI                           ;  Case 5 of switch 0041AD01
+0041AE24  |. 33D2                  XOR EDX,EDX
+0041AE26  |. B9 1B000000           MOV ECX,1B
+0041AE2B  |. 55                    PUSH EBP                              ; /Arg4
+0041AE2C  |. F7F1                  DIV ECX                               ; |
+0041AE2E  |. 8B8424 88000000       MOV EAX,DWORD PTR SS:[ESP+88]         ; |
+0041AE35  |. 8B8E 50E80600         MOV ECX,DWORD PTR DS:[ESI+6E850]      ; |
+0041AE3B  |. 52                    PUSH EDX                              ; |Arg3
+0041AE3C  |. 8D53 5F               LEA EDX,DWORD PTR DS:[EBX+5F]         ; |
+0041AE3F  |. 52                    PUSH EDX                              ; |Arg2 sY+95
+0041AE40  |. 50                    PUSH EAX                              ; |Arg1
+0041AE41  |. E8 4A4C0800           CALL 0049FA90                         ; \Original.0049FA90
+0041AE46  |. 8BC7                  MOV EAX,EDI
+0041AE48  |. 33D2                  XOR EDX,EDX
+0041AE4A  |. B9 0F000000           MOV ECX,0F
+0041AE4F  |. 55                    PUSH EBP
+0041AE50  |. F7F1                  DIV ECX
+0041AE52  |. 83C3 FB               ADD EBX,-5
+0041AE55  |. 52                    PUSH EDX
+0041AE56  |. 8B9424 8C000000       MOV EDX,DWORD PTR SS:[ESP+8C]
+0041AE5D  |. 53                    PUSH EBX
+0041AE5E  |. 83C2 BF               ADD EDX,-41
+0041AE61  |. E9 C7000000           JMP 0041AF2D
+
+0041AE66  |> 8BC7                  MOV EAX,EDI                           ;  Case 6 of switch 0041AD01
+0041AE68  |. 33D2                  XOR EDX,EDX
+0041AE6A  |. B9 1B000000           MOV ECX,1B
+0041AE6F  |. 55                    PUSH EBP                              ; /Arg4
+0041AE70  |. F7F1                  DIV ECX                               ; |
+0041AE72  |. 8B8E 50E80600         MOV ECX,DWORD PTR DS:[ESI+6E850]      ; |
+0041AE78  |. 8D43 5A               LEA EAX,DWORD PTR DS:[EBX+5A]         ; |
+0041AE7B  |. 52                    PUSH EDX                              ; |Arg3
+0041AE7C  |. 8B9424 8C000000       MOV EDX,DWORD PTR SS:[ESP+8C]         ; |
+0041AE83  |. 83C2 2D               ADD EDX,2D                            ; |
+0041AE86  |. 50                    PUSH EAX                              ; |Arg2 sY+95
+0041AE87  |. 52                    PUSH EDX                              ; |Arg1 sX+45
+0041AE88  |. E8 034C0800           CALL 0049FA90                         ; \Original.0049FA90
+0041AE8D  |. 8BC7                  MOV EAX,EDI
+0041AE8F  |. 33D2                  XOR EDX,EDX
+0041AE91  |. B9 0F000000           MOV ECX,0F
+0041AE96  |. 55                    PUSH EBP
+0041AE97  |. F7F1                  DIV ECX
+0041AE99  |. 83C3 0A               ADD EBX,0A
+0041AE9C  |. 52                    PUSH EDX
+0041AE9D  |. 8B9424 8C000000       MOV EDX,DWORD PTR SS:[ESP+8C]
+0041AEA4  |. 53                    PUSH EBX
+0041AEA5  |. 83C2 E7               ADD EDX,-19
+0041AEA8  |. E9 80000000           JMP 0041AF2D
+
+0041AEAD  |> 8BC7                  MOV EAX,EDI                           ;  Case 7 of switch 0041AD01
+0041AEAF  |. 33D2                  XOR EDX,EDX
+0041AEB1  |. B9 1B000000           MOV ECX,1B
+0041AEB6  |. 55                    PUSH EBP                              ; /Arg4
+0041AEB7  |. F7F1                  DIV ECX                               ; |
+0041AEB9  |. 8B8424 88000000       MOV EAX,DWORD PTR SS:[ESP+88]         ; |
+0041AEC0  |. 8B8E 50E80600         MOV ECX,DWORD PTR DS:[ESI+6E850]      ; |
+0041AEC6  |. 83C0 28               ADD EAX,28                            ; |
+0041AEC9  |. 52                    PUSH EDX                              ; |Arg3
+0041AECA  |. 8D53 6E               LEA EDX,DWORD PTR DS:[EBX+6E]         ; |
+0041AECD  |. 52                    PUSH EDX                              ; |Arg2 sY+110
+0041AECE  |. 50                    PUSH EAX                              ; |Arg1 sX+40
+0041AECF  |. E8 BC4B0800           CALL 0049FA90                         ; \Original.0049FA90
+0041AED4  |. 8BC7                  MOV EAX,EDI
+0041AED6  |. 33D2                  XOR EDX,EDX
+0041AED8  |. B9 0F000000           MOV ECX,0F
+0041AEDD  |. 55                    PUSH EBP
+0041AEDE  |. F7F1                  DIV ECX
+0041AEE0  |. 83C3 0A               ADD EBX,0A
+0041AEE3  |. 52                    PUSH EDX
+0041AEE4  |. 8B9424 98000000       MOV EDX,DWORD PTR SS:[ESP+98]
+0041AEEB  |. 53                    PUSH EBX
+0041AEEC  |. EB 3F                 JMP SHORT 0041AF2D
+
+0041AEEE  |> 8BC7                  MOV EAX,EDI                           ;  Case 8 of switch 0041AD01
+0041AEF0  |. 33D2                  XOR EDX,EDX
+0041AEF2  |. B9 1B000000           MOV ECX,1B
+0041AEF7  |. 55                    PUSH EBP                              ; /Arg4
+0041AEF8  |. F7F1                  DIV ECX                               ; |
+0041AEFA  |. 8B8424 88000000       MOV EAX,DWORD PTR SS:[ESP+88]         ; |
+0041AF01  |. 8B8E 50E80600         MOV ECX,DWORD PTR DS:[ESI+6E850]      ; |
+0041AF07  |. 83C0 14               ADD EAX,14                            ; |
+0041AF0A  |. 52                    PUSH EDX                              ; |Arg3
+0041AF0B  |. 8D53 6E               LEA EDX,DWORD PTR DS:[EBX+6E]         ; |
+0041AF0E  |. 52                    PUSH EDX                              ; |Arg2 sY+110
+0041AF0F  |. 50                    PUSH EAX                              ; |Arg1 sX+20
+0041AF10  |. E8 7B4B0800           CALL 0049FA90                         ; \Original.0049FA90
+0041AF15  |. 8BC7                  MOV EAX,EDI
+0041AF17  |. 33D2                  XOR EDX,EDX                            
+0041AF19  |. B9 0F000000           MOV ECX,0F                             
+0041AF1E  |. 55                    PUSH EBP                              ; /Arg4 dwTime
+0041AF1F  |. F7F1                  DIV ECX                               ; |
+0041AF21  |. 83C3 0A               ADD EBX,0A                            ; |           
+0041AF24  |. 52                    PUSH EDX                              ; |Arg3 frame%15
+0041AF25  |. 8B9424 94000000       MOV EDX,DWORD PTR SS:[ESP+94]         ; |
+0041AF2C  |. 53                    PUSH EBX                     		 ; |Arg2 sY+16 
+0041AF2D  |> 8B8E 7CE80600         MOV ECX,DWORD PTR DS:[ESI+6E87C]      ; |164
+0041AF33  |. 52                    PUSH EDX                              ; |Arg1 sX
+0041AF34  |. E8 574B0800           CALL 0049FA90                         ; \Original.0049FA90
+

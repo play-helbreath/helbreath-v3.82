@@ -1,0 +1,31 @@
+
+JMP SHORT 004140D8 ->Sortie
+
+MOV BYTE PTR DS:[EAX+6],   m_cFrame
+MOV BYTE PTR DS:[EAX+7],   m_cMaxFrame
+MOV BYTE PTR DS:[EAX+8],   m_cDir
+MOV BYTE PTR DS:[EAX+C],   m_dwTime
+MOV DWORD PTR DS:[EDX+10], m_dwFrameTime
+MOV DWORD PTR DS:[EDX+14], sX (EBP) +28
+MOV DWORD PTR DS:[EDX+18], sY (ECX) +28 apres push
+MOV DWORD PTR DS:[EDX+1C], dX (EBX)      
+MOV DWORD PTR DS:[EDX+20], dY (+34)
+MOV DWORD PTR DS:[EDX+24], m_mX
+MOV DWORD PTR DS:[EAX+28], m_mY
+MOV DWORD PTR DS:[EAX+3C], m_iErr
+MOV DWORD PTR DS:[EDX+48], m_iV1
+[ESI+73010]			m_sViewPointX
+[ESI+73012]			m_sViewPointY
+
+PUSH EAX 		lPan
+PUSH ECX		sDist
+PUSH 5		N° du son
+PUSH 45		'C' 'E' 'M' 43, 45, 4D
+CALL 00446E60   	PlaySound('E', 5, sDist, lPan);
+
+PUSH EDX			dY
+PUSH EBX			dX
+PUSH EAX			sY
+PUSH EBP			sX
+CALL 004A51C0	m_Misc.cCalcDirection(sX, sY, dX, dY);
+

@@ -1,0 +1,120 @@
+[MAP-INFO]
+map-location  = aresden
+initial-point = 1  50 95
+pk-mode 	= 4
+type 		= 0
+drop-type 	= -1
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+
+teleport-loc     =      20     22     aresden             275    205   7
+teleport-loc     =      20     23     aresden             275    205   7
+teleport-loc     =      20     24     aresden             275    205   7
+teleport-loc     =      20     25     aresden             275    205   7
+teleport-loc     =      20     26     aresden             275    205   7
+teleport-loc     =      20     27     aresden             275    205   7
+teleport-loc     =      20     28     aresden             275    205   7
+teleport-loc     =      20     29     aresden             275    205   7
+teleport-loc     =      20     30     aresden             275    205   7
+
+teleport-loc     =      44     101    lost               -1     -1   8
+teleport-loc     =      44     102    lost               -1     -1   8
+teleport-loc     =      45     101    lost               -1     -1   8
+teleport-loc     =      45     102    lost               -1     -1   8
+
+teleport-loc     =      73      87    bsmith_1f           34     37    4
+teleport-loc     =      74      87    bsmith_1f           34     37    4
+teleport-loc     =      75      87    bsmith_1f           34     37    4
+teleport-loc     =      75      86    bsmith_1f           34     37    4
+
+teleport-loc     =      63     92     bsmith_1f           43     32    5
+teleport-loc     =      63     93     bsmith_1f           43     32    5
+teleport-loc     =      64     93     bsmith_1f           43     32    5
+
+teleport-loc     =      34     88     wrhus_1f            56     36    4
+teleport-loc     =      35     89     wrhus_1f            56     36    4
+teleport-loc     =      36     90     wrhus_1f            56     36    4
+teleport-loc     =      40     90     wrhus_1f            56     36    4
+
+teleport-loc     =      59     69     gshop_1f            50     39    4
+teleport-loc     =      59     70     gshop_1f            50     39    4
+teleport-loc     =      60     70     gshop_1f            50     39    4
+teleport-loc     =      63     70     gshop_1f            50     39    4
+teleport-loc     =      64     69     gshop_1f            50     39    4
+
+teleport-loc     =     114     23     2ndmiddle          140    225    1
+teleport-loc     =     115     23     2ndmiddle          140    225    1
+teleport-loc     =     116     23     2ndmiddle          140    225    1
+teleport-loc     =     117     23     2ndmiddle          140    225    1
+teleport-loc     =     118     23     2ndmiddle          140    225    1
+teleport-loc     =     119     23     2ndmiddle          140    225    1
+teleport-loc     =     120     23     2ndmiddle          140    225    1
+teleport-loc     =     121     23     2ndmiddle          140    225    1
+teleport-loc     =     122     23     2ndmiddle          140    225    1
+teleport-loc     =     123     23     2ndmiddle          140    225    1
+teleport-loc     =     124     23     2ndmiddle          140    225    1
+teleport-loc     =     125     23     2ndmiddle          140    225    1
+
+teleport-loc     =     53    133     arebrk12            34     35    3
+teleport-loc     =     54    133     arebrk12            34     35    3
+teleport-loc     =     55    133     arebrk12            34     35    3
+teleport-loc     =     55    132     arebrk12            34     35    3
+
+teleport-loc     =     78    71     middled1n           181    124   5
+teleport-loc     =     79    69     middled1n           181    124   5
+teleport-loc     =     78    70     middled1n           181    124   5
+teleport-loc     =     80    69     middled1n           181    124   5
+teleport-loc     =     79    70     middled1n           181    124   5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     1      36    214
+waypoint          =     2      130   207
+waypoint          =     3      208   205
+waypoint          =     4      193   151
+waypoint          =     5      121   155
+waypoint          =     6      43    113
+waypoint          =     7      133   90
+waypoint          =     8      210   73
+waypoint          =     9      134   30
+waypoint          =     10     60    40
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area           = 1       92  49 98  55
+
+maximum-object		= 300
+random-mob-generator	= 1  2
+
+//-----------------------Num-Type-RECT---------------Mob-MobNum
+spot-mob-generator	= 1  1    116 80 138 102     10  20
+spot-mob-generator	= 2  1    193 102 217 119    10  20
+spot-mob-generator	= 3  1    68 22 195 71       10  20
+
+spot-mob-generator	= 4  1    65 173 84 214      17  15
+spot-mob-generator	= 5  1    137 203 163 215    17  15
+
+spot-mob-generator	= 6  1    146 88 182 116     16  15
+spot-mob-generator	= 7  1    84 149 108 175     16  15
+spot-mob-generator	= 8  1    146 26 184 46      16  15
+
+spot-mob-generator	= 9  1    206 56 218 76      22  15
+spot-mob-generator	= 10 1    173 199 193 217    22  15
+
+//--fish-point
+max-fish   = 10
+fish-point = 0   222 17
+fish-point = 1   235 30
+fish-point = 2   236 58
+fish-point = 3   231 78
+fish-point = 4   234 224
+fish-point = 5   224 234
+fish-point = 6   196 229
+fish-point = 7   97 228
+fish-point = 8   60 229
+fish-point = 9   33 236
+fish-point = 10  11 223
+fish-point = 11  18 190
+fish-point = 12  21 164
+fish-point = 13  15 149
+fish-point = 14  15 106
+
+[END-MAP-INFO]

@@ -1,0 +1,49 @@
+  
+Construction menu
+ 
+
+The constructor will be able to
+construct the bay warfare building
+in the location vicinity after the
+commander sets. Before this you
+can't construct it. There is a
+yellow cruciform indication in the
+middleland map and there will
+be the construction location. 
+
+A kit will appear on the bottom
+after moving to the construction
+location and selecting the building.
+With a forced attack using the pickaxe,
+the building will slowly be completed.
+
+
+The warfare buildings are:
+
+* Mana collector: After installing near 
+ the Mana stone the structure gathers mana. 
+ As an additional effect it recharges the
+ mana of our forces.
+
+
+* Arrow guard tower: It is used with the
+ use which defends the strategy key point
+ with the position construction infra-
+ structure which affixes the anger flesh
+ firing turret. 
+
+
+* Cannon guard tower: It is used with the
+ use which defends the strategy key point
+ with the position construction infra-
+ structure which affixes the cannon firing
+ turret. It will be caused by with the
+ bombardment which has a powerful cold wave
+ marvelous strength but there is a possibi-
+ lity also our military putting on a damage. 
+
+
+* Detector: 
+When the enemy approaches, it occurs a
+warning message and the enemy cancels
+the transparent condition. 

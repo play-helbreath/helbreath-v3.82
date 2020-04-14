@@ -1,0 +1,6 @@
+[MAP-INFO]
+random-mob-generator 	= 1  20
+maximum-object		= 100
+mobevent-amount 		= 7
+pkmode			= 0
+[END-MAP-INFO]

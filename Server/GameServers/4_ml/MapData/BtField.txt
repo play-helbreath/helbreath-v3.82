@@ -1,0 +1,131 @@
+[MAP-INFO]
+map-location  	= BtField
+level-limit   	= 81
+CitizenLimit	= 1
+HeldenianMap 	= 1
+t//ype 			= 2          
+
+initial-point 	= 1  264 260
+maximum-object	= 350
+
+random-mob-generator 	= 1  20
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       55    94
+waypoint          =     1       113   76
+waypoint          =     2       156   104
+waypoint          =     3       187   140
+waypoint          =     4       161   164
+waypoint          =     5       135   169
+waypoint          =     6       109   191
+waypoint          =     7       98    162
+waypoint          =     8       64    137
+waypoint          =     9       198   105
+
+
+//-Heldenian Tower ID ---------Side----------sX------sY
+HeldenianTower  =  87            1           53      212
+HeldenianTower  =  87            1           48      214
+HeldenianTower  =  87            1           53      220
+HeldenianTower  =  87            1           48      222
+HeldenianTower  =  87            1           53      228
+HeldenianTower  =  87            1           48      230
+HeldenianTower  =  87            1           53      236
+HeldenianTower  =  87            1           48      238
+HeldenianTower  =  87            1           53      244
+
+HeldenianTower  =  89            1           48      210
+HeldenianTower  =  89            1           53      216
+HeldenianTower  =  89            1           48      218
+HeldenianTower  =  89            1           53      224
+HeldenianTower  =  89            1           48      226
+HeldenianTower  =  89            1           53      232
+HeldenianTower  =  89            1           48      234
+HeldenianTower  =  89            1           53      240
+HeldenianTower  =  89            1           48      242
+HeldenianTower  =  89            1           53      248
+
+HeldenianTower  =  87            1           57      248
+HeldenianTower  =  87            1           60      252
+HeldenianTower  =  87            1           67      248
+HeldenianTower  =  87            1           70      252
+HeldenianTower  =  87            1           77      248
+HeldenianTower  =  87            1           80      252
+HeldenianTower  =  87            1           87      248
+HeldenianTower  =  87            1           95      252
+HeldenianTower  =  87            1           97      248
+
+HeldenianTower  =  87            1          117      144
+HeldenianTower  =  87            1          114      136
+HeldenianTower  =  87            1          180      180
+HeldenianTower  =  87            1          182      188
+
+HeldenianTower  =  89            1           55      252
+HeldenianTower  =  89            1           62      248
+HeldenianTower  =  89            1           65      252
+HeldenianTower  =  89            1           72      248
+HeldenianTower  =  89            1           75      252
+HeldenianTower  =  89            1           82      248
+HeldenianTower  =  89            1           85      252
+HeldenianTower  =  89            1           90      252
+HeldenianTower  =  89            1           92      248
+HeldenianTower  =  89            1          100      252
+
+HeldenianTower  =  89            1          120      141
+HeldenianTower  =  89            1          111      139
+HeldenianTower  =  89            1          177      183
+HeldenianTower  =  89            1          185      185
+
+HeldenianTower  =  87            2          195      62
+HeldenianTower  =  87            2          197      58
+HeldenianTower  =  87            2          205      62
+HeldenianTower  =  87            2          207      58
+HeldenianTower  =  87            2          215      62
+HeldenianTower  =  87            2          222      58
+HeldenianTower  =  87            2          225      62
+HeldenianTower  =  87            2          232      58
+HeldenianTower  =  87            2          235      62
+
+HeldenianTower  =  87            2          241      69
+HeldenianTower  =  87            2          246      71
+HeldenianTower  =  87            2          241      77
+HeldenianTower  =  87            2          246      79
+HeldenianTower  =  87            2          241      85
+HeldenianTower  =  87            2          246      91
+HeldenianTower  =  87            2          241      93
+HeldenianTower  =  87            2          246      99
+HeldenianTower  =  87            2          241      101
+
+HeldenianTower  =  87            2          203      163
+HeldenianTower  =  87            2          205	     171
+HeldenianTower  =  87            2          134      122
+HeldenianTower  =  87            2          142	     124
+
+HeldenianTower  =  89            2          192      58
+HeldenianTower  =  89            2          200      62
+HeldenianTower  =  89            2          202      58
+HeldenianTower  =  89            2          210      62
+HeldenianTower  =  89            2          212      58
+HeldenianTower  =  89            2          217      58
+HeldenianTower  =  89            2          220      62
+HeldenianTower  =  89            2          227      58
+HeldenianTower  =  89            2          230      62
+HeldenianTower  =  89            2          237      58
+
+HeldenianTower  =  89            2          246      67
+HeldenianTower  =  89            2          241      73
+HeldenianTower  =  89            2          246      75
+HeldenianTower  =  89            2          241      81
+HeldenianTower  =  89            2          246      83
+HeldenianTower  =  89            2          246      87
+HeldenianTower  =  89            2          241      89
+HeldenianTower  =  89            2          246      95
+HeldenianTower  =  89            2          241      97
+HeldenianTower  =  89            2          246      103
+
+HeldenianTower  =  89            2          200      166
+HeldenianTower  =  89            2          208      168
+HeldenianTower  =  89            2          137      119
+HeldenianTower  =  89            2          139      127
+
+[END-MAP-INFO]

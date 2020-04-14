@@ -1,0 +1,98 @@
+___________________________________________________________________
+Nouvelles armes, et leurs skills associés
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Ajustement pour que Kloness Esterk,BlackShadow, Lighting Blade
+utilisent le bon Skill (autorisation de critical, dash etc)
+
+Permet également à la StormBlade de taper à distance (3 cases a vérifier)
+(animation "storm" pas incluse dans ce code)
+
+
+
+Game.cpp
+¯¯¯¯¯¯¯¯
+
+void CGame::CommandProcessor(short msX, short msY, short indexX, short indexY, char cLB, char cRB)
+Les 4 case 8: (concernant la LS) devront commencer par:
+		if (   ((absX <= 3) && (absY <= 3)) 
+			&& (((m_iSuperAttackLeft > 0) && (m_bSuperAttackMode == TRUE))
+				||(_iGetAttackType() == 5))) //or StormBlade by Snoopy
+		{	wType = _iGetAttackType();	
+
+
+
+
+
+
+int CGame::_iGetAttackType()
+Remplacer par la fonction par sa version corrigée suivante:
+// Snoopy: added StormBlade
+{WORD wWeaponType;
+	wWeaponType = ((m_sPlayerAppr2 & 0x0FF0) >> 4);
+	if (wWeaponType == 0) 
+	{	if ((m_iSuperAttackLeft > 0) && (m_bSuperAttackMode == TRUE) && (m_cSkillMastery[5] >= 100)) return 20;
+		else return 1;		// Boxe
+	}else if ((wWeaponType >= 1) && (wWeaponType <= 2)) 
+	{	if ((m_iSuperAttackLeft > 0) && (m_bSuperAttackMode == TRUE) && (m_cSkillMastery[7] >= 100)) return 21;
+		else return 1;		//Dag, SS
+	}else if ((wWeaponType > 2) && (wWeaponType < 20)) 
+	{	if ((wWeaponType == 7)||(wWeaponType == 18)) // Added Kloness Esterk
+		{	if ((m_iSuperAttackLeft > 0) && (m_bSuperAttackMode == TRUE) && (m_cSkillMastery[9] >= 100)) return 22;
+			else return 1;  // Esterk
+		}else if (wWeaponType == 15) 
+		{	if ((m_iSuperAttackLeft > 0) && (m_bSuperAttackMode == TRUE) && (m_cSkillMastery[8] >= 100)) return 23;
+			else return 5;  // StormBlade
+		}else 	
+		{	if ((m_iSuperAttackLeft > 0) && (m_bSuperAttackMode == TRUE) && (m_cSkillMastery[8] >= 100)) return 23;
+			else return 1;	// LongSwords 
+		}
+	}else if ((wWeaponType >= 20) && (wWeaponType < 29)) 
+	{	if ((m_iSuperAttackLeft > 0) && (m_bSuperAttackMode == TRUE) && (m_cSkillMastery[10] >= 100)) return 24;
+		else return 1;		// Haches
+	}else if ((wWeaponType >= 30) && (wWeaponType < 33)) 
+	{	if ((m_iSuperAttackLeft > 0) && (m_bSuperAttackMode == TRUE) && (m_cSkillMastery[14] >= 100)) return 26;
+		else return 1;		// Hammers
+	}else if ((wWeaponType >= 34) && (wWeaponType < 40)) 
+	{	if ((m_iSuperAttackLeft > 0) && (m_bSuperAttackMode == TRUE) && (m_cSkillMastery[21] >= 100)) return 27;
+		else return 1;		// Wands
+	}else if (wWeaponType >= 40) 
+	{	if ((m_iSuperAttackLeft > 0) && (m_bSuperAttackMode == TRUE) && (m_cSkillMastery[6] >= 100)) return 25;
+		else return 2;		// Bows
+	}else if ((wWeaponType == 29) || (wWeaponType == 33))
+	{	if ((m_iSuperAttackLeft > 0) && (m_bSuperAttackMode == TRUE) && (m_cSkillMastery[8] >= 100)) return 25;
+		else return 1;		// LS	
+	}
+	return 0;
+}
+
+
+
+
+
+int CGame::_iGetWeaponSkillType()
+Remplacer par la fonction par sa version corrigée suivante:
+{WORD wWeaponType;	
+	wWeaponType = ((m_sPlayerAppr2 & 0x0FF0) >> 4);
+	if (wWeaponType == 0) 
+	{	return 5; // Openhand
+	}else if ((wWeaponType >= 1) && (wWeaponType < 3)) 
+	{	return 7; // SS
+	}else if ((wWeaponType >= 3) && (wWeaponType < 20)) 
+	{	if ((wWeaponType == 7)||(wWeaponType == 18)) // Esterk or KlonessEsterk
+			 return 9; // Fencing
+		else return 8; // LS
+	}else if ((wWeaponType >= 20) && (wWeaponType < 29)) 
+	{	return 10; // Axe (20..28)
+	}else if ((wWeaponType >= 30) && (wWeaponType < 33)) 
+	{	return 14; // Hammer (30,31,32)
+	}else if ((wWeaponType >= 34) && (wWeaponType < 40)) 
+	{	return 21; // Wand 
+	}else if (wWeaponType >= 40) 
+	{	return 6;  // Bow
+	}else if ((wWeaponType == 29) || (wWeaponType == 33))
+	{	return 8;  // LS LightingBlade || BlackShadow
+	}	
+	return 1; // Fishing !
+}
+
+___________________________________________________________________

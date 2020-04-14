@@ -1,0 +1,28 @@
+___________________________________________________________________
+Caster avec les 6 wands
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Sans cette modif les Beserkwands ne permettent pas de caster.
+Et supprimé la possibilité de caster avec un Hoe !
+(Impossible côté serveur de toute facon.)
+
+Game.cpp
+¯¯¯¯¯¯¯
+
+BOOL CGame::_bIsItemOnHand()
+{int i;
+ WORD wWeaponType;
+	for (i = 0; i < DEF_MAXITEMS; i++) 
+	if ((m_pItemList[i] != NULL) && (m_bIsItemEquipped[i] == TRUE)) 
+	{	if (m_pItemList[i]->m_cEquipPos == DEF_EQUIPPOS_RHAND) 
+		{	wWeaponType = ((m_sPlayerAppr2 & 0x0FF0) >> 4);	
+			// Snoopy 34 for all wands.
+			if ((wWeaponType >= 34) && (wWeaponType < 40)) return FALSE; 
+			//else if( wWeaponType == 27 ) return FALSE; // Farming's hoe !
+			else return TRUE;
+		}		
+		if (   (m_pItemList[i]->m_cEquipPos == DEF_EQUIPPOS_LHAND)
+			|| (m_pItemList[i]->m_cEquipPos == DEF_EQUIPPOS_TWOHAND)) 
+			return TRUE;
+	}
+	return FALSE;
+}

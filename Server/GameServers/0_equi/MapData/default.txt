@@ -1,0 +1,40 @@
+[MAP-INFO]
+map-location  = default
+initial-point = 1  134 37
+upper-level-limit = 20
+pk-mode 	= 3
+type 		= 0
+drop-type 	= 0
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =      127    78     cath_2     -1    -1     2
+teleport-loc     =      128    78     cath_2     -1    -1     2
+teleport-loc     =      129    78     cath_2     -1    -1     2
+teleport-loc     =      127    79     cath_2     -1    -1     2
+teleport-loc     =      128    79     cath_2     -1    -1     2
+teleport-loc     =      129    79     cath_2     -1    -1     2
+
+teleport-loc     =      80     75     cath_1     -1    -1     4
+teleport-loc     =      81     75     cath_1     -1    -1     4
+teleport-loc     =      82     75     cath_1     -1    -1     4
+teleport-loc     =      80     76     cath_1     -1    -1     4
+teleport-loc     =      81     76     cath_1     -1    -1     4
+teleport-loc     =      82     76     cath_1     -1    -1     4
+
+//-No-Attack-Area---------Num-----RECT-------------
+no-attack-area          = 1       131 35 138 40
+
+maximum-object		= 50
+
+//------------------------Num-Type-waypoints--------------Mob-MobNum
+spot-mob-generator	= 1   1    81  72  82  73         26  1
+spot-mob-generator	= 2   1    129 74  130 75         26  1
+
+spot-mob-generator	= 3   1    100 80  109 87         10  20
+spot-mob-generator	= 4   1    105 119 119 127        10  20
+spot-mob-generator	= 5   1    118 114 130 127        10  20
+spot-mob-generator	= 6   1    86  89  97  96         10  20
+spot-mob-generator	= 7   1    61  86  71  93         10  20
+spot-mob-generator	= 8   1    68  94  76  102        10  20
+
+[END-MAP-INFO]

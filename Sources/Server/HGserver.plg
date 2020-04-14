@@ -1,0 +1,61 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: HGserver - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "c:\temp\RSP1CC.tmp" with contents
+[
+/nologo /G5 /MTd /W3 /Gm /GX /ZI /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /FR"Debug/" /Fp"Debug/HGserver.pch" /YX /Fo"Debug/" /Fd"Debug/" /FD /c 
+"C:\Documents and Settings\snoopy81\Bureau\Equi400\SourceEP_gserver\Game.cpp"
+]
+Creating command line "cl.exe @c:\temp\RSP1CC.tmp" 
+Creating temporary file "c:\temp\RSP1CD.tmp" with contents
+[
+kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /stack:0x2000000 /subsystem:windows /profile /debug /machine:I386 /out:"Debug/HGserver.exe" 
+".\Debug\BuildItem.obj"
+".\Debug\Client.obj"
+".\Debug\DelayEvent.obj"
+".\Debug\DynamicObject.obj"
+".\Debug\Fish.obj"
+".\Debug\GuildsMan.obj"
+".\Debug\Item.obj"
+".\Debug\Magic.obj"
+".\Debug\Map.obj"
+".\Debug\Mineral.obj"
+".\Debug\Misc.obj"
+".\Debug\Msg.obj"
+".\Debug\Npc.obj"
+".\Debug\OccupyFlag.obj"
+".\Debug\Portion.obj"
+".\Debug\Quest.obj"
+".\Debug\Skill.obj"
+".\Debug\StrategicPoint.obj"
+".\Debug\StrTok.obj"
+".\Debug\Teleport.obj"
+".\Debug\TeleportLoc.obj"
+".\Debug\TempNpcItem.obj"
+".\Debug\Tile.obj"
+".\Debug\XSocket.obj"
+".\Debug\DebugDialog.obj"
+".\Debug\Game.obj"
+".\Debug\wmain.obj"
+".\Debug\HGserver.res"
+".\Winmm.lib"
+".\Ws2_32.lib"
+]
+Creating command line "link.exe @c:\temp\RSP1CD.tmp"
+<h3>Output Window</h3>
+Compiling...
+Game.cpp
+Linking...
+
+
+
+<h3>Results</h3>
+HGserver.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

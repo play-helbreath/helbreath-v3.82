@@ -1,0 +1,24 @@
+A friend have asked me to make a fps limit for him, maybe it is useful for somebody else.
+
+It's pretty simple, inside void CGame::UpdateScreen(), replace:
+
+
+CODE 	
+case DEF_GAMEMODE_ONMAINGAME:
+ UpdateScreen_OnGame();
+ break;	
+
+
+With:
+
+
+CODE 	
+case DEF_GAMEMODE_ONMAINGAME:
+ //fps limit around 83
+ if((G_dwGlobalTime - m_dwCurTime) > 12) UpdateScreen_OnGame();
+ break;	
+
+
+All you have to do, is divide 1000 (1sec) by the limit of fps you want (in that case, around 83) and change the "12" with that number.
+
+Make a test with a "900".

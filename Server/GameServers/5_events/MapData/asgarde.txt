@@ -1,0 +1,36 @@
+[MAP-INFO]
+map-location  = Asgarde
+initial-point = 1  146 23	
+type          = 0
+pk-mode = 0
+
+not-permanent-map		= 0
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =      143    20     lost             -1    -1     5
+teleport-loc     =      144    20     lost             -1    -1     5
+teleport-loc     =      145    20     lost             -1    -1     5
+teleport-loc     =      146    20     lost             -1    -1     5
+teleport-loc     =      147    20     lost             -1    -1     5
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area          = 1   141 20 153 25
+random-mob-generator	= 1	1 						
+maximum-object = 100
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     1      145     43
+waypoint          =     2      145     43
+waypoint          =     3      145     43
+waypoint          =     4      145     43
+waypoint          =     5      145     43
+waypoint          =     6      145     43
+waypoint          =     7      145     43
+waypoint          =     8      145     43
+waypoint          =     9      145     43
+waypoint          =     10     145     43
+
+//-NPC-setting--------Name---------------MoveType----WaypointIndex(10)-------NamePrefix-------;
+npc               =   Tom            1           1 2 3 4 5 6 7 8 9 10         1  
+
+[END-MAP-INFO]

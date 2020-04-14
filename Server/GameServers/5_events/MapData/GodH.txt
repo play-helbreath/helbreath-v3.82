@@ -1,0 +1,21 @@
+[MAP-INFO]
+map-location  	= GodH
+level-limit   	= 81
+CitizenLimit	= 1
+HeldenianMap 	= 1
+t//ype 			= 2 
+d//rop-type 		= 0   
+
+initial-point 	= 1  202 171
+maximum-object	= 900
+
+fixed-dayornight-mode 	= 1 
+HeldenianWinningZone  	=	59	72
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =     213	179	HRampart          49    43   2
+teleport-loc     =     214	179	HRampart          49    43   2
+teleport-loc     =     215	179	HRampart          49    43   2
+
+
+[END-MAP-INFO]

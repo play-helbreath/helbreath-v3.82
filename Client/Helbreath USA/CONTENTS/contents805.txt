@@ -1,0 +1,51 @@
+ Description of the constructor's job
+
+The constructor is able to construct
+the multi branch warfare infrastructure
+which it contains the Mana collector.
+The kind of warfare infrastructure with
+afterwords are:
+
+* Arrow guard tower: The position
+ construction infrastructure which
+ affixes the anger flesh firing turret.
+
+* Cannon guard tower: The position
+construction infrastructure which
+ affixes the cannon firing turret. 
+
+* Mana collector: 
+It's a structure established near the
+Mana stone which is used to gather mana.
+With additional effect it recharges
+the vicinity soldiers. 
+
+* Detector: When the enemy approaches,
+it's used to notice with a warning
+message and when the enemy is
+transparent cancels it.
+
+The duty of the constructor is to build
+a Mana collector near to the Mana stone
+, and also the Guard tower and Detectors
+are constructed for the defense from
+enemies.
+
+In the soldier menu you there is a
+middleland map that appears as a
+yellow X mark where indicates the
+teleport position. If the yellow
+x mark doesn't appear in the map
+means that the commander didn't
+designate yet.
+
+By clicking once again the teleport
+button you will be teleported to the
+destination.
+
+Normally, the commander sets the
+teleport position near the mana stone,
+and notices using the guild chat to
+constructors and soldiers and at the
+same time click the teleport button
+and excecute the strategy. 

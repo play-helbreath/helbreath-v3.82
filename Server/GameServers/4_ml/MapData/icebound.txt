@@ -1,0 +1,90 @@
+[MAP-INFO]
+map-location  		= icebound
+initial-point 		= 1  264 260
+level-limit   		= 20
+fixed-dayornight-mode 	= 0
+pk-mode			= 0	
+
+//------------------------RECT---------TargetMap------TargetCoord
+DynamicGateCoord	= 89 31 90 32        druncncity	   -1  -1
+DynamicGateType	= 1
+
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =     260    264     middleland          455    279   5
+teleport-loc     =     261    264     middleland          455    279   5
+teleport-loc     =     262    264     middleland          455    279   5
+teleport-loc     =     263    264     middleland          455    279   5
+teleport-loc     =     264    264     middleland          455    279   5
+teleport-loc     =     265    264     middleland          455    279   5
+teleport-loc     =     266    264     middleland          455    279   5
+teleport-loc     =     267    264     middleland          455    279   5
+teleport-loc     =     268    264     middleland          455    279   5
+teleport-loc     =     269    264     middleland          455    279   5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       55    94
+waypoint          =     1       113   76
+waypoint          =     2       156   104
+waypoint          =     3       187   140
+waypoint          =     4       161   164
+waypoint          =     5       135   169
+waypoint          =     6       109   191
+waypoint          =     7       98    162
+waypoint          =     8       64    137
+waypoint          =     9       198   105
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area           = 1       258 258 272 264
+
+// Appearing Monsters:
+// DireBoar, Rudolf, Frost, Beholder, Ice Golem, Skell, Stone Golem, Frog, 
+// Wyverns & some rabbits 
+random-mob-generator	= 1  17
+maximum-object		= 300
+
+//-----------------------Num-Type-RECT------------------Mob-MobNum
+//8 Tigerworms official pit (BigTigerworm harder to Kill)
+spot-mob-generator	= 1    1    28   23  81  59   109	8
+
+// 1 Tigerworm on all the map 
+spot-mob-generator	= 2    1    20   20 280 280   50	1
+
+//  Pit Grass SouthEast: 14 Skell +  4 Stone Golems + 4 frogs
+spot-mob-generator	= 3    1    179 217 226 260	11	14
+spot-mob-generator	= 4    1    180 218 225 259	12	4
+spot-mob-generator	= 5    1    180 218 225 259	57    4
+
+// Pit Sud 8 Frogs + 5 BB
+spot-mob-generator	= 6    1    102 219 164 277	57	8
+spot-mob-generator	= 7    1    103 220 163 276	53	5
+
+// Pit Grass NorthEast: 10 Ruddolfs + 5 BB + 5 Frogs
+spot-mob-generator	= 9    1    174  26 236  83	61	10
+spot-mob-generator	= 10   1    178  26 232  79	53	5
+spot-mob-generator	= 11   1    174  26 236  83	57	5
+
+// NorthWest pit near TWs 10 Frosts + 10 Ices
+spot-mob-generator	= 12   1    51  85 105 136	63	10
+spot-mob-generator	= 13   1    50  72  86 137	65	10
+
+// SouthWest small BB pit
+spot-mob-generator	= 14   1     45 202  83 233	53	5
+
+// North pits 6 BBs + 6 Frosts
+spot-mob-generator	= 15   1    179  77 237 113	53	6
+spot-mob-generator	= 16   1    159  79 197 171	63	6
+
+// Ruddolf West
+spot-mob-generator	= 17   1     89 148 127 176	61	5
+
+// Frost NorthEast
+spot-mob-generator	= 18   1    225  63 269 109	63	8
+
+// SouthEast hill -> IceGolem 
+spot-mob-generator	= 19   1    198 170 243 206	65	10
+
+// Wyvern (pas tout le temps)									
+spot-mob-generator	= 20	1	20  20  280	280	166	1
+
+[END-MAP-INFO]

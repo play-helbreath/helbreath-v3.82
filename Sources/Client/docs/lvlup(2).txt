@@ -1,0 +1,1 @@
+if((m_iLU_Pool > 0) && (m_bIsDialogEnabled[12] == FALSE)) PutString_SprFont2( 557, 395, "Level Up!", (timeGetTime()/3)%255, (timeGetTime()/3)%255, 0);

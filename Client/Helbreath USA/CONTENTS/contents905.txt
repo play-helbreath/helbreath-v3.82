@@ -1,0 +1,125 @@
+  
+Point and Skill system
+ 
+A character can have 6 specific
+points. The personality of the
+character depends on these points.
+Whenever your level up, you can
+add your point by 3points. To
+decide your level up setting,
+press the 'Level-up' button
+at the character info menu and
+allot your points. Each specific
+point can have between 10~200.
+
+STR(Strength)
+This point indicates the power of
+the character. STR can decide how
+much the character can hold, and
+the weight of weapon. And the more
+STR you have, the more your Staminar
+grows up. And the speed of weapon
+increases. And your HP will be plus
+by STR/2.
+ 
+VIT(vitality)
+VIT shows the life of character.
+The more VIT you have, the more
+health you can have and the
+recovery of health.
+ 
+DEX(dexterity)
+This point shows the agility of
+character. the more DEX you have,
+the more porbability of hit and
+defence grows up.
+ 
+INT(intelligence)
+This point shows the intelligence
+of character. The more INT you have,
+the more magic you can learn. And
+also your magic casting probability
+grows up. And your maximum MP will
+be plus by INT/2 points.
+ 
+MAG(magic)
+This point shows the magical power
+of character. The more MAG you have,
+the more MP and recovery of MP you
+have. And if you use attack magic,
+the damage will be increased.
+ 
+CHR(charisma)
+This point shows the charisma of
+character. If your CHR is over than
+20, you can make your own guild.
+And the more CHR you have, the cheaper
+you can buy item.
+ 
+Each values are concerned with the
+skill system. And they have bonus
+ability as follows.
+
+STR
+When the STR is 100, there is a
+20% bonus damage. And if STR is
+200 there is 40% bonus damage.
+Bonus damage is added like this.
+ 
+VIT
+VIT decides the amount of HP
+recovery. The HP increases VIT/2
+at least, VIT at most at some
+time. And the more VIT you have,
+the more damage you can absorb.
+ 
+DEX
+As explained in Attack and Defence,
+there is bonus point in attack and
+defence.
+ 
+INT
+If your INT is over than 50, there
+is casting probability bonus by
+(INT-50)/2.
+ 
+MAG
+If your MAG is 100, there is 30%
+bonus damage when you attack target
+by magic. And if your MAG is 200,
+There is 60% damage. Bonus damage
+is calculated as this way.
+ 
+CHR
+Above level 20, and CHR 20, you
+can make your own guild.
+  
+Skill system is the system that
+the level of skill increases by
+using that skill frequently.
+ 
+There are some skills in Helbreath.
+You can buy skill manual at Shop
+or Blacksmith in the town. And
+if you use that skill frequently,
+the skill level will grow up.
+ 
+No matter how you use a skill,
+if your skill level is 0%, the
+skill level will not grow up.
+ 
+For example, to use long sword
+you should buy long sword manual
+at blacksmith and learn long sword
+skill.
+ 
+But the sum of skill can not exceed
+700%. If your skill grows up when
+your skill is 700%, The skill level
+with the arrow will decrease. By
+setting useless skill to arrow, 
+you can decide what skill you raise.
+ 
+You can show skill list by pressing
+'F8'key or clicking Hand icon on
+bottom of the screen.

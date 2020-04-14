@@ -1,0 +1,83 @@
+___________________________________________________________________
+              (ré)implémentation du fichier de config.
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Trop pratique pour tester depuis plusieurs ordi, et à terme, quelques
+autres réglages pourront y être incorporés...
+
+
+Game.h
+¯¯¯¯¯¯
+BOOL bReadLoginConfigFile(char * cFn);
+
+Game.cpp
+¯¯¯¯¯¯¯¯
+BOOL CGame::bInit(HWND hWnd, HINSTANCE hInst, char * pCmdLine)
+Remplacé // if(bReadIp() == FALSE) {	
+par   	if(bReadLoginConfigFile("login.cfg") == FALSE) {
+
+
+/*********************************************************************************************************************
+** 	BOOL CGame::bReadLoginConfigFile(char * cFn)		(Snoopy)								**
+**  	description			:: Enable login.cfg to read the IP & port								**
+**  	   				:: May be used later for other settings								**
+**********************************************************************************************************************/
+BOOL CGame::bReadLoginConfigFile(char * cFn)
+//(je n'ai pas viré la fonction :bReadIP(...), juste remis celle ci)
+BOOL CGame::bReadLoginConfigFile(char * cFn)
+{FILE * pFile; 
+ HANDLE hFile;
+ DWORD  dwFileSize;
+ char * cp, * token, cReadMode;
+ char seps[] = "= ,\t\n";
+	cReadMode = 0; 
+	// Get file size only
+	hFile = CreateFile(cFn, GENERIC_READ, NULL, NULL, OPEN_EXISTING, NULL, NULL);
+	dwFileSize = GetFileSize(hFile, NULL);
+	if (hFile != INVALID_HANDLE_VALUE) CloseHandle(hFile);
+	pFile = fopen(cFn, "rt");
+	if (pFile == NULL) goto DEFAULT_IP;
+	cp = new char[dwFileSize+2];
+	ZeroMemory(cp, dwFileSize+2);
+	fread(cp, dwFileSize, 1, pFile);
+	token = strtok( cp, seps );
+	while( token != NULL )
+	{	if (cReadMode != 0)
+		{	switch (cReadMode) {
+			case 1: // log-server-address
+				if (strlen(token) > 15)
+				{	delete[] cp;
+					if (pFile != NULL) fclose(pFile);
+					goto DEFAULT_IP;
+				}
+				ZeroMemory(m_cLogServerAddr, sizeof(m_cLogServerAddr));
+				strcpy(m_cLogServerAddr, token);
+				cReadMode = 0;
+				break;
+			case 2: // log-server-port
+				m_iLogServerPort = atoi(token);
+				if (m_iLogServerPort == 0)
+				{	delete[] cp;
+					if (pFile != NULL) fclose(pFile);
+					goto DEFAULT_IP;
+				}
+				cReadMode = 0;
+				break;
+			}
+		}else 
+		{	if (memcmp(token, "log-server-address",18) == 0) cReadMode = 1;
+			if (memcmp(token, "log-server-port",15) == 0)    cReadMode = 2;
+		}
+		token = strtok( NULL, seps );
+	}
+	delete[] cp;
+	if (pFile != NULL) fclose(pFile);
+	return TRUE;
+DEFAULT_IP:	
+	ZeroMemory(m_cLogServerAddr, sizeof(m_cLogServerAddr));
+	strcpy(m_cLogServerAddr, "192.168.001.100");
+	m_iLogServerPort = 2848;
+	return TRUE;
+}
+
+
+___________________________________________________________________

@@ -1,0 +1,4 @@
+[MAP-INFO]
+pk-mode 	= -4
+maximum-object		= 10
+[END-MAP-INFO]

@@ -1,0 +1,36 @@
+___________________________________________________________________
+                    Correction Observer mode
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Vieux bug sur HB, aussi présent sur la v3.51 officielle.
+Juste qu'un écran de 640x480 compte de 0 a.... 639!
+
+
+Game.cpp
+¯¯¯¯¯¯¯¯
+void CGame::CommandProcessor(short msX, short msY, short indexX, short indexY, char cLB, char cRB) 
+REmplacer la partie Observermode par:
+// Fixed by Snoopy
+	if ((m_bIsObserverCommanded == FALSE) && (m_bIsObserverMode == TRUE)) 
+	{	if ((msX == 0) && (msY == 0) && (m_sViewy DstX > 32*21) && (m_sViewDstY > 32*16)) bSendCommand(MSGID_REQUEST_PANNING, NULL, 8, NULL, NULL, NULL, NULL); 
+		else
+		if ((msX == 639) && (msY == 0) && (m_sViewDstX < 32*m_pMapData->m_sMapSizeX - 32*21) && (m_sViewDstY > 32*16)) bSendCommand(MSGID_REQUEST_PANNING, NULL, 2, NULL, NULL, NULL, NULL); 
+		else
+		if ((msX == 639) && (msY == 479) && (m_sViewDstX < 32*m_pMapData->m_sMapSizeX - 32*21) && (m_sViewDstY < 32*m_pMapData->m_sMapSizeY - 32*16)) bSendCommand(MSGID_REQUEST_PANNING, NULL, 4, NULL, NULL, NULL, NULL); 
+		else
+		if ((msX == 0) && (msY == 479)) bSendCommand(MSGID_REQUEST_PANNING, NULL, 6, NULL, NULL, NULL, NULL); 	
+		else
+		if ((msX == 0) && (m_sViewDstX > 32*21)) bSendCommand(MSGID_REQUEST_PANNING, NULL, 7, NULL, NULL, NULL, NULL); 	
+		else
+		if ((msX == 639) && (m_sViewDstX < 32*m_pMapData->m_sMapSizeX - 32*21)) bSendCommand(MSGID_REQUEST_PANNING, NULL, 3, NULL, NULL, NULL, NULL); 	
+		else
+		if ((msY == 0) && (m_sViewDstY > 32*16)) bSendCommand(MSGID_REQUEST_PANNING, NULL, 1, NULL, NULL, NULL, NULL); 	
+		else
+		if ((msY == 479) && (m_sViewDstY < 32*m_pMapData->m_sMapSizeY - 32*16)) bSendCommand(MSGID_REQUEST_PANNING, NULL, 5, NULL, NULL, NULL, NULL); 	
+		else return;
+		
+		m_bIsObserverCommanded = TRUE;
+		m_cArrowPressed = 0;
+		return;
+	}
+
+___________________________________________________________________

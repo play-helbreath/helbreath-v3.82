@@ -1,0 +1,35 @@
+[MAP-INFO]
+map-location  = elvine
+initial-point = 1  69 43
+fixed-dayornight-mode = 1
+pk-mode 	= -4
+type		= 3
+drop-type 	= 0
+limited-cast = 1
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc       =    54     33     elvfarm             71     199    6
+teleport-loc       =    53     34     elvfarm             71     199    6
+teleport-loc       =    54     34     elvfarm             71     199    6
+teleport-loc       =    55     34     elvfarm             71     199    6
+teleport-loc       =    61     35     elvfarm             71     199    6
+teleport-loc       =    61     34     elvfarm             71     199    6
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     1      66    38
+waypoint          =     2      66    38
+waypoint          =     3      66    38
+waypoint          =     4      66    38
+waypoint          =     5      66    38
+waypoint          =     6      66    38
+waypoint          =     7      66    38
+waypoint          =     8      66    38
+waypoint          =     9      66    38
+waypoint          =     10     66    38
+
+//-NPC-setting--------Name---------------MoveType----WaypointIndex(10)-------NamePrefix-------;
+npc               =   Howard               1         1 2 3 4 5 6 7 8 9 10         1  
+
+maximum-object		= 10
+
+[END-MAP-INFO]

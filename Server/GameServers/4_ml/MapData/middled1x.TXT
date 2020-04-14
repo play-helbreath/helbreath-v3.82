@@ -1,0 +1,112 @@
+[MAP-INFO]
+map-location  = middled1x
+initial-point = 1  70 108
+fixed-dayornight-mode = 1
+pk-mode = 0
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =      67    106     middleland          198    233    5
+teleport-loc     =      68    106     middleland          198    233    5
+teleport-loc     =      68    105     middleland          198    233    5
+teleport-loc     =      69    105     middleland          198    233    5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       107   105
+waypoint          =     1       145   116
+waypoint          =     2       200   146
+waypoint          =     3       184   176
+waypoint          =     4       151   204
+waypoint          =     5       134   137
+waypoint          =     6       37    152
+waypoint          =     7       123   188
+waypoint          =     8       129   126
+waypoint          =     9       113   153
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area           = 1       65 100 74 110
+
+maximum-object		= 150
+random-mob-generator	= 1 5
+
+mineral-generator = 1 6
+max-mineral   = 35
+
+mineral-point = 0  34 32
+mineral-point = 1  35 32
+mineral-point = 2  37 30
+mineral-point = 3  40 31
+mineral-point = 4  27 30
+mineral-point = 5  29 31
+mineral-point = 6  28 33
+mineral-point = 7  27 26
+mineral-point = 8  28 27
+mineral-point = 9  29 28
+mineral-point = 10 162 158
+mineral-point = 11 160 159
+mineral-point = 12 164 158
+mineral-point = 13 165 157
+mineral-point = 14 167 156
+mineral-point = 15 169 157
+mineral-point = 16 170 158
+mineral-point = 18 171 158
+mineral-point = 19 172 159
+mineral-point = 20 173 160
+mineral-point = 21 142 92
+mineral-point = 22 141 93
+mineral-point = 23 142 91
+mineral-point = 24 141 88
+mineral-point = 25 139 88
+mineral-point = 26 166 100
+mineral-point = 27 171 102
+mineral-point = 28 172 103
+mineral-point = 29 173 104
+mineral-point = 30 170 99
+mineral-point = 31 170 96
+mineral-point = 32 170 97
+mineral-point = 33 173 107
+mineral-point = 34 173 109
+mineral-point = 35 175 113
+mineral-point = 36 176 114
+mineral-point = 37 168 129
+mineral-point = 38 169 129
+mineral-point = 39 170 130
+mineral-point = 40 171 131
+mineral-point = 41 172 131
+mineral-point = 42 173 132
+mineral-point = 43 173 133
+mineral-point = 44 171 134
+mineral-point = 45 167 125
+mineral-point = 46 161 138
+mineral-point = 47 170 139
+mineral-point = 48 169 139
+mineral-point = 49 161 52
+mineral-point = 50 162 53
+mineral-point = 51 163 54
+mineral-point = 52 164 54
+mineral-point = 53 164 57
+mineral-point = 54 165 58
+mineral-point = 55 105 36
+mineral-point = 56 106 37
+mineral-point = 57 107 37
+mineral-point = 58 108 36
+mineral-point = 59 112 35
+mineral-point = 60 101 35
+mineral-point = 61 99  34
+mineral-point = 62 98  35
+
+[END-MAP-INFO]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

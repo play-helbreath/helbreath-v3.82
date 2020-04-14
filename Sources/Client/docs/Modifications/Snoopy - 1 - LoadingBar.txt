@@ -1,0 +1,22 @@
+__________________________________________________________________
+                  Barre "LOADING" qui avance
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Au charcgment du jeu, au lieu de clignotter.
+
+game.cpp:
+¯¯¯¯¯¯¯¯¯¯
+Remplacer la fonction par celle ci dessous
+/*********************************************************************************************************************
+** 	void CGame::UpdateScreen_OnLoading_Progress()			(Snoopy)							**
+**  	description			:: loading becomes progressbar									**
+**********************************************************************************************************************/
+void CGame::UpdateScreen_OnLoading_Progress()
+{
+	m_DDraw.ClearBackB4();
+	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_LOADING, 0,0,0, TRUE);
+	DrawVersion();
+	int iBarWidth;
+	iBarWidth= (int)m_cLoading;
+	m_pSprite[DEF_SPRID_INTERFACE_ND_LOADING]->PutSpriteFastWidth(472,442, 1, iBarWidth, G_dwGlobalTime);
+	m_DDraw.iFlip();
+}

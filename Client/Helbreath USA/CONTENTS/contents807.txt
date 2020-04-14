@@ -1,0 +1,30 @@
+Constructor's teleport ability
+  
+The constructor can teleport directly
+to the middle land where the commander
+set.
+
+The actual teleport location is 
+where the yellow mark is assigned.
+If the the mark is not assigned
+you can't teleport yet until
+the commanders designation.
+
+ 
+Clicking once again you can teleport
+to the destination.
+
+
+Normally, the commander sets the
+teleport position near the mana stone,
+and notices using the guild chat to
+constructors and soldiers and at the
+same time click the teleport button
+and excecute the strategy. 
+ 
+ 
+
+
+
+
+ 

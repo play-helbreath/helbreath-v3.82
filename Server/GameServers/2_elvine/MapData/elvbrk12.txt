@@ -1,0 +1,39 @@
+[MAP-INFO]
+map-location  = elvine
+initial-point = 1  80 80
+upper-level-limit = 60
+fixed-dayornight-mode = 1
+pk-mode 	= 0
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =      32     33     elvfarm             100    150    5
+teleport-loc     =      33     33     elvfarm             101    150    5
+teleport-loc     =      32     34     elvfarm             101    151    5
+           
+teleport-loc     =      37     91     arebrk12            114    52   5
+teleport-loc     =      38     91     arebrk12            114    52   5
+teleport-loc     =      39     91     arebrk12            114    52   5
+teleport-loc     =      39     90     arebrk12            114    52   5
+teleport-loc     =      40     90     arebrk12            114    52   5
+teleport-loc     =      40     89     arebrk12            114    52   5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     1      55    39
+waypoint          =     2      50    40
+waypoint          =     3      60    38
+waypoint          =     4      65    40
+waypoint          =     5      63    44
+waypoint          =     6      58    47
+waypoint          =     7      52    48
+waypoint          =     8      49    44
+waypoint          =     9      47    41
+waypoint          =     10     55    41
+
+maximum-object = 100
+
+//------------------------Num-Type-waypoints--------------Mob-MobNum
+spot-mob-generator	= 1   1    57 32 90  90           34  60
+// Added by Snoopy
+spot-mob-generator	= 2   1    77 77 110 110          35  30
+
+[END-MAP-INFO]

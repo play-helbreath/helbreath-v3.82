@@ -1,0 +1,186 @@
+___________________________________________________________________
+                  Cityhall Menu - Hero Items
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Voilà la fenêtre pour demander les hero items, ça va très vite à remplacer :)
+
+L'ID pour le DialogBox ne change pas
+
+lan_eng.h
+¯¯¯¯¯¯¯¯¯¯¯¯
+textes à remplacer par ceux-ci
+
+// 3.51 Cityhall Menu - Alastor
+#define	DRAW_DIALOGBOX_CITYHALL_MENU8	"Take the HERO's items."
+#define	DRAW_DIALOGBOX_CITYHALL_MENU46	"Here are the availible HERO's items :"
+#define	DRAW_DIALOGBOX_CITYHALL_MENU47	"Hero's Cape (EK 300)"
+#define	DRAW_DIALOGBOX_CITYHALL_MENU48	"Hero's Helm (EK 150 - Contrib 20)"
+#define	DRAW_DIALOGBOX_CITYHALL_MENU49	"Hero's Cap (EK 100 - Contrib 20)"
+#define	DRAW_DIALOGBOX_CITYHALL_MENU50	"Hero's Armor (EK 300 - Contrib 30)"
+#define	DRAW_DIALOGBOX_CITYHALL_MENU51	"Hero's Robe (EK 200 - Contrib 20)"
+#define	DRAW_DIALOGBOX_CITYHALL_MENU52	"Hero's Hauberk (EK 100 - Contrib 10)"
+#define	DRAW_DIALOGBOX_CITYHALL_MENU53	"Hero's Leggings (EK 150 - Contrib 15)"
+
+
+game.cpp
+¯¯¯¯¯¯¯¯¯¯¯¯
+Dans la fonction DrawDialogBox_CityHallMenu, remplacer 
+
+		if (m_iEnemyKillCount >= 300) {
+			if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 120) && (msY < sY + 145))  
+				 PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 255,255,255);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
+			else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 4,0,50);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
+		}
+		else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 65,65,65);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
+		
+**********************************************************
+Par
+
+		// 3.51 Cityhall Menu - Alastor
+		if ((m_iEnemyKillCount >= 100) && (m_iContribution >= 10)) {
+			if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 120) && (msY < sY + 145))  
+				 PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 255,255,255);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
+			else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 4,0,50);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
+		}
+		else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 65,65,65);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
+	
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Dans la fonction DrawDialogBox_CityHallMenu, remplacer le "case 7" par
+
+	// 3.51 Cityhall Menu - Alastor
+	case 7:
+	
+		PutAlignedString(sX, sX + szX, sY + 60,  DRAW_DIALOGBOX_CITYHALL_MENU46, 255,255,255);// Here are the Hero's Item aivable : 
+		
+		// Hero's Cape (EK 300)
+		if (m_iEnemyKillCount >= 300) {
+			if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 95) && (msY < sY + 110))  
+				 PutAlignedString(sX, sX + szX, sY + 95, DRAW_DIALOGBOX_CITYHALL_MENU47, 255,255,255);// On mouse over Mode
+			else PutAlignedString(sX, sX + szX, sY + 95, DRAW_DIALOGBOX_CITYHALL_MENU47, 4,0,50);// Normal Mode
+		}
+		else PutAlignedString(sX, sX + szX, sY + 95, DRAW_DIALOGBOX_CITYHALL_MENU47, 65,65,65);// Disabled Mode
+		// Hero's Helm (EK 150 - Contrib 20)
+		if ((m_iEnemyKillCount >= 150) && (m_iContribution >= 20)) {
+			if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 125) && (msY < sY + 140))  
+				 PutAlignedString(sX, sX + szX, sY + 125, DRAW_DIALOGBOX_CITYHALL_MENU48, 255,255,255);// On mouse over Mode
+			else PutAlignedString(sX, sX + szX, sY + 125, DRAW_DIALOGBOX_CITYHALL_MENU48, 4,0,50);// Normal Mode
+		}
+		else PutAlignedString(sX, sX + szX, sY + 125, DRAW_DIALOGBOX_CITYHALL_MENU48, 65,65,65);// Disabled Mode
+		// Hero's Cap (EK 100 - Contrib 20)
+		if ((m_iEnemyKillCount >= 100) && (m_iContribution >= 20)) {
+			if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 155) && (msY < sY + 170))  
+				 PutAlignedString(sX, sX + szX, sY + 155, DRAW_DIALOGBOX_CITYHALL_MENU49, 255,255,255);// On mouse over Mode
+			else PutAlignedString(sX, sX + szX, sY + 155, DRAW_DIALOGBOX_CITYHALL_MENU49, 4,0,50);// Normal Mode
+		}
+		else PutAlignedString(sX, sX + szX, sY + 155, DRAW_DIALOGBOX_CITYHALL_MENU49, 65,65,65);// Disabled Mode
+		// Hero's Armor (EK 300 - Contrib 30)
+		if ((m_iEnemyKillCount >= 300) && (m_iContribution >= 30)) {
+			if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 185) && (msY < sY + 200))  
+				 PutAlignedString(sX, sX + szX, sY + 185, DRAW_DIALOGBOX_CITYHALL_MENU50, 255,255,255);// On mouse over Mode
+			else PutAlignedString(sX, sX + szX, sY + 185, DRAW_DIALOGBOX_CITYHALL_MENU50, 4,0,50);// Normal Mode
+		}
+		else PutAlignedString(sX, sX + szX, sY + 185, DRAW_DIALOGBOX_CITYHALL_MENU50, 65,65,65);// Disabled Mode
+		// Hero's Robe (EK 200 - Contrib 20)
+		if ((m_iEnemyKillCount >= 200) && (m_iContribution >= 20)) {
+			if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 215) && (msY < sY + 230))  
+				 PutAlignedString(sX, sX + szX, sY + 215, DRAW_DIALOGBOX_CITYHALL_MENU51, 255,255,255);// On mouse over Mode
+			else PutAlignedString(sX, sX + szX, sY + 215, DRAW_DIALOGBOX_CITYHALL_MENU51, 4,0,50);// Normal Mode
+		}
+		else PutAlignedString(sX, sX + szX, sY + 215, DRAW_DIALOGBOX_CITYHALL_MENU51, 65,65,65);// Disabled Mode
+		// Hero's Hauberk (EK 100 - Contrib 10)
+		if ((m_iEnemyKillCount >= 100) && (m_iContribution >= 10)) {
+			if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 245) && (msY < sY + 260))  
+				 PutAlignedString(sX, sX + szX, sY + 245, DRAW_DIALOGBOX_CITYHALL_MENU52, 255,255,255);// On mouse over Mode
+			else PutAlignedString(sX, sX + szX, sY + 245, DRAW_DIALOGBOX_CITYHALL_MENU52, 4,0,50);// Normal Mode
+		}
+		else PutAlignedString(sX, sX + szX, sY + 245, DRAW_DIALOGBOX_CITYHALL_MENU52, 65,65,65);// Disabled Mode
+		// Hero's Leggings (EK 150 - Contrib 15)
+		if ((m_iEnemyKillCount >= 150) && (m_iContribution >= 15)) {
+			if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 275) && (msY < sY + 290))  
+				 PutAlignedString(sX, sX + szX, sY + 275, DRAW_DIALOGBOX_CITYHALL_MENU53, 255,255,255);// On mouse over Mode
+			else PutAlignedString(sX, sX + szX, sY + 275, DRAW_DIALOGBOX_CITYHALL_MENU53, 4,0,50);// Normal Mode
+		}
+		else PutAlignedString(sX, sX + szX, sY + 275, DRAW_DIALOGBOX_CITYHALL_MENU53, 65,65,65);// Disabled Mode
+		break;
+	
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Dans la fonction DlgBoxClick_CityhallMenu, remplacer le "case 7" par :
+
+	case 7:
+		// 3.51 Cityhall Menu - Alastor
+		int iReqHeroItemID;
+		// Hero's Cape 
+		if ((msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 95) && (msY <= sY + 110)) {
+			if(m_bAresden == TRUE) iReqHeroItemID = 400;
+			else iReqHeroItemID = 401;
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_REQ_GETHEROMANTLE, NULL, iReqHeroItemID, NULL, NULL, NULL); 
+			m_stDialogBoxInfo[13].cMode = 0;
+			PlaySound('E', 14, 5);
+
+		}
+		// Hero's Helm
+		if ((msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 125) && (msY <= sY + 140)){
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 403;
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 404;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 405;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 406;
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_REQ_GETHEROMANTLE, NULL, iReqHeroItemID, NULL, NULL, NULL); 
+			m_stDialogBoxInfo[13].cMode = 0;
+			PlaySound('E', 14, 5);
+
+		}
+		// Hero's Cap
+		if ((msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 155) && (msY <= sY + 170)){
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 407;
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 408;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 409;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 410;
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_REQ_GETHEROMANTLE, NULL, iReqHeroItemID, NULL, NULL, NULL); 
+			m_stDialogBoxInfo[13].cMode = 0;
+			PlaySound('E', 14, 5);
+
+		}
+		// Hero's Armor
+		if ((msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 185) && (msY <= sY + 200)){
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 411;
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 412;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 413;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 414;
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_REQ_GETHEROMANTLE, NULL, iReqHeroItemID, NULL, NULL, NULL); 
+			m_stDialogBoxInfo[13].cMode = 0;
+			PlaySound('E', 14, 5);
+
+		}
+		// Hero's Robe
+		if ((msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 215) && (msY <= sY + 230)){
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 415;
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 416;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 417;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 418;
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_REQ_GETHEROMANTLE, NULL, iReqHeroItemID, NULL, NULL, NULL); 
+			m_stDialogBoxInfo[13].cMode = 0;
+			PlaySound('E', 14, 5);
+
+		}
+		// Hero's Hauberk
+		if ((msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 245) && (msY <= sY + 260)){
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 419;
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 420;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 421;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 422;
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_REQ_GETHEROMANTLE, NULL, iReqHeroItemID, NULL, NULL, NULL); 
+			m_stDialogBoxInfo[13].cMode = 0;
+			PlaySound('E', 14, 5);
+
+		}
+		// Hero's Leggings
+		if ((msX >= sX + 35) && (msX <= sX + 220) && (msY >= sY + 275) && (msY <= sY + 290)){
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 423;
+			if((m_bAresden == TRUE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 424;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 1)) iReqHeroItemID = 425;
+			if((m_bAresden == FALSE) && (m_pCharList[m_cCurFocus-1]->m_sSex == 2)) iReqHeroItemID = 426;
+			bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_REQ_GETHEROMANTLE, NULL, iReqHeroItemID, NULL, NULL, NULL); 
+			m_stDialogBoxInfo[13].cMode = 0;
+			PlaySound('E', 14, 5);
+
+		}
+		break;

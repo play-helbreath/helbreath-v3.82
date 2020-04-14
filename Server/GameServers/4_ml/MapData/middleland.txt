@@ -1,0 +1,233 @@
+[MAP-INFO]							
+map-location  =	middleland					
+initial-point =	1	192	228			
+level-limit	  =	20	
+pk-mode = 0	
+CitizenLimit = 1
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;							
+teleport-loc	=	147	503	aresden	31	28	5
+teleport-loc	=	148	503	aresden	31	28	5
+teleport-loc	=	149	503	aresden	31	28	5
+teleport-loc	=	150	503	aresden	31	28	5
+teleport-loc	=	151	503	aresden	31	28	5
+teleport-loc	=	152	503	aresden	31	28	5
+teleport-loc	=	153	503	aresden	31	28	5
+teleport-loc	=	154	503	aresden	31	28	5
+teleport-loc	=	155	503	aresden	31	28	5
+teleport-loc	=	156	503	aresden	31	28	5
+teleport-loc	=	157	503	aresden	31	28	5
+teleport-loc	=	158	503	aresden	31	28	5
+
+teleport-loc	=	344	503	aresden	256	26	5
+teleport-loc	=	345	503	aresden	256	26	5
+teleport-loc	=	346	503	aresden	256	26	5
+teleport-loc	=	347	503	aresden	256	26	5
+teleport-loc	=	348	503	aresden	256	26	5
+teleport-loc	=	349	503	aresden	256	26	5
+teleport-loc	=	350	503	aresden	256	26	5
+teleport-loc	=	351	503	aresden	256	26	5
+teleport-loc	=	352	503	aresden	256	26	5
+teleport-loc	=	353	503	aresden	256	26	5
+teleport-loc	=	354	503	aresden	256	26	5
+teleport-loc	=	355	503	aresden	256	26	5
+teleport-loc	=	356	503	aresden	256	26	5
+
+teleport-loc	=	99	20	elvine	27	271	1
+teleport-loc	=	100	20	elvine	27	271	1
+teleport-loc	=	101	20	elvine	27	271	1
+teleport-loc	=	102	20	elvine	27	271	1
+teleport-loc	=	103	20	elvine	27	271	1
+teleport-loc	=	104	20	elvine	27	271	1
+teleport-loc	=	105	20	elvine	27	271	1
+teleport-loc	=	106	20	elvine	27	271	1
+teleport-loc	=	107	20	elvine	27	271	1
+
+teleport-loc	=	309	20	elvine	254	267	1
+teleport-loc	=	310	20	elvine	254	267	1
+teleport-loc	=	311	20	elvine	254	267	1
+teleport-loc	=	312	20	elvine	254	267	1
+teleport-loc	=	313	20	elvine	254	267	1
+teleport-loc	=	314	20	elvine	254	267	1
+teleport-loc	=	315	20	elvine	254	267	1
+teleport-loc	=	316	20	elvine	254	267	1
+teleport-loc	=	317	20	elvine	254	267	1
+teleport-loc	=	318	20	elvine	254	267	1
+teleport-loc	=	319	20	elvine	254	267	1
+teleport-loc	=	320	20	elvine	254	267	1
+
+teleport-loc	=	199	235	middled1x	70	108	1
+teleport-loc	=	200	235	middled1x	70	108	1
+teleport-loc	=	200	234	middled1x	70	108	1
+
+teleport-loc	=	381	284	toh1	145	31	1
+teleport-loc	=	382	284	toh1	145	31	1
+teleport-loc	=	383	284	toh1	145	31	1
+
+teleport-loc     =     452    281     icebound	  264     260   1
+teleport-loc     =     453    281     icebound	  264     260   1
+teleport-loc     =     452    282     icebound	  264     260   1
+teleport-loc     =     453    282     icebound	  264     260   1
+
+// new TP Middleland - Griffes -
+teleport-loc	=	237	182	middleland	179	290	1
+teleport-loc	=	237	183	middleland	179	290	1
+teleport-loc	=	238	182	middleland	179	290	1
+teleport-loc	=	238	183	middleland	179	290	1
+teleport-loc	=	179	284	middleland	237	174	1
+teleport-loc	=	179	285	middleland	237	174	1
+teleport-loc	=	180	284	middleland	237	174	1
+teleport-loc	=	180	285	middleland	237	174	1
+
+// In front Tower=> Trap
+teleport-loc	=	104	172	2ndmiddle	120	125	1
+teleport-loc	=	105	172	2ndmiddle	120	130	1
+teleport-loc	=	103	173	2ndmiddle	125	130	1
+teleport-loc	=	104	173	2ndmiddle	125	125	1
+
+// Tower's door, back to Equi.
+teleport-loc	=	106	170	lost  	-1	-1	5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       50    140
+waypoint          =     1       135   105
+waypoint          =     2       260   100
+waypoint          =     3       380   65
+waypoint          =     4       450   130
+waypoint          =     5       40    210
+waypoint          =     6       170   175
+waypoint          =     7       260   190
+waypoint          =     8       360   215
+waypoint          =     9       455   235
+
+waypoint          =     10      50    355
+waypoint          =     11      140   295
+waypoint          =     12      270   335
+waypoint          =     13      330   395
+waypoint          =     14      450   380
+waypoint          =     15      140   470
+waypoint          =     16      215   475
+waypoint          =     17      310   455
+waypoint          =     18      400   455
+waypoint          =     19      450   525
+
+//-No-Attack-Area----------Num-----RECT-------------									
+no-attack-area	=	1	147	490 	158	504			
+no-attack-area	=	2	343	496	360	504			
+no-attack-area	=	3	95	20	109	26			
+no-attack-area	=	4	308	20	321	27			
+
+maximum-object	=	650							
+random-mob-generator	=	1	3						
+
+//-----------------------Num-Type-RECT---------------Mob-MobNum									
+//	ogre	(29)							
+spot-mob-generator	= 1	1	130	330	180	365	-1	6
+spot-mob-generator	= 2	1	410	300	470	360	-1	6
+spot-mob-generator	= 3	1	34	69	100	83	-1	10
+spot-mob-generator	= 4	1	400	180	460	240	-1	6
+
+//	Zombie								
+spot-mob-generator	= 6	1	157	460	187	490	18	20
+spot-mob-generator	= 7	1	309	40	339	70	18	20
+
+//	Scorpion								
+spot-mob-generator	= 8	1	275	460	305	490	17	20
+spot-mob-generator	= 9	1	80	110	110	130	17	20
+
+//	Amphis								
+spot-mob-generator	= 10	1	290	300	310	320	22	15
+spot-mob-generator	= 11	1	210	180	230	200	22	15
+
+//	Skeleton								
+spot-mob-generator	= 12	1	80	390	120	410	11	15
+spot-mob-generator	= 13	1	50	160	90	180	11	15
+
+//	orcs/orc-Mage								
+spot-mob-generator	= 14	1	285	180	340	230	14	12
+spot-mob-generator	= 15	1	295	190	330	220	6	8
+spot-mob-generator	= 16	1	380	345	435	400	14	12
+spot-mob-generator	= 17	1	390	355	425	390	6	8
+
+//	Giant-Ant								
+spot-mob-generator	= 18	1	200	95	220	115	16	15
+spot-mob-generator	= 19	1	170	370	190	390	16	15
+spot-mob-generator	= 20	1     190	255	270	290	16    30
+
+//	WereWolf	(33)							
+spot-mob-generator	= 21	1	320	420	370	470	-1	10
+spot-mob-generator	= 22	1	360	100	410	150	-1	10
+
+//	Cyclops	(13)							
+spot-mob-generator	= 23	1	230	340	280	390	-1	8
+spot-mob-generator	= 24	1	135	105	185	155	-1	8
+
+// Stalker river								
+spot-mob-generator	= 25	1	107	202	418	304	48	18
+
+// For quest -> 2 Plants
+spot-mob-generator	= 26	1	30	30	494	494	60	2
+
+//	Hellclaw 149 (pas tout le temps)								
+spot-mob-generator	= 27	1	26	137	96	192	149	1
+spot-mob-generator	= 28	1	427	97	474	162	149	1
+spot-mob-generator	= 29	1	70	359	163	427	149	1
+spot-mob-generator	= 30	1	313	402	426	428	149	1
+// Hellclaw officials
+spot-mob-generator	= 31 1    162 256 227 299    149  1
+spot-mob-generator	= 32 1    420 32 473 87      149  1
+
+// Tigerworm (pas tout le temps)									
+spot-mob-generator	= 33	1	100	100	430	430	150	1
+
+// FireWyvern (pas tout le temps)									
+spot-mob-generator	= 34	1	100	100	430	430	173	1
+
+// Pit baladeur		
+spot-mob-generator	= 35	-1	100	100	110	110	18	5
+spot-mob-generator	= 36	-1	115	115	125	125	11	5
+
+max-fish   = 20
+fish-point = 0   35 241
+fish-point = 1   64 251
+fish-point = 2   83 248
+fish-point = 3   95 234
+fish-point = 4   136 235
+fish-point = 5   167 243
+fish-point = 6   218 253
+fish-point = 7   256 252
+fish-point = 8   246 233
+fish-point = 9   300 260
+fish-point = 10  313 248
+fish-point = 11  424 289
+fish-point = 12  435 263
+fish-point = 13  461 260
+fish-point = 14  469 291
+
+//energy-sphere
+energy-sphere-creation-point = 1 1 161 219
+energy-sphere-goal-point     = 1 1 237 182 179 284
+
+//item-event_=_index____itemName__Amount_MaxNbe_Month_Day_Type__Mob_list[Max:5]
+item-event   = 	1	Arrow	    20 	6	13	3	0	Slime Giant-Ant Scorpion Zombie Orc EOL
+item-event   = 	2	Arrow     30	5	13	3	0	Skeleton Hellbound Frog Clay-Golem Stone-Golem EOL
+item-event   = 	3	Arrow     40	4	11	3	0	Cyclops Troll Ogre Plant Tentocle EOL
+item-event   = 	4	PotionOfWonders 1	3	1	27	0	Ettin WereWolf Stalker Mountain-Giant Minotaurs EOL
+
+i//tem-event   = 	1	Gold	    20000 	6	13	3	0	Slime Giant-Ant Scorpion Zombie Orc EOL
+i//tem-event   = 	2	Gold 	    30000	5	13	3	0	Skeleton Hellbound Frog Clay-Golem Stone-Golem EOL
+i//tem-event   = 	3	Gold 	    40000	4	11	3	0	Cyclops Troll Ogre Plant Tentocle EOL
+i//tem-event   = 	4	Gold 	    50000	3	11	3	0	Ettin WereWolf Stalker Mountain-Giant Minotaurs EOL
+i//tem-event   = 	5	Token2    1 	7	13	3	0	Slime Giant-Ant Scorpion Zombie Orc EOL
+i//tem-event   = 	6	Token2    1		6	13	3	0	Skeleton Hellbound Frog Clay-Golem Stone-Golem EOL
+i//tem-event   = 	7	Token2    1		5	11	3	0	Cyclops Troll Ogre Plant Tentocle EOL
+i//tem-event   = 	8	Token2    1		4	11	3	0	Ettin WereWolf Stalker Mountain-Giant Minotaurs EOL
+
+
+//strategic-point-Num-Side-Value--X----Y
+// No idea here!
+strategic-point = 1   0    2     176  224
+strategic-point = 2   0    1     456  213
+strategic-point = 3   0    1     275  286
+
+[END-MAP-INFO]									

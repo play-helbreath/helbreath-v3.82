@@ -1,0 +1,61 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Game - Win32 Release--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "c:\temp\RSPB2.tmp" with contents
+[
+/nologo /MD /GX /O2 /D "WIN32" /D "NDEBUG" /D "_WINDOWS" /Fp"Release/Client.pch" /YX /Fo"Release/" /Fd"Release/" /FD /c 
+"C:\Documents and Settings\snoopy81\Bureau\Equi400\Source_Client\Game.cpp"
+]
+Creating command line "cl.exe @c:\temp\RSPB2.tmp" 
+Creating temporary file "c:\temp\RSPB3.tmp" with contents
+[
+search.lib wsock32.lib DINPUT.LIB DSOUND.LIB DXGUID.LIB ddraw.lib IMM32.LIB winmm.lib Cint.lib cximage/release/cximage.lib jpeg/release/Jpeg.lib kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /nologo /subsystem:windows /pdb:none /machine:I386 /nodefaultlib:"MSVCRTD" /nodefaultlib:"LIBC" /out:"Release/Client.exe" /release 
+".\Release\YWSound.obj"
+".\Release\BuildItem.obj"
+".\Release\CharInfo.obj"
+".\Release\Curse.obj"
+".\Release\DXC_ddraw.obj"
+".\Release\DXC_dinput.obj"
+".\Release\DXC_dsound.obj"
+".\Release\Effect.obj"
+".\Release\GameMonitor.obj"
+".\Release\Item.obj"
+".\Release\ItemName.obj"
+".\Release\Magic.obj"
+".\Release\MapData.obj"
+".\Release\Misc.obj"
+".\Release\MouseInterface.obj"
+".\Release\Msg.obj"
+".\Release\Mydib.obj"
+".\Release\Skill.obj"
+".\Release\SoundBuffer.obj"
+".\Release\Sprite.obj"
+".\Release\StrTok.obj"
+".\Release\Tile.obj"
+".\Release\TileSpr.obj"
+".\Release\XSocket.obj"
+".\Release\crcdemo.obj"
+".\Release\Game.obj"
+".\Release\MP3.obj"
+".\Release\Wmain.obj"
+".\Release\resource.res"
+]
+Creating command line "link.exe @c:\temp\RSPB3.tmp"
+<h3>Output Window</h3>
+Compiling...
+Game.cpp
+Linking...
+   Creating library Release/Client.lib and object Release/Client.exp
+
+
+
+<h3>Results</h3>
+Client.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

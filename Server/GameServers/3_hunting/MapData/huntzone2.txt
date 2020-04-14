@@ -1,0 +1,72 @@
+[MAP-INFO]
+map-location  = lost
+level-limit   = 20
+initial-point = 1  44 87
+initial-point = 2  109 99
+initial-point = 3  149 150
+pk-mode = 2
+drop-type = -1
+boss-rate  = 300
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area           = 1       60  20  80  27
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =      66    20    lost       54     250   1
+teleport-loc     =      67    20    lost       54     250   1
+teleport-loc     =      68    20    lost       54     250   1
+teleport-loc     =      69    20    lost       54     250   1
+teleport-loc     =      70    20    lost       54     250   1
+teleport-loc     =      71    20    lost       54     250   1
+teleport-loc     =      72    20    lost       54     250   1
+teleport-loc     =      73    20    lost       54     250   1
+teleport-loc     =      74    20    lost       54     250   1
+
+teleport-loc     =      179   100   huntzone4   23    93    1
+teleport-loc     =      179   101   huntzone4   23    93    1
+teleport-loc     =      179   102   huntzone4   23    93    1
+teleport-loc     =      179   103   huntzone4   23    93    1
+teleport-loc     =      179   104   huntzone4   23    93    1
+
+teleport-loc     =      109   179   areuni      85    23    1
+teleport-loc     =      110   179   areuni      85    23    1
+teleport-loc     =      111   179   areuni      85    23    1
+teleport-loc     =      112   179   areuni      85    23    1
+teleport-loc     =      113   179   areuni      85    23    1
+teleport-loc     =      114   179   areuni      85    23    1
+teleport-loc     =      115   179   areuni      85    23    1
+teleport-loc     =      116   179   areuni      85    23    1
+teleport-loc     =      117   179   areuni      85    23    1
+teleport-loc     =      118   179   areuni      85    23    1
+teleport-loc     =      119   179   areuni      85    23    1
+teleport-loc     =      120   179   areuni      85    23    1
+teleport-loc     =      121   179   areuni      85    23    1
+teleport-loc     =      122   179   areuni      85    23    1
+
+// 1st TP: Dg1 Elvine, RH entry
+teleport-loc     =  	44   	89    elvined1 	87    95 	5
+teleport-loc     =      44    90    elvined1    87    95   	5
+teleport-loc     =      45    89    elvined1    87    95   	5
+teleport-loc     =      45    90  	elvined1    87  	95   	5
+
+// Central TP: Dg1 Ares, secondary entry
+teleport-loc     =      103   107   aresdend1   97    87    1
+teleport-loc     =      104   107   aresdend1   97    87    1
+teleport-loc     =      104   106   aresdend1   97    87    1
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       55    94
+waypoint          =     1       113   76
+waypoint          =     2       156   104
+waypoint          =     3       187   140
+waypoint          =     4       161   164
+waypoint          =     5       135   169
+waypoint          =     6       109   191
+waypoint          =     7       98    162
+waypoint          =     8       64    137
+waypoint          =     9       198   105
+
+maximum-object		= 261
+random-mob-generator	= 1  11
+
+[END-MAP-INFO]

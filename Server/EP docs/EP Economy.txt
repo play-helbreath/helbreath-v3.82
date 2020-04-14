@@ -1,0 +1,52 @@
+			EP Economy
+
+Many things have been fixed, improved, added.
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+* Gold drop rate: 
+  Onstandard HB, gold is not an issue. Mobs drop often gold,
+  and as it's based on mob's xp, increasing XPrate make 
+  rich players.
+
+* Demon, Liches 2nd drops:
+  Removed by HBx, have been restorated. 
+  (Liche are scarce, and DD often hunted with very 
+  expensive weapons ie: Crystal Axe)
+
+* EP Settings: 
+  gold-drop-rate 		= EQUILIBRIUM or 1~10000
+  Gold drop rate is chances to get gold
+  - 0 means only drops, never gold
+  - 6000 HBX defaut 
+  - 6500 on v2.191 server
+  - 3000 for EQUILIBRIUM server ( because too much Gold in HB)
+
+* Item prices:
+  Many item prices and durabilities have been adjusted,
+  because useless items that drop often (small mobs) may
+  be sold to BS for huge amounts of gold.
+  Master items, are intended to be expensive to buy & repair.
+
+* Traveller prices:
+  As on standard HB, BS prices are 1/2 for potions.
+  (Category 21..50)
+
+* Lotery: Buy for 50k Lotos, and a chance for nice item.
+  XP prices as well, statistically, you hope 1 xp per gold..
+
+* Charisma price discount:
+  On a high XP server, it's too easy to grow a "merchant"
+  character with high charisma to buy everything half price.
+  So the Charisma discount has been removed from client.
+
+* Crusade/ Heldenian price discount:
+  Not implemented on HBx server.
+  Crusade is suposed to half prices for winers.
+  Heldenian suposed to double prices for loosers.
+
+* m_cDiscount:
+  HBx server (as Siementec 2.20 sources) doesn't include
+  the m_cDiscount, used by client. It's as a % the price
+  difference for a single character.
+
+

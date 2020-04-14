@@ -1,0 +1,300 @@
+			Items for Equilibrium Project
+
+EP introduces some items changes, and totally new items.
+Some useless items have been removed.(Small swords & axes)
+
+
+Items specially effects, not related to item's definition
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+	On HBx, some InGame effects are given per Item number, but many by
+Item's sprite or other ways. As I added many new items with their
+special abilities, I needed to have a better and clearer system. Most
+items with special ingame effects are now designated by their number, 
+so do not change them!
+
+
+Client related changes:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+	Client v3.51 have some strange PAK loading ways! AS I need no more
+some smaller axes (useless as people grow fast to higher level). I patched
+the client to my needs: 
+Excalibur "shadows" bastard swd instead of scimitar (used for Druid class)
+
+	Client v3.51, as older ones is quitte buggy for left hand items.
+They show as weapons colours in the bag, but as item colours on the 
+animation.I wrote a patch to fix the client for left hand items. They now
+always use the same colour setings than weapons.
+
+Weapon colors has also been fixed:            .
+- Weapon n°1 (agile) diff from 2&3 
+- Weapon n°15 added for Golden     
+- Item color Black is darkned 
+
+
+
+item.cfg, item2.cfg, item3.cfg:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+	Those files have a size limit, it's not the number of items, but
+the file's size. So, remove useless comments if applicable, replace
+spaces by a single TAB, or use my patch to allow WLserver to send bigger
+files.
+
+	If one item file is too big, the server may show an error in some
+other config file, seeminglly not related.
+
+
+Removed useless items:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+	Some small weapons were useless for mediumu to high lvl characters,
+I removed SaxonAxe, Tomahawk, BroadSwd, BastardSwd, IronShield,
+ScootermShield, IronShield, LargeShield, KnightShield, Map.
+
+
+Changed or new items:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+MainGauche:
+Used in left hand (animation only for Men peace) Skill DualWielding.
+
+NunChaKu: 
+Special item for Monks, no animation.
+
+SwordSB: 
+When activated, same effect as Merien Plate. (Fencing)
+
+Sting-Dart: 
+AS Frodon's blade, shines when Orc around. Special bonus on Orcs. 
+Can berserk if crit on an Orc.
+
+Fencing weapons, 1hand axes, BlackShadow:
+Those weapons offer some PA as a WandMShield would.
+
+TemplarSword:
+Fencing weapon for 65 Str.
+
+Bows:
+Most bows are full swing 65str. If Dext is above Str, the bow damage is 
+computed with Dext instead of Str.
+
+Excalibur:
+Changed the Apprv, in the client to recover Scimitar instead of BastardSwd.
+
+Scimitar:
+Single hand LS, reserved for druids.
+
+Flamberges:
+All flams include a hidden +5rep damage.
+
+Hammers:
+The PA is halved vs a hammer.
+
+PenitenceGiver:
+Special small hammer for Priests with 91 str. 
+Useable only by Priests.
+
+GoldenAxe:
+Improved to be of some use.
+
+KnightShield, MasterShield:
+Added dext minima to those very potent shields. ETValue2 = PA.
+
+DualWManual, TamingManual:
+Learn the skill.
+
+TempleScroll:
+Recall in your city church or temple.
+
+EquiScroll:
+TP to Equilibrium city.
+
+ZerkScroll, PFMScroll, PFAScroll, ZerkPotion, PFMPotion, PFAPotion:
+As the spell.
+
+WarManual, BMManual, ExplosionManual:
+Learn WarriorSpirit, BloodyMantle, Explosion.
+
+PotionOfWonders:
+Random effect.
+
+PotionOfCritical:
+Restores one crit.
+
+Boum:
+A simple Bomb.
+
+Flags:
+Used for Heldenian events.
+
+WandMShield:
+MS15, PA, and possible random damage bonus/malus on some elements.
+
+BeholderPotion:
+BeholderNecklace effect.
+
+GoldNecklace, SilverNecklace, GoldRing, SilverRing, PlatinumRing, SapphireRing:
+Added small ingame effects.
+
+ClericSymbol(s):
+Go in you church and equip them to become priest.
+
+StrangeRing123, RingInfame:
+3 StrangeRing will meld in a single RingInfame, wearing Infame ring will change your city.
+Strange rings are invisible when equiped (on left finger) and have various ill effects.
+
+AresdenPriceCape, ElvinePriceCape:
+Cape for high contribution (150+)
+
+HeroCapes:
+5% to avoid death as lucky ring (cumulative).
+
+RiteCape:
+Unicorn Mantle can be only used by characters with 0 EKs. Killing such a character
+is considered PK.
+
+InfameCape:
+For executors or criminals only.
+
+DruidCape:
+If equiped at garden, will reset unwanted skills to become a Druid.
+
+ElfCape:
+Equip it to become invisible.
+
+Blood weapons:
+Can be enchanted using oils & elixirs. Upgrading then (xelima stone) also increase the blood effect.
+
+BeholderEye:
+New part.
+
+Helms:
+They are unisex. Note the warlord helms needing high Strenth or Dext.
+
+DemonSlayer:
+Now the ultimate tool against a Demon.
+
+IceElementalBow, XelimaBow:
+Do not expand arrows.
+
+NecklaceOfBeholder:
+With my client patch, this neck works fine. Unless your're yourself invi!
+
+RingOfMages:
+Improved values.
+
+Zem:
+DoubleClick to know remaining charges.
+
+DarkKnight items:
+Reserved for Abaddon's Executors. Note the blade will adapt to Executor's strenth.
+
+GiantBattleHammer, GreatAxe, TheVampire,GodWeapons:
+For above 200 str.
+
+IceGBH:
+Always freezes without activation need.
+
+DefenderAxe:
+Offers very good defense (PA).
+
+StormBringer:
+The real Elric's blade, with the demon inside.
+
+StormBlade:
+The former Stormbringer, that can strike at a distance, and strike
+again with magic yellow storms.
+
+Kloness weapons, wands: (removed axe as I'm using the anim for Great Axe)
+Gives a damage bonus when hight reputation.
+
+NecklaceOfMerien, NecklaceOfXelima:
+Defence, Increased HitRatio. Fixed works fine.
+
+BerserkWand:
+Fixed to work only as a MS0, but no more mana malus. Damage bonus
+is +25% except Blizz, ESW at +10%.
+
+AcientTablet:
+Fixed some ugly colors, and added a Black Tablet 
+(restores Crits, HP, MP, SP, once) instead of failures.
+
+Fire-Bow, Direction-Bow:
+Fixed, available as a rare drop only. DirectionBow line fixed.
+
+SummonScroll(XXX):
+Coded for Heldenian events only. Such a scroll is personal, and
+usable for current Heldenian only.
+
+Master, Warlord Items:
+Armors can be dyed. and offer a full PA, but can never be found
+enchanted. 
+
+StormBow:
+May cast IceStorms.
+
+BlueArmor, RedArmor, YellowArmor, LicheArmor, AbaddonArmor.
+50% MA against ice, fire, lightning. 10%MS, +6dmg.
+
+Eggs, Loto:
+Can be hatched for a chance to obtain some exceptional item.
+
+Oils, Elixirs, Stone, Balls:
+Used to enchant manuf or blood items.
+Balls can be used to generate random special items.
+
+Kro: 
+Just some beer!
+
+TokenX:
+No ^pecial power, just one detail, in case of death this item
+will always drop. (normal drop still happen too) Use this item,
+and see the creation date/time.
+Fine for some PvP events! 
+
+BloodWandMS40, XelimaWand, LichMS10:
+MS40 but takes red bar down when casting. Xel & Lich strike as a Flamberge.
+Lich has a dmg bonus +10% except on Blizz & ESW.
+
+RevivalAxe:
+Very poor duration for the crystal axe, but tremendous damage & HP on criticals.
+
+Drow items:
+Normal coded items.
+
+OgressArmor:
+Always PA30, CritIncrease, and +3 dmg.
+
+LicheRobe:
+Hidden 20% MPrec.
+
+PinkShields:
+Very powerfull shining shield. They always offer MA & CritIncrease.
+
+AirRing, EarthRing, FireRing, IceRing:
+Bonus/malus for opposing elements.
+
+
+
+Weapons & armor balance:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+	Originally HB has very unbalanced weapons, armors.
+I tryed to fix that with minimal changes to original game,
+but even Siementec needed to fix Weapon damages as the
+game changed. This balance is computed to avoid players
+to become rich too fast, so an inexpensive weapon can
+be an advantage.
+
+	The balance is really important, to allow characters
+with many king of weapons to be still attractive. On EP
+a Fencer is really powerfull even if useless at PvP.
+GiSworder or Baxers are quite balanced and  208+ str 
+ultra heavy wars or barbarians may deal tremendous damages
+but must accept low Vit and/or Dext.
+
+
+
+Manufacturing and enchantments:
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+	Manuf items can prove very powerfull if properlly
+enchanted, and that's the reason not everything is available
+to manuf.
+ie: Helm is not available for manuf because it would provide
+    Fencers with an easy magic item.

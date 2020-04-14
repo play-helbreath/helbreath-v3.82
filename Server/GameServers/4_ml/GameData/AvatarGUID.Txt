@@ -1,0 +1,2 @@
+AvatarGUID = 43568969
+winner-side = 0

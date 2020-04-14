@@ -1,0 +1,238 @@
+			EP Magic
+
+Many things have been fixed, improved, added.
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+- Some spell numbers have changed.
+
+- The client is changed to show appropriate effect.
+  Some "non-spells" effects are also used by client for
+  various needs (items, Hero effects, Crystal axe damage)
+
+- The malus for "safe" casting is only 10%. (standard was 40%)
+
+- Spells limitation per maps (Poison, area spells) changed
+  in EQUILIBRIUM mode, to affect Equilibrium city and no more
+  old cities.
+
+- Weather: Some spells will be affected by weather.
+  (ie: Fire damage reduced by rain.)
+
+- Blizzard damage as standard HB. Some spell damage,
+  and area has been tweaked...
+
+- Spells and Magic resistance. Some spells are easyer
+  than others to resist. Some spells are harder to resist
+  when pretending corpse.
+
+- Icing effect resistance implemented.
+
+- Tremor type spells have a special resistance check based
+  on character bulk
+
+- ArmorBreak overcomes PFM.
+
+- Cancelations works on most magic, but effect may be not
+  immediate. Some spells destroyed in area.
+
+- Spells have been added up to 250 int:
+	- Mass Blizzard is 50% stronger than Blizzard.
+ 	- Earth Shock Wave same as Blizzard and removes lots of SP.
+	- Mass Lightning Strike is 50% stronger than LS. Bigger area.
+	- Mass Armour break removes 75 on armours. Damage as LS.
+
+- Resurection is only available with Resurection wand, you
+  need 100INT, 100 MAG; and usable once every 10 minutes.
+  Priest/GMs can cast it witout Resurection Wand.
+
+
+
+
+____________________________________________________________________
+ 	PRIESTS PALADINS DRUIDS & SPECIAL SPELLS
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Priests & Paladins spells:
+
+30 Charisma + Strength: Heal, Create-Food, Recall, Celebrating-Light
+35 Charisma + Strength: Defence-Shield, Stamina-Recovery, Piety-Mantle, Great-Heal, Hold-Person, Cure
+40 Charisma + Strength: Protection-From-Arrow, Tremor, Great-Stamina-Recovery
+45 Charisma + Strength: Mass-Stamina-Recov., Confuse-Language, Great-Defence-Shield
+50 Charisma + Strength: Prayer, Berserk, Fire-Wall, Fire-Field, Critical-Heal
+60 Charisma + Strength: Peace, Summon-Creature (Undead creatures list), Paralyze, Polymorph (Affects Players, non-buggy)
+
+70 Charisma + Strength: Trance, Scan, Mass-Heal
+80 Charisma + Strength: Regenerate
+85 Charisma + Strength: God-Mantle, Entangle (only Priests)
+90 Charisma + Strength: Divine-Revenge (only Priests), Resurrection (only Priests, without ResurWand 1/10 minutes)
+(Given automatically by server)
+
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Druids spells:
+Tremor, PFA, Arrow Mantle, Summon (animals, plants), Paralyse, Entangle
+All Fire or Earth spells.
+(Given automatically by server)
+
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Alchemists & Manufacturer spells:
+
+Special spells are given to High skill Alchemists & Manufs.
+(Given automatically by server)
+
+
+____________________________________________________________________
+ 	ALL SPELLS IMPROVEMENTS & NEW SPELLS 
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+
+DEF_MAGICTYPE_DAMAGE_SPOT: Harder to resist.
+
+DEF_MAGICTYPE_HPUP_SPOT: -
+
+DEF_MAGICTYPE_DAMAGE_AREA: Area dmg will fly from spell center point. 
+				   Good at removing Pretend corpse
+				   Effect456->Damage on spot + -effect789->Damage on area
+
+DEF_MAGICTYPE_SPDOWN_SPOT: -
+
+DEF_MAGICTYPE_SPDOWN_AREA: Very hard to resist.
+
+DEF_MAGICTYPE_SPUP_SPOT: Not implemented....
+
+DEF_MAGICTYPE_SPUP_AREA: -
+
+DEF_MAGICTYPE_TELEPORT: - New possible destinations: Church, Equi.
+
+DEF_MAGICTYPE_SUMMON: Greatlly improved to allow new potions, Priests summons
+			    Druid summons, Heldenian summons.
+
+DEF_MAGICTYPE_CREATE: 1: Meat/breat, 2: Fish, 3 Arrow
+
+DEF_MAGICTYPE_PROTECT: m_sValue5 (max 127) can be used for custom DefShieds.
+
+DEF_MAGICTYPE_HOLDOBJECT: New design, with possible different spell power:
+				1: HoldPerson
+				2: Paralise
+				3: Stronger if 100% Magic Skill
+				4: Chance for stronger again if very high Mag
+				5: Medusa sword, is not compatible with wearing Medusa neck
+				   Medusa swd wielder have no MR against Para.
+				5+: Can design very powerfull spells (Entangle)
+				6+: Can para 1/10th time most antiPara mobs
+Paralisis removing is harder if power grows. 
+Damage that could fly you have double chance to remove para.
+Explosion spells and Cancelation always removes Para
+
+DEF_MAGICTYPE_INVISIBILITY: 		Added 3, Beholder effect 
+				    		Beholder effect is not compatible with being invi.
+
+DEF_MAGICTYPE_CREATE_DYNAMIC: 	Caster can have reponsability (get XP or PK)
+
+DEF_MAGICTYPE_POSSESSION: 		Not possible to get the item "Bomb" if lighted
+
+DEF_MAGICTYPE_CONFUSE: 			Those spells were buggy on HBx server, fixed...
+
+DEF_MAGICTYPE_POISON: 			Poison works now on (some) mobs, by reducing their regen rate.
+
+DEF_MAGICTYPE_BERSERK: 			Effect4 = 10% of damage increase, allows variable power.
+				         		Duration is charisma dependent for Priests Paladins.
+			     			Effect4 = -1: Peace spell, removes weapons of target, a mob will forget current target.
+			     			Effect4 = 0:  Prayer spell(self): Eff789=> HPup, Eff5:Berserk, Eff6:Def shield
+				
+DEF_MAGICTYPE_DAMAGE_LINEAR:  	Fixed the line.
+ 						Harder to resist.
+						Very good against Pretend corpse.
+
+DEF_MAGICTYPE_POLYMORPH: 		Fixed, a player will polymorph to oposite sex!
+				 		Eff5: Type of mob to polymorph into. (default Zombie)
+				 		Will not work against some mobs (ie:Merchants.)
+
+DEF_MAGICTYPE_DAMAGE_AREA_NOSPOT: 	May fly the target oposite from caster, 
+					    	and then gain ability to strike a 2nd time
+
+DEF_MAGICTYPE_TREMOR:			Same than DamageArea but will not Fly you 
+						Special Magic resitance check based on character load.
+						Currently reserved to Priests & Druids
+
+DEF_MAGICTYPE_ICE:			Fixed (was buggy)
+						No more self Icing, bad against Pretend Corpse.
+
+DEF_MAGICTYPE_DAMAGE_SPOT_RANDOM: (24) Lightning by SNOOPY
+						Used this unused for Lightning spell: This will often miss the target.
+						Nc version has reduced damage but is precise...
+
+DEF_MAGICTYPE_DAMAGE_AREA_NOSPOT_SPDOWN: EWS effect456->Damage, 789->SPdown
+						Very hard to resist, and may Fly you in random direction.
+						Fixed bugy SPdown, Fixed Line.
+
+DEF_MAGICTYPE_ICE_LINEAR: Fixed Line. Fixed some bad Breaks instead of Continue.
+
+DEF_MAGICTYPE_HPUP_AREA: 	(27) By Snoopy: Eff456 on target, Eff 789 on area
+							    Affects friendly only or in party
+
+DEF_MAGICTYPE_DAMAGE_AREA_ARMOR_BREAK: Eff10 is used for armor decrementContinue.
+						Overcomes PFM
+
+DEF_MAGICTYPE_CANCELLATION:   	Fixed & improved alot
+				 		Break any magic, but some are delayed (Last time dependent)
+						"Weak" magics are broken in area.
+						Msg. sent to caster if Canceled someone.
+
+DEF_MAGICTYPE_DAMAGE_LINEAR_SPDOWN: Eff456: Tgt area, Eff789: Line, Eff101112: SPDown
+						Fixed line. Very hard to resist.
+
+DEF_MAGICTYPE_INHIBITION: 		Fixed
+				  		Don't pass APFM, half duration on PFM target.
+
+DEF_MAGICTYPE_RESURRECTION: 		Fixed, Priest can use without resuWand.			
+				    		Spell can be used once every X time (as activated items)
+
+DEF_MAGICTYPE_SCAN: 			Fixed. 
+						No possible resist if cast by GM
+
+DEF_MAGICTYPE_MANA_DOWN_SPOT 	(50) By Snoopy: Reduce by Eff456
+
+DEF_MAGICTYPE_REFLEXION 	(51) By Snoopy: Sends back 1:Arrows, 2:Physical damage, 3: Magical damage to sender
+							    Spell can be used once every X time ( as activated items)
+
+
+DEF_MAGICTYPE_EXPLOSION		(52) By Snoopy: Sends back pc or mobs away from caster with some damage.
+							    Always remove Para, may strike many times, as tgt flyes
+							    No MR MA, against this spell	
+
+DEF_MAGICTYPE_METAMORPHOSIS   (60) By Snoopy: Changes Mage to War. Mag->Dext, Int->Str
+							    99% Skill LS, LS according to Str (156 +)
+							    Full Armor set.
+							    Spell can be used once every X time ( as activated items)
+
+IDs below are reserved to store more spell related values and must not be used...
+DEF_MAGICTYPE_REFLEXION_COUNT  		(56) - Reserved, Stores Physical relexion nbe
+DEF_MAGICTYPE_DEFENCESHIELD_VALUE		(57) - Reserved, Stores Defence shield value...
+DEF_MAGICTYPE_METAMORPHOSIS_WEAPONTYPE 	(58) - Reserved, Stores Weapontype for Metamorphosis
+DEF_MAGICTYPE_METAMORPHOSIS_TEMP_DEXT	(59) - Reserved, Stores Virtual Dext for Metamorphosis 
+
+
+
+____________________________________________________________________
+ 	NEW MAGE-RELATED ITEMS 
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+WandMShield MS15(fixed), some PA, may have various element malus/bonus on damage
+		(based on m_sTouchEffectValue1, no mean for player to know beside testing)
+
+LicheWand	MS10 (fixed), Icing activation, big physical damage, increased Magic damage by 12.5%
+		(except ICE_LINEAR, LINEAR_SPDOWN)
+
+BerserkWand MS0 only, but no added mana cost, + 25% magic damage
+		(12.5% for ICE_LINEAR, LINEAR_SPDOWN)
+
+KlonessWands Have a fixed damage bonus (+1..+5) depending on reputation....
+
+BloodWand	MS40(fixed), but steals life as well...
+
+Wizard/mage ring better and Merien upgradable.
+
+Elemental MA items (ie: Neck of Ice Elemental) can add/remove Magic damage, and MA or damage for opposite element.
+
+
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+

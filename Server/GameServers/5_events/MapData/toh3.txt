@@ -1,0 +1,63 @@
+[MAP-INFO]
+map-location = toh3
+initial-point = 1  93 40
+initial-point = 2  147 32
+fixed-dayornight-mode = 1
+pk-mode = 0
+level-limit   = 100
+
+not-permanent-map		= 1
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =      93     38     toh2                101    270   5
+teleport-loc     =      94     38     toh2                101    270   5
+teleport-loc     =      94     39     toh2                101    270   5
+
+teleport-loc     =      147    30     toh2                251    240   5
+teleport-loc     =      148    30     toh2                251    240   5
+teleport-loc     =      148    31     toh2                251    240   5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       81    50
+waypoint          =     1       156   66
+waypoint          =     2       260   40
+waypoint          =     3       85    119
+waypoint          =     4       138   155
+waypoint          =     5       260   142
+waypoint          =     6       86    197
+waypoint          =     7       44    262
+waypoint          =     8       167   239
+waypoint          =     9       226   252
+
+
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area           = 1       89 36 97 44
+no-attack-area           = 2       143 28 151 36
+
+maximum-object		= 180
+random-mob-generator	= 1  15
+
+//-----------------------Num-Type-RECT---------------Mob-MobNum
+// 53:BB, 54:DE, 52:GG, 49:HC
+spot-mob-generator	= 1  1    82 195 94 205      49   1
+spot-mob-generator	= 2  1    82 195 94 205      52   5
+spot-mob-generator	= 3  1    82 195 94 205      53   5
+spot-mob-generator	= 4  1    82 195 94 205      54   8
+
+spot-mob-generator	= 5  1    35 265 45 275      49   1
+spot-mob-generator	= 6  1    35 265 45 275      52   5
+spot-mob-generator	= 7  1    35 265 45 275      53   5
+spot-mob-generator	= 8  1    35 265 45 275      54   8
+
+spot-mob-generator	= 9   1    225 248 235 257    49   1
+spot-mob-generator	= 10  1    225 248 235 257    52   5
+spot-mob-generator	= 11  1    225 248 235 257    53   5
+spot-mob-generator	= 12  1    225 248 235 257    54   8
+
+//------------------------RECT---------TargetMap------TargetCoord
+DynamicGateCoord	= 40 248 41 249        druncncity	   -1  -1
+DynamicGateType	= 1
+
+
+[END-MAP-INFO]

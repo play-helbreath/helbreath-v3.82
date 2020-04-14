@@ -1,0 +1,474 @@
+HELBREATH  V2.23
+-The Crusade
+ 
+www.helbreathusa.com
+  
+2003.2.7
+ 
+ 
+Press F1 key to see the official 
+announcements.
+ 
+ 
+An unforgettable never ending story
+of Helbreath's continental war.
+     
+Welcome to the Helbreath's world!
+
+In this continent there are two
+great city nations. One is the
+nation of Aresden where the God
+Aresien is worshiped and the
+nation of Elvine which worships
+the God Eldiniel. Between of this
+two continents is situated the mid-
+dleland which is the battle field.
+
+For now, you are just a wanderer
+who can freely pass through both
+nations. However, as you chose one
+nationality you shall enter into
+fierce battle either with Aresden
+or Elvine who are in war against
+one another. To take the citizen-
+ship you must increase to a
+certain level,then you will be able
+to participate in the battle.
+
+As a neutral citizen first, you
+should level up in the beginner
+zone hunting monsters. And there
+is a portal that teleports you
+depending on the continent you
+belong.
+ 
+If you want to be a legal citizen
+of a country you must take the
+citizenship in the cityhall. Then
+you will be able to participate in
+the battle.
+
+Beforehand, after taking the
+citizenship you become a legal
+country citizen so the attack
+from the enemy is allowed. So you
+must prepare hardly for the attack
+
+ 
+Basic commands
+ 
+[Usage of the interface screen]
+By clicking the icons on the bottom
+the dialog box windows opens and
+to close it click the right button.
+ 
+[Walk] 
+Indicate the position where you 
+want to move by clicking the left
+mouse button. And if you want to
+stop while moving click the right
+mouse during 1~2 seconds.
+ 
+[Running]
+While pressing the shift key and
+move you will be able to run. Each
+time you run the SP decreases and
+when the SP become 0 you can't run
+anymore.
+
+  
+[Talking]
+Type the message you want talk
+then press the Enter Key.
+
+ 
+[General chat]
+At the front insert the ! key.
+To do the general chat your level
+must be more than 15, and each
+general chat your 5 SP decreases .
+ 
+[Whispering set]
+Type "/to character's name" and
+whispering is set. After that
+each message you type goes to the
+one you selected. And to disable
+whispering type /to and enter.
+
+  
+[Guilds message]
+At the front insert the @ key
+then the message goes to the guild
+members.
+  
+[Friendly chat]
+Insert in front the ~ 
+then the message goes only
+to the friendly troops.
+  
+[Attack/Peace mode]
+By clicking the form of knife icon
+or pressing TAB key the toggle
+changes to red that means attack
+mode.
+ 
+ 
+[Attack]
+By putting the mouse cursor over the
+character you will be able to see if
+it's an enemy or friendly. In order to
+attack friendly players or NPC press
+Ctrl key at the same time click the
+left button of the mouse. You will be
+able to attack also the neutral unit.
+If your weapon skill is 100%, press-
+ing the Alt key you'll be able to do
+the special attack.
+ 
+In order to differ if enemy or fri-
+endly by putting the cursor over
+you'll see the detailed information.
+For example
+ 
+Enemy
+Appears as red. you can attack.
+ 
+Neutral
+Appears as blue, and you must not
+attack.
+ 
+Friendly
+Belongs to the same country. You
+must not attack.
+ 
+Threat
+No matter Neutral or friendly if you
+are a criminal you can be attacked.
+In this case if you kill a player you
+become a PK but if you're in a threat
+situation and kill the PK you receive
+the prize. 
+  
+* In Helbreath between the opposite
+players the battle is allowed normally
+out of the PK penalty but killing
+Neutrals or friendly players you
+would be recognized as a PK
+Criminal and your degree go down.
+ 
+If you want to be relieved from the
+PK criminal. You should be killed
+from another player with same
+number
+ 
+[Standstill attack]
+In the attack mode click the right
+mouse using long distance weapons
+like arrow. But you can not attack
+using short distance weapons like
+swords out of range.
+ 
+[Dash attack]
+If your skill comes to 100% you will
+be able to dash attack. In case that
+your distance is 2, to attack the
+target in a diagonal or lineal
+position press the Shift + Ctrl Key
+and indicate the target and will
+do a speedy attack.
+ 
+[Safe mode attack set/release]
+If you press the Home key your
+attack mode icon will change to
+a yellow color then Friendly or
+Neutral players will not be
+damaged. But the attack power
+decreases to 50%.
+ 
+[Greetings]
+In peace mode press the Ctrl key
+and the left mouse button.
+ 
+[Direction change]
+Put the cursor in the direction
+you want then click the right
+mouse button.
+ 
+[Character's information windows]
+Click the face form icon or the F5
+key. Character's name, position,
+condition, special skill appears
+and if you press the Level-up
+button you will see the allotment
+of the special skills.
+ 
+[Level-up setting]
+Allots before the speciall skill.
+You must verify the Level up 
+character's information windows for
+the allotment. And you must allot
+the corresponding points for your
+character depending on his job.
+You can obtain more information
+visiting our homepage.
+ 
+[Opening the bag]
+You will be able to see 
+a form of bag on the bottom or by
+pressing the F6Key. You can keep
+the items.
+ 
+[Opening the magic windows]
+You will be able to see a magic form
+icon or by pressing F7 key. Appears
+possibles circles you can use.
+ 
+[Opening the skill windows]
+You will be able to see on the bottom
+hand form or by pressing the F8 key.
+Shows the character's skill level.
+ 
+[Opening chat windows]
+You will be able to see on the bottom
+kind of lips or by pressing the F9key.
+You can see the past chats.
+ 
+[Opening the system windows]
+Click on the bottom a diskette form
+icon or press directly the F12 key.
+You can see the option or for the
+disconnection too.
+ 
+[Items Equip/Release]
+In your belongings windows 
+drag the item dropping it in to 
+the condition windows and the item
+youll be equip, and to release 
+do at the reverse.
+
+
+ 
+[Item Usage]
+Double click usable items 
+in the belongings windows.
+ 
+[Item throw away]
+Select the item you want to throw
+away then drag to outside.
+
+ 
+[Item giving]
+Drag the item then drag to the
+player you want to drop.
+And click "Just give it"
+
+ 
+[Item exchange]
+Drag the item you want to exchange
+then drop to the player you want
+to exchange and press the Exchange
+button in the menu. So the other
+side will reply dropping an item too.
+Then you each side of the player
+will be able to verify the item and
+pressing again the exchange button
+you it will exchange. If the term
+is not satisfied by the players
+the exchange will not procedure.
+
+ 
+[Item dyeing]
+You will be able dye clothes with
+the medicine which is sold in the
+shop. By double clicking the
+dyeing medicine select the cloth
+you want to dye.
+
+ 
+[Item safekeeping and taking back]
+
+You will be able to keep your things
+in the Warehose. You can keep to the
+warehouse's NPC which appears
+a letter with a green color.
+
+Be careful with people who pretends
+to be a warehouse NPC) 
+
+You will be able to 
+keep maximum up to 120 items.
+
+To recover your item click
+the NPC in the warehouse.
+Click the Dealing(Trade) button
+and there will appear a list of
+items you kept. Select the item
+you want to take back.
+If the there is no more space
+in your bag (50 limit) you
+will be not able to take  it back.
+
+ 
+[Item sell/repair]
+Drag the item you want to repair
+or sell to NPC in the shop.
+
+ 
+[Learning magic]
+Each village has got the Magic
+tower. Click the NPC and press
+the Dealing(Trade) button. The
+NPC will give a list of Magics
+that you can learn depending on
+your level. If you don't have
+enough gold or Int you will not
+be able to learn the ability.
+
+  
+[Magic usage]
+If you select Magic in the Magic
+windows the casting starts after
+the cast finishes you should
+select a destination. To cancel
+click the right button of the mouse.
+ 
+[Learning skills]
+Buy the textbook to learn in the
+Blacksmith or in the general shop.
+After learning the ability
+your skill increases to 20%.
+
+   
+[Skill usage]
+Select the skill available from the
+windows. The type of skill would be
+different depending of the ability.
+
+  
+[Users connected verify]
+"/fi Character's name" 
+Insert the name and you will be able
+to see if the player is online or not.
+If the player is connected to another
+server will appear that 'The player
+is not connected'.
+ 
+
+[Character's profile setting/view]
+"/setpf Profile content"
+Inserts the character profile.
+And if you want to see another 
+character's profile type 
+"/pf character's name"
+   
+  
+Advanced commands
+     
+[Recall monster stop command]
+"/hold" Cancels all actions of the
+recalled mosters and makes them
+stop on their place.
+ 
+[Recall monster free command]
+"/free" Attacks in a free mode
+and the recalled monster follows
+to the master.
+
+  
+[Recall monster special target attack]
+"/tgt ID" this command orders to the
+recalled monster to attack a specific
+player. But you can't designate a
+friendly or a neutral player.
+
+   
+[Good evaluation to other player]
+"/rep+ ID" gives a good
+evaluation to other player
+ 
+   
+[Bad evaluation to other player]
+"/rep- ID" gives a bad
+evaluation to other player
+ 
+[Shourtcut key]
+F2, F3 key is used for the shortcut
+key. After the equipment of weapons
+or after casting a magic press Ctrl
++F2 or Ctrl+F3 and it will be
+designated.
+
+ 
+[Re-adding chat message]
+Pressing the End Key you will
+be able to see the last chat massage 
+
+     
+  
+City nation description
+ 
+There are buildings in the
+Elvine and Aresden countries.
+Let's see the use of this buildings
+as follow:
+
+ 
+City Hall : 
+This places takes various services 
+of the city. Travelers can take the 
+citizenship here and take the right 
+of citizen. Also, they can take 
+prizes,possession flags and hero's 
+mantle.
+
+ 
+Guild Hall : 
+It's a place where you can create or 
+disband a Guild, and also where 
+you can buy a guild joining
+application. To organize a guild or
+to become a guild master your
+charisma must be 20 or more. 
+To join a guild you should buy 
+an application form here, and then
+give it to a guild master, he
+will decide whether to admit you.
+
+ 
+Cathedral : 
+Each nation has got it's worshiped 
+God's church
+ 
+General Shop :
+It's a place where
+sells clothes and foods. You can't
+buy and sell objects here.
+ 
+Blacksmith : 
+It's a place where you can buy and
+sell weapons or shields.
+ 
+Magic Tower :
+You can learn magic here.
+You must satisfy the special skills 
+before learning the magic.
+  
+Warehouse :
+Players can keep and take
+back their items.
+ 
+Barracks: 
+Is a place where you can
+train by hitting dummies.
+You have to be below level
+40 to practice here.
+ 
+Please consult our 1.431 Manual
+(HTML file) for detailed contents. 
+ 
+For more information please 
+visit our homepage. And for 
+private questions email us to
+gamemaster@helbreathusa.com
+ 
+www.helbreathusa.com 

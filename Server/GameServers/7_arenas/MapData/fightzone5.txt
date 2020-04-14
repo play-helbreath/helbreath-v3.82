@@ -1,0 +1,28 @@
+[MAP-INFO]
+
+map-location = fightzone5
+type         = 1
+
+initial-point = 1  48 33
+initial-point = 2  71 49
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       30    30
+waypoint          =     1       30    30
+waypoint          =     2       30    30
+waypoint          =     3       30    30
+waypoint          =     4       30    30
+waypoint          =     5       30    30
+waypoint          =     6       30    30
+waypoint          =     7       30    30
+waypoint          =     8       30    30
+waypoint          =     9       30    30
+
+maximum-object		= 999
+fixed-dayornight-mode   = 1
+
+//energy-sphere
+energy-sphere-creation-point = 1 1 66 37
+energy-sphere-goal-point     = 1 1 43 29 76 54
+
+[END-MAP-INFO]

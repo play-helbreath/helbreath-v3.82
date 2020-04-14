@@ -1,0 +1,46 @@
+[MAP-INFO]
+map-location  = dglv4
+initial-point = 1  62 241
+level-limit   = 60
+fixed-dayornight-mode = 1
+pk-mode = 2
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =     63    238      dglv3               59     246    5
+teleport-loc     =     64    238      dglv3               59     246    5
+teleport-loc     =     64    237      dglv3               59     246    5
+
+teleport-loc     =     208   93       dglv3               190    90     5
+teleport-loc     =     207   94       dglv3               190    90     5
+teleport-loc     =     208   94       dglv3               190    90     5
+
+teleport-loc     =     339   230      dglv3               341    194    5
+teleport-loc     =     340   229      dglv3               341    194    5
+teleport-loc     =     340   230      dglv3               341    194    5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       107   105
+waypoint          =     1       145   116
+waypoint          =     2       200   146
+waypoint          =     3       184   176
+waypoint          =     4       151   204
+waypoint          =     5       134   137
+waypoint          =     6       37    152
+waypoint          =     7       123   188
+waypoint          =     8       129   126
+waypoint          =     9       113   153
+
+maximum-object		= 400
+random-mob-generator	= 1 10
+
+//-----------------------Num-Type-RECT---------------Mob-MobNum
+spot-mob-generator	= 1  1    180 180 220 220    11  50
+spot-mob-generator	= 2  1    70 70 310 310      31  50
+spot-mob-generator	= 3  1    170 170 230 230    31  5
+
+//------------------------RECT---------TargetMap------TargetCoord
+DynamicGateCoord	= 200 201 201 202    druncncity	   -1  -1
+DynamicGateType	= 1
+
+
+[END-MAP-INFO]

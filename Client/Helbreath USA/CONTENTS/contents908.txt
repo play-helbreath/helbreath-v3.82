@@ -1,0 +1,43 @@
+  
+Communication
+ 
+ Type the message and press enter
+to talk with people who are on
+the screen.
+ 
+ And if you want to send message
+whole the people in the map, put
+the '!' in front of the message.
+ 
+If you want to set whiper mode
+to someone, type '/to char-name'
+and press enter. Then the whisper
+mode will be set.
+ 
+When you are in whisper mode with
+somebody, if you want to chat the
+people not in the whisper mode 
+put the '/' in front of the message.
+ 
+Enter '/to' to release whisper mode.
+ 
+If you want to send message only
+to your guildsman, put '@' in front
+of the message.
+ 
+To send message only to the people
+belong to your nation, put '~' in
+front of the message.
+  
+If you want to know whether your
+friend is in the game or not, 
+press '/fi char-name'. Then you
+can see the message "char-name is
+connected in this game server" after
+2~3 seconds later if he is logged on.
+
+Input '/pf char-name' to see his
+profile. 
+
+And input '/setpf profile content'
+to set your profile.

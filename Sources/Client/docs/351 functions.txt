@@ -1,0 +1,136 @@
+[ESI+73010]			m_sViewPointX
+[ESI+73012]			m_sViewPointY
+
+CALL 004069A0
+
+CALL 004117A0
+AddEventList(char * pTxt, char cColor, BOOL bDupAllow)
+
+CALL 00411A00
+Possible ou voisin: bAddNewEffect(short sType, int sX, int sY, int dX, int dY, char cStartFrame, int iV1)
+
+CALL 00417090
+PutString_SprFont(int iX, int iY, char * pStr, short sR, short sG, short sB)
+
+CALL 004349B0
+DrawBackground(short sDivX, short sModX, short sDivY, short sModY)
+
+CALL 00446E60   	
+PlaySound('E', 5, sDist, lPan);
+
+CALL 004A71A7
+bAddNewEffect(69 +(rand()%2), dX*32 +20 - (rand() % 40), dY*32 +20 - (rand() % 40), NULL, NULL, 0);
+			
+CALL 00448150
+_DrawThunderEffect(...
+
+
+CALL 004A5030
+m_Misc.GetPoint(int x0, int y0, int x1, int y1, int * pX, int * pY, int * pError, int iCount)
+
+CALL 004A51C0	
+m_Misc.cCalcDirection(sX, sY, dX, dY);
+
+
+
+
+____________________________________________________________________________________________________
+Debut Sprite...
+OKCALL 0049DD60
+Constructeur
+
+CALL 0049DE60
+Destructeur?
+
+CALL 0049DEBE x1 par 4a1e60
+
+OKCALL 0049E020 x600 k
+m_pSprite[]->PutSpriteFast(int sX, int sY, int sFrame, DWORD dwTime)
+
+CALL 0049E250 x1 4 sur v220
+m_pSprite[]->PutSpriteFastWidth(472,442, 1, iBarWidth, G_dwGlobalTime);
+
+CALL 0049E490 x20 
+
+CALL 0049E6C0 x1 
+1 PutShiftSpriteFast(int sX, int sY, int shX, int shY, int sFrame, DWORD dwTime);
+
+CALL 0049E8E0 x3
+
+CALL 0049EB20 x17 
+iRestore(); utilisé exclusivement ds une petite boucle
+
+CALL 0049EC20 x24 (25/220)
+m_pSprite[]->PutShadowSprite(sX+dx, sY+dy, _tmp_cFrame, dwTime);
+
+CALL 0049EEE0 x21 (21/220)
+m_pSprite[]->PutShadowSpriteClip(sX+dx, sY+dy, _tmp_cFrame, dwTime);
+
+CALL 0049F230 xbcp (182/220)
+m_pEffectSpr[31]->PutTransSprite(dX, dY, cTempFrame, dwTime); 
+
+CALL 0049F660 x21 (64 ds 220)
+m_pEffectSpr[8]->PutTransSprite_NoColorKey(dX, dY, m_pEffectList[i]->m_cFrame, dwTime);
+
+CALL 0049FA90 xbcp (4arg) 
+m_pEffectSpr[76]->PutTransSprite70(sX+dx, sY+dy, _tmp_cFrame, dwTime); 
+	
+CALL 0049FEC0 x10 (10/220)
+m_pEffectSpr[18]->PutTransSprite70_NoColorKey(dX, dY, cTempFrame, dwTime);
+			
+	
+CALL 004A02F0 x23 (13/220)
+m_pEffectSpr[54]->PutTransSprite50(dX, dY, m_pEffectList[i]->m_cFrame, dwTime);
+
+	
+CALL 004A0720 x12(4arg OK 15 fois  OK)
+m_pEffectSpr[11]->PutTransSprite50_NoColorKey(dX, dY, (33 + cTempFrame), dwTime);
+			
+	
+CALL 004A0B50 xbcp (82/220)
+m_pEffectSpr[28]->PutTransSprite25(dX, dY, cTempFrame, dwTime); //20
+				
+CALL 004A0F80 x6 (6/220)
+m_pEffectSpr[0]->PutTransSprite25_NoColorKey(dX, dY +20, 1, dwTime); 
+
+CALL 004A13B0 xbcp (4arg OK)
+m_pEffectSpr[11]->PutTransSprite2(dX, dY, cTempFrame, dwTime);
+			
+
+CALL 004A1790 x2
+
+CALL 004A1B60 x3 (x2/220)
+m_pEffectSpr[21]->PutFadeSprite(dX, dY, 48, dwTime);			
+
+CALL 004A1E60 x45
+_iOpenSprite();
+
+CALL 004A1F00 x9 tres court (sûr a 95%)
+_iCloseSprite()
+
+CALL 004A1F40 xbcpbcp
+m_pSprite[]->PutSpriteRGB(sX + 134, sY +182, m_pItemList[]->m_sSpriteFrame, m_wWR[cItemColor] -m_wR[0], m_wWG[cItemColor] -m_wG[0], m_wWB[cItemColor] -m_wB[0], dwTime);
+
+CALL 004A2380 xbcp
+m_pEffectSpr[19]->PutTransSpriteRGB(dX, dY, cTempFrame, iDvalue, iDvalue, iDvalue, dwTime); 
+
+CALL 004A2850 x6 (a 90%)
+m_pSprite[]->_GetSpriteRect(sX + 32 + m_pItemList[cItemID]->m_sX, sY + 44 + m_pItemList[cItemID]->m_sY, m_pItemList[cItemID]->m_sSpriteFrame);
+
+CALL 004A2990 x19
+??? _SetAlphaDegree();
+
+CALL 004A2C20 xbcp
+m_pSprite[]->_bCheckCollison(sX + 90, sY + 170, sFrame, msX, msY )
+
+CALL 004A2EF0 x1
+
+CALL 004A3130 x6 (x6 220)dernier av winMain
+m_pEffectSpr[]->PutRevTransSprite(dX, dY, 0, dwTime);			
+Arg 4 -> 5			
+
+
+
+
+
+

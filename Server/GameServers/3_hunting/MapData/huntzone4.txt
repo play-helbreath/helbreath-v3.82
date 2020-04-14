@@ -1,0 +1,41 @@
+[MAP-INFO]
+map-location  = lost
+initial-point = 1  23 93
+level-limit   = 30
+pk-mode = 2
+boss-rate  = 500
+ex//tra-drop = 7500
+
+//-Teleportation-Set----SX-----SY-----DestMapName----DX-----DY----Dir---;
+teleport-loc     =      20     91     huntzone2      176    99    1
+teleport-loc     =      20     92     huntzone2      176    99    1
+teleport-loc     =      20     93     huntzone2      176    99    1
+teleport-loc     =      20     94     huntzone2      176    99    1
+teleport-loc     =      20     95     huntzone2      176    99    1
+teleport-loc     =      20     96     huntzone2      176    99    1
+teleport-loc     =      20     97     huntzone2      176    99    1
+teleport-loc     =      20     98     huntzone2      176    99    1
+teleport-loc     =      20     99     huntzone2      176    99    1
+
+// Old TP to Equilibrium
+teleport-loc     =      26    118    qusmarsh         -1   -1    5
+teleport-loc     =      26    119    qusmarsh         -1   -1    5
+teleport-loc     =      27    118    qusmarsh         -1   -1    5
+teleport-loc     =      27    119    qusmarsh         -1   -1    5
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       55    94
+waypoint          =     1       113   76
+waypoint          =     2       156   104
+waypoint          =     3       187   140
+waypoint          =     4       161   164
+waypoint          =     5       135   169
+waypoint          =     6       109   191
+waypoint          =     7       98    162
+waypoint          =     8       64    137
+waypoint          =     9       198   105
+
+maximum-object		= 261
+random-mob-generator	= 1  6
+
+[END-MAP-INFO]

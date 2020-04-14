@@ -1,0 +1,115 @@
+//----------Name---------------SkillLimit-----Elements--------------------------------------------------------------------SprH---SprFrame--MaxSkill
+
+BuildItem = SuperCoal		20	Coal 1 Coal 1 Coal 1 xxx 0 xxx 0 xxx 0 							6	88	30
+BuildItem = UltraCoal		80	SuperCoal 1 SuperCoal 1 IronOre 1 xxx 0 xxx 0 xxx 0					6	88	90
+BuildItem = IronIngot		20	IronOre 1 IronOre 1 IronOre 1 SuperCoal 1 xxx 0 xxx 0					6	76	30
+BuildItem = MithralIngot	85	Mithral 1 Mithral 1 UltraCoal 1 SuperCoal 1 xxx 0 xxx 0					6	78	95
+BuildItem = GoldIngot		70	GoldNugget 1 GoldNugget 1 GoldNugget 1 SuperCoal 1 xxx 0 xxx 0				6	74	95
+BuildItem = SilverIngot		40	SilverNugget 1 SilverNugget 1 SilverNugget 1 SuperCoal 1 xxx 0 xxx 0			6	75	95
+BuildItem = BlondeIngot		40	BlondeStone 1 BlondeStone 1 BlondeStone 1 SuperCoal 1 xxx 0 xxx 0			6	77	95
+                       
+BuildItem = Dagger		30	IronIngot 1 SuperCoal 1 xxx 0 xxx 0 xxx 0 xxx 0						1	0	40
+BuildItem = ShortSword		40	IronIngot 1 SuperCoal 1 IronOre 1 Coal 1 xxx 0 xxx 0					1	1	50
+BuildItem = MainGauche		50	IronIngot 1 SuperCoal 1 IronOre 1 Coal 1 xxx 0 xxx 0					1	1	60
+BuildItem = Gradius		60	IronIngot 1 SuperCoal 1 IronOre 1 Coal 1 xxx 0 xxx 0					1	1	70
+                      
+BuildItem = LongSword		40	IronIngot 1 IronIngot 1 SuperCoal 1 Coal 1 xxx 0 xxx 0					1	2	50
+BuildItem = Sabre		50	IronIngot 1 IronIngot 1 SuperCoal 1 Coal 1 xxx 0 xxx 0					1	3	60
+BuildItem = Scimitar		60	IronIngot 1 IronIngot 1 SuperCoal 1 Coal 1 xxx 0 xxx 0					1	4	70
+BuildItem = Falchion		70	IronIngot 1 IronIngot 1 SuperCoal 1 Coal 1 xxx 0 xxx 0					1	5	80
+                       
+BuildItem = Esterk		40	IronIngot 1 IronIngot 1 SuperCoal 1 IronOre 1 xxx 0 xxx 0				1	6	50
+BuildItem = Rapier		50	IronIngot 1 IronIngot 1 SuperCoal 1 IronOre 1 xxx 0 xxx 0				1	6	60
+                       
+BuildItem = BroadSword		50	IronIngot 1 IronIngot 1 SuperCoal 1 SuperCoal 1 xxx 0 xxx 0				1	7	60
+BuildItem = BastadSword		60	IronIngot 1 IronIngot 1 SuperCoal 1 SuperCoal 1 Coal 1 IronOre 1			1	8	70
+BuildItem = Claymore		70	IronIngot 1 IronIngot 1 SuperCoal 1 SuperCoal 1 SuperCoal 1 xxx 0			1	9	80
+BuildItem = GreatSword		80	IronIngot 1 IronIngot 1 UltraCoal 1 SuperCoal 1 SuperCoal 1 xxx 0			1	10	90
+BuildItem = Flameberge		90	IronIngot 1 IronIngot 1 UltraCoal 1 UltraCoal 1 SuperCoal 1 SuperCoal 1			1	11	100
+BuildItem = GiantSword		95	MithralIngot 1 GoldIngot 1 GoldIngot 1 Mithral 1 CyclopsHandEdge 1 IronIngot 1		1	18	100
+BuildItem = BlackShadowSword	99	MithralIngot 1 MithralIngot 1 BlondeIngot 1 BlondeIngot 1 Mithral 1 CyclopsHandEdge 1	1	25	100
+                       
+BuildItem = LightAxe		30	IronIngot 1 IronIngot 1 SuperCoal 1 Coal 1 xxx 0 xxx 0					15	2	40
+BuildItem = Tomahoc		40	IronIngot 1 IronIngot 1 SuperCoal 1 Coal 1 xxx 0 xxx 0					15	2	50
+BuildItem = SexonAxe		50	IronIngot 1 IronIngot 1 SuperCoal 1 Coal 1 xxx 0 xxx 0					15	3	60
+BuildItem = DoubleAxe		60	IronIngot 1 IronIngot 1 SuperCoal 1 SuperCoal 1 xxx 0 xxx 0				15	0	70
+BuildItem = WarAxe		70	IronIngot 1 IronIngot 1 SuperCoal 1 SuperCoal 1 SuperCoal 1 xxx 0			15	1	80
+BuildItem = BattleAxe		90	IronIngot 1 IronIngot 1 UltraCoal 1 UltraCoal 1 SuperCoal 1 SuperCoal 1			15	6	100
+                       
+BuildItem = Hammer		90	GoldIngot 1 IronIngot 1 IronIngot 1 IronIngot 1 UltraCoal 1 UltraCoal 1			15	7	100
+BuildItem = BattleHammer	95	MithralIngot 1 GoldIngot 1 GoldIngot 1 Mithral 1 UltraCoal 1 IronIngot 1		15	8	100
+BuildItem = BarbarianHammer	99	MithralIngot 1 MithralIngot 1 GoldIngot 1 Ruby 1 Mithral 1 UltraCoal 1			15	10	100
+                       
+BuildItem = Hauberk(M)		40	SilverIngot 1 IronIngot 1 IronIngot 1 OrcLeather 1 xxx 0 xxx 0				7	1	50
+BuildItem = ChainHose(M)	50	SilverIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 OrcLeather 1 xxx 0			8	2	60
+BuildItem = ScaleMail(M)	60	SilverIngot 1 IronIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 OrcLeather 1		9	2	70
+BuildItem = ChainMail(M)	70	SilverIngot 1 IronIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 OrcLeather 1		9	1	80
+BuildItem = PlateLeggings(M)	80	SilverIngot 1 IronIngot 1 IronIngot 1 IronIngot 1 UltraCoal 1 CyclopsLeather 1		8	3	90
+BuildItem = PlateMail(M)	90	SilverIngot 1 SilverIngot 1 IronIngot 1 IronIngot 1 UltraCoal 1 CyclopsLeather 1	9	3	100
+BuildItem = WizardHauberk(M)	95	MithralIngot 1 SilverIngot 1 Mithral 1 UltraCoal 1 WerewolfLeather 1 xxx 0		7	1	100
+BuildItem = KnightHauberk(M)	95	MithralIngot 1 SilverIngot 1 Mithral 1 UltraCoal 1 WerewolfLeather 1 xxx 0		7	1	100
+BuildItem = KnightPlateLeg(M)	95	MithralIngot 1 SilverIngot 1 Mithral 1 UltraCoal 1 WerewolfLeather 1 xxx 0		8	3	100
+BuildItem = KnightPlateMail(M)	99	MithralIngot 1 SilverIngot 1 SilverIngot 1 Mithral 1 UltraCoal 1 WerewolfLeather 1	9	3	100
+BuildItem = Helm(M)		75	SilverIngot 1 SilverIngot 1 IronIngot 1 IronIngot 1 HelboundLeather 1 xxx 0		21	0	85
+BuildItem = FullHelm(M)		80	SilverIngot 1 SilverIngot 1 IronIngot 1 UltraCoal 1 SuperCoal 1 HelboundLeather 1	21	1	90
+BuildItem = KnightFullHelm(M)	95	MithralIngot 1 SilverIngot 1 Mithral 1 UltraCoal 1 WerewolfLeather 1 xxx 0		21	1	100
+BuildItem = Wings-Helm(M)	95	MithralIngot 1 SilverIngot 1 SilverIngot 1 Mithral 1 UltraCoal 1 HelboundLeather 1	21	3	100
+BuildItem = Horned-Helm(M)	99	MithralIngot 1 SilverIngot 1 SilverIngot 1 Mithral 1 UltraCoal 1 HelboundLeather 1	21	2	100
+                       
+BuildItem = Hauberk(W)		40	SilverIngot 1 IronIngot 1 IronIngot 1 OrcLeather 1 xxx 0 1 xxx 0			11	2	50
+BuildItem = ChainHose(W)	50	SilverIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 OrcLeather 1 xxx 0			12	3	60
+BuildItem = ScaleMail(W)	60	SilverIngot 1 IronIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 OrcLeather 1		13	4	70
+BuildItem = ChainMail(W)	70	SilverIngot 1 IronIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 OrcLeather 1		13	3	80
+BuildItem = PlateLeggings(W)	80	SilverIngot 1 IronIngot 1 IronIngot 1 IronIngot 1 UltraCoal 1 CyclopsLeather 1		12	4	90
+BuildItem = PlateMail(W)	90	SilverIngot 1 SilverIngot 1 IronIngot 1 IronIngot 1 UltraCoal 1 CyclopsLeather 1	13	5	100
+BuildItem = WizardHauberk(W)	95	MithralIngot 1 SilverIngot 1 UltraCoal 1 WerewolfLeather 1 xxx 0 xxx 0			11	2	100
+BuildItem = KnightHauberk(W)	95	MithralIngot 1 MithralIngot 1 UltraCoal 1 WerewolfLeather 1 xxx 0 xxx 0			11	2	100
+BuildItem = KnightPlateLeg(W)	95	MithralIngot 1 MithralIngot 1 UltraCoal 1 WerewolfLeather 1 xxx 0 xxx 0			12	4	100
+BuildItem = KnightPlateMail(W)	99	MithralIngot 1 SilverIngot 1 SilverIngot 1 Mithral 1 UltraCoal 1 WerewolfLeather 1	9	3	100
+BuildItem = Helm(W)		75	SilverIngot 1 SilverIngot 1 IronIngot 1 IronIngot 1 HelboundLeather 1 xxx 0		21	0	85
+BuildItem = FullHelm(W)		80	SilverIngot 1 SilverIngot 1 IronIngot 1 UltraCoal 1 SuperCoal 1 HelboundLeather 1	21	1	90
+BuildItem = KnightFullHelm(W)	95	MithralIngot 1 SilverIngot 1 Mithral 1 UltraCoal 1 WerewolfLeather 1 xxx 0		21	1	100
+BuildItem = Wings-Helm(W)	95	MithralIngot 1 SilverIngot 1 SilverIngot 1 Mithral 1 UltraCoal 1 HelboundLeather 1	21	3	100
+BuildItem = Horned-Helm(W)	99	MithralIngot 1 SilverIngot 1 SilverIngot 1 Mithral 1 UltraCoal 1 HelboundLeather 1	21	2	100
+                       
+BuildItem = LongSword+1		45	BlondeIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 Coal 1 Coal 1				1	2	80
+BuildItem = Sabre+1		55	BlondeIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 Coal 1 Coal 1				1	3	85
+BuildItem = Scimitar+1		65	BlondeIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 Coal 1 Coal 1				1	4	90
+BuildItem = Falchion+1		75	BlondeIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 Coal 1 Coal 1				1	5	95
+                       
+BuildItem = Esterk+1		45	BlondeIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 IronOre 1 Coal 1			1	6	65
+BuildItem = Rapier+1		55	BlondeIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 IronOre 1 Coal 1			1	6	75
+                       
+BuildItem = BroadSword+1	55	BlondeIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 SuperCoal 1 xxx 0			1	7	90
+BuildItem = BastadSword+1	65	BlondeIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 SuperCoal 1 IronOre 1			1	8	95
+BuildItem = Claymore+1		75	BlondeIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 SuperCoal 1 SuperCoal	1		1	9	96
+BuildItem = GreatSword+1	84	BlondeIngot 1 IronIngot 1 IronIngot 1 UltraCoal 1 UltraCoal 1 UltraCoal	1		1	10	97
+BuildItem = Flameberge+1	93	BlondeIngot 1 IronIngot 1 IronIngot 1 IronIngot 1 UltraCoal 1 UltraCoal	1		1	11	100
+                       
+BuildItem = LightAxe+1		40	BlondeIngot 1 IronIngot 1 IronIngot 1 Coal 1 xxx 0 xxx 0				15	2	60
+BuildItem = Tomahoc+1		45	BlondeIngot 1 IronIngot 1 IronIngot 1 Coal 1 xxx 0 xxx 0				15	2	70
+BuildItem = SexonAxe+1		55	BlondeIngot 1 IronIngot 1 IronIngot 1 Coal 1 xxx 0 xxx 0				15	3	80
+BuildItem = DoubleAxe+1		65	BlondeIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 SuperCoal 1 xxx 0			15	0	90
+BuildItem = WarAxe+1		80	BlondeIngot 1 IronIngot 1 IronIngot 1 SuperCoal 1 SuperCoal 1 SuperCoal	1		15	1	94
+BuildItem = BattleAxe+1		95	BlondeIngot 1 IronIngot 1 IronIngot 1 IronIngot 1 UltraCoal 1 UltraCoal	1		15	6	100
+                       
+BuildItem = LongSword+2		55	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 xxx 0 xxx 0			1	2	80
+BuildItem = Sabre+2		65	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 UltraCoal 1 SuperCoal 1	1	3	85
+BuildItem = Scimitar+2		75	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 UltraCoal 1 SuperCoal 1	1	4	90
+BuildItem = Falchion+2		85	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 UltraCoal 1 SuperCoal 1	1	5	95
+                       
+BuildItem = Esterk+2		55	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 UltraCoal 1 SuperCoal 1	1	6	65
+BuildItem = Rapier+2		65	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 UltraCoal 1 SuperCoal 1	1	6	75
+                       
+BuildItem = BroadSword+2	65	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 IronIngot 1 xxx 0		1	7	80
+BuildItem = BastadSword+2	75	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 IronIngot 1 xxx 0		1	8	85
+BuildItem = Claymore+2		85	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 IronIngot 1 IronIngot 1	1	9	90
+BuildItem = GreatSword+2	94	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 IronIngot 1 UltraCoal 1	1	10	95
+BuildItem = Flameberge+2	97	MithralIngot 1 MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 IronIngot 1	1	11	100
+                       
+BuildItem = LightAxe+2		50	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 UltraCoal 1 xxx 0 xxx 0			15	2	75
+BuildItem = Tomahoc+2		55	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 0 xxx 0 xxx 0			15	2	80
+BuildItem = SexonAxe+2		65	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 0 xxx 0 xxx 0			15	3	85
+BuildItem = DoubleAxe+2		75	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 IronIngot 1 xxx 0		15	0	90
+BuildItem = WarAxe+2		90	MithralIngot 1 GoldIngot 1 CyclopsHandEdge 1 IronIngot 1 IronIngot 1 IronIngot 1	15	1	95
+BuildItem = BattleAxe+2		99	MithralIngot 1 MithralIngot 1 GoldIngot 1 Mithral 1 CyclopsHandEdge 1 IronIngot	1	15	6	100

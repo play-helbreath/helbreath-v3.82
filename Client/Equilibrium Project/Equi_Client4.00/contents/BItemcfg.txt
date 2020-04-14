@@ -1,0 +1,102 @@
+//----------Name------SkillLimit---Elements---------------------------------------------------------------SprH-Frame--MaxSkill
+
+BuildItem = SuperCoal         20   Coal 1         Coal 1         Coal 1         xxx 0        xxx 0  xxx 0       6  88   30 
+BuildItem = IronBar           20   IronOre 1      IronOre 1      IronOre 1      SuperCoal 1  xxx 0  xxx 0       6  76   30 
+BuildItem = UltraCoal         62   SuperCoal 1    SuperCoal 1    SuperCoal 1    xxx 0        xxx 0  xxx 0       6  88   80 
+BuildItem = SilverBar         62   SilverNugget 1 SilverNugget 1 SilverNugget 1 UltraCoal 1  xxx 0  xxx 0	    6  75  100 
+BuildItem = GoldBar           63   GoldNugget 1   GoldNugget 1   GoldNugget 1   UltraCoal 1  xxx 0  xxx 0	    6  74  100 
+BuildItem = BlondeBar         64   BlondeStone 1  BlondeStone 1  BlondeStone 1  UltraCoal 1  xxx 0  xxx 0	    6  77  100 
+BuildItem = MithralBar        65   Mithral 1      Mithral 1      Mithral 1      UltraCoal 1  xxx 0  xxx 0	    6  78  100 
+
+BuildItem = Dagger            30   IronBar 1    SuperCoal 1  Coal 1       xxx 0        xxx 0        xxx 0       1   0   40 
+BuildItem = ShortSword        40   IronBar 1    IronBar 1    SuperCoal 1  Coal 1       xxx 0        xxx 0       1   1   55 
+BuildItem = Gradius           52   IronBar 1    IronBar 1    SuperCoal 1  Coal 1       xxx 0        xxx 0       1   1   70 
+BuildItem = Gradius+2         65   MithralBar 1 BlondeBar 1  UltraCoal 1  Coal 1       xxx 0        xxx 0       1   1  100 
+
+BuildItem = Sabre             50   IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  Coal 1       Coal 1      1   3   60 
+BuildItem = Falchion          56   IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  Coal 1       Coal 1      1   5   80 
+BuildItem = Falchion+2        65   MithralBar 1  SilverBar 1  IronBar 1    UltraCoal 1  Coal 1       Coal 1      1   5   95 
+BuildItem = Claymore          56   IronBar 1    IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1 1   9   80 
+
+BuildItem = GreatSword        62   IronBar 1    IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1 1  10   80 
+BuildItem = GreatSword+1      65   BlondeBar 1  SilverBar 1  IronBar 1    IronBar 1    UltraCoal 1  UltraCoal 1 1  10   90 
+BuildItem = GreatSword+2    	70   MithralBar 1 BlondeBar 1  SilverBar 1  IronBar 1    UltraCoal 1  UltraCoal 1 1  10  100 
+
+BuildItem = Flamberge         68   IronBar 1    IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1 1  11   90 
+BuildItem = Flamberge+1       70   BlondeBar 1  BlondeBar 1  SilverBar 1  IronBar 1    UltraCoal 1  UltraCoal 1 1  11   97 
+BuildItem = Flamberge+2      	73   MithralBar 1 BlondeBar 1  BlondeBar 1  SilverBar 1  UltraCoal 1  UltraCoal 1 1  11  100 
+
+BuildItem = GiantSword        71   MithralBar 1 MithralBar 1 BlondeBar 1  BlondeBar 1  UltraCoal 1  UltraCoal 1 1  18  100 
+BuildItem = TheVampire        78   MithralBar 1 MithralBar 1 MithralBar 1 BlondeBar 1  GoldBar 1    GoldBar 1   1  20  100 
+
+BuildItem = Esterk            40   IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  Coal 1       Coal 1      1   6   50 
+BuildItem = Rapier            50   IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  Coal 1       Coal 1      1   6   60 
+BuildItem = TemplarSword      51   IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  Coal 1       Coal 1      1   6   60 
+
+BuildItem = Esterk+1          45   SilverBar 1  IronBar 1    IronBar 1    SuperCoal 1  Coal 1       Coal 1      1   6   65 
+BuildItem = Rapier+1          51   SilverBar 1  IronBar 1    IronBar 1    SuperCoal 1  Coal 1       Coal 1      1   6   75 
+BuildItem = TemplarSword+1    52   SilverBar 1  IronBar 1    IronBar 1    SuperCoal 1  Coal 1       Coal 1      1   6   75 
+
+BuildItem = Esterk+2          60   MithralBar 1  SilverBar 1  UltraCoal 1  UltraCoal 1  Coal 1      Coal 1      1   6   70 
+BuildItem = Rapier+2          61   MithralBar 1  SilverBar 1  UltraCoal 1  UltraCoal 1  Coal 1      Coal 1      1   6   80 
+BuildItem = TemplarSword+2    62   MithralBar 1  SilverBar 1  UltraCoal 1  UltraCoal 1  Coal 1      Coal 1      1   6   80 
+
+BuildItem = LightAxe          30   IronBar 1    IronBar 1    SuperCoal 1  Coal 1       xxx 0        xxx 0       15  2   40 
+BuildItem = DoubleAxe         52   IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1  xxx 0       15  0   70 
+BuildItem = DoubleAxe+1       54   SilverBar 1  IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1  xxx 0       15  0   90 
+BuildItem = DoubleAxe+2     	59   BlondeBar 1  SilverBar 1  IronBar 1    UltraCoal 1  UltraCoal 1  xxx 0       15  0   90 
+
+BuildItem = WarAxe            56   IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1  xxx 0       15  1   80 
+BuildItem = WarAxe+1          62   BlondeBar 1  SilverBar 1  IronBar 1    UltraCoal 1  UltraCoal 1  xxx 0       15  1   90 
+BuildItem = WarAxe+2         	68   MithralBar 1 BlondeBar 1  SilverBar 1  UltraCoal 1  UltraCoal 1  xxx 0       15  1  100 
+BuildItem = GoldenAxe      	75   MithralBar 1 GoldBar 1    GoldBar 1    GoldBar 1    UltraCoal 1  UltraCoal 1 15  4  100 
+BuildItem = GoldenAxe+1      	80   MithralBar 1 MithralBar 1 GoldBar 1    GoldBar 1    GoldBar 1    UltraCoal 1 15  4  100 
+
+BuildItem = BattleAxe         68   BlondeBar 1  BlondeBar 1  SilverBar 1  IronBar 1    UltraCoal 1  UltraCoal 1 15  6   90 
+BuildItem = BattleAxe+1       71   MithralBar 1 BlondeBar 1  BlondeBar 1  SilverBar 1  UltraCoal 1  UltraCoal 1 15  6  100 
+BuildItem = BattleAxe+2      	74   MithralBar 1 MithralBar 1 MithralBar 1 BlondeBar 1  UltraCoal 1  UltraCoal 1 15  6  100 
+BuildItem = GreatAxe      	77   MithralBar 1 MithralBar 1 MithralBar 1 BlondeBar 1  GoldBar 1    GoldBar   1 15 11  100 
+
+BuildItem = Penitence         63   GoldBar 1    IronBar 1    UltraCoal 1  xxx 0        xxx 0        xxx 0       15  7   90  
+BuildItem = Hammer            69   BlondeBar 1  BlondeBar 1  UltraCoal 1  UltraCoal 1  UltraCoal 1  UltraCoal 1 15  8   90  
+BuildItem = Hammer+1          73   MithralBar 1 BlondeBar 1  BlondeBar 1  UltraCoal 1  UltraCoal 1  UltraCoal 1 15  8  100  
+BuildItem = BattleHammer      74   MithralBar 1 MithralBar 1 BlondeBar 1  BlondeBar 1  UltraCoal 1  UltraCoal 1 15 10  100 
+BuildItem = GiantBattleHammer 79   MithralBar 1 MithralBar 1 MithralBar 1 BlondeBar 1  GoldBar 1    GoldBar   1 15 10  100 
+
+BuildItem = Hauberk(M)        40   IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1  xxx 0       7   1   50 
+BuildItem = Hauberk(W)        40   IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1  xxx 0       11  2   50 
+BuildItem = ChainHose(M)    	45   IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1  xxx 0       8   2   60 
+BuildItem = ChainHose(W)    	45   IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1  xxx 0       12  3   60 
+BuildItem = ScaleMail(M)    	50   IronBar 1    IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1 9   2   70 
+BuildItem = ScaleMail(W)    	50   IronBar 1    IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1 13  4   70 
+BuildItem = ChainMail(M)    	55   IronBar 1    IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1 9   1   80 
+BuildItem = ChainMail(W)    	55   IronBar 1    IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1 13  3   80 
+BuildItem = PlateLeggings(M)  60   SilverBar 1  IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1 8   3   90 
+BuildItem = PlateLeggings(W)  60   SilverBar 1  IronBar 1    IronBar 1    IronBar 1    SuperCoal 1  SuperCoal 1 12  4   90 
+BuildItem = PlateMail(M)    	68   BlondeBar 1  IronBar 1    IronBar 1    IronBar 1    UltraCoal 1  UltraCoal 1 9   3  100 
+BuildItem = PlateMail(W)    	68   BlondeBar 1  IronBar 1    IronBar 1    IronBar 1    UltraCoal 1  UltraCoal 1 13  5  100 
+
+BuildItem = WizardHauberk(M)  71   MithralBar 1 BlondeBar 1  GoldBar 1    UltraCoal 1  UltraCoal 1  UltraCoal 1 7   1  100 
+BuildItem = WizardHauberk(W)  71   MithralBar 1 BlondeBar 1  GoldBar 1    UltraCoal 1  UltraCoal 1  UltraCoal 1 11  2  100 
+BuildItem = KnightHauberk(M)  71   MithralBar 1 BlondeBar 1  SilverBar 1  UltraCoal 1  UltraCoal 1  UltraCoal 1 7   1  100 
+BuildItem = KnightHauberk(W)  71   MithralBar 1 BlondeBar 1  SilverBar 1  UltraCoal 1  UltraCoal 1  UltraCoal 1 11  2  100 
+BuildItem = KnightLeggings(M) 76   MithralBar 1 BlondeBar 1  SilverBar 1  UltraCoal 1  UltraCoal 1  UltraCoal 1 8   1  100 
+BuildItem = KnightLeggings(W)	76   MithralBar 1 BlondeBar 1  SilverBar 1  UltraCoal 1  UltraCoal 1  UltraCoal 1 12  2  100 
+BuildItem = KnightPlateMail(M) 74  MithralBar 1 MithralBar 1 BlondeBar 1  BlondeBar 1  SilverBar 1  GoldBar 1   9   3  100 
+BuildItem = KnightPlateMail(W) 74  MithralBar 1 MithralBar 1 BlondeBar 1  BlondeBar 1  SilverBar 1  GoldBar 1   13  5  100 
+ 
+BuildItem = BlondeShield      60   BlondeBar 1  IronBar 1    IronBar 1    SuperCoal 1  xxx 0        xxx 0       3  4   90 
+BuildItem = LagiShield        62   SilverBar 1  GoldBar 1    IronBar 1    UltraCoal 1  xxx 0        xxx 0       3  6   90 
+BuildItem = TowerShield       64   SilverBar 1  SilverBar 1  IronBar 1    UltraCoal 1  UltraCoal 1  xxx 0       3  8   90 
+BuildItem = KnightShield      66   MithralBar 1 BlondeBar 1  SilverBar 1  GoldBar 1    UltraCoal 1  xxx 0       3  6   90 
+
+BuildItem = KnightFullHelm    65   BlondeBar 1  SilverBar 1  GoldBar 1    IronBar 1    UltraCoal 1  UltraCoal 1 21  1   90 
+BuildItem = HornedHelm        70   MithralBar 1 BlondeBar 1  SilverBar 1  GoldBar 1    GoldBar 1    UltraCoal 1 21  2  100 
+BuildItem = WingedHelm        70   MithralBar 1 BlondeBar 1  SilverBar 1  GoldBar 1    GoldBar 1    UltraCoal 1 21  3  100 
+
+BuildItem = Stone             75   Stone1 1     Stone2 1     Stone3 1     Stone4 1     xxx 0        xxx 0       6 155  100 
+	     
+BuildItem = SapphireRing      90   GoldBar 1    Sapphire 1   xxx 0        xxx 0        xxx 0        xxx 0       16 11   95 
+BuildItem = RubyRing	      95   GoldBar 1    Ruby 1       xxx 0        xxx 0        xxx 0        xxx 0       16 12  100 
+BuildItem = EmeraldRing	      99   GoldBar 1    Emerald 1    xxx 0        xxx 0        xxx 0        xxx 0       16 10  100   	    
+

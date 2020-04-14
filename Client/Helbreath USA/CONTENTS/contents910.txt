@@ -1,0 +1,32 @@
+  
+Command
+ 
+     
+summoned monster stop command
+
+Cancel summoned monster's all
+action and make them stop.
+
+summoned monster free attack command
+Summoned monster move as following
+master and decide if it attacks as
+free will or not.
+ 
+summoned monster specific
+object attack command
+Make summoned monster attack
+only specific character. But,
+it can't make it attack same
+team or neutral character.
+ 
+give other character good valuation
+Type '/rep+ ID' to give a good
+valuation to other character.
+ 
+give other character bad valuation
+Type '/rep- ID' to give a bad
+valuation to other character.
+ 
+player who is given bad valuation gets
+disadvantages in specific situation.
+

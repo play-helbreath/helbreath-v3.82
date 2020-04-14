@@ -1,0 +1,37 @@
+[MAP-INFO]
+map-location  = elvine
+initial-point = 1  40 52
+pk-mode 	= 2
+type		= 3
+drop-type 	= 0
+limited-cast = 1
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =      38     49     elvine              216    89   4
+teleport-loc     =      39     49     elvine              216    89   4
+teleport-loc     =      39     50     elvine              216    89   4
+teleport-loc     =      40     50     elvine              216    89   4
+teleport-loc     =      49     48     elvine              216    89   4
+teleport-loc     =      50     48     elvine              216    89   4
+teleport-loc     =      50     47     elvine              216    89   4
+teleport-loc     =      51     47     elvine              216    89   4
+
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     1      57    50
+waypoint          =     2      57    50
+waypoint          =     3      57    50
+waypoint          =     4      57    50
+waypoint          =     5      57    50
+waypoint          =     6      57    50
+waypoint          =     7      57    50
+waypoint          =     8      57    50
+waypoint          =     9      57    50
+waypoint          =     10     57    50
+
+//-NPC-setting--------Name---------------MoveType----WaypointIndex(10)-------NamePrefix-------;
+npc               =   Gail            1           1 2 3 4 5 6 7 8 9 10         1  
+
+fixed-dayornight-mode = 1
+
+[END-MAP-INFO]

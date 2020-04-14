@@ -1,0 +1,28 @@
+Account-generated:  Time(2003/19/8/19/16)  IP(127.0.0.0)
+[NAME]
+account-name     = master
+
+[PASSWORD]
+account-password = 2691TUOA
+
+[ACCOUNT-STATUS]
+account-valid-time = 0
+account-valid-date = 2008 4 5
+account-change-password = 2005 6 27
+[ETC]
+account-Gender   = Male     
+account-Age      = xx       
+account-Birth-Year = xxxx   
+account-Birth-Month = xx    
+account-Birth-Day   = xx    
+account-RealName = Snoopy81       
+account-SSN      = ECTS     
+account-Email    = void@tiscali.fr
+account-Quiz     = aaaaaa_aaaaaaaaa
+account-Answer   = aaaaaaa  
+account-created-by =        
+
+
+[CHARACTERS]
+account-character-snoopy81  = Gem[GM]
+

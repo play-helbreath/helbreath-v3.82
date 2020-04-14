@@ -1,0 +1,96 @@
+1. DF Series.
+DF 15= (DF 10)+(DF 10)+gold nugget+silver nugget+merien stone+10 contribution points 
+- when process is failed, merien stone gets depleted and 1 of the items may get depleted.
+DF 20= (DF 10)+(DF 15)+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1 of the items gets depleted when fail. 
+DF 25= (DF 10)+(DF 20)+crystal+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1~2 of the items gets depleted when fail.
+DF 30= (DF 10)+(DF 25)+crystal+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1~3 of the items gets depleted when fail. 
+
+2. RM Series
+RM 15= (RM 10)+(RM 10)+gold nugget+silver nugget+merien stone+10 contribution points 
+- when process is failed, merien stone gets depleted and 1 of the items may get depleted.
+RM 20= (RM 10)+(RM 15)+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1 of the items gets depleted when fail. 
+RM 25= (RM 10)+(RM 20)+crystal+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1~2 of the items gets depleted when fail.
+RM 30= (RM 10)+(RM 25)+crystal+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1~3 of the items gets depleted when fail.
+
+3. DM Series
+DM 2= (DM 1)+(DM 1)+gold nugget+silver nugget+merien stone+10 contribution points 
+- when process is failed, merien stone gets depleted and 1 of the items may get depleted.
+DM 3= (DM 1)+(DM 2)+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1 of the items gets depleted when fail. 
+DM 4= (DM 1)+(DM 3)+crystal+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1~2 of the items gets depleted when fail.
+DM 5= (DM 1)+(DM 4)+crystal+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1~3 of the items gets depleted when fail.
+
+4. MS Series
+MS 12= (MS 10)+(MS 10)+gold nugget+silver nugget+merien stone+10 contribution points 
+- when process is failed, merien stone gets depleted and 1 of the items may get depleted.
+MS 14= (MS 10)+(MS 12)+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1 of the items gets depleted when fail. 
+MS 16= (MS 10)+(MS 14)+crystal+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1~2 of the items gets depleted when fail.
+MS 18= (MS 10)+(MS 16)+crystal+gold nugget+silver nugget+merien stone+10 contribution points 
+- merien stone and 1~3 of the items gets depleted when fail.
+
+5.Jewel Series
+Making a new mixture of Jewel with property and functions by using minerals of jewel.
+Jewel with property and functions can be equipped to be used.
+(Max purity 100)
+- Jewel Craftsmanship Orders.
+1.Make a 'Ware item' by using jewels.
+2.Make a 'Magic Jewel' by using made 'Ware item'.
+3.Press the F5 window and equip the 'Magic Jewel' on the blank of the right side of the character.
+Diamondware = diamond + diamond + crystal
+Crystalware = crystal + crystal + crystal
+Rubyware = ruby + ruby + crystal
+Emeraldware = emerald + emerald + crystal
+Sapphireware = sapphire + sapphire + crystal
+- Craftsmanship made jewels mas purities which has a maximum of 100.
+- Purity has no relations with skill points.
+- Purity gets applied randomly.
+Magical Jewel Craftsmanship terms (completion %: maximum 100)
+Magic Diamond = DIAMONDWARE + DIAMONDWARE + CRYSTALWARE + Merien stone
+- merien stone and 1~2 of the items gets depleted when fail.
+Function : Attack probability(physical&magic) added by the purity formula.
+
+Magic Ruby = RUBYWARE + RUBYWARE + CRYSTALWARE + Merien stone
+- merien stone and 1~2 of the items gets depleted when fail.
+Function : Characters Hp recovery rate(% applied) added by the purity formula.
+
+Magic Emerald = EMERALDWARE + EMERALDWARE + CRYSTALWARE + Merien stone
+- merien stone and 1~2 of the items gets depleted when fail.
+Function : Magical damage decreased(% applied) by the purity formula.
+
+Magic Sapphire = SAPPHIREWARE + SAPPHIREWARE + CRYSTALWARE + Merien stone
+- merien stone and 1~2 of the items gets depleted when fail.
+Function : Physical damage decreased(% applied) by the purity formula.
+
+6. Completion and function rates added by it.
+
+-Necklaces does not have completion rate.
+-Completion rate are only appied to the Jewel Craftsmanship.
+
+Completion rate confirm. 
+-Average of the purities(every purity rates/4) multipied by 4/5.
+-Maximum rate of the completion cannot be lager than the average of the purities.
+-EX: When the average of the purities are 100%, completion rate is confirmed by 100%~80%.
+
+Functions rates confirm.
+Magic Diamond: Completion rate / 5 = Functions rate. ? Maximum 20. (not%)
+Magic Ruby: Completion rate / 5 = Functions rate.(%) ? Maximum 20%.
+Magic Emerald: Completion rate / 10 = Functions rate.(%) ? Maximum 10%.
+Magic Sapphire: Completion rate / 10 = Functions rate.(%) ? Maximum 10%.
+
+Price of new items.
+Crafting Vessel: 1000gold
+Diamond ware: 5000gold / Ruby ware: 3000gold / Sapphire ware: 3000gold
+Emerald ware: 3000gold / Crystal ware: 500gold
+Magic Diamond: 8000gold / Magic Ruby: 5000gold
+Magic Emerald: 5000gold / Magic Emerald: 5000gold
+***These are the prices of the items it selfs, and it is sold to the shops by the half of the prices.***

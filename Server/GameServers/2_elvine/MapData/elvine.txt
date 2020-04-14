@@ -1,0 +1,156 @@
+[MAP-INFO]							
+map-location	=	elvine					
+initial-point	=	11	170	146			
+initial-point	=	12	158	58			
+initial-point	=	13	158	250			
+initial-point	=	14	242	130			
+initial-point	=	15	110	90
+pk-mode = 0	
+maximum-object	     =	250					
+random-mob-generator   =	1   23
+npc-avoidrect          =	1  95  90  203  149	
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;							
+// Only remaining Shop, BS & 1 WH
+teleport-loc	=	239	107	bsmith_2	34	37	4
+teleport-loc	=	240	107	bsmith_2	34	37	4
+teleport-loc	=	241	107	bsmith_2	34	37	4
+teleport-loc	=	241	106	bsmith_2	34	37	4
+
+teleport-loc	=	229	112	bsmith_2	43	32	5
+teleport-loc	=	229	113	bsmith_2	43	32	5
+teleport-loc	=	230	113	bsmith_2	43	32	5
+
+teleport-loc	=	197	127	wrhus_2	56	36	4
+teleport-loc	=	198	128	wrhus_2	56	36	4
+teleport-loc	=	199	129	wrhus_2	56	36	4
+teleport-loc	=	203	129	wrhus_2	56	36	4
+
+teleport-loc	=	225	151	gshop_2	50	39	4
+teleport-loc	=	225	152	gshop_2	50	39	4
+teleport-loc	=	226	152	gshop_2	50	39	4
+teleport-loc	=	229	152	gshop_2	50	39	4
+teleport-loc	=	230	151	gshop_2	50	39	4
+
+// Note: Eldiniel Church is at Equilibrium
+teleport-loc	=	131	77	cath_2	40	40	4
+teleport-loc	=	132	77	cath_2	40	40	4
+teleport-loc	=	132	76	cath_2	40	40	4
+teleport-loc	=	133	76	cath_2	40	40	4
+
+teleport-loc	=	21	277	middleland	103	26	5
+teleport-loc	=	22	277	middleland	103	26	5
+teleport-loc	=	23	277	middleland	103	26	5
+teleport-loc	=	24	277	middleland	103	26	5
+teleport-loc	=	25	277	middleland	103	26	5
+teleport-loc	=	26	277	middleland	103	26	5
+
+teleport-loc	=	250	274	middleland	314	27	5
+teleport-loc	=	251	274	middleland	314	27	5
+teleport-loc	=	252	274	middleland	314	27	5
+teleport-loc	=	253	274	middleland	314	27	5
+teleport-loc	=	254	274	middleland	314	27	5
+teleport-loc	=	255	274	middleland	314	27	5
+teleport-loc	=	256	274	middleland	314	27	5
+teleport-loc	=	257	274	middleland	314	27	5
+
+teleport-loc	=	258	83	elvined1	106	160	1
+teleport-loc	=	258	82	elvined1	106	160	1
+teleport-loc	=	259	82	elvined1	106	160	1
+teleport-loc	=	259	81	elvined1	106	160	1
+teleport-loc	=	260	81	elvined1	106	160	1
+
+teleport-loc	=	277	192	elvfarm	23	149	1
+teleport-loc	=	277	193	elvfarm	23	149	1
+teleport-loc	=	277	194	elvfarm	23	149	1
+teleport-loc	=	277	195	elvfarm	23	149	1
+teleport-loc	=	277	196	elvfarm	23	149	1
+teleport-loc	=	277	197	elvfarm	23	149	1
+teleport-loc	=	277	198	elvfarm	23	149	1
+teleport-loc	=	277	199	elvfarm	23	149	1
+teleport-loc	=	277	200	elvfarm	23	149	1           
+
+teleport-loc     =      213   89    CmdHall_2   51    50   1
+teleport-loc     =      214   89    CmdHall_2   51    50   1
+teleport-loc     =      214   88    CmdHall_2   51    50   1
+teleport-loc     =      220   87    CmdHall_2   40    52   1
+teleport-loc     =      221   87    CmdHall_2   40    52   1  
+teleport-loc     =      222   87    CmdHall_2   40    52   1
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0        45    55
+waypoint          =     1       150    80
+waypoint          =     2       255    70
+waypoint          =     3        30   130
+waypoint          =     4       110   135
+waypoint          =     5       190   145
+waypoint          =     6       250   140
+waypoint          =     7        80   215
+waypoint          =     8       165   235
+waypoint          =     9       230   230
+
+//-No-Attack-Area----------Num-----RECT-------------							
+no-attack-area	=	1	21	267	36	277	
+no-attack-area	=	2	248	265	261	274	
+
+no-attack-area	=	3	167	143	174	148
+no-attack-area	=	4	155	55	162	60
+no-attack-area	=	5	155	247	162	252	
+no-attack-area	=	6	239	127	246	132	
+no-attack-area	=	7	107	87	114	92		
+
+//-----------------------Num-Type-RECT---------------Mob-MobNum
+// Gardes East Vivines, West Ares.
+spot-mob-generator	= 1  1    190 100 240 160    25  6
+spot-mob-generator	= 2  1     80 140 130 200    24  6
+
+// Slimes pits 25 x 15 / 40 x 20
+spot-mob-generator	=	3	1	148	28	168	48	10	10
+spot-mob-generator	=	4	1	253	175	269	198	10	10
+
+// Snake pits 25 x 15
+spot-mob-generator	=	5	1	129	226	148	246	22	10
+spot-mob-generator	=	6	1	134	260	165	272	22	10
+
+// Scorpions pit 40 x 15 => 30 x 20
+spot-mob-generator	=	7	1	230	205	260	225	17	10
+
+// Evil-Stone on all the map
+spot-mob-generator	=	8	1	30	30	270	270	112	6
+
+//-strike-point--------Num----dX----dY----Hp----EffectLoc-------------------------------------Related-Map-Name																
+strike-point	=	1	151	132	13	130	119	138	113	147	119	143	125	134	126	cityhall_2
+strike-point	=	2	206	128	13	201	117	209	120	206	125	199	125	196	121	wrhus_2
+strike-point	=	3	240	108	13	228	106	232	103	239	104	236	109	229	110	bsmith_2
+strike-point	=	4	230	150	13	218	147	224	145	231	146	228	150	223	150	gshop_2
+
+max-fish	=	6														
+fish-point = 0  186 190
+fish-point = 1  186 191
+fish-point = 2  187 190
+fish-point = 3  199 182
+fish-point = 4  200 181
+fish-point = 5  206 177
+fish-point = 6  207 177
+fish-point = 7  208 178
+fish-point = 8  217 184
+fish-point = 9  219 185
+fish-point = 10 229 194
+fish-point = 11 230 193
+fish-point = 12 219 201
+fish-point = 13 220 200
+fish-point = 14 221 199
+fish-point = 15 206 209
+fish-point = 16 207 209
+fish-point = 17 208 208
+fish-point = 18 193 212
+fish-point = 19 195 213
+fish-point = 20 178 202
+fish-point = 21 179 202  
+fish-point = 22 180 203  
+fish-point = 23 196 19  
+fish-point = 24 197 19 
+fish-point = 25 238 25
+fish-point = 26 238 26
+
+[END-MAP-INFO]				

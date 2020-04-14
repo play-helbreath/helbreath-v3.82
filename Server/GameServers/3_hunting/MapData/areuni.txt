@@ -1,0 +1,44 @@
+[MAP-INFO]
+map-location  = lost
+initial-point = 1  85 23
+level-limit   = 30
+pk-mode = 2
+boss-rate  = 800
+ex//tra-drop = 6500
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =      78     20     huntzone2           116    176    1
+teleport-loc     =      79     20     huntzone2           116    176    1
+teleport-loc     =      80     20     huntzone2           116    176    1
+teleport-loc     =      81     20     huntzone2           116    176    1
+teleport-loc     =      82     20     huntzone2           116    176    1
+teleport-loc     =      83     20     huntzone2           116    176    1
+teleport-loc     =      84     20     huntzone2           116    176    1
+teleport-loc     =      85     20     huntzone2           116    176    1
+teleport-loc     =      86     20     huntzone2           116    176    1
+teleport-loc     =      87     20     huntzone2           116    176    1
+teleport-loc     =      88     20     huntzone2           116    176    1
+teleport-loc     =      89     20     huntzone2           116    176    1
+teleport-loc     =      90     20     huntzone2           116    176    1
+teleport-loc     =      91     20     huntzone2           116    176    1
+teleport-loc     =      92     20     huntzone2           116    176    1
+teleport-loc     =      93     20     huntzone2           116    176    1
+teleport-loc     =      94     20     huntzone2           116    176    1
+teleport-loc     =      95     20     huntzone2           116    176    1
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       55    94
+waypoint          =     1       113   76
+waypoint          =     2       156   104
+waypoint          =     3       187   140
+waypoint          =     4       161   164
+waypoint          =     5       135   169
+waypoint          =     6       109   191
+waypoint          =     7       98    162
+waypoint          =     8       64    137
+waypoint          =     9       198   105
+
+maximum-object		= 261
+random-mob-generator	= 1  7
+
+[END-MAP-INFO]

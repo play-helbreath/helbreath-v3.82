@@ -1,0 +1,25 @@
+[MAP-INFO]
+
+map-location  = fightzone4
+initial-point = 1  45 33
+initial-point = 2  36 39
+type          = 1
+
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     1      55    39
+waypoint          =     2      50    40
+waypoint          =     3      60    38
+waypoint          =     4      65    40
+waypoint          =     5      63    44
+waypoint          =     6      58    47
+waypoint          =     7      52    48
+waypoint          =     8      49    44
+waypoint          =     9      47    41
+waypoint          =     10     55    41
+
+
+maximum-object = 50
+fixed-dayornight-mode = 1
+
+[END-MAP-INFO]

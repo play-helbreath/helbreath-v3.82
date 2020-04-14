@@ -1,0 +1,12 @@
+[MAP-INFO]
+map-location  = elvjail
+initial-point = 1  105 55
+fixed-dayornight-mode = 1
+drop-type 	= 0
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area           = 1       -10 -10 -10 -10
+
+maximum-object		= 10
+
+[END-MAP-INFO]

@@ -1,0 +1,67 @@
+[MAP-INFO]
+map-location = lost
+initial-point = 1  70 30
+initial-point = 2  60 50
+initial-point = 3  95 84
+initial-point = 4  30 71
+
+level-limit   = 80
+pk-mode = 0
+boss-rate  = 900
+e//xtra-drop = 5000
+
+
+
+//-Teleportation-Set----SX-----SY--DestMapName-----DX-----DY----Dir---;
+
+teleport-loc     =     57     109     lost        213     26      6
+teleport-loc     =     58     109     lost        213     26      6
+teleport-loc     =     59     109     lost        213     26      6
+teleport-loc     =     60     109     lost        213     26      6
+teleport-loc     =     61     109     lost        213     26      6
+teleport-loc     =     62     109     lost        213     26      6
+teleport-loc     =     63     109     lost        213     26      6
+teleport-loc     =     64     109     lost        213     26      6
+teleport-loc     =     65     109     lost        213     26      6
+teleport-loc     =     66     109     lost        213     26      6
+teleport-loc     =     67     109     lost        213     26      6
+teleport-loc     =     68     109     lost        213     26      6
+
+no-attack-area	=	4	54	105	71	109	
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     1      55    39
+waypoint          =     2      50    40
+waypoint          =     3      60    38
+waypoint          =     4      65    40
+waypoint          =     5      63    44
+waypoint          =     6      58    47
+waypoint          =     7      52    48
+waypoint          =     8      49    44
+waypoint          =     9      47    41
+waypoint          =     10     55    41
+waypoint          =     11     60    100
+
+maximum-object = 120
+random-mob-generator	= 1  24
+
+
+//-----------------------Num-Type-RECT---------------Mob-MobNum
+// 5 Ettins + 2 dragons
+//ot-mob-generator 	=     1   1    10 10   120 120   59  5
+//ot-mob-generator	= 	2   1    10 10   120 120   70  2
+
+max-fish   = 4
+fish-point = 0  46  106
+fish-point = 1  4   121
+fish-point = 2  72  115
+fish-point = 3  107  98
+fish-point = 4  109  44
+fish-point = 5  73  7
+
+[END-MAP-INFO]
+
+
+
+
+

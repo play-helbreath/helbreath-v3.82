@@ -1,0 +1,112 @@
+Commandes ouvertes à tous
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+/rep+ 
+/rep-
+/to
+/fi 
+/pf    	
+/setpf
+/checkstats
+/tgt ou /target
+/hold
+/free
+/version 	
+/ban   
+/createparty
+/deleteparty
+/joinparty
+/dismissparty
+
+/readgizon ou /checkgizon
+/getgizonlevel
+/savechar
+/summonguild 		( pour gm seulement coute 10k Gold)
+
+/checkrep			( + XXX si GM)
+/readmapinfo		( + précis si GM)
+/getactivegservers  	( + précis si GM)
+
+Commandes pour GMs spectateurs (n°1)
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+/who
+/teleport ou /tp NomCarte x y
+
+Commandes pour GMs Policiers (n°2)
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+/kill XXX
+/revive XXX
+/closeconn XXX 		( et 10' ban a BI)
+/energysphere		( Stadium, ML, certaines arenes)	
+/shutup XXX 		( Temps en minutes)	
+/callguard ou /attack XXX
+*/summondemon
+/checkip XXX
+/setinvi 1/0
+/setzerk 1/0
+/setfreeze 1/0
+/setattackmode 1/0   	( Empeche tout combat)
+/safe ou /peace		(   ""      ""  ""   )
+/unsafe ou /war 		( Autorise combats selon carte)
+*/unsummonall		( Detruit les summons des joueurs)
+*/unsummondemon         ( Detruit tout demon)
+/summonplayer XXX  
+/monitor XXX            ( Active le log poussé pour ce perso)       
+*/disconnectall
+/setstatus 0..8		( PFM, poison, zerk etc...)
+/goto XXX
+/unsummonboss ou /clearboss  (tue DD et + gros)
+/send ou /push XXX NomCarte x y
+/summonguild NomGuilde
+/checkstatus XXX
+/monitor XXX		( note tout en cas de lag/hack)
+
+Commandes pour GMs Organisateurs d'Events (n°3)
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+*/summondeath		( Wyverne)
+/reservefightzone		( ...)
+/getticket			( ...)
+/createfish
+/polymorph NomMob
+/gns NomMob 		( A proximité!)
+*/summon NomMob nbe
+*/summonall 		( Tous les joueurs)
+/weather 0..6		(1..3 pluie, 4..6 neige)
+/thunder 0..2           (0:normal, 2:pluie de feu)
+/monstercount		
+/unsummonnpc ou /clearnpc ( Tue tout sur la carte sauf pnj)
+/time	0..2			( Auto, jour,nuit)	
+/clearmap ou /cleanmap  ( Netoie tous les drops)			
+*/setpkmode 0..5		( 0:war, 4:safe, 5:antiPVP event)
+*/setmaptype	0..4		( 0:-, 1:BI, 2:no drop, 3:no drop no pk/ek))
+*/setdroptype -1..1 	(-1:food/pot, 0: nodrop, 1: standard)
+*/setmapmobnum X 		( Nbe mobs sur carte, -1:default)		
+*/popoenabled 0/1
+
+Commandes pour GMs Admins (n°4+)
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+*/createitem	
+*/storm N°sort Nbe
+/setforcerecalltime  	( ...)
+/test				( réservé pour programeur)
+*/begincrusadetotalwar	
+*/endcrusadetotalwar
+*/beginapocalypse
+*/openapocalypsegate
+*/closeapocalypsegate
+*/endapocalypse
+*/beginheldenian
+*/endheldenian
+*/setxprate			( en %, 1%..1000% )
+
+Commandes pour GMs Administration a distance (n°-1 ou 5+)
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+*/shutdownthisserverrightnow
+*/restartthisserverrightnow
+*/start ..\ServerDir\ 
+*/reloadmap			( recharge le fichier cfg)
+/logpits 			( log des pits actuels pour debug )
+
+Autres commandes pour GMs
+¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+/enableadmincommand X 	(indispensable pour toutes les commandes avec *)
+/setobservermode 		( Partielement HS, pb client ?)

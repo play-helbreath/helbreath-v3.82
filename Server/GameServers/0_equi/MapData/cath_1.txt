@@ -1,0 +1,20 @@
+//Aresiens's Temple
+[MAP-INFO]
+map-location  = aresden
+initial-point = 1  34 42
+fixed-dayornight-mode = 1
+pk-mode 	= -4
+type		= 3
+drop-type 	= 0
+limited-cast = 1
+
+//-Teleportation-Set----SX-----SY---DestMapName--DX--DY---Dir---;
+teleport-loc     =      28     43     lost       109   122   4
+teleport-loc     =      29     43     lost       109   122   4
+teleport-loc     =      29     44     lost       109   122   4
+teleport-loc     =      30     44     lost       109   122   4
+teleport-loc     =      31     44     lost       109   122   4
+
+teleport-loc     =      61     27     arefarm     -1    -1   4
+
+[END-MAP-INFO]

@@ -1,0 +1,48 @@
+[MAP-INFO]
+map-location 		= interniaB
+initial-point 		= 1  117 28
+CitizenLimit		= 1
+fixed-dayornight-mode	= 1
+pk-mode 			= 0
+type          		= 3
+drop-type 			= 0
+
+ApocalypseMap 		= 1
+ApocalypseMobGenType	= 1
+
+R//ecallImpossible      = 1
+not-permanent-map		= 1
+
+//------------------------RECT----------------TargetMap--TargetCoord
+DynamicGateCoord		= 39 119 40 120	       maze	   -1  -1
+DynamicGateType		= 2
+
+//-Teleportation-Set----SX-----SY-----DestMapName---------DX-----DY----Dir---;
+teleport-loc     =      31     28     inferniaA           -1     -1    7
+
+//-WayPoint-Set---------Num-----X-----Y----;
+waypoint          =     0       49    58
+waypoint          =     1       117   35
+waypoint          =     2       241   45
+waypoint          =     3       75    117
+waypoint          =     4       185   80
+waypoint          =     5       265   178
+waypoint          =     6       163   159
+waypoint          =     7       43    250
+waypoint          =     8       149   249
+waypoint          =     9       239   243
+
+/------------------------Num-Type-waypoints--------------Mob-MobNum
+spot-mob-generator	= 1   1    22 20 49 60            18  50	// Zombie
+spot-mob-generator	= 2   1    69 38 115 73           13  80	// Cyclops
+spot-mob-generator	= 3   1    24 92 86 126           30  60	// Liche
+spot-mob-generator	= 4   1    22 48 84 88            80 100	// Tentocle
+spot-mob-generator	= 5   1    86 54 125 102          31  40	// Demon
+spot-mob-generator	= 6   1    36 101 74 119          70  10	// Dragons
+//ot-mob-generator	= 7   1    40 20 128 46           73  2	// Fire Wyvern
+
+//-No-Attack-Area----------Num-----RECT-------------
+no-attack-area          = 1       30 24 38 32
+maximum-object		= 250
+
+[END-MAP-INFO]

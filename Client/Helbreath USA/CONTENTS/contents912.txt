@@ -1,0 +1,89 @@
+  
+Beginner Guide
+  
+ 
+If you make a character and connect 
+to the game, a player starts in 
+the beginner zone.
+Press F6 Key or a map in item inventory.
+If you double click a map, you can know
+where you are. Beginner zone is for
+travelers who are not belonged any nation
+in Helbreath continental. You can hunt
+a low class monster or exchange
+opinion with other beginner players. If
+you learn how to play basically, you can
+enjoy gaming. If you go down a beginner
+zone, you can see two marks. When you
+are on the position, you can teleport
+related nation. There are many
+institutions which you can use.
+
+Cityhall
+
+You can register a citizen related nation.
+To enjoy gaming, you must be a citizen.
+If you kill enemy or win in a battle, you
+can take reward there. You can get hero's
+cape when you win over 300 times. You
+can get and cancel quests. When you talk
+to an cityhall officer, he often asks for
+missions. At that time, if you accept it,
+you get quests. When you accomplish 
+them, you can get reward.
+
+Church
+
+The place where you worship.
+
+Shop
+
+The place where you can buy and sell
+some food and clothes.
+
+Blacksmith
+
+The place where you can buy, sell and
+repair weapon and shield.
+
+Guildhall
+
+The place where you can organize or
+disorganize guild. And you can buy
+application for admission or withdrawal.
+
+Warehouse
+
+The place where you can deposit or 
+take back items.
+
+Magic tower
+
+The place where you can learn magic.
+
+Barrack
+
+The place where you can learn battle
+skills as confronting with dummy.
+
+Aresden main structures and entrance place.
+ 
+Cityhall(140,120), Church(170,90) 
+Shop(120,150) Blacksmith(160,180)
+Guildhall(110,90) Warehouse(220,120)
+Magic tower(50,110) Barrack(240,140)
+Eternal field(40,270)
+
+
+Elvine main structures and entrance place.
+ 
+Cityhall(130,110) Church(110,60)
+Shop(220,140) Black smith(220,100)
+Guildhall(80,130) Warehouse(200,110)
+Magic tower(170,60) Barrack(60,80)
+Rocky highland(210,20)
+
+You can join a battle as a citizen 
+of nation. If you enter any guild 
+or organize, systematically, 
+you can fight in a front battle.

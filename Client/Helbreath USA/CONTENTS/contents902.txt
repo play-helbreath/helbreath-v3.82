@@ -1,0 +1,113 @@
+   
+Offence and Defence
+  
+ 
+How to attack
+ 
+You should be on the attack mode
+to attack something.
+ You can toggle attack/peace mode
+by pressing Tab key.
+ 
+Press left mouse button after pointing
+the cursor to the monster you want
+to attack. Then you attack that monster.
+ 
+If you want to attack monster without
+moving, click the right mouse button.
+ 
+If you want to attack other player
+not monster, press left mouse button
+with control key pressed. But this
+button means that you attack anyone
+no matter what the target is. So you
+can also attack your forces. So you
+should be careful when you use this
+button.
+ 
+If your sword skill is 100%, you can
+use super attack by pressing alt
+key. Super attack count decreases
+whenever you use super attack.
+So you had better use it when you
+really need it.
+ 
+How to use magic
+ 
+After casting the magic which
+you want to use, press the left
+mouse button to the target.
+If you want to know more detailed
+information about magic, see the
+magic help menu.
+ 
+Safe attack mode
+ 
+If your friend dies from your
+magic attack, you will have
+penalty because you kill your friend.
+So there is a safe attack mode
+to protect unintended PK.
+You can toggle safe attack mode
+by pressing Home key. But the mana
+costs more on the safe attack mode
+  
+Defence
+ 
+Followings are the methods of defence.
+1. Run away
+2. Equip better shield
+3. Increase defence by magic
+Don't show your back to the enemy
+while the infield war. 
+   
+Rule of the battle
+ 
+You should attack only the enemy.
+You will get PK penalty if you
+kill neutral or friendly.
+ 
+Neutral, Enemy, Friendly, Criminal, Threat
+ 
+Neutral character is a character that
+is not belong to any nation. You should
+not attack neutral people.
+ 
+You can attack the character which
+is displayed as "Enemy" with no
+penalty. But you shouldn't attack
+the character with "Friendly"
+ 
+PK Penalty
+ 
+If you kill somebody friendly
+you shall get PK penalty and
+you will be displayed "Criminal"
+to other people. And you can
+also attack the people that
+displayed "Threat"
+ 
+Super Attack
+ 
+If your sword skill is 100% and
+the super attack count is more
+than 1, you can use the super
+attack. Super attack count increases
+every 40seconds and it can be
+increased to the maximum(your level/10)
+And the super attack damage
+is added by your (level)%.
+ 
+Super attack range by sword
+ 
+Hand attack, short sword: 1block
+Long sword : 3block.
+Fencing : 4block.
+Axe : 2block
+ 
+Combo attack bonus damage
+ 
+If your attack successes repeatdly,
+there is a bouns damage. This count
+is available to 3. And After 3, this
+count comes to 1. 
