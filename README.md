@@ -16,9 +16,9 @@ as vanilla Helbreath by most players.
 
 The layout of the repository is organized as followed.
 
-sources/   - Modernized source files of the client and server (excluding the gate, main and world servers)
-resources/ - Assets used by the client and server; they're bundled with the compiled binaries to create a release
-tools/     - Folder to contain various tools and utilities related to development of Helbreath
-origin/    - Untouched Helbreath source files that were used as starting point
+* sources/   - Modernized source files of the client and server (excluding the gate, main and world servers)
+* resources/ - Assets used by the client and server; they're bundled with the compiled binaries to create a release
+* tools/     - Folder to contain various tools and utilities related to development of Helbreath
+* origin/    - Untouched Helbreath source files that were used as starting point
 
 For more information, contact dewachter[dot]jonathan[at]gmail[dot]com.
