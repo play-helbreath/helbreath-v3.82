@@ -10,7 +10,7 @@
 #endif // _MSC_VER >= 1000
 
 #include <windows.h>
-#include "item.h"
+#include "Item.h"
 
 class CFish  
 {

@@ -82,6 +82,7 @@ void CDebugWindow::AddEventMsg(int cMsgType, char* cData, DWORD dwSize, char cKe
 		WriteFile(outHand,crlf,2,&written,NULL);
 
 		int i=0;
+    int j;
 		while(i<(int)dwSize){
 			memset(DbgBuffer,0,sizeof(DbgBuffer));
 			strcpy(DbgBuffer, "DATA -> ");

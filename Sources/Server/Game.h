@@ -20,11 +20,12 @@
 #include <time.h>
 #include <memory.h>
 #include <direct.h>
+#include <math.h>
 #include <vector>
 
 #include "winmain.h"
 #include "StrTok.h"
-#include "Xsocket.h"
+#include "XSocket.h"
 #include "Client.h"
 #include "Npc.h"
 #include "Map.h"
@@ -511,7 +512,7 @@ public:
 	void ActivateSpecialAbilityHandler(int iClientH);
 	void EnergySphereProcessor(BOOL bIsAdminCreate = FALSE, int iClientH = NULL);
 	BOOL bCheckEnergySphereDestination(int iNpcH, short sAttackerH, char cAttackerType);
-	void CGame::JoinPartyHandler(int iClientH, int iV1, char *pMemberName);
+	void JoinPartyHandler(int iClientH, int iV1, char *pMemberName);
 	void CreateNewPartyHandler(int iClientH);
 	void RequestSellItemListHandler(int iClientH, char * pData);
 	void RequestRestartHandler(int iClientH);

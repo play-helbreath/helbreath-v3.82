@@ -2075,7 +2075,7 @@ void CGame::RequestInitDataHandler(int iClientH, char * pData, char cKey)
 	}
 }
 
-CGame::iComposeInitMapData(short sX, short sY, int iClientH, char * pData)
+int CGame::iComposeInitMapData(short sX, short sY, int iClientH, char * pData)
 {register int * ip, ix, iy, iSize, iTileExists;
  class CTile * pTileSrc, * pTile;
  unsigned char ucHeader;
@@ -6734,7 +6734,7 @@ BOOL CGame::_bDecodePlayerDatafileContents(int iClientH, char * pData, DWORD dwS
 					// bCheckAndConvertPlusWeaponItem(iClientH, iItemIndex);
 					// Remove Type -1 items from client
 					if (m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_cItemType == DEF_ITEMTYPE_NOTUSED) 
-					{	iNotUsedItemPrice += abs(m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_wPrice);
+					{	iNotUsedItemPrice += fabs(m_pClientList[iClientH]->m_pItemList[iItemIndex]->m_wPrice);
 						delete m_pClientList[iClientH]->m_pItemList[iItemIndex];
 						m_pClientList[iClientH]->m_pItemList[iItemIndex] = NULL;
 						// Flag to tell client all items in bag
@@ -7252,7 +7252,7 @@ BOOL CGame::_bDecodePlayerDatafileContents(int iClientH, char * pData, DWORD dwS
 				
 				// Remove Type -1 items from client
 				if (m_pClientList[iClientH]->m_pItemInBankList[iItemInBankIndex]->m_cItemType == DEF_ITEMTYPE_NOTUSED) 
-				{	iNotUsedItemPrice += abs(m_pClientList[iClientH]->m_pItemInBankList[iItemInBankIndex]->m_wPrice);
+				{	iNotUsedItemPrice += fabs(m_pClientList[iClientH]->m_pItemInBankList[iItemInBankIndex]->m_wPrice);
 					delete m_pClientList[iClientH]->m_pItemInBankList[iItemInBankIndex];
 					m_pClientList[iClientH]->m_pItemInBankList[iItemInBankIndex] = NULL;
 				}else if (_bCheckDupItemID(m_pClientList[iClientH]->m_pItemInBankList[iItemInBankIndex]) == TRUE) 
@@ -11574,7 +11574,7 @@ void CGame::NpcBehavior_Attack(int iNpcH)
 				iMagicType = 0; // Magic Missile
 
 			if (iMagicType != -1) {
-				SendEventToNearClient_TypeA(iNpcH, DEF_OWNERTYPE_NPC, MSGID_EVENT_MOTION, DEF_OBJECTATTACK, m_pNpcList[iNpcH]->m_sX + _tmp_cTmpDirX[cDir], m_pNpcList[iNpcH]->m_sY + _tmp_cTmpDirY[cDir], 1); // 1 : Ä®µîÀÇ ±ÙÁ¢¹«±â·Î °ø°ÝÇÏ´Â ÀÇ¹Ì 
+				SendEventToNearClient_TypeA(iNpcH, DEF_OWNERTYPE_NPC, MSGID_EVENT_MOTION, DEF_OBJECTATTACK, m_pNpcList[iNpcH]->m_sX + _tmp_cTmpDirX[cDir], m_pNpcList[iNpcH]->m_sY + _tmp_cTmpDirY[cDir], 1); // 1 : Ä®µîÀÇ ±ÙÝ¢¹«±â·Î °ø°ÝÇÝ´Â ÀÇ¹Ì 
 				NpcMagicHandler(iNpcH, dX, dY, iMagicType);
 				m_pNpcList[iNpcH]->m_dwTime = dwTime + 2000; 
 				return;
@@ -35897,7 +35897,7 @@ Magic Sapphire: Completion rate / 10 = Functions rate.(%) ? Maximum 10%.*/
 				case 12: m_pClientList[iClientH]->m_iAddGold  += (int)dwSWEValue*10; break;
 				}
 				switch (dwSWEType) {
-				case 9: if (m_pClientList[iClientH]->m_iAddAbsMD > 80) m_pClientList[iClientH]->m_iAddAbsMD = 80; break; // ¸¶¹ý ´ë¹ÌÁö Èí¼ö ÃÖ´ë 80%
+				case 9: if (m_pClientList[iClientH]->m_iAddAbsMD > 80) m_pClientList[iClientH]->m_iAddAbsMD = 80; break; // ¸¶¹ý ´ë¹ÌÝö Èí¼ö ÃÖ´ë 80%
 				}
 			}
 			switch ( cEquipPos ) { // Sub-cases of DEF_ITEMEFFECTTYPE_DEFENSE
@@ -42172,7 +42172,8 @@ void CGame::ConfirmExchangeItem(int iClientH)
 			{	m_pClientList[iClientH]->m_bIsExchangeConfirm = TRUE;
 				if (m_pClientList[iExH]->m_bIsExchangeConfirm == TRUE) 
 				{	//Check all items
-					for(int i=0; i<m_pClientList[iClientH]->iExchangeCount; i++)
+          int i;
+					for(i=0; i<m_pClientList[iClientH]->iExchangeCount; i++)
 					{	if (   (m_pClientList[iClientH]->m_pItemList[m_pClientList[iClientH]->m_cExchangeItemIndex[i]] == NULL) 
 							|| (memcmp(m_pClientList[iClientH]->m_pItemList[m_pClientList[iClientH]->m_cExchangeItemIndex[i]]->m_cName, m_pClientList[iClientH]->m_cExchangeItemName[i], 20) != 0)) 
 						{	_ClearExchangeStatus(iClientH);
@@ -42429,7 +42430,7 @@ int CGame::_iTalkToNpcResult_Cityhall(int iClientH, int * pQuestType, int * pMod
 		else if (m_pQuestConfigList[m_pClientList[iClientH]->m_iQuest]->m_iFrom == 4) 
 		{	if (m_pClientList[iClientH]->m_bIsQuestCompleted == TRUE) 
 			{	if (   (m_pClientList[iClientH]->m_iQuestRewardType > 0)
-					&& (m_pItemConfigList[m_pClientList[iClientH]->m_iQuestRewardType] > 0) ) 					
+					&& (m_pItemConfigList[m_pClientList[iClientH]->m_iQuestRewardType] != NULL) ) 					
 				{	pItem = new class CItem;// Item reward
 					_bInitItemAttr(pItem, m_pItemConfigList[m_pClientList[iClientH]->m_iQuestRewardType]->m_cName);
 					pItem->m_dwCount = m_pClientList[iClientH]->m_iQuestRewardAmount;
@@ -44023,7 +44024,7 @@ BIH_LOOPBREAK:;
 				break;
 			}
 			bAddItem(iClientH, pItem, NULL);
-			SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_BUILDITEMSUCCESS, pItem->m_sItemSpecEffectValue2, pItem->m_cItemType, NULL, NULL); // Integer¸¦ Àü´ÞÇÏ±â À§ÇØ 
+			SendNotifyMsg(NULL, iClientH, DEF_NOTIFY_BUILDITEMSUCCESS, pItem->m_sItemSpecEffectValue2, pItem->m_cItemType, NULL, NULL); // Integer¸¦ Àü´ÞÇÝ±â À§ÇØ 
 
 #ifdef DEF_TAIWANLOG
 			_bItemLog(DEF_ITEMLOG_MAKE, iClientH, (int) -1, pItem);
@@ -45330,7 +45331,7 @@ void CGame::RequestRestartHandler(int iClientH)
 					m_pClientList[iClientH]->m_iDeadPenaltyTime = 60*10; // v2.04
 				}else 
 				{	memcpy(m_pClientList[iClientH]->m_cMapName, "resurr2", 7);
-					m_pClientList[iClientH]->m_iDeadPenaltyTime = 60*10; // v2.04 10ºÐ ¾È¿¡ ¶Ç Á×À¸¸é ¸¶À»¿¡ °®Èù´Ù.
+					m_pClientList[iClientH]->m_iDeadPenaltyTime = 60*10; // v2.04 10ºÝ ¾È¿¡ ¶Ç Ý×À¸¸é ¸¶À»¿¡ °®Èù´Ù.
 				}
 			}
 			// Not Crusade
@@ -45338,7 +45339,7 @@ void CGame::RequestRestartHandler(int iClientH)
 			if ((strcmp(cTmpMap, "aresden") == 0) && (!m_bMapModeEquilibrium))
 			{	memcpy(m_pClientList[iClientH]->m_cMapName, "arejail", 7);
 				strcpy(m_pClientList[iClientH]->m_cLockedMapName, "arejail");
-				m_pClientList[iClientH]->m_iLockedMapTime = 60*3 ; // 3ºÐ 
+				m_pClientList[iClientH]->m_iLockedMapTime = 60*3 ; // 3ºÝ 
 			}else if (m_pClientList[iClientH]->m_iLevel > 80)
 					memcpy(m_pClientList[iClientH]->m_cMapName, "resurr2", 7);
 				else memcpy(m_pClientList[iClientH]->m_cMapName, "elvfarm", 7);
@@ -53256,7 +53257,7 @@ BOOL CGame::bReadScheduleConfigFile(char *pFn)
 
 	pFile = fopen(pFn, "rt");
 	if (pFile == NULL) {
-		// °ÔÀÓ¼­¹öÀÇ ÃÊ±âÈ­ ÆÄÀÏÀ» ÀÐÀ» ¼ö ¾ø´Ù.
+		// °ÔÀÓ¼­¹öÀÇ ÃÊ±âÈ­ ÆÄÀÝÀ» ÀÝÀ» ¼ö ¾ø´Ù.
 		PutLogList("(!) Cannot open Schedule file.");
 		return FALSE;
 	}
@@ -53847,13 +53848,13 @@ void CGame::SetForceRecallTime(int iClientH)
 		}else 
 		{	GetLocalTime(&SysTime);
 			switch (SysTime.wDayOfWeek) {
-			case 1:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeMonday; break;  //¿ù¿äÀÏ  3ºÐ 2002-09-10 #1
-			case 2:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeTuesday; break;  //È­¿äÀÏ  3ºÐ 
-			case 3:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeWednesday; break;  //¼ö¿äÀÏ  3ºÐ 
-			case 4:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeThursday; break;  //¸ñ¿äÀÏ  3ºÐ 
-			case 5:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeFriday; break; //±Ý¿äÀÏ 15ºÐ
-			case 6:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSaturday; break; //Åä¿äÀÏ 45ºÐ 
-			case 0:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSunday; break; //ÀÏ¿äÀÏ 60ºÐ
+			case 1:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeMonday; break;  //¿ù¿äÀÝ  3ºÝ 2002-09-10 #1
+			case 2:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeTuesday; break;  //È­¿äÀÝ  3ºÝ 
+			case 3:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeWednesday; break;  //¼ö¿äÀÝ  3ºÝ 
+			case 4:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeThursday; break;  //¸ñ¿äÀÝ  3ºÝ 
+			case 5:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeFriday; break; //±Ý¿äÀÝ 15ºÝ
+			case 6:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSaturday; break; //Åä¿äÀÝ 45ºÝ 
+			case 0:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSunday; break; //ÀÝ¿äÀÝ 60ºÝ
 			}
 		}
 	}else  // if (m_pClientList[iClientH]->m_iTimeLeft_ForceRecall == 0) 
@@ -53862,13 +53863,13 @@ void CGame::SetForceRecallTime(int iClientH)
 		}else 
 		{	GetLocalTime(&SysTime);
 			switch (SysTime.wDayOfWeek) {
-			case 1:	iTL_ = 20*m_sRaidTimeMonday; break;  //¿ù¿äÀÏ  3ºÐ 2002-09-10 #1
-			case 2:	iTL_ = 20*m_sRaidTimeTuesday; break;  //È­¿äÀÏ  3ºÐ
-			case 3:	iTL_ = 20*m_sRaidTimeWednesday; break;  //¼ö¿äÀÏ  3ºÐ
-			case 4:	iTL_ = 20*m_sRaidTimeThursday; break;  //¸ñ¿äÀÏ  3ºÐ
-			case 5:	iTL_ = 20*m_sRaidTimeFriday; break; //±Ý¿äÀÏ 15ºÐ
-			case 6:	iTL_ = 20*m_sRaidTimeSaturday; break; //Åä¿äÀÏ 45ºÐ 
-			case 0:	iTL_ = 20*m_sRaidTimeSunday; break; //ÀÏ¿äÀÏ 60ºÐ
+			case 1:	iTL_ = 20*m_sRaidTimeMonday; break;  //¿ù¿äÀÝ  3ºÝ 2002-09-10 #1
+			case 2:	iTL_ = 20*m_sRaidTimeTuesday; break;  //È­¿äÀÝ  3ºÝ
+			case 3:	iTL_ = 20*m_sRaidTimeWednesday; break;  //¼ö¿äÀÝ  3ºÝ
+			case 4:	iTL_ = 20*m_sRaidTimeThursday; break;  //¸ñ¿äÀÝ  3ºÝ
+			case 5:	iTL_ = 20*m_sRaidTimeFriday; break; //±Ý¿äÀÝ 15ºÝ
+			case 6:	iTL_ = 20*m_sRaidTimeSaturday; break; //Åä¿äÀÝ 45ºÝ 
+			case 0:	iTL_ = 20*m_sRaidTimeSunday; break; //ÀÝ¿äÀÝ 60ºÝ
 			}
 		}
 		if (m_pClientList[iClientH]->m_iTimeLeft_ForceRecall > iTL_) 
@@ -53889,13 +53890,13 @@ void CGame::CheckForceRecallTime(int iClientH)
 		}else // use standard recall time calculations
 		{	GetLocalTime(&SysTime);	
 			switch(SysTime.wDayOfWeek) {
-			case 1:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeMonday; break;  //¿ù¿äÀÏ  3ºÐ 2002-09-10 #1
-			case 2:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeTuesday; break;  //È­¿äÀÏ  3ºÐ 
-			case 3:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeWednesday; break;  //¼ö¿äÀÏ  3ºÐ 
-			case 4:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeThursday; break;  //¸ñ¿äÀÏ  3ºÐ 
-			case 5:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeFriday; break; //±Ý¿äÀÏ 15ºÐ
-			case 6:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSaturday; break; //Åä¿äÀÏ 45ºÐ 
-			case 0:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSunday; break; //ÀÏ¿äÀÏ 60ºÐ
+			case 1:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeMonday; break;  //¿ù¿äÀÝ  3ºÝ 2002-09-10 #1
+			case 2:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeTuesday; break;  //È­¿äÀÝ  3ºÝ 
+			case 3:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeWednesday; break;  //¼ö¿äÀÝ  3ºÝ 
+			case 4:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeThursday; break;  //¸ñ¿äÀÝ  3ºÝ 
+			case 5:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeFriday; break; //±Ý¿äÀÝ 15ºÝ
+			case 6:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSaturday; break; //Åä¿äÀÝ 45ºÝ 
+			case 0:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSunday; break; //ÀÝ¿äÀÝ 60ºÝ
 			}
 		}
 	}else// has admin set a recall time ??
@@ -53904,13 +53905,13 @@ void CGame::CheckForceRecallTime(int iClientH)
 		}else // use standard recall time calculations		
 		{	GetLocalTime(&SysTime);
 			switch(SysTime.wDayOfWeek) {
-			case 1:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeMonday; break;  //¿ù¿äÀÏ  3ºÐ 2002-09-10 #1
-			case 2:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeTuesday; break;  //È­¿äÀÏ  3ºÐ 
-			case 3:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeWednesday; break;  //¼ö¿äÀÏ  3ºÐ 
-			case 4:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeThursday; break;  //¸ñ¿äÀÏ  3ºÐ 
-			case 5:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeFriday; break; //±Ý¿äÀÏ 15ºÐ
-			case 6:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSaturday; break; //Åä¿äÀÏ 45ºÐ 
-			case 0:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSunday; break; //ÀÏ¿äÀÏ 60ºÐ
+			case 1:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeMonday; break;  //¿ù¿äÀÝ  3ºÝ 2002-09-10 #1
+			case 2:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeTuesday; break;  //È­¿äÀÝ  3ºÝ 
+			case 3:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeWednesday; break;  //¼ö¿äÀÝ  3ºÝ 
+			case 4:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeThursday; break;  //¸ñ¿äÀÝ  3ºÝ 
+			case 5:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeFriday; break; //±Ý¿äÀÝ 15ºÝ
+			case 6:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSaturday; break; //Åä¿äÀÝ 45ºÝ 
+			case 0:	m_pClientList[iClientH]->m_iTimeLeft_ForceRecall = 20*m_sRaidTimeSunday; break; //ÀÝ¿äÀÝ 60ºÝ
 			}
 		}
 		if (m_pClientList[iClientH]->m_iTimeLeft_ForceRecall > iTL_) 
@@ -57173,7 +57174,7 @@ void CGame::Command_RedBall(int iClientH, char *pData,DWORD dwMsgSize)
 	for (i = 0; i < DEF_MAXITEMS; i++)
 	if (m_pClientList[iClientH]->m_pItemList[i] != NULL) {
 		switch (m_pClientList[iClientH]->m_pItemList[i]->m_sIDnum) {
-		case 652: iSoX++; iSoxH = i; break; // ½ºÅæ ¿Àºê Á¦¸®¸¶ 
+		case 652: iSoX++; iSoxH = i; break; // ½ºÅæ ¿Àºê Ý¦¸®¸¶ 
 		}
 	}
 	if (iSoX > 0) 			
@@ -57718,7 +57719,7 @@ void CGame::OpenCloseApocalypseGate()
 //**************************************************************************************
 void CGame::Notify_ApocalypseGateState(int iClientH)
 {	if (iClientH <= 0)	return;
-	if (m_pClientList[iClientH] <= 0)	return;
+	if (m_pClientList[iClientH] == NULL)	return;
 	if (m_pClientList[iClientH]->m_bIsInitComplete == FALSE) return;
 	int iMapIndex = m_pClientList[iClientH]->m_cMapIndex;
 	int gX, gY;
@@ -60500,7 +60501,7 @@ short itemeq;
 	for (i = 0; i < DEF_MAXITEMS; i++)
 	if (m_pClientList[iClientH]->m_pItemList[i] != NULL) {
 		switch (m_pClientList[iClientH]->m_pItemList[i]->m_sIDnum) {
-		case 652: iSoX++; iSoxH = i; break; // ½ºÅæ ¿Àºê Á¦¸®¸¶ 
+		case 652: iSoX++; iSoxH = i; break; // ½ºÅæ ¿Àºê Ý¦¸®¸¶ 
 	}	}
   dwTime = timeGetTime(); 
   if (m_pClientList[iClientH] == NULL) return; 
