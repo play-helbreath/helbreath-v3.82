@@ -54,25 +54,25 @@ CClient::CClient(HWND hWnd)
 
 	m_bIsSafeAttackMode  = FALSE;
 
-	// ¾ÆÀÌÅÛ ÀåÂø »óÅÂ ÃÊ±âÈ­ÇÑ ÈÄ ¼³Á¤ÇÑ´Ù.
+	// Â¾Ã†Ã€ÃŒÃ…Ã› Ã€Ã¥Ã‚Ã¸ Â»Ã³Ã…Ã‚ ÃƒÃŠÂ±Ã¢ÃˆÂ­Ã‡Ã‘ ÃˆÃ„ Â¼Â³ÃÂ¤Ã‡Ã‘Â´Ã™.
 	for (i = 0; i < DEF_MAXITEMEQUIPPOS; i++) 
 		m_sItemEquipmentStatus[i] = -1;
 	
-	// ¾ÆÀÌÅÛ ¸®½ºÆ® ÃÊ±âÈ­ 
+	// Â¾Ã†Ã€ÃŒÃ…Ã› Â¸Â®Â½ÂºÃ†Â® ÃƒÃŠÂ±Ã¢ÃˆÂ­ 
 	for (i = 0; i < DEF_MAXITEMS; i++) {
 		m_pItemList[i]       = NULL;
 		m_ItemPosList[i].x   = 40;
 		m_ItemPosList[i].y   = 30;
 		m_bIsItemEquipped[i] = FALSE;
 	}
-	m_cArrowIndex = -1;	// È­»ì ¾ÆÀÌÅÛ ÀÎµ¦½º´Â ÇÒ´çµÇÁö ¾ÊÀº »óÅÂ 
+	m_cArrowIndex = -1;	// ÃˆÂ­Â»Ã¬ Â¾Ã†Ã€ÃŒÃ…Ã› Ã€ÃÂµÂ¦Â½ÂºÂ´Ã‚ Ã‡Ã’Â´Ã§ÂµÃ‡ÃÃ¶ Â¾ÃŠÃ€Âº Â»Ã³Ã…Ã‚ 
 
-	// ¸Ã°Ü³í ¾ÆÀÌÅÛ ¸®½ºÆ® ÃÊ±âÈ­.
+	// Â¸ÃƒÂ°ÃœÂ³Ã­ Â¾Ã†Ã€ÃŒÃ…Ã› Â¸Â®Â½ÂºÃ†Â® ÃƒÃŠÂ±Ã¢ÃˆÂ­.
 	for (i = 0; i < DEF_MAXBANKITEMS; i++) {
 		m_pItemInBankList[i] = NULL;
 	}
 
-	// Magic - Skill ¼÷·Ãµµ ¸®½ºÆ® ÃÊ±âÈ­ 
+	// Magic - Skill Â¼Ã·Â·ÃƒÂµÂµ Â¸Â®Â½ÂºÃ†Â® ÃƒÃŠÂ±Ã¢ÃˆÂ­ 
 	for (i = 0; i < DEF_MAXMAGICTYPE; i++)
 		m_cMagicMastery[i] = NULL;
 	
@@ -104,14 +104,14 @@ CClient::CClient(HWND hWnd)
 	m_cHairColor  = 0;
 	m_cUnderwear  = 0;
 
-	m_cAttackDiceThrow_SM = 0;	// °ø°İÄ¡ ÁÖ»çÀ§ ´øÁö´Â È¸¼ö @@@@@@@@@@@@@
+	m_cAttackDiceThrow_SM = 0;	// Â°Ã¸Â°ÃÃ„Â¡ ÃÃ–Â»Ã§Ã€Â§ Â´Ã¸ÃÃ¶Â´Ã‚ ÃˆÂ¸Â¼Ã¶ @@@@@@@@@@@@@
 	m_cAttackDiceRange_SM = 0;
-	m_cAttackDiceThrow_L = 0;	// °ø°İÄ¡ ÁÖ»çÀ§ ´øÁö´Â È¸¼ö @@@@@@@@@@@@@
+	m_cAttackDiceThrow_L = 0;	// Â°Ã¸Â°ÃÃ„Â¡ ÃÃ–Â»Ã§Ã€Â§ Â´Ã¸ÃÃ¶Â´Ã‚ ÃˆÂ¸Â¼Ã¶ @@@@@@@@@@@@@
 	m_cAttackDiceRange_L = 0;
 	m_cAttackBonus_SM    = 0;
 	m_cAttackBonus_L     = 0;
 	
-	// ÇÃ·¹ÀÌ¾îÀÇ ¼Ò¼Ó ¸¶À»¿¡ µû¶ó¼­ »çÀÌµå°¡ °áÁ¤µÇ¸ç ÀÌ°ÍÀ» º¸°í NPC°¡ °ø°İ¿©ºÎ¸¦ °áÁ¤ÇÒ °ÍÀÌ´Ù. 
+	// Ã‡ÃƒÂ·Â¹Ã€ÃŒÂ¾Ã®Ã€Ã‡ Â¼Ã’Â¼Ã“ Â¸Â¶Ã€Â»Â¿Â¡ ÂµÃ»Â¶Ã³Â¼Â­ Â»Ã§Ã€ÃŒÂµÃ¥Â°Â¡ Â°Ã¡ÃÂ¤ÂµÃ‡Â¸Ã§ Ã€ÃŒÂ°ÃÃ€Â» ÂºÂ¸Â°Ã­ NPCÂ°Â¡ Â°Ã¸Â°ÃÂ¿Â©ÂºÃÂ¸Â¦ Â°Ã¡ÃÂ¤Ã‡Ã’ Â°ÃÃ€ÃŒÂ´Ã™. 
 	m_cSide = 0;
 
 	m_iHitRatio = 0;
@@ -178,7 +178,7 @@ CClient::CClient(HWND hWnd)
 	m_iSuperAttackLeft  = 0;
 	m_iSuperAttackCount = 0;
 
-	m_sUsingWeaponSkill = 5; // ±âº»ÀûÀ¸·Î ¸Ç¼Õ°İÅõ 
+	m_sUsingWeaponSkill = 5; // Â±Ã¢ÂºÂ»Ã€Ã»Ã€Â¸Â·Ã Â¸Ã‡Â¼Ã•Â°ÃÃ…Ãµ 
 
 	m_iManaSaveRatio   = 0;
 	m_iAddResistMagic  = 0;
@@ -187,7 +187,7 @@ CClient::CClient(HWND hWnd)
 	m_bIsLuckyEffect     = 0;
 	m_iSideEffect_MaxHPdown = 0;
 
-	m_iAddAbsAir   = 0;	// ¼Ó¼ºº° ´ë¹ÌÁö Èí¼ö
+	m_iAddAbsAir   = 0;	// Â¼Ã“Â¼ÂºÂºÂ° Â´Ã«Â¹ÃŒÃÃ¶ ÃˆÃ­Â¼Ã¶
 	m_iAddAbsEarth = 0;
 	m_iAddAbsFire  = 0;
 	m_iAddAbsWater = 0;
@@ -226,32 +226,32 @@ CClient::CClient(HWND hWnd)
 	m_bIsBWMonitor    = FALSE;
 	m_bIsExchangeMode = FALSE;
 
-	// v1.4311-3 Ãß°¡ º¯¼ö ÃÊ±âÈ­ »çÅõÀå ¿¹¾à °ü·Ã º¯¼ö 
+	// v1.4311-3 ÃƒÃŸÂ°Â¡ ÂºÂ¯Â¼Ã¶ ÃƒÃŠÂ±Ã¢ÃˆÂ­ Â»Ã§Ã…ÃµÃ€Ã¥ Â¿Â¹Â¾Ã  Â°Ã¼Â·Ãƒ ÂºÂ¯Â¼Ã¶ 
     m_iFightZoneTicketNumber =	m_iFightzoneNumber = m_iReserveTime = 0 ;            
 
 	m_iPenaltyBlockYear = m_iPenaltyBlockMonth = m_iPenaltyBlockDay = 0; // v1.4
 
-	m_iExchangeH = NULL;											// ±³È¯ÇÒ ´ë»óÀÇ ÀÎµ¦½º 
-	ZeroMemory(m_cExchangeName, sizeof(m_cExchangeName));			// ±³È¯ÇÒ ´ë»óÀÇ ÀÌ¸§ 
-	ZeroMemory(m_cExchangeItemName, sizeof(m_cExchangeItemName));	// ±³È¯ÇÒ ¾ÆÀÌÅÛ ÀÌ¸§ 
+	m_iExchangeH = NULL;											// Â±Â³ÃˆÂ¯Ã‡Ã’ Â´Ã«Â»Ã³Ã€Ã‡ Ã€ÃÂµÂ¦Â½Âº 
+	ZeroMemory(m_cExchangeName, sizeof(m_cExchangeName));			// Â±Â³ÃˆÂ¯Ã‡Ã’ Â´Ã«Â»Ã³Ã€Ã‡ Ã€ÃŒÂ¸Â§ 
+	ZeroMemory(m_cExchangeItemName, sizeof(m_cExchangeItemName));	// Â±Â³ÃˆÂ¯Ã‡Ã’ Â¾Ã†Ã€ÃŒÃ…Ã› Ã€ÃŒÂ¸Â§ 
 
 	m_bIsExchangeConfirm = FALSE;
 	for(i=0; i<4; i++){
-		m_cExchangeItemIndex[i]  = -1; // ±³È¯ÇÒ ¾ÆÀÌÅÛ ÀÎµ¦½º 
-		m_iExchangeItemAmount[i] = 0;  // ±³È¯ÇÒ ¾ÆÀÌÅÛ °¹¼ö 
+		m_cExchangeItemIndex[i]  = -1; // Â±Â³ÃˆÂ¯Ã‡Ã’ Â¾Ã†Ã€ÃŒÃ…Ã› Ã€ÃÂµÂ¦Â½Âº 
+		m_iExchangeItemAmount[i] = 0;  // Â±Â³ÃˆÂ¯Ã‡Ã’ Â¾Ã†Ã€ÃŒÃ…Ã› Â°Â¹Â¼Ã¶ 
 	}
 
 
-	m_iQuest		 = NULL; // ÇöÀç ÇÒ´çµÈ Quest 
+	m_iQuest		 = NULL; // Ã‡Ã¶Ã€Ã§ Ã‡Ã’Â´Ã§ÂµÃˆ Quest 
 	m_iQuestID       = NULL; // QuestID
-	m_iAskedQuest	 = NULL; // ¹°¾îº» Äù½ºÆ® 
-	m_iCurQuestCount = NULL; // ÇöÀç Äù½ºÆ® »óÅÂ 
+	m_iAskedQuest	 = NULL; // Â¹Â°Â¾Ã®ÂºÂ» Ã„Ã¹Â½ÂºÃ†Â® 
+	m_iCurQuestCount = NULL; // Ã‡Ã¶Ã€Ã§ Ã„Ã¹Â½ÂºÃ†Â® Â»Ã³Ã…Ã‚ 
 
-	m_iQuestRewardType	 = NULL; // Äù½ºÆ® ÇØ°á½Ã »óÇ° Á¾·ù -> ¾ÆÀÌÅÛÀÇ ID°ªÀÌ´Ù.
-	m_iQuestRewardAmount = NULL; // »óÇ° °¹¼ö 
+	m_iQuestRewardType	 = NULL; // Ã„Ã¹Â½ÂºÃ†Â® Ã‡Ã˜Â°Ã¡Â½Ãƒ Â»Ã³Ã‡Â° ÃÂ¾Â·Ã¹ -> Â¾Ã†Ã€ÃŒÃ…Ã›Ã€Ã‡ IDÂ°ÂªÃ€ÃŒÂ´Ã™.
+	m_iQuestRewardAmount = NULL; // Â»Ã³Ã‡Â° Â°Â¹Â¼Ã¶ 
 
-	m_iContribution = NULL;			// °øÇåµµ 
-	m_bQuestMatchFlag_Loc = FALSE;  // Äù½ºÆ® Àå¼Ò È®ÀÎ¿ë ÇÃ·¡±×.
+	m_iContribution = NULL;			// Â°Ã¸Ã‡Ã¥ÂµÂµ 
+	m_bQuestMatchFlag_Loc = FALSE;  // Ã„Ã¹Â½ÂºÃ†Â® Ã€Ã¥Â¼Ã’ ÃˆÂ®Ã€ÃÂ¿Ã« Ã‡ÃƒÂ·Â¡Â±Ã—.
 	m_bIsQuestCompleted   = FALSE;
 
 	m_cHeroArmourBonus = 0;
@@ -260,7 +260,7 @@ CClient::CClient(HWND hWnd)
 	m_bIsObserverMode = FALSE;
 	m_cDiscount		  = 0;
 
-	// 2000.8.1 ÀÌº¥Æ® »óÇ° ¼ö¿© È®ÀÎ¿ë 
+	// 2000.8.1 Ã€ÃŒÂºÂ¥Ã†Â® Â»Ã³Ã‡Â° Â¼Ã¶Â¿Â© ÃˆÂ®Ã€ÃÂ¿Ã« 
 	m_iSpecialEventID = 200081;
 
 	m_iSpecialWeaponEffectType  = 0;	// 

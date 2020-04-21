@@ -21,11 +21,11 @@ D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(17273):     if ((msX >= sX + 2
 D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(19961):   if ((msX >= sX + 240) && (msX <= sX + 260) && (msY >= sY + 40) && (msY <= sY + 320)) {
 D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(20193):   if ((msX >= sX + 240) && (msX <= sX + 260) && (msY >= sY + 40) && (msY <= sY + 320)) {
 D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(21245):  else if( iLoc > 320 ) iLoc = 10;
-D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(28434):  PutAlignedString(98, 357, 320 +15,  UPDATE_SCREEN_ON_SELECT_CHARACTER3);//"¿£ÅÍÅ°¸¦ ´©¸£°Å³ª Ä¿¼·Î Å¬¸¯ÇØµµ"
-D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(28448):  PutAlignedString(98, 357, 320 +15,  UPDATE_SCREEN_ON_SELECT_CHARACTER9);//"30·¹º§ ÀÌ»óÀÇ Ä³¸¯ÅÍ¸¦ Áö¿ï·Á¸é ¿î¿µÀÚ¿¡°Ô"
-D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(28484):   PutAlignedString(98, 357, 320 +15,  UPDATE_SCREEN_ON_SELECT_CHARACTER17);//"»ó´ÜÀÇ New Character ¹öÆ°À» ´·¯ »õ·Î¿î"
-D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(28491):   PutAlignedString(98, 357, 320 +15,  UPDATE_SCREEN_ON_SELECT_CHARACTER22);//"Ä³¸¯ÅÍ¸¦ »èÁ¦ÇÏ°íÀÚ ÇÑ´Ù¸é Ä³¸¯ÅÍ¸¦"
-D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(28498):   PutAlignedString(98, 357, 320 +15,  UPDATE_SCREEN_ON_SELECT_CHARACTER27);//"Delete Character¹öÆ°À» ´·¯ ¼±ÅÃµÈ"
+D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(28434):  PutAlignedString(98, 357, 320 +15,  UPDATE_SCREEN_ON_SELECT_CHARACTER3);//"Â¿Â£Ã…ÃÃ…Â°Â¸Â¦ Â´Â©Â¸Â£Â°Ã…Â³Âª Ã„Â¿Â¼Â·ÃŽ Ã…Â¬Â¸Â¯Ã‡Ã˜ÂµÂµ"
+D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(28448):  PutAlignedString(98, 357, 320 +15,  UPDATE_SCREEN_ON_SELECT_CHARACTER9);//"30Â·Â¹ÂºÂ§ Ã€ÃŒÂ»Ã³Ã€Ã‡ Ã„Â³Â¸Â¯Ã…ÃÂ¸Â¦ ÃÃ¶Â¿Ã¯Â·ÃÂ¸Ã© Â¿Ã®Â¿ÂµÃ€ÃšÂ¿Â¡Â°Ã”"
+D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(28484):   PutAlignedString(98, 357, 320 +15,  UPDATE_SCREEN_ON_SELECT_CHARACTER17);//"Â»Ã³Â´ÃœÃ€Ã‡ New Character Â¹Ã¶Ã†Â°Ã€Â» Â´Â·Â¯ Â»ÃµÂ·ÃŽÂ¿Ã®"
+D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(28491):   PutAlignedString(98, 357, 320 +15,  UPDATE_SCREEN_ON_SELECT_CHARACTER22);//"Ã„Â³Â¸Â¯Ã…ÃÂ¸Â¦ Â»Ã¨ÃÂ¦Ã‡ÃÂ°Ã­Ã€Ãš Ã‡Ã‘Â´Ã™Â¸Ã© Ã„Â³Â¸Â¯Ã…ÃÂ¸Â¦"
+D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(28498):   PutAlignedString(98, 357, 320 +15,  UPDATE_SCREEN_ON_SELECT_CHARACTER27);//"Delete CharacterÂ¹Ã¶Ã†Â°Ã€Â» Â´Â·Â¯ Â¼Â±Ã…ÃƒÂµÃˆ"
 D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(31904):  pMI->AddRect(197, 320, 197 + DEF_BTNSZX, 320 + DEF_BTNSZY);
 D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(31905):  pMI->AddRect(370, 320, 370 + DEF_BTNSZX, 320 + DEF_BTNSZY);
 D:\Clerophy\Work\Helbreath\Snoopy\Client\Game.cpp(32108):   m_pSprite[DEF_SPRID_INTERFACE_ND_BUTTON]->PutSpriteFast(197, 320, 21, dwTime);

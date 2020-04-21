@@ -2,7 +2,7 @@
 "effect2"  ,  10,  3, FALSE);
 "effect3"  ,  13,  6, FALSE);
 "effect4"  ,  19,  5, FALSE);
-"effect5"  ,  24, 7, n°0 = Energy sphere 
+"effect5"  ,  24, 7, nÂ°0 = Energy sphere 
 "CruEffect1", 31,  9, FALSE);
 "effect6"  ,  40,  5, FALSE);
 "effect7"  ,  45, 12, FALSE);

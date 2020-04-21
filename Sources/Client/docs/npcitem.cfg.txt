@@ -44,7 +44,7 @@ while( token != NULL ) {
    switch (cReadModeB) {
 
    case 1:
-    // NPC ÀÌ¸§
+    // NPC Ã€ÃŒÂ¸Â§
     if (strlen(token) > 20) {
      PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - Too long Npc name.");
      delete pContents;
@@ -71,7 +71,7 @@ while( token != NULL ) {
 
    case 2:
     // 2002-09-17 #1
-    // npcitem type ¼³Á¤
+    // npcitem type Â¼Â³ÃÂ¤
     if( strlen(token) > 2 ) {
      PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - Type Error.");
      delete pContents;
@@ -85,7 +85,7 @@ while( token != NULL ) {
     break;
 
    case 3:
-    // ¾ÆÀÌÅÛ ÀÌ¸§ 
+    // Â¾Ã†Ã€ÃŒÃ…Ã› Ã€ÃŒÂ¸Â§ 
     if (strlen(token) > 20) {
      PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - Too long Item name.");
      delete pContents;
@@ -110,9 +110,9 @@ while( token != NULL ) {
     
     strcpy(pTempNpcItem->m_cName, token);
 
-    // 2002-09-09 #1 NPCITEM List ¿¡ ID¸¦ Ãß°¡ÇÑ´Ù.
-    // ÁÖÀÇ : ITEM List°¡ NPCITEM List º¸´Ù ¸ÕÀú WLS¿¡¼º¸³»Á®¾ß ÇÑ´Ù.
-    if( !m_bReceivedItemList ) // ITEM List°¡ ¿ÀÁö ¾Ê¾Ò´Ù.
+    // 2002-09-09 #1 NPCITEM List Â¿Â¡ IDÂ¸Â¦ ÃƒÃŸÂ°Â¡Ã‡Ã‘Â´Ã™.
+    // ÃÃ–Ã€Ã‡ : ITEM ListÂ°Â¡ NPCITEM List ÂºÂ¸Â´Ã™ Â¸Ã•Ã€Ãº WLSÂ¿Â¡Â¼ÂºÂ¸Â³Â»ÃÂ®Â¾ÃŸ Ã‡Ã‘Â´Ã™.
+    if( !m_bReceivedItemList ) // ITEM ListÂ°Â¡ Â¿Ã€ÃÃ¶ Â¾ÃŠÂ¾Ã’Â´Ã™.
     {
      PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration error - Before Item List receiving.");
      delete pContents;
@@ -144,7 +144,7 @@ while( token != NULL ) {
     break;
 
    case 4:
-    // Ã¹¹øÂ° È®·ü
+    // ÃƒÂ¹Â¹Ã¸Ã‚Â° ÃˆÂ®Â·Ã¼
     if (_bGetIsStringIsNumber(token) == FALSE) {
      PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - Wrong Data format.");
      delete pContents;
@@ -160,7 +160,7 @@ while( token != NULL ) {
      return FALSE; 
     }
 
-    // Ã¹¹øÂ° È®·ü¿¡ ´ëÇÑ Å¸°Ù°ªÀ» ÀÓÀÇ·Î ÁØ´Ù. 
+    // ÃƒÂ¹Â¹Ã¸Ã‚Â° ÃˆÂ®Â·Ã¼Â¿Â¡ Â´Ã«Ã‡Ã‘ Ã…Â¸Â°Ã™Â°ÂªÃ€Â» Ã€Ã“Ã€Ã‡Â·ÃŽ ÃÃ˜Â´Ã™. 
     if ( pTempNpcItem->m_sFirstProbability > 13) 
      pTempNpcItem->m_cFirstTargetValue = 13;
     else if ( pTempNpcItem->m_sFirstProbability > 3) 
@@ -172,7 +172,7 @@ while( token != NULL ) {
     break;
 
    case 5:
-    // µÎ¹øÂ° È®·ü
+    // ÂµÃŽÂ¹Ã¸Ã‚Â° ÃˆÂ®Â·Ã¼
     if (_bGetIsStringIsNumber(token) == FALSE) {
      PutLogList("(!!!) CRITICAL ERROR! NPCITEM configuration file error - Wrong Data format.");
      delete pContents;
@@ -189,7 +189,7 @@ while( token != NULL ) {
      return FALSE; 
     }
 
-    // µÎ¹øÂ° È®·ü¿¡ ´ëÇÑ Å¸°Ù°ªÀ» ÀÓÀÇ·Î ÁØ´Ù. 
+    // ÂµÃŽÂ¹Ã¸Ã‚Â° ÃˆÂ®Â·Ã¼Â¿Â¡ Â´Ã«Ã‡Ã‘ Ã…Â¸Â°Ã™Â°ÂªÃ€Â» Ã€Ã“Ã€Ã‡Â·ÃŽ ÃÃ˜Â´Ã™. 
     if ( pTempNpcItem->m_sSecondProbability > 13) 
      pTempNpcItem->m_cSecondTargetValue = 13;
     else if ( pTempNpcItem->m_sSecondProbability > 3) 
@@ -199,10 +199,10 @@ while( token != NULL ) {
 
     cReadModeB = 3;
   
-    // vector¿¡ ÇöÀç ±îÁö ÀÐ¾î µå¸° °ªÀ» ³Ö´Â´Ù. 
+    // vectorÂ¿Â¡ Ã‡Ã¶Ã€Ã§ Â±Ã®ÃÃ¶ Ã€ÃÂ¾Ã® ÂµÃ¥Â¸Â° Â°ÂªÃ€Â» Â³Ã–Â´Ã‚Â´Ã™. 
     m_pNpcConfigList[iNpcConfigListIndex]->m_vNpcItem.push_back(*pTempNpcItem);
 
-    // 2002-09-17 #1 NPCITEM Type 2ÀÏ °æ¿ì
+    // 2002-09-17 #1 NPCITEM Type 2Ã€Ã Â°Ã¦Â¿Ã¬
     if( m_pNpcConfigList[iNpcConfigListIndex]->m_iNpcitemMax < pTempNpcItem->m_sSecondProbability )
      m_pNpcConfigList[iNpcConfigListIndex]->m_iNpcitemMax = pTempNpcItem->m_sSecondProbability;
 
@@ -264,7 +264,7 @@ if( m_pNpcConfigList[iNpcIndex]->m_vNpcItem.size() <=  0 )  return FALSE;
 switch( m_pNpcConfigList[iNpcIndex]->m_iNpcitemType )
 {
 case 1:
- // ¼³Á¤ ÆÄÀÏÀÇ ¿©·¯ °³ÀÇ ¾ÆÀÌÅÛ Áß ÇÏ³ª¸¦ °í¸¥´Ù.
+ // Â¼Â³ÃÂ¤ Ã†Ã„Ã€ÃÃ€Ã‡ Â¿Â©Â·Â¯ Â°Â³Ã€Ã‡ Â¾Ã†Ã€ÃŒÃ…Ã› ÃÃŸ Ã‡ÃÂ³ÂªÂ¸Â¦ Â°Ã­Â¸Â¥Â´Ã™.
  iResult = iDice( 1, m_pNpcConfigList[iNpcIndex]->m_vNpcItem.size() ) - 1;
 
  CTempNpcItem = m_pNpcConfigList[iNpcIndex]->m_vNpcItem.at(iResult);

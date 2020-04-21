@@ -72,26 +72,26 @@
 #define DEF_AFKTIME					300000 // 5 minutes
 #define MAX_HELDENIANTOWER			200
 
-#define DEF_EXPSTOCKTIME		1000*10		// ExpStockÀ» °è»êÇÏ´Â ½Ã°£ °£°İ 
-#define DEF_MSGQUENESIZE		100000		// ¸Ş½ÃÁö Å¥ »çÀÌÁî 10¸¸°³ 
-#define DEF_AUTOEXPTIME			1000*60*6	// ÀÚµ¿À¸·Î °æÇèÄ¡°¡ ¿Ã¶ó°¡´Â ½Ã°£°£°İ 
-#define DEF_TOTALLEVELUPPOINT	3			// ·¹º§¾÷½Ã ÇÒ´çÇÏ´Â ÃÑ Æ÷ÀÎÆ® ¼ö 
+#define DEF_EXPSTOCKTIME		1000*10		// ExpStockÃ€Â» Â°Ã¨Â»ÃªÃ‡ÃÂ´Ã‚ Â½ÃƒÂ°Â£ Â°Â£Â°Ã 
+#define DEF_MSGQUENESIZE		100000		// Â¸ÃÂ½ÃƒÃÃ¶ Ã…Â¥ Â»Ã§Ã€ÃŒÃÃ® 10Â¸Â¸Â°Â³ 
+#define DEF_AUTOEXPTIME			1000*60*6	// Ã€ÃšÂµÂ¿Ã€Â¸Â·Ã Â°Ã¦Ã‡Ã¨Ã„Â¡Â°Â¡ Â¿ÃƒÂ¶Ã³Â°Â¡Â´Ã‚ Â½ÃƒÂ°Â£Â°Â£Â°Ã 
+#define DEF_TOTALLEVELUPPOINT	3			// Â·Â¹ÂºÂ§Â¾Ã·Â½Ãƒ Ã‡Ã’Â´Ã§Ã‡ÃÂ´Ã‚ ÃƒÃ‘ Ã†Ã·Ã€ÃÃ†Â® Â¼Ã¶ 
 
 
 #define DEF_MAXDYNAMICOBJECTS	60000
 #define DEF_MAXDELAYEVENTS		60000
 #define DEF_GUILDSTARTRANK		12
 
-#define DEF_SSN_LIMIT_MULTIPLY_VALUE	2	// SSN-limit °öÇÏ´Â ¼ö 
+#define DEF_SSN_LIMIT_MULTIPLY_VALUE	2	// SSN-limit Â°Ã¶Ã‡ÃÂ´Ã‚ Â¼Ã¶ 
 
-#define DEF_MAXNOTIFYMSGS		300			// ÃÖ´ë °øÁö»çÇ× ¸Ş½ÃÁö 
-#define DEF_MAXSKILLPOINTS		700			// ½ºÅ³ Æ÷ÀÎÆ®ÀÇ ÃÑÇÕ 
+#define DEF_MAXNOTIFYMSGS		300			// ÃƒÃ–Â´Ã« Â°Ã¸ÃÃ¶Â»Ã§Ã‡Ã— Â¸ÃÂ½ÃƒÃÃ¶ 
+#define DEF_MAXSKILLPOINTS		700			// Â½ÂºÃ…Â³ Ã†Ã·Ã€ÃÃ†Â®Ã€Ã‡ ÃƒÃ‘Ã‡Ã• 
 #define DEF_NIGHTTIME			40
 
-#define DEF_CHARPOINTLIMIT		1000		// °¢°¢ÀÇ Æ¯¼ºÄ¡ÀÇ ÃÖ´ë°ª 
+#define DEF_CHARPOINTLIMIT		1000		// Â°Â¢Â°Â¢Ã€Ã‡ Ã†Â¯Â¼ÂºÃ„Â¡Ã€Ã‡ ÃƒÃ–Â´Ã«Â°Âª 
 #define DEF_RAGPROTECTIONTIME	7000		// Snoopy: was 7000, increased and stopped the protection if moving/casting
 #define DEF_LOGPROTECTIONTIME	20000		// Snoopy: protection on connect
-#define DEF_MAXREWARDGOLD		99999999	// Æ÷»ó±İ ÃÖ´ëÄ¡ 
+#define DEF_MAXREWARDGOLD		99999999	// Ã†Ã·Â»Ã³Â±Ã ÃƒÃ–Â´Ã«Ã„Â¡ 
 
 #define DEF_ATTACKAI_EXCHANGEATTACK		1	// switch target: runner
 #define DEF_ATTACKAI_TWOBYONEATTACK		2	//				  1/2 runner
@@ -99,16 +99,16 @@
 #define DEF_ATTACKAI_NORMAL				4	// Normal, this is the default setting as well
 
 #define DEF_ATTACKAI_CHANGING			7	// Starts Normal then change to random AI when seriouslly wounded
-#define DEF_ATTACKAI_CLOSEATTACK1		8	// Strike as well at 90° or 45°
-#define DEF_ATTACKAI_CLOSEATTACK2		9	// Strike as well at 90° or 45°
-#define DEF_ATTACKAI_ANGLEATTACK		10	// Prefers strike at 45°
+#define DEF_ATTACKAI_CLOSEATTACK1		8	// Strike as well at 90Â° or 45Â°
+#define DEF_ATTACKAI_CLOSEATTACK2		9	// Strike as well at 90Â° or 45Â°
+#define DEF_ATTACKAI_ANGLEATTACK		10	// Prefers strike at 45Â°
 #define DEF_ATTACKAI_FARATTACK			11	// Prefers strike a far attacker
 #define DEF_ATTACKAI_MAGEKILLER			12	// Search for another target, in range, but as far as possible.
 
 #define DEF_MAXFISHS					200
 #define DEF_MAXMINERALS					200
 #define	DEF_MAXCROPS					200
-#define DEF_MAXENGAGINGFISH				30  // ÇÑ ¹°°í±â¿¡ ³¬½Ã¸¦ ½ÃµµÇÒ ¼ö ÀÖ´Â ÃÖ´ë ÀÎ¿ø 
+#define DEF_MAXENGAGINGFISH				30  // Ã‡Ã‘ Â¹Â°Â°Ã­Â±Ã¢Â¿Â¡ Â³Â¬Â½ÃƒÂ¸Â¦ Â½ÃƒÂµÂµÃ‡Ã’ Â¼Ã¶ Ã€Ã–Â´Ã‚ ÃƒÃ–Â´Ã« Ã€ÃÂ¿Ã¸ 
 #define DEF_MAXPORTIONTYPES				500 // Also used for Crating
 #define DEF_MAXTELEPORTLIST				20
 
@@ -612,9 +612,9 @@ public:
 	BOOL bDeleteFish(int iHandle, int iDelMode);
 	int  iCreateFish(char cMapIndex, short sX, short sY, short sDifficulty, class CItem * pItem, int iDifficulty, DWORD dwLastTime);
 	void UserCommand_DissmissGuild(int iClientH, char * pData, DWORD dwMsgSize);
-	// v1.4311-3 º¯°æ ÇÔ¼ö ¼±¾ğ  Expire -> Ban À¸·Î 
+	// v1.4311-3 ÂºÂ¯Â°Ã¦ Ã‡Ã”Â¼Ã¶ Â¼Â±Â¾Ã°  Expire -> Ban Ã€Â¸Â·Ã 
 	void UserCommand_BanGuildsman(int iClientH, char * pData, DWORD dwMsgSize);
-	// v1.4311-3 Ãß°¡ ÇÔ¼ö ¼±¾ğ ÀÌº¥Æ®¸¦ ´ëºñÇÏ¿© ¿î¿µÀÚ°¡ »çÅõÀåÀ» ¿¹¾àÇØ³õ´Â´Ù.
+	// v1.4311-3 ÃƒÃŸÂ°Â¡ Ã‡Ã”Â¼Ã¶ Â¼Â±Â¾Ã° Ã€ÃŒÂºÂ¥Ã†Â®Â¸Â¦ Â´Ã«ÂºÃ±Ã‡ÃÂ¿Â© Â¿Ã®Â¿ÂµÃ€ÃšÂ°Â¡ Â»Ã§Ã…ÃµÃ€Ã¥Ã€Â» Â¿Â¹Â¾Ã Ã‡Ã˜Â³ÃµÂ´Ã‚Â´Ã™.
 	int iGetExpLevel(int iExp);
 	void ___RestorePlayerRating(int iClientH);
 	void CalcExpStock(int iClientH);
@@ -705,7 +705,7 @@ public:
 	BOOL bCheckLimitedUser(int iClientH);
 	BOOL bCheckPLRaider(int iClientH);
 	void LevelUpSettingsHandler(int iClientH, char * pData, DWORD dwMsgSize);
-	// v1.4311-3 ¼±¾ğ ÇÔ¼ö  »çÅõÀå ¿¹¾à ÇÔ¼ö ¼±¾ğ FightzoneReserveHandler
+	// v1.4311-3 Â¼Â±Â¾Ã° Ã‡Ã”Â¼Ã¶  Â»Ã§Ã…ÃµÃ€Ã¥ Â¿Â¹Â¾Ã  Ã‡Ã”Â¼Ã¶ Â¼Â±Â¾Ã° FightzoneReserveHandler
 	void FightzoneReserveHandler(int iClientH, char * pData, DWORD dwMsgSize);
 	BOOL bCheckLevelUp(int iClientH);
 	int iGetLevelExp(int iLevel);
@@ -876,9 +876,9 @@ public:
 	void OnClientSocketEvent(UINT message, WPARAM wParam, LPARAM lParam);
 	BOOL bAccept(class XSocket * pXSock);
 	BOOL bAcceptPing(class XSocket * pXSock);
-	// v1.4311-3 ÇÔ¼ö ¼±¾ğ ÀÔÀå±Ç ¹Ş´Â ÇÔ¼ö .. void GetFightzoneTicketHandler(int iClientH);
+	// v1.4311-3 Ã‡Ã”Â¼Ã¶ Â¼Â±Â¾Ã° Ã€Ã”Ã€Ã¥Â±Ã‡ Â¹ÃÂ´Ã‚ Ã‡Ã”Â¼Ã¶ .. void GetFightzoneTicketHandler(int iClientH);
 	void GetFightzoneTicketHandler(int iClientH);
-	// v1.4311-3 2 ½Ã°£¸¶´Ù »çÅõÀå ¿¹¾àÀ» ÃÊ±âÈ­ ½ÃÅ²´Ù.
+	// v1.4311-3 2 Â½ÃƒÂ°Â£Â¸Â¶Â´Ã™ Â»Ã§Ã…ÃµÃ€Ã¥ Â¿Â¹Â¾Ã Ã€Â» ÃƒÃŠÂ±Ã¢ÃˆÂ­ Â½ÃƒÃ…Â²Â´Ã™.
 	void FightzoneReserveProcessor() ;
 
 	// New 06/05/2004
@@ -1029,12 +1029,12 @@ public:
 	int   m_iElvineOccupyTiles;
 	int   m_iCurMsgs, m_iMaxMsgs;
 
-	// v1.4311-3 º¯¼ö ¼±¾ğ  ¿¹¾àµÈ ½Ã°£À» °¡Áö´Â º¯¼ö DWORD m_dwCanFightzoneReserveTime 
+	// v1.4311-3 ÂºÂ¯Â¼Ã¶ Â¼Â±Â¾Ã°  Â¿Â¹Â¾Ã ÂµÃˆ Â½ÃƒÂ°Â£Ã€Â» Â°Â¡ÃÃ¶Â´Ã‚ ÂºÂ¯Â¼Ã¶ DWORD m_dwCanFightzoneReserveTime 
 	DWORD m_dwCanFightzoneReserveTime ;
 
-	// v1.4311-3 º¯¼ö ¼±¾ğ °¢ »çÅõÀåÀÇ ¿¹¾à ¿©ºÎ¸¦ ÀúÀå int  m_iFightZoneReserve[DEF_MAXFIGHTZONE];
+	// v1.4311-3 ÂºÂ¯Â¼Ã¶ Â¼Â±Â¾Ã° Â°Â¢ Â»Ã§Ã…ÃµÃ€Ã¥Ã€Ã‡ Â¿Â¹Â¾Ã  Â¿Â©ÂºÃÂ¸Â¦ Ã€ÃºÃ€Ã¥ int  m_iFightZoneReserve[DEF_MAXFIGHTZONE];
 	int  m_iFightZoneReserve[DEF_MAXFIGHTZONE] ;
-	// v1.4311-3 º¯¼ö ¼±¾ğ »çÅõÀå¿¡ µé¾î°¬À»¶§ ¿î¿µÀÚ ¸í·É¾î·Î °­Äİ ¾ÊµÇ°Ô ÇÔ.
+	// v1.4311-3 ÂºÂ¯Â¼Ã¶ Â¼Â±Â¾Ã° Â»Ã§Ã…ÃµÃ€Ã¥Â¿Â¡ ÂµÃ©Â¾Ã®Â°Â¬Ã€Â»Â¶Â§ Â¿Ã®Â¿ÂµÃ€Ãš Â¸Ã­Â·Ã‰Â¾Ã®Â·Ã Â°Â­Ã„Ã Â¾ÃŠÂµÃ‡Â°Ã” Ã‡Ã”.
 	int  m_iFightzoneNoForceRecall  ;
 
 	struct {
@@ -1052,8 +1052,8 @@ public:
 	int   m_bIsSubLogSockInitialPointer[DEF_MAXSUBLOGSOCK]; // by Snoopy
 	int	  m_iCurSubLogSockIndex;
 	int   m_iSubLogSockFailCount;
-	int   m_iSubLogSockActiveCount;	// v1.5 ÇöÀç ¿¬°á »óÅÂ°¡ À¯ÁöµÇ°í ÀÖ´Â sub-log-socket °¹¼ö
-	int   m_iAutoRebootingCount;	// v1.5 ÀÚµ¿ ÀçºÎÆÃ µÈ È½¼ö 
+	int   m_iSubLogSockActiveCount;	// v1.5 Ã‡Ã¶Ã€Ã§ Â¿Â¬Â°Ã¡ Â»Ã³Ã…Ã‚Â°Â¡ Ã€Â¯ÃÃ¶ÂµÃ‡Â°Ã­ Ã€Ã–Â´Ã‚ sub-log-socket Â°Â¹Â¼Ã¶
+	int   m_iAutoRebootingCount;	// v1.5 Ã€ÃšÂµÂ¿ Ã€Ã§ÂºÃÃ†Ãƒ ÂµÃˆ ÃˆÂ½Â¼Ã¶ 
 
 	class CBuildItem * m_pBuildItemList[DEF_MAXBUILDITEMS];
 	class CItem * m_pDupItemIDList[DEF_MAXDUPITEMID];
@@ -1064,9 +1064,9 @@ public:
 	DWORD  m_dwMapSectorInfoTime;
 	int    m_iMapSectorInfoUpdateCount;
 
-	// Crusade Ã³¸®¿ë
-	int	   m_iCrusadeCount;			// 0ÀÌ¸é Àü¸éÀü ´ë±â»óÅÂ. 1ÀÌ¸é Ä«¿îÆ® ´Ù¿î ½ÃÀÛ. 
-	BOOL   m_bIsCrusadeMode;		// Å©·ç¼¼ÀÌµå ¸ğµå
+	// Crusade ÃƒÂ³Â¸Â®Â¿Ã«
+	int	   m_iCrusadeCount;			// 0Ã€ÃŒÂ¸Ã© Ã€Ã¼Â¸Ã©Ã€Ã¼ Â´Ã«Â±Ã¢Â»Ã³Ã…Ã‚. 1Ã€ÃŒÂ¸Ã© Ã„Â«Â¿Ã®Ã†Â® Â´Ã™Â¿Ã® Â½ÃƒÃ€Ã›. 
+	BOOL   m_bIsCrusadeMode;		// Ã…Â©Â·Ã§Â¼Â¼Ã€ÃŒÂµÃ¥ Â¸Ã°ÂµÃ¥
 
 	BOOL   m_bIsApocalypseMode;	
 	BOOL   m_bIsApocalypseGateOpen; // SNOOPY edd

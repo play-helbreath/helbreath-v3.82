@@ -14,9 +14,9 @@ Players can purchase \'For Sales\' items at Black Smith and Magic Tower.
 I. Weapons
 
 
-[Storm Bringer] ñ Rare
+[Storm Bringer] ‚Äì Rare
 
-\"A legendary sword ñ it brings a storm-\"
+\"A legendary sword ‚Äì it brings a storm-\"
 
 - Specificity required: INT 65
 - Endurance: 3000 Weight: 110 Attack Speed: 11
@@ -26,7 +26,7 @@ I. Weapons
 
 [The Devastator] - Rare
 
-\"An ultimate sword ñ called devastator-\"
+\"An ultimate sword ‚Äì called devastator-\"
 
 - Endurance: 3000 Weight: 200 Attack Speed: 15
 - Drop Monsters: Abaddon, Tiger Worm
@@ -35,7 +35,7 @@ I. Weapons
 
 [Dark Executor] - Rare
 
-\"A noted, excellent sword ñ called Dark Executor\"
+\"A noted, excellent sword ‚Äì called Dark Executor\"
 
 - During the nighttime: Damage +4
 - Endurance: 4000 Weight: 140 Attack Speed: 13
@@ -43,9 +43,9 @@ I. Weapons
 
 
 
-[Lightning Blade] ñ Rare
+[Lightning Blade] ‚Äì Rare
 
-\"Light, a legendary sword ñ is incompatible with Dark Executor-\"
+\"Light, a legendary sword ‚Äì is incompatible with Dark Executor-\"
 
 - it shows its power during the daytime.
 - During the daytime: Damage: +4
@@ -54,7 +54,7 @@ I. Weapons
 
 
 
-[Kloness Blade] ñ Rare
+[Kloness Blade] ‚Äì Rare
 
 \"A sword with divine power of Kloness, the god of justice\"
 
@@ -64,18 +64,18 @@ I. Weapons
 
 
 
-[Kloness Axe] ñ Rare
+[Kloness Axe] ‚Äì Rare
 
-\"An axe of Kloness\"- Same characteristic as blade ñ
+\"An axe of Kloness\"- Same characteristic as blade ‚Äì
 
 - Endurance: 5000 Weight: 150 Attack Speed: 14
 - Drop Monster: Unicorn
 
 
 
-[Kloness Esterk] ñ Rare
+[Kloness Esterk] ‚Äì Rare
 
-\"An esterk of Kloness\"- Same characteristic as blade ñ
+\"An esterk of Kloness\"- Same characteristic as blade ‚Äì
 
 - Endurance: 5000 Weight: 50 Attack Speed: 5
 - Drop Monster: Unicorn
@@ -104,7 +104,7 @@ It causes sudden attack damage to infamous player.
 
 
 
-[Necklace of Xelima] ñ Rare
+[Necklace of Xelima] ‚Äì Rare
 
 The value of hitting rate: +100 (The value is applicable to physical attack and magic attack)
 
@@ -139,7 +139,7 @@ III. Magic spells
 
 
 
-[Mass-Magic-Missile] ñ For Sales
+[Mass-Magic-Missile] ‚Äì For Sales
 
 - Range Magic, Possible to purchase at Magic Tower
 - It has an knock-back effect
@@ -147,7 +147,7 @@ III. Magic spells
 
 
 
-[Illusion-Movement(Normal), Mass-Illusion-Movement] ñ For Sales
+[Illusion-Movement(Normal), Mass-Illusion-Movement] ‚Äì For Sales
 
 - Antipersonnel Magic, Possible to purchase at Magic Tower
 - It causes an illusion in a character to disturb movement.
@@ -178,7 +178,7 @@ Earth-Shock-Wave INT 200
 
 Make sure that the character has enough INT to learn rare magic spell. If character try to read the book and learn the spell WITHOUT INT required, the spell book might be gone, and the character does not learn the magic spell.
 
-IV. Mageís Wands
+IV. Mage‚Äôs Wands
 
 [Berserk-Magic Wand (MS 10, MS 20)] - Rare
 
@@ -418,7 +418,7 @@ Rules of Castle Seize!:
 Limitation: Regardless of CHR points, only 4 can be summoned per a Castle Seize
 * Only 4 scrolls can be bought per a Castle Seize. 
 
-" In Castle Seize type1 : ! ì
+" In Castle Seize type1 : ! ‚Äú
 * Getting the flag: Can be obtained at defendant's Castle with EK Point
 * EK Point 10 per 1 flag
 * Effect of the flag: When the flag is used in the field, corresponding nation's attack ability increase by 1.3 times.
@@ -432,7 +432,7 @@ Benefits to winning nation of Castle Seize
 * Defeated nation doesn't get this teleporting feature
 * Teleport to Middleland, BattleField. 
 " There is no price change in winning nation. But in defeated nation, price of all items sold in the shop will double.
-" The chance of getting an item for winning nation's characters is increase by 150%.î
+" The chance of getting an item for winning nation's characters is increase by 150%.‚Äù
 " Winning nation can enter Heldenian even not during Castle seize, but defeated nation can not.
 
 3.62
@@ -583,7 +583,7 @@ II. Helbeath Lottery
 - Every Rare items has a possibility to be given as a prize.
 - The percentage of the prize given is totally random.
 - You can use the lottery ticket by double-clicking it.
-- The itemís gotten from lottery do not have any charistics (such as ancient or hitting probality) their just plain items.
+- The item‚Äôs gotten from lottery do not have any charistics (such as ancient or hitting probality) their just plain items.
 
 3.70
 

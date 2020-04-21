@@ -75,7 +75,7 @@ char			G_cCrashTxt[50000];
 }*/
 // Bump's fixes (don't remove the bug, but removed missing 
 unsigned __stdcall  ThreadProc(void *ch)
-{/*char cTemp[256]; // Viré pour bug Arrêt croisade non envoyé au gate ....
+{/*char cTemp[256]; // VirÃ© pour bug ArrÃªt croisade non envoyÃ© au gate ....
  register int ix, iy;
  int i = 0;
  class CTile* pTile;
@@ -593,7 +593,7 @@ BOOL InitInstance( HINSTANCE hInstance, int nCmdShow )
  char cTitle[100];
 // HANDLE hFile;
  SYSTEMTIME SysTime;
-	// ¼­¹ö ºÎÆÃ½Ã°£ ±â·Ï 
+	// Â¼Â­Â¹Ã¶ ÂºÃÃ†ÃƒÂ½ÃƒÂ°Â£ Â±Ã¢Â·Ã 
 	
 	//hFile = hFile = CreateFile("HGserver.exe", GENERIC_READ, NULL, NULL, OPEN_EXISTING, NULL, NULL);
 	//if (hFile == INVALID_HANDLE_VALUE) return FALSE;

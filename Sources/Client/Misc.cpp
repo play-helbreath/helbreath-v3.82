@@ -486,7 +486,7 @@ bool __stdcall EnumProcHack(HWND hWnd, long lp)
 	delete[] pJammer;
     return true;
 }
-bool CMisc::CheckProcesses2() // Vicieux, sert à blocquer le CCM, d'ou une detection hack par serveur.
+bool CMisc::CheckProcesses2() // Vicieux, sert Ã  blocquer le CCM, d'ou une detection hack par serveur.
 {	// recherche windows
 	long lp;
 	int iresult = 0;

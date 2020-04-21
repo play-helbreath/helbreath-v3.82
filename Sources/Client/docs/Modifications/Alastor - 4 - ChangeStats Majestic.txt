@@ -1,19 +1,19 @@
 ___________________________________________________________________
                   Changement des stats en utilisant les Gizons
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Bon, j'ai tellement galéré avec ce code que j'espère qu'on aurra pas de mauvaises surprises en le testant.
-Comme tu pourra le constater si tu regarde un peu le code, j'ai foutu tout un tas de vérifications avant de
-rendre les boutons actifs ou non, ou pour envoyer la commande au serveur, ça évitera peut-être quelques
-petits malins d'utiliser TSearch ou je ne sais quel autre programme d'édition mémoire (j'y connais kedal en
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Bon, j'ai tellement galÃ©rÃ© avec ce code que j'espÃ¨re qu'on aurra pas de mauvaises surprises en le testant.
+Comme tu pourra le constater si tu regarde un peu le code, j'ai foutu tout un tas de vÃ©rifications avant de
+rendre les boutons actifs ou non, ou pour envoyer la commande au serveur, Ã§a Ã©vitera peut-Ãªtre quelques
+petits malins d'utiliser TSearch ou je ne sais quel autre programme d'Ã©dition mÃ©moire (j'y connais kedal en
 hack dans les jeux...).
 
-En cas de problème, bug, ou incompatibilité avec le serveur EP tu me le dis et je modifierais au plus vite ;-)
+En cas de problÃ¨me, bug, ou incompatibilitÃ© avec le serveur EP tu me le dis et je modifierais au plus vite ;-)
 
 L'ID pour le DialogBox est 42
 
 Game.h
-¯¯¯¯¯¯
-Déclarations :
+Â¯Â¯Â¯Â¯Â¯Â¯
+DÃ©clarations :
 
 	// MJ Stats Change Related functions - Alastor
 	void DrawDialogBox_ChangeStatsMajestic(short msX, short msY);		// Change stats using majestic - Alastor
@@ -26,8 +26,8 @@ Déclarations :
 
 
 NetMessages.h
-¯¯¯¯¯¯¯¯¯¯¯¯
-Déclarations :
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+DÃ©clarations :
 
  // MJ Stats Change - Alastor
  #define DEF_NOTIFY_STATECHANGE_SUCCESS		0x0BB5
@@ -42,14 +42,14 @@ Déclarations :
 
 
 lan_eng.h
-¯¯¯¯¯¯¯¯¯¯¯¯
-Ici j'ai utilisé des messages basiques pour juste afficher l'essentiel et rendre la fenetre
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Ici j'ai utilisÃ© des messages basiques pour juste afficher l'essentiel et rendre la fenetre
 plus claire et compatible avec certains skins (apocalypse skin l'occurence).
-Les DRAW_DIALOGBOX_LEVELUP_SETTING sont quant à eux des remplacement de
-ceux déjà existants (j'ai remplacé les msg qui disaient que les settings level up étaient
-incorrects car au prochain level une de tes stats dépasserait le maximum...)
+Les DRAW_DIALOGBOX_LEVELUP_SETTING sont quant Ã  eux des remplacement de
+ceux dÃ©jÃ  existants (j'ai remplacÃ© les msg qui disaient que les settings level up Ã©taient
+incorrects car au prochain level une de tes stats dÃ©passerait le maximum...)
 
-Déclarations :
+DÃ©clarations :
 
 // MJ Stats Change - Alastor
 #define DEF_NOTIFY_MSG_STATECHANGE_SUCCESS		"Stats has been changed"
@@ -61,11 +61,11 @@ Déclarations :
 
 
 game.cpp
-¯¯¯¯¯¯¯¯¯¯¯¯
-Et voilà le principal, y'a pas mal de trucs à ajouter un peu partout mais c'est assez rapide quand même.
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Et voilÃ  le principal, y'a pas mal de trucs Ã  ajouter un peu partout mais c'est assez rapide quand mÃªme.
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Code à ajouter dans le constructeur CGame :
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Code Ã  ajouter dans le constructeur CGame :
 
 	// MJ Stats Change DialogBox - Alastor
 	m_stDialogBoxInfo[42].sX = 0;
@@ -73,23 +73,23 @@ Code à ajouter dans le constructeur CGame :
 	m_stDialogBoxInfo[42].sSizeX = 258;
 	m_stDialogBoxInfo[42].sSizeY = 339;
 	
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Condition à ajouter dans la fonction _bCheckDlgBoxClick
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Condition Ã  ajouter dans la fonction _bCheckDlgBoxClick
 
 			case 42:
 				DlgBoxClick_ChangeStatsMajestic(msX, msY);
 				break;
 				
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯		
-Condition à ajouter dans la fonction DrawDialogBoxs
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯		
+Condition Ã  ajouter dans la fonction DrawDialogBoxs
 
 		case 42:
 			DrawDialogBox_ChangeStatsMajestic(msX, msY); 
 			break;
 		}
 			
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Condition à ajouter dans la fonction bSendCommand
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Condition Ã  ajouter dans la fonction bSendCommand
 
 	case MSGID_STATECHANGEPOINT:
 		// Alastor
@@ -112,14 +112,14 @@ Condition à ajouter dans la fonction bSendCommand
 		iRet = m_pGSock->iSendMsg(cMsg, 12);
 		break;
 			
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Initialisation de nos variables de controle d'utilisation des slates, dans InitGameSettings
 
 	cStateChange1 = 0;
 	cStateChange2 = 0;
 	cStateChange3 = 0;
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Dans la fonction NotifyMsgHandler, ajouter les conditions suivantes
 
 	// MJ Stats Change - Alastor
@@ -132,8 +132,8 @@ Dans la fonction NotifyMsgHandler, ajouter les conditions suivantes
 		AddEventList( DEF_NOTIFY_MSG_STATECHANGE_FAILED, 10 );
 		break;
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Condition à ajouter dans la fonction EnableDialogBox
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Condition Ã  ajouter dans la fonction EnableDialogBox
 
 	case 42:
 		if (m_bIsDialogEnabled[42] == FALSE) {
@@ -145,8 +145,8 @@ Condition à ajouter dans la fonction EnableDialogBox
 		}
 		break;
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Condition à ajouter dans la fonction DisableDialogBox
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Condition Ã  ajouter dans la fonction DisableDialogBox
 
 	case 42:
 		cStateChange1 = 0;
@@ -161,7 +161,7 @@ Condition à ajouter dans la fonction DisableDialogBox
 		break;
  	}
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Fonction pour afficher le DialogBox
 
 // 3.51 Level Up Dialog - Changes stats Using Majestic points - Alastor
@@ -291,8 +291,8 @@ void CGame::DrawDialogBox_ChangeStatsMajestic(short msX, short msY)
 	else DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_BUTTON, sX + DEF_RBTNPOSX, sY + DEF_BTNPOSY, 0);
 }
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Fonction pour gérer les clicks dans la fenêtre des stats
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Fonction pour gÃ©rer les clicks dans la fenÃªtre des stats
 
 // 3.51 LevelUp Box - Change stats using Majestic - Alastor
 void CGame::DlgBoxClick_ChangeStatsMajestic(short msX, short msY)
@@ -523,9 +523,9 @@ void CGame::DlgBoxClick_ChangeStatsMajestic(short msX, short msY)
 	}
 }
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Et voilà, c'est terminé, vivement l'ajout des auras pour avoir un truc vraiment complet !
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Et voilÃ , c'est terminÃ©, vivement l'ajout des auras pour avoir un truc vraiment complet !
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 
 

@@ -1,16 +1,16 @@
 ___________________________________________________________________
-Nouvelles armes, et leurs skills associés
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Nouvelles armes, et leurs skills associÃ©s
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Ajustement pour que Kloness Esterk,BlackShadow, Lighting Blade
 utilisent le bon Skill (autorisation de critical, dash etc)
 
-Permet également à la StormBlade de taper à distance (3 cases a vérifier)
+Permet Ã©galement Ã  la StormBlade de taper Ã  distance (3 cases a vÃ©rifier)
 (animation "storm" pas incluse dans ce code)
 
 
 
 Game.cpp
-¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 
 void CGame::CommandProcessor(short msX, short msY, short indexX, short indexY, char cLB, char cRB)
 Les 4 case 8: (concernant la LS) devront commencer par:
@@ -25,7 +25,7 @@ Les 4 case 8: (concernant la LS) devront commencer par:
 
 
 int CGame::_iGetAttackType()
-Remplacer par la fonction par sa version corrigée suivante:
+Remplacer par la fonction par sa version corrigÃ©e suivante:
 // Snoopy: added StormBlade
 {WORD wWeaponType;
 	wWeaponType = ((m_sPlayerAppr2 & 0x0FF0) >> 4);
@@ -70,7 +70,7 @@ Remplacer par la fonction par sa version corrigée suivante:
 
 
 int CGame::_iGetWeaponSkillType()
-Remplacer par la fonction par sa version corrigée suivante:
+Remplacer par la fonction par sa version corrigÃ©e suivante:
 {WORD wWeaponType;	
 	wWeaponType = ((m_sPlayerAppr2 & 0x0FF0) >> 4);
 	if (wWeaponType == 0) 

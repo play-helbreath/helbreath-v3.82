@@ -53,7 +53,7 @@
 #define DEF_MULTI_SHORTCUT  	// Snoopy: Uses 6 shortcuts. (F1, F2, F3, F10, F11, F12) 
 								// Ctrl+H used for help, Ctrl+W used for tranparency, Ctrl+X for systemdiag.
 
-#define DEF_EQUILIBRIUM_PROJECT	// A enlever avant release, définit un certain nombre de particularités EP
+#define DEF_EQUILIBRIUM_PROJECT	// A enlever avant release, dÃ©finit un certain nombre de particularitÃ©s EP
 
 
 /*** Special conditions   ***/

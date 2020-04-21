@@ -1,14 +1,14 @@
 __________________________________________________________________
                        Debug log
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 C'est trop utile ca pour tester...
-Suffit d'appeler "DebugLog("Tag 1");" si l'on veut savoir si ca a été
-exécuté avant le crash.
+Suffit d'appeler "DebugLog("Tag 1");" si l'on veut savoir si ca a Ã©tÃ©
+exÃ©cutÃ© avant le crash.
 
 game.cpp:
-¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 void DebugLog(char * cStr)
-Crée un fichier Log. a appeler pour débuguer.
+CrÃ©e un fichier Log. a appeler pour dÃ©buguer.
 
 /*********************************************************************************************************************
 **  void DebugLog(char * cStr)						(Snoopy)							**
@@ -30,6 +30,6 @@ void CGame::DebugLog(char * cStr)
 }
 
 game.h:
-¯¯¯¯¯¯¯
-Déclaration de la fonction:
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+DÃ©claration de la fonction:
 void DebugLog(char * cStr);

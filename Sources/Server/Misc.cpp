@@ -220,7 +220,7 @@ BOOL CMisc::bCheckValidName(char *pStr)
  
 	iLen = strlen(pStr);
 	for (i = 0; i < iLen; i++) {
-		// Æ¯¼ö ¹®ÀÚ°¡ µé¾î°¡ ÀÖ´Â °æ¿ì °ÅºÎ 
+		// Ã†Â¯Â¼Ã¶ Â¹Â®Ã€ÃšÂ°Â¡ ÂµÃ©Â¾Ã®Â°Â¡ Ã€Ã–Â´Ã‚ Â°Ã¦Â¿Ã¬ Â°Ã…ÂºÃŽ 
 		if ( (pStr[i] == ',')  || (pStr[i] == '=')  || (pStr[i] == ' ') ||
 			 (pStr[i] == '\n') || (pStr[i] == '\t') || /*(pStr[i] == '.') ||*/
 			 (pStr[i] == '\\') || (pStr[i] == '/')  || (pStr[i] == ':') || 
@@ -230,17 +230,17 @@ BOOL CMisc::bCheckValidName(char *pStr)
 		if ((i <= iLen-2) && ((unsigned char)pStr[i] >= 128)) {
 			if (((unsigned char)pStr[i] == 164) && ((unsigned char)pStr[i+1] >= 161) && 
 				((unsigned char)pStr[i+1] <= 211)) {
-				// ÀûÇÕ	
+				// Ã€Ã»Ã‡Ã•	
 				
 			}
 			else
 			if (((unsigned char)pStr[i] >= 176) && ((unsigned char)pStr[i] <= 200) && 
 				((unsigned char)pStr[i+1] >= 161) && ((unsigned char)pStr[i+1] <= 254)) {
-				// ÀûÇÕ 
+				// Ã€Ã»Ã‡Ã• 
 				
 			}
 			else return FALSE;
-			i++; // !!! Áõ°¡½ÃÄÑ¾ß¸¸ ¸Â´Ù.
+			i++; // !!! ÃÃµÂ°Â¡Â½ÃƒÃ„Ã‘Â¾ÃŸÂ¸Â¸ Â¸Ã‚Â´Ã™.
 		}
 	}
 
@@ -260,7 +260,7 @@ void CMisc::Temp()
 	pSrcFileA = fopen("middleland1.amd", "rb");
 	pSrcFileB = fopen("middleland2.amd", "rb");
 
-	// ±âÁ¸ È­ÀÏ À§Ä¡ ÀÌµ¿
+	// Â±Ã¢ÃÂ¸ ÃˆÂ­Ã€Ã Ã€Â§Ã„Â¡ Ã€ÃŒÂµÂ¿
 	fread(cTemp, 1, 256, pSrcFile);
 	fread(cTemp, 1, 256, pSrcFileA);
 	fread(cTemp, 1, 256, pSrcFileB);
@@ -270,10 +270,10 @@ void CMisc::Temp()
 	ZeroMemory(cTemp, sizeof(cTemp));
 	strcpy(cTemp, "MAPSIZEX = 824 MAPSIZEY = 824 TILESIZE = 10");
 	
-	// »õ ÆÄÀÏ Çì´õ ¾´´Ù.
+	// Â»Ãµ Ã†Ã„Ã€Ã Ã‡Ã¬Â´Ãµ Â¾Â´Â´Ã™.
 	fwrite(cTemp, 1, 256, pDestFile);
 	
-	// »õ ÆÄÀÏ À­ºÎºÐ
+	// Â»Ãµ Ã†Ã„Ã€Ã Ã€Â­ÂºÃŽÂºÃ
 	for (i = 1; i <= 80; i++) { 
 		ZeroMemory(cTemp, sizeof(cTemp));
 		fread((cTemp + 1500), 1, 5240, pSrcFileA);
@@ -289,14 +289,14 @@ void CMisc::Temp()
 	for (i = 1; i <= 150; i++) fwrite(cTemp, 1, 824*10, pDestFile);
 	*/
 
-	// »õ ÆÄÀÏ Áß°£ºÎºÐ
+	// Â»Ãµ Ã†Ã„Ã€Ã ÃÃŸÂ°Â£ÂºÃŽÂºÃ
 	for (i = 1; i <= 524; i++) { 
 		ZeroMemory(cTemp, sizeof(cTemp));
 		fread((cTemp + 1500), 1, 5240, pSrcFile);
 		fwrite(cTemp, 1, 824*10, pDestFile);
 	}
 
-	// »õ ÆÄÀÏ µÞºÎºÐ
+	// Â»Ãµ Ã†Ã„Ã€Ã ÂµÃžÂºÃŽÂºÃ
 	ZeroMemory(cTemp, sizeof(cTemp));
 	for (i = 1; i <= 68; i++) fwrite(cTemp, 1, 824*10, pDestFile);
 

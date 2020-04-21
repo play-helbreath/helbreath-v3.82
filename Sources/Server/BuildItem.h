@@ -24,13 +24,13 @@ public:
 	
 	int  m_iMaterialItemID[6];
 	int  m_iMaterialItemCount[6];
-	int  m_iMaterialItemValue[6];		// Àç·á ¾ÆÀÌÅÛ °¡ÁßÄ¡ 
+	int  m_iMaterialItemValue[6];		// Ã€Ã§Â·Ã¡ Â¾Ã†Ã€ÃŒÃ…Ã› Â°Â¡ÃÃŸÃ„Â¡ 
 	int  m_iIndex[6];
 
 	int	 m_iMaxValue;
 	int  m_iAverageValue;	
-	int   m_iMaxSkill;					// ÀÌ ¾ÆÀÌÅÛÀ» Á¦ÀÛÇØ¼­ ¿Ã¸± ¼ö ÀÖ´Â ÃÖ´ë ½ºÅ³
-	WORD  m_wAttribute;					// ¾ÆÀÌÅÛÀÇ ¼Ó¼ºÀ» ºÎ¿©ÇÒ ¼ö ÀÖ´Ù.
+	int   m_iMaxSkill;					// Ã€ÃŒ Â¾Ã†Ã€ÃŒÃ…Ã›Ã€Â» ÃÂ¦Ã€Ã›Ã‡Ã˜Â¼Â­ Â¿ÃƒÂ¸Â± Â¼Ã¶ Ã€Ã–Â´Ã‚ ÃƒÃ–Â´Ã« Â½ÂºÃ…Â³
+	WORD  m_wAttribute;					// Â¾Ã†Ã€ÃŒÃ…Ã›Ã€Ã‡ Â¼Ã“Â¼ÂºÃ€Â» ÂºÃÂ¿Â©Ã‡Ã’ Â¼Ã¶ Ã€Ã–Â´Ã™.
 };
 
 #endif // !defined(AFX_BUILDITEM_H__D8858F0E_7737_4E39_9BF9_960C73B0727A__INCLUDED_)

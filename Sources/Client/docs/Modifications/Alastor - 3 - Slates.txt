@@ -1,18 +1,18 @@
 ___________________________________________________________________
                   Les Slates (sans les auras)
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Voilà tout ce qui concerne les slates, à l'exception des auras, puisque je ne me
-suis pas encore attaqué aux effects des sorts...
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+VoilÃ  tout ce qui concerne les slates, Ã  l'exception des auras, puisque je ne me
+suis pas encore attaquÃ© aux effects des sorts...
 
 L'ID pour le DialogBox est 40
 
 Game.h
-¯¯¯¯¯¯
-Déclarations :
+Â¯Â¯Â¯Â¯Â¯Â¯
+DÃ©clarations :
 
 	// Slates Related functions - Alastor
-	void bItemDrop_Slates(); 										// Vérifie les items relachés dans la boite de dialogue slates
-	void DlgBoxClick_Slates(short msX, short msY); 		// Vérifie les clicks dans la boite de dialogue slates
+	void bItemDrop_Slates(); 										// VÃ©rifie les items relachÃ©s dans la boite de dialogue slates
+	void DlgBoxClick_Slates(short msX, short msY); 		// VÃ©rifie les clicks dans la boite de dialogue slates
 	void DrawDialogBox_Slates(short msX, short msY, short msZ, char cLB); // ID : 40 - Affiche la boite de dialogue slates	
 	
 	// Slates Related vars - Alastor
@@ -20,8 +20,8 @@ Déclarations :
 
 
 NetMessages.h
-¯¯¯¯¯¯¯¯¯¯¯¯
-Déclarations :
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+DÃ©clarations :
 
 	// Slates - Alastor
 	#define DEF_NOTIFY_SLATE_CREATESUCCESS				0x0BC1
@@ -35,13 +35,13 @@ Déclarations :
 
 
 lan_eng.h
-¯¯¯¯¯¯¯¯¯¯¯¯
-Ici j'ai utilisé les messages originaux du client 3.51, à art peut être le message pour dire que tu
-utilises déjà une autre slate mais je ne pense pas que ce soit vraiment important d'avoir le même
-message au mot près pour un cas de figure qui ne risque pas de se présenter très souvent... Je
-vois mal un mec attendre d'avoir 3 ou 4 ancient slates pour les utiliser en même temps.
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Ici j'ai utilisÃ© les messages originaux du client 3.51, Ã  art peut Ãªtre le message pour dire que tu
+utilises dÃ©jÃ  une autre slate mais je ne pense pas que ce soit vraiment important d'avoir le mÃªme
+message au mot prÃ¨s pour un cas de figure qui ne risque pas de se prÃ©senter trÃ¨s souvent... Je
+vois mal un mec attendre d'avoir 3 ou 4 ancient slates pour les utiliser en mÃªme temps.
 
-Déclarations :
+DÃ©clarations :
 
 	// Slates - Alastor
 	#define DEF_MSG_NOTIFY_SLATE_CREATESUCCESS			"The ancient prophecy slate is completed."
@@ -54,11 +54,11 @@ Déclarations :
 
 
 game.cpp
-¯¯¯¯¯¯¯¯¯¯¯¯
-Et voilà le principal, y'a pas mal de trucs à ajouter un peu partout mais c'est assez rapide quand même.
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Et voilÃ  le principal, y'a pas mal de trucs Ã  ajouter un peu partout mais c'est assez rapide quand mÃªme.
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Code à ajouter dans le constructeur CGame :
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Code Ã  ajouter dans le constructeur CGame :
 
 	// Slates Dialog - Alastor
 	m_stDialogBoxInfo[40].sX = 100;
@@ -66,29 +66,29 @@ Code à ajouter dans le constructeur CGame :
 	m_stDialogBoxInfo[40].sSizeX = 180; 
 	m_stDialogBoxInfo[40].sSizeY = 182;
 	
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Condition à ajouter dans la fonction _bCheckDlgBoxClick
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Condition Ã  ajouter dans la fonction _bCheckDlgBoxClick
 
 			case 40:
 				DlgBoxClick_Slates(msX, msY);
 				break;
 				
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Condition à ajouter dans la fonction _bCheckDraggingItemRelease
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Condition Ã  ajouter dans la fonction _bCheckDraggingItemRelease
 
 			case 40:
 				bItemDrop_Slates();
 				break;
 				
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯		
-Condition à ajouter dans la fonction DrawDialogBoxs
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯		
+Condition Ã  ajouter dans la fonction DrawDialogBoxs
 
 		case 40: // Slates DialogBox - Alastor
 			DrawDialogBox_Slates(msX, msY, msZ, cLB); 
 			break;
 			
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Condition à ajouter dans la fonction bSendCommand, dans la condition MSGID_COMMAND_COMMON
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Condition Ã  ajouter dans la fonction bSendCommand, dans la condition MSGID_COMMAND_COMMON
 
 		// Create Slate Request - Alastor
 		case DEF_COMMONTYPE_REQ_CREATESLATE:
@@ -108,14 +108,14 @@ Condition à ajouter dans la fonction bSendCommand, dans la condition MSGID_COMMA
 			iRet = m_pGSock->iSendMsg(cMsg, 18);
 			break;
 			
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Initialisation de notre variables de controle d'utilisation des slates, juste
 en dessous de 	m_bItemUsingStatus  = FALSE;
 	
 	m_bUsingSlate = FALSE;
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Condition à ajouter dans la fonction EnableDialogBox
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Condition Ã  ajouter dans la fonction EnableDialogBox
 
 	case 40:
 		if (m_bIsDialogEnabled[40] == FALSE) {
@@ -139,8 +139,8 @@ Condition à ajouter dans la fonction EnableDialogBox
 		}
 		break;
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Condition à ajouter dans la fonction DisableDialogBox
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Condition Ã  ajouter dans la fonction DisableDialogBox
 
 	case 40:
 		m_bIsItemDisabled[m_stDialogBoxInfo[40].sV1] = FALSE;
@@ -158,7 +158,7 @@ Condition à ajouter dans la fonction DisableDialogBox
 		m_stDialogBoxInfo[40].sV4   = -1;
 		break;
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Dans la fonction NotifyMsgHandler, ajouter les conditions suivantes
 
 	// Slates Messages - Alastor
@@ -185,8 +185,8 @@ Dans la fonction NotifyMsgHandler, ajouter les conditions suivantes
 		m_bUsingSlate = TRUE;
 		break;
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Vérification à ajouter dans la fonction bCheckItemOperationEnabled
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+VÃ©rification Ã  ajouter dans la fonction bCheckItemOperationEnabled
 
 	// Notify : Already Using Another Slate - Alastor
 	if ((m_pItemList[cItemID]->m_sSpriteFrame == 155) && (m_bUsingSlate == TRUE)){
@@ -194,7 +194,7 @@ Vérification à ajouter dans la fonction bCheckItemOperationEnabled
 		return FALSE;
 	}
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Fonction pour afficher le DialogBox des slates
 
 // Slates DialogBox - Alastor
@@ -255,7 +255,7 @@ void CGame::DrawDialogBox_Slates(short msX, short msY, short msZ, char cLB)
 		
 		if ((dwTime - m_stDialogBoxInfo[40].dwT1) > 1000) {
 			m_stDialogBoxInfo[40].dwT1 = dwTime;
-			m_stDialogBoxInfo[40].cStr[0]++;   //  Ä«¿îÆ® 	
+			m_stDialogBoxInfo[40].cStr[0]++;   //  Ã„Â«Â¿Ã®Ã†Â® 	
 		}
 
 		if (m_stDialogBoxInfo[40].cStr[0] >= 5) {
@@ -266,8 +266,8 @@ void CGame::DrawDialogBox_Slates(short msX, short msY, short msZ, char cLB)
 	}
 }
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Fonction pour gérer les clicks dans la fenêtre des slates
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Fonction pour gÃ©rer les clicks dans la fenÃªtre des slates
 
 // Slates DialogBox Clicks - Alastor
 void CGame::DlgBoxClick_Slates(short msX, short msY)
@@ -296,8 +296,8 @@ void CGame::DlgBoxClick_Slates(short msX, short msY)
 	}
 }
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Fonction qui vérifie les objets relachés dans la fenetre des slates
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Fonction qui vÃ©rifie les objets relachÃ©s dans la fenetre des slates
 
 // Slates Item Drag&Drop - Alastor
 void CGame::bItemDrop_Slates()
@@ -373,9 +373,9 @@ void CGame::bItemDrop_Slates()
 	}
 }
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Et voilà, c'est terminé, vivement l'ajout des auras pour avoir un truc vraiment complet !
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Et voilÃ , c'est terminÃ©, vivement l'ajout des auras pour avoir un truc vraiment complet !
 
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 
 

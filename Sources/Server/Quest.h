@@ -16,18 +16,18 @@
 #include <memory.h>
 
 
-#define DEF_QUESTTYPE_MONSTERHUNT				1		// ภฯนÝภ๛ภฮ ธ๓ฝบลอ วๅฦร 
-#define DEF_QUESTTYPE_MONSTERHUNT_TIMELIMIT		2		// ฝรฐฃ มฆวัภฬ ฐษทมภึดย ธ๓ฝบลอ วๅฦร 
-#define DEF_QUESTTYPE_ASSASSINATION 			3		// พฯป์ 
-#define DEF_QUESTTYPE_DELIVERY					4		// น่ดÞ: ฦฏมค ภๅผาทฮ พฦภฬลÛภป น่ดÞวัดู.
-#define DEF_QUESTTYPE_ESCORT					5		// บธศฃ: ฦฏมค ฤณธฏลอธฆ บธศฃวัดู.
-#define DEF_QUESTTYPE_GUARD						6		// ฦฏมค ม๖ฟชภป ภ๛ภว ฐ๘ฐÝภธทฮบฮลอ นๆพ๎วัดู. 
-#define DEF_QUESTTYPE_GOPLACE					7		// ฦฏมค ภๅผาทฮ ฐฃดู. ภ๛ฑน ฤงล๕ 
-#define DEF_QUESTTYPE_BUILDSTRUCTURE			8		// ฑธมถนฐ ผณฤก ภำนซ
-#define DEF_QUESTTYPE_SUPPLYBUILDSTRUCTURE		9		// ฑธมถนฐ ผณฤก บธฑÞ ภำนซ
-#define DEF_QUESTTYPE_STRATEGICSTRIKE			10		// ภüผ๚ภ๛ ฦ๘ฐÝภำนซ 
-#define DEF_QUESTTYPE_SENDTOBATTLE				11		// ฐ๐นูทฮ ฑณภüภๅผา ยüฐกวฯดย ภำนซ
-#define DEF_QUESTTYPE_SETOCCUPYFLAG				12		// ฟตลไ มกทษ ฑ๊น฿ภป ผณฤกวฯดย ภำนซ 
+#define DEF_QUESTTYPE_MONSTERHUNT				1		// ร€รยนรร€รปร€ร ยธรณยฝยบร…ร รรฅรร 
+#define DEF_QUESTTYPE_MONSTERHUNT_TIMELIMIT		2		// ยฝรยฐยฃ รยฆรร‘ร€ร ยฐรยทรร€ร–ยดร ยธรณยฝยบร…ร รรฅรร 
+#define DEF_QUESTTYPE_ASSASSINATION 			3		// ยพรยปรฌ 
+#define DEF_QUESTTYPE_DELIVERY					4		// ยนรจยดร: รยฏรยค ร€รฅยผร’ยทร ยพรร€รร…รร€ยป ยนรจยดรรร‘ยดร.
+#define DEF_QUESTTYPE_ESCORT					5		// ยบยธรยฃ: รยฏรยค รยณยธยฏร…รยธยฆ ยบยธรยฃรร‘ยดร.
+#define DEF_QUESTTYPE_GUARD						6		// รยฏรยค รรถยฟยชร€ยป ร€รปร€ร ยฐรธยฐรร€ยธยทรยบรร…ร ยนรฆยพรฎรร‘ยดร. 
+#define DEF_QUESTTYPE_GOPLACE					7		// รยฏรยค ร€รฅยผร’ยทร ยฐยฃยดร. ร€รปยฑยน รยงร…รต 
+#define DEF_QUESTTYPE_BUILDSTRUCTURE			8		// ยฑยธรยถยนยฐ ยผยณรยก ร€ร“ยนยซ
+#define DEF_QUESTTYPE_SUPPLYBUILDSTRUCTURE		9		// ยฑยธรยถยนยฐ ยผยณรยก ยบยธยฑร ร€ร“ยนยซ
+#define DEF_QUESTTYPE_STRATEGICSTRIKE			10		// ร€รผยผรบร€รป รรธยฐรร€ร“ยนยซ 
+#define DEF_QUESTTYPE_SENDTOBATTLE				11		// ยฐรฐยนรยทร ยฑยณร€รผร€รฅยผร’ รรผยฐยกรรยดร ร€ร“ยนยซ
+#define DEF_QUESTTYPE_SETOCCUPYFLAG				12		// ยฟยตร…รค รยกยทร ยฑรชยนรร€ยป ยผยณรยกรรยดร ร€ร“ยนยซ 
 
 class CQuest  
 {
@@ -35,36 +35,36 @@ public:
 	
 	char m_cSide;				// 0: Neutral, 1:Ares, 2:Elvine, 4:Executor
 	
-	int m_iType;				// Quest มพท๙ 
-	int m_iTargetType;			// Questภว ธ๑วฅ มพท๙. ฐข Typeฟก ต๛ถ๓ ดูธฅ ฐชภฬ มควุม๘ดู. 
-	int m_iMaxCount;			// รึด๋ ธธมท ศฝผ๖ 
+	int m_iType;				// Quest รยพยทรน 
+	int m_iTargetType;			// Questร€ร ยธรฑรยฅ รยพยทรน. ยฐยข Typeยฟยก ยตรปยถรณ ยดรยธยฅ ยฐยชร€ร รยครรรรธยดร. 
+	int m_iMaxCount;			// รร–ยดรซ ยธยธรยท รยฝยผรถ 
 
-	int m_iFrom;				// Questธฆ ณปทมมึดย NPC มพท๙ 
+	int m_iFrom;				// Questยธยฆ ยณยปยทรรร–ยดร NPC รยพยทรน 
 	
-	int m_iMinLevel;			// Questธฆ นÞฑโ ภงวั รึภ๚ ทนบง. 
-	int m_iMaxLevel;			// Questธฆ นÞฑโ ภงวั รึด๋ ทนบง 
+	int m_iMinLevel;			// Questยธยฆ ยนรยฑรข ร€ยงรร‘ รร–ร€รบ ยทยนยบยง. 
+	int m_iMaxLevel;			// Questยธยฆ ยนรยฑรข ร€ยงรร‘ รร–ยดรซ ยทยนยบยง 
 
-	int m_iRequiredSkillNum;	// มถฐว ฦวดÜฟก วสฟไวั ฝบลณ น๘ศฃ 
-	int m_iRequiredSkillLevel;	// มถฐว ฦวดÜฟก วสฟไวั ฝบลณ ทนบง 
+	int m_iRequiredSkillNum;	// รยถยฐร รรยดรยฟยก รรยฟรครร‘ ยฝยบร…ยณ ยนรธรยฃ 
+	int m_iRequiredSkillLevel;	// รยถยฐร รรยดรยฟยก รรยฟรครร‘ ยฝยบร…ยณ ยทยนยบยง 
 
-	int m_iTimeLimit; 			// ฝรฐฃ มฆวั ภÜมธทฎ 
-	int m_iAssignType;			// ฤ๙ฝบฦฎ วาด็ ลธภิ. -1ภฬธ้ พฦนซถงณช. 1ภฬธ้ Crusade ภüธ้ภüภฯถงธธ.
+	int m_iTimeLimit; 			// ยฝรยฐยฃ รยฆรร‘ ร€รรยธยทยฎ 
+	int m_iAssignType;			// รรนยฝยบรยฎ รร’ยดรง ร…ยธร€ร”. -1ร€รยธรฉ ยพรยนยซยถยงยณยช. 1ร€รยธรฉ Crusade ร€รผยธรฉร€รผร€รยถยงยธยธ.
 
-								// ป๓วฐ มพท๙ นื ผ๖ทฎ. 3ฐณ ม฿ 1ฐณฐก ทฃดýวฯฐิ มควุมü. 0น๘ ภฮตฆฝบดย ป็ฟ๋ พศวิ.
+								// ยปรณรยฐ รยพยทรน ยนร— ยผรถยทยฎ. 3ยฐยณ รร 1ยฐยณยฐยก ยทยฃยดรฝรรยฐร” รยครรรรผ. 0ยนรธ ร€รยตยฆยฝยบยดร ยปรงยฟรซ ยพรรร”.
 	int m_iRewardType[4]; 
 	int m_iRewardAmount[4];
 
-	int m_iContribution;		// ฐ๘วๅตต 
-	int m_iContributionLimit;	// รึด๋ ฐ๘วๅตต มฆวั 
+	int m_iContribution;		// ยฐรธรรฅยตยต 
+	int m_iContributionLimit;	// รร–ยดรซ ยฐรธรรฅยตยต รยฆรร‘ 
 
-	int m_iResponseMode;		// ภภดไ ธ๐ตๅ: 0(ok) 1(Accept/Decline) 2(Next)
+	int m_iResponseMode;		// ร€ร€ยดรค ยธรฐยตรฅ: 0(ok) 1(Accept/Decline) 2(Next)
 
-	char m_cTargetName[21];		// ฤ๙ฝบฦฎฐก ม๖มคตศ ภฬธง. ธส ศคภบ ฤณธฏลอ ภฬธง  
-	int  m_sX, m_sY, m_iRange;	// ฤ๙ฝบฦฎฐก ม๖มคตศ ธส ภๅผา 
+	char m_cTargetName[21];		// รรนยฝยบรยฎยฐยก รรถรยคยตร ร€รยธยง. ยธร รยคร€ยบ รยณยธยฏร…ร ร€รยธยง  
+	int  m_sX, m_sY, m_iRange;	// รรนยฝยบรยฎยฐยก รรถรยคยตร ยธร ร€รฅยผร’ 
 
-	int  m_iQuestID;			// ฤ๙ฝบฦฎ ID. ธธพเ ฤ๙ฝบฦฎภว ณปฟ๋ภฬ บฏฐๆตวพ๚ภป ฐๆฟ์ธฆ ด๋บ๑วั ฐอภำ.
+	int  m_iQuestID;			// รรนยฝยบรยฎ ID. ยธยธยพร  รรนยฝยบรยฎร€ร ยณยปยฟรซร€ร ยบยฏยฐรฆยตรยพรบร€ยป ยฐรฆยฟรฌยธยฆ ยดรซยบรฑรร‘ ยฐรร€ร“.
 
-	int  m_iReqContribution;	// ฤ๙ฝบฦฎธฆ ธรฑโ ภงวั รึภ๚ ฐ๘วๅตต มฆวั. 
+	int  m_iReqContribution;	// รรนยฝยบรยฎยธยฆ ยธรยฑรข ร€ยงรร‘ รร–ร€รบ ยฐรธรรฅยตยต รยฆรร‘. 
 
 
 	//CQuest();

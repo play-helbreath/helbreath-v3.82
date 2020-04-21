@@ -19,7 +19,7 @@ MOV DWORD PTR DS:[EDX+48], m_iV1
 
 PUSH EAX 		lPan
 PUSH ECX		sDist
-PUSH 5		N° du son
+PUSH 5		NÂ° du son
 PUSH 45		'C' 'E' 'M' 43, 45, 4D
 CALL 00446E60   	PlaySound('E', 5, sDist, lPan);
 

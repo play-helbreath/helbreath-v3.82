@@ -58,7 +58,7 @@ CALL 0049E6C0 x1
 CALL 0049E8E0 x3
 
 CALL 0049EB20 x17 
-iRestore(); utilisé exclusivement ds une petite boucle
+iRestore(); utilisÃ© exclusivement ds une petite boucle
 
 CALL 0049EC20 x24 (25/220)
 m_pSprite[]->PutShadowSprite(sX+dx, sY+dy, _tmp_cFrame, dwTime);
@@ -105,7 +105,7 @@ m_pEffectSpr[21]->PutFadeSprite(dX, dY, 48, dwTime);
 CALL 004A1E60 x45
 _iOpenSprite();
 
-CALL 004A1F00 x9 tres court (sûr a 95%)
+CALL 004A1F00 x9 tres court (sÃ»r a 95%)
 _iCloseSprite()
 
 CALL 004A1F40 xbcpbcp

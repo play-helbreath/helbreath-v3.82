@@ -50,7 +50,7 @@ XSocket::~XSocket()
 	for (i = 0; i < DEF_XSOCKBLOCKLIMIT; i++)
 		if (m_pUnsentDataList[i] != NULL) delete m_pUnsentDataList[i];
 
-	// ╪рдою╩ ╦╤юЗ юп╟М ╢щ╢б╢ы.
+	// б╪ц▓ц└ц▐ц─б╩ б╦б╤ц─ц╨ ц─ц░б╟ц╜ б╢ц²б╢ц┌б╢ц≥.
 	_CloseConn(); 
 }
 
@@ -74,9 +74,9 @@ int XSocket::iOnSocketEvent(WPARAM wParam, LPARAM lParam)
 {
  int WSAEvent;
 
-	// ╦╝╫╨╢в ╪рдоюг юл╨╔ф╝╢б цЁ╦╝гр ╪Ж ╬Ь╢ы.
+	// б╦б╝б╫б╨б╢ц≈ б╪ц▓ц└ц▐ц─ц┤ ц─ц▄б╨б╔ц├б╝б╢ц┌ ц┐бЁб╦б╝ц┤ц▓ б╪ц╤ б╬ц╦б╢ц≥.
 	if (m_cType != DEF_XSOCK_NORMALSOCK) return DEF_XSOCKEVENT_SOCKETMISMATCH;
-	// цй╠Бх╜ ╣гаЖ ╬й╬ф╪╜ цЁ╦╝гр ╪Ж ╬Ь╢ы.
+	// ц┐ц┼б╠ц╒ц┬б╜ б╣ц┤ц│ц╤ б╬ц┼б╬ц├б╪б╜ ц┐бЁб╦б╝ц┤ц▓ б╪ц╤ б╬ц╦б╢ц≥.
 	if (m_cType == NULL) return DEF_XSOCKEVENT_NOTINITIALIZED;
 
 	if ((SOCKET)wParam != m_Sock) return DEF_XSOCKEVENT_SOCKETMISMATCH;
@@ -85,7 +85,7 @@ int XSocket::iOnSocketEvent(WPARAM wParam, LPARAM lParam)
 	switch (WSAEvent) {
 	case FD_CONNECT:
 		if (WSAGETSELECTERROR(lParam) != 0) { 
-			// юл ╪рдоюг а╒╪сюл ╫гфпгъю╦╧г╥н юГа╒╪сю╩ ╫ц╣╣гя╢ы.
+			// ц─ц▄ б╪ц▓ц└ц▐ц─ц┤ ц│б╒б╪ц⌠ц─ц▄ б╫ц┤ц├ц░ц┤ц÷ц─б╦б╧ц┤б╥ц▌ ц─ц╖ц│б╒б╪ц⌠ц─б╩ б╫ц┐б╣б╣ц┤ц▒б╢ц≥.
 			if (bConnect(m_pAddr, m_iPortNum, m_uiMsg) == FALSE) return DEF_XSOCKEVENT_SOCKETERROR;
 				
 			return DEF_XSOCKEVENT_RETRYINGCONNECTION;
@@ -98,7 +98,7 @@ int XSocket::iOnSocketEvent(WPARAM wParam, LPARAM lParam)
 
 	case FD_READ:
 		if (WSAGETSELECTERROR(lParam) != 0) { 
-			// юп╢б ╣╣аъ ©║╥╞╟║ ╧ъ╩Щгъ╢ы.
+			// ц─ц░б╢ц┌ б╣б╣ц│ц÷ б©б║б╥б╞б╟б║ б╧ц÷б╩ц╫ц┤ц÷б╢ц≥.
 			m_WSAErr = WSAGETSELECTERROR(lParam);
 			return DEF_XSOCKEVENT_SOCKETERROR;
 		}
@@ -110,7 +110,7 @@ int XSocket::iOnSocketEvent(WPARAM wParam, LPARAM lParam)
 		break;
 
 	case FD_CLOSE:
-		m_cType = DEF_XSOCK_SHUTDOWNEDSOCK; // ╪рдоюл ╢щгШю╦╧г╥н юл ╪рдою╨ ╩Г©К ╨р╟║╢и. 
+		m_cType = DEF_XSOCK_SHUTDOWNEDSOCK; // б╪ц▓ц└ц▐ц─ц▄ б╢ц²ц┤ц╩ц─б╦б╧ц┤б╥ц▌ ц─ц▄ б╪ц▓ц└ц▐ц─б╨ б╩ц╖б©ц╚ б╨ц▓б╟б║б╢ц┴. 
 		return DEF_XSOCKEVENT_SOCKETCLOSED;
 		break;
 	}
@@ -125,7 +125,7 @@ BOOL XSocket::bConnect(char * pAddr, int iPort, unsigned int uiMsg)
  int             iRet;
  DWORD			 dwOpt;
 
-	// ╦╝╫╨╢в ╪рдою╦╥н цй╠Бх╜╣х е╛╥║╫╨╢б юл гт╪Ж╦╕ ╩Г©Кгр ╪Ж ╬Ь╢ы.
+	// б╦б╝б╫б╨б╢ц≈ б╪ц▓ц└ц▐ц─б╦б╥ц▌ ц┐ц┼б╠ц╒ц┬б╜б╣ц┬ ц┘б╛б╥б║б╫б╨б╢ц┌ ц─ц▄ ц┤ц■б╪ц╤б╦б╕ б╩ц╖б©ц╚ц┤ц▓ б╪ц╤ б╬ц╦б╢ц≥.
 	if (m_cType == DEF_XSOCK_LISTENSOCK) return FALSE;
 	if (m_Sock  != INVALID_SOCKET) closesocket(m_Sock);
 
@@ -133,11 +133,11 @@ BOOL XSocket::bConnect(char * pAddr, int iPort, unsigned int uiMsg)
 	if (m_Sock == INVALID_SOCKET) 
 		return FALSE;
 	
-	// ╪рдою╩ ЁМ╨М╥ое╥ ╦П╣Е╥н 
+	// б╪ц▓ц└ц▐ц─б╩ бЁц╜б╨ц╜б╥ц▐ц┘б╥ б╦ц╟б╣ц╔б╥ц▌ 
 	arg = 1;
 	ioctlsocket(m_Sock, FIONBIO, &arg);
 	
-	// аж╪р╦╕ ╧ыюн╣Егя╢ы.
+	// ц│ц√б╪ц▓б╦б╕ б╧ц≥ц─ц▌б╣ц╔ц┤ц▒б╢ц≥.
 	memset(&saTemp,0,sizeof(saTemp));
 	saTemp.sin_family = AF_INET;
 	saTemp.sin_addr.s_addr = inet_addr(pAddr);
@@ -152,7 +152,7 @@ BOOL XSocket::bConnect(char * pAddr, int iPort, unsigned int uiMsg)
 	}
 
 	WSAAsyncSelect(m_Sock, m_hWnd, uiMsg, FD_CONNECT | FD_READ | FD_WRITE | FD_CLOSE);
-	// ╪рдо ©и╪гю╩ а╤а╓гя╢ы. 
+	// б╪ц▓ц└ц▐ б©ц┴б╪ц┤ц─б╩ ц│б╤ц│б╓ц┤ц▒б╢ц≥. 
 	dwOpt = 8192*5;
 	setsockopt(m_Sock, SOL_SOCKET, SO_RCVBUF, (const char FAR *)&dwOpt, sizeof(dwOpt));
 	setsockopt(m_Sock, SOL_SOCKET, SO_SNDBUF, (const char FAR *)&dwOpt, sizeof(dwOpt));
@@ -186,7 +186,7 @@ int XSocket::_iOnRead()
 		}
 		else 
 		if (iRet == 0) {
-			// ╪рдоюл ╢щгШ╢ы. 
+			// б╪ц▓ц└ц▐ц─ц▄ б╢ц²ц┤ц╩б╢ц≥. 
 			m_cType = DEF_XSOCK_SHUTDOWNEDSOCK;
 			return DEF_XSOCKEVENT_SOCKETCLOSED;
 		}
@@ -195,14 +195,14 @@ int XSocket::_iOnRead()
 		m_dwTotalReadSize += iRet;
 		
 		if (m_dwReadSize == 0) {
-			// гЛ╢У╦╕ ╢ы юп╬З╢ы. 
+			// ц┤ц╛б╢ц╣б╦б╕ б╢ц≥ ц─ц░б╬ц╨б╢ц≥. 
 			m_cStatus = DEF_XSOCKSTATUS_READINGBODY;
-			// юп╬Н╬ъ гр ╦Жц╪ ╩ГюлаН╦╕ ╟Х╩Йгя╢ы.
+			// ц─ц░б╬ц╝б╬ц÷ ц┤ц▓ б╦ц╤ц┐б╪ б╩ц╖ц─ц▄ц│ц╝б╦б╕ б╟ц╗б╩ц╙ц┤ц▒б╢ц≥.
 			wp = (WORD *)(m_pRcvBuffer + 1);
-			m_dwReadSize = (int)(*wp - 3); // гЛ╢У ╩ГюлаН╢б фВгтгоаЖ ╬й╢б╢ы. 
+			m_dwReadSize = (int)(*wp - 3); // ц┤ц╛б╢ц╣ б╩ц╖ц─ц▄ц│ц╝б╢ц┌ ц├ц╥ц┤ц■ц┤ц▐ц│ц╤ б╬ц┼б╢ц┌б╢ц≥. 
 			
 			if (m_dwReadSize == 0) {
-				// ╦Жц╪ ╩ГюлаН╟║ 0юл╦И ╦Жц╪╨н╨пю╩ юпю╩ гй©Д╟║ ╬Ью╦╧г╥н 
+				// б╦ц╤ц┐б╪ б╩ц╖ц─ц▄ц│ц╝б╟б║ 0ц─ц▄б╦ц╘ б╦ц╤ц┐б╪б╨ц▌б╨ц░ц─б╩ ц─ц░ц─б╩ ц┤ц┼б©ц╓б╟б║ б╬ц╦ц─б╦б╧ц┤б╥ц▌ 
 				m_cStatus        = DEF_XSOCKSTATUS_READINGHEADER;
 				m_dwReadSize      = 3;
 				m_dwTotalReadSize = 0;
@@ -233,7 +233,7 @@ int XSocket::_iOnRead()
 		}
 		else 
 		if (iRet == 0) {
-			// ╪рдоюл ╢щгШ╢ы. 
+			// б╪ц▓ц└ц▐ц─ц▄ б╢ц²ц┤ц╩б╢ц≥. 
 			m_cType = DEF_XSOCK_SHUTDOWNEDSOCK;
 			return DEF_XSOCKEVENT_SOCKETCLOSED;
 		}
@@ -242,7 +242,7 @@ int XSocket::_iOnRead()
 		m_dwTotalReadSize += iRet;
 		
 		if (m_dwReadSize == 0) {
-			// ╦Жц╪╦╕ ╢ы юп╬З╢ы. ╢ыю╫╧Ь юл╨╔ф╝╦╕ ю╖гь ╩Себ╦╕ ╧ы╡ш╢ы. 
+			// б╦ц╤ц┐б╪б╦б╕ б╢ц≥ ц─ц░б╬ц╨б╢ц≥. б╢ц≥ц─б╫б╧ц╦ ц─ц▄б╨б╔ц├б╝б╦б╕ ц─б╖ц┤ц≤ б╩цЁц┘ц┌б╦б╕ б╧ц≥б╡ц⌡б╢ц≥. 
 			m_cStatus        = DEF_XSOCKSTATUS_READINGHEADER;
 			m_dwReadSize      = 3;
 			m_dwTotalReadSize = 0;
@@ -250,7 +250,7 @@ int XSocket::_iOnRead()
 		else return DEF_XSOCKEVENT_ONREAD;
 	}
 
-	// ╦ч╫цаЖ╦╕ ╦П╣н юп╬З╢ы. юл ╦ч╫цаЖ╦╕ ╧чю╦╦И е╛╥║╫╨ ╧Жфшюг Ё╩©Кю╩ юп╬Н аО╟╒ цЁ╦╝гь╬ъ гя╢ы.
+	// б╦ц·б╫ц┐ц│ц╤б╦б╕ б╦ц╟б╣ц▌ ц─ц░б╬ц╨б╢ц≥. ц─ц▄ б╦ц·б╫ц┐ц│ц╤б╦б╕ б╧ц·ц─б╦б╦ц╘ ц┘б╛б╥б║б╫б╨ б╧ц╤ц├ц⌡ц─ц┤ бЁб╩б©ц╚ц─б╩ ц─ц░б╬ц╝ ц│ц╞б╟б╒ ц┐бЁб╦б╝ц┤ц≤б╬ц÷ ц┤ц▒б╢ц≥.
 	return DEF_XSOCKEVENT_READCOMPLETE;
 }
 
@@ -262,18 +262,18 @@ int XSocket::_iSend(char * cData, int iSize, BOOL bSaveFlag)
 
 	if (m_pUnsentDataList[m_sHead] != NULL) {
 		if (bSaveFlag == TRUE) {
-			// ╦╦╬Ю ╢К╠Б©╜©║ ╣╔юлем╟║ Ё╡╬ф юж╟М ╡ю ╨╦Ё╩╬ъ го╢б ╣╔юлем╤С╦И 
-			// ╦ч╫цаЖюг ╪Ь╪╜╦╕ ╦бцъ╠Б ю╖гь ╧╚а╤╟г ╢К╠Б©╜©║ юЗюЕгь╬ъ гя╢ы. 
+			// б╦б╦б╬ц═ б╢ц╚б╠ц╒б©б╜б©б║ б╣б╔ц─ц▄ц┘ц█б╟б║ бЁб╡б╬ц├ ц─ц√б╟ц╜ б╡ц─ б╨б╦бЁб╩б╬ц÷ ц┤ц▐б╢ц┌ б╣б╔ц─ц▄ц┘ц█б╤цЁб╦ц╘ 
+			// б╦ц·б╫ц┐ц│ц╤ц─ц┤ б╪ц╦б╪б╜б╦б╕ б╦ц┌ц┐ц÷б╠ц╒ ц─б╖ц┤ц≤ б╧б╚ц│б╤б╟ц┤ б╢ц╚б╠ц╒б©б╜б©б║ ц─ц╨ц─ц╔ц┤ц≤б╬ц÷ ц┤ц▒б╢ц≥. 
 			iRet = _iRegisterUnsentData(cData, iSize);
 			switch (iRet) {
 			case -1:
-				// гр╢Ггр ╦ч╦П╦╝╟║ ╬Ь╢ы. юл╟Ф©Л╢б ╨╧╠╦гр ╧Ф╧Щюл ╬Ь╢ы.
+				// ц┤ц▓б╢ц╖ц┤ц▓ б╦ц·б╦ц╟б╦б╝б╟б║ б╬ц╦б╢ц≥. ц─ц▄б╟ц╕б©ц╛б╢ц┌ б╨б╧б╠б╦ц┤ц▓ б╧ц╕б╧ц╫ц─ц▄ б╬ц╦б╢ц≥.
 				return DEF_XSOCKEVENT_CRITICALERROR;
 			case 0:
-				// е╔╟║ ╟║╣Фц║╢ы. юл ╪рдо е╛╥║╫╨╢б ╩Ха╕╣г╬Н╬ъ╦╦ гя╢ы.
+				// ц┘б╔б╟б║ б╟б║б╣ц╕ц┐б║б╢ц≥. ц─ц▄ б╪ц▓ц└ц▐ ц┘б╛б╥б║б╫б╨б╢ц┌ б╩ц╗ц│б╕б╣ц┤б╬ц╝б╬ц÷б╦б╦ ц┤ц▒б╢ц≥.
 				return DEF_XSOCKEVENT_QUENEFULL;
 			case 1:
-				// а╓╩СюШю╦╥н ╣╔юлем╦╕ ╣Н╥огъ╢ы.
+				// ц│б╓б╩цЁц─ц╩ц─б╦б╥ц▌ б╣б╔ц─ц▄ц┘ц█б╦б╕ б╣ц╝б╥ц▐ц┤ц÷б╢ц≥.
 				break;
 			}
 			return DEF_XSOCKEVENT_BLOCK;
@@ -289,25 +289,25 @@ int XSocket::_iSend(char * cData, int iSize, BOOL bSaveFlag)
 		if (iRet == SOCKET_ERROR) {
 			WSAErr = WSAGetLastError();
 			if (WSAErr != WSAEWOULDBLOCK) {
-				// ╪рдо©║ ©║╥╞╟║ ╧ъ╩Щгъ╢ы.
+				// б╪ц▓ц└ц▐б©б║ б©б║б╥б╞б╟б║ б╧ц÷б╩ц╫ц┤ц÷б╢ц≥.
 				m_WSAErr = WSAErr;
 				return DEF_XSOCKEVENT_SOCKETERROR;
 			}
 			else {
-				// ╨М╥╟╩Себюл╦И ╢Уюл╩С ╨╦Ё╬ ╪Ж ╬Ью╦╧г╥н Ё╡╬фюж╢б ╣╔юлем╦╕ ╦╝╫╨ф╝©║ ╣Н╥ого╟М ╦╝ео 
+				// б╨ц╜б╥б╟б╩цЁц┘ц┌ц─ц▄б╦ц╘ б╢ц╣ц─ц▄б╩цЁ б╨б╦бЁб╬ б╪ц╤ б╬ц╦ц─б╦б╧ц┤б╥ц▌ бЁб╡б╬ц├ц─ц√б╢ц┌ б╣б╔ц─ц▄ц┘ц█б╦б╕ б╦б╝б╫б╨ц├б╝б©б║ б╣ц╝б╥ц▐ц┤ц▐б╟ц╜ б╦б╝ц┘ц▐ 
 				if (bSaveFlag == TRUE) {
 					iRet = _iRegisterUnsentData((cData + iOutLen), (iSize - iOutLen));
 					switch (iRet) {
 					case -1:
-						// гр╢Ггр ╦ч╦П╦╝╟║ ╬Ь╢ы. юл╟Ф©Л╢б ╨╧╠╦гр ╧Ф╧Щюл ╬Ь╢ы.
+						// ц┤ц▓б╢ц╖ц┤ц▓ б╦ц·б╦ц╟б╦б╝б╟б║ б╬ц╦б╢ц≥. ц─ц▄б╟ц╕б©ц╛б╢ц┌ б╨б╧б╠б╦ц┤ц▓ б╧ц╕б╧ц╫ц─ц▄ б╬ц╦б╢ц≥.
 						return DEF_XSOCKEVENT_CRITICALERROR;
 						break;
 					case 0:
-						// е╔╟║ ╟║╣Фц║╢ы. юл ╪рдо е╛╥║╫╨╢б ╩Ха╕╣г╬Н╬ъ╦╦ гя╢ы.
+						// ц┘б╔б╟б║ б╟б║б╣ц╕ц┐б║б╢ц≥. ц─ц▄ б╪ц▓ц└ц▐ ц┘б╛б╥б║б╫б╨б╢ц┌ б╩ц╗ц│б╕б╣ц┤б╬ц╝б╬ц÷б╦б╦ ц┤ц▒б╢ц≥.
 						return DEF_XSOCKEVENT_QUENEFULL;
 						break;
 					case 1:
-						// а╓╩СюШю╦╥н ╣╔юлем╦╕ ╣Н╥огъ╢ы.
+						// ц│б╓б╩цЁц─ц╩ц─б╦б╥ц▌ б╣б╔ц─ц▄ц┘ц█б╦б╕ б╣ц╝б╥ц▐ц┤ц÷б╢ц≥.
 						break;
 					}
 				}
@@ -321,7 +321,7 @@ int XSocket::_iSend(char * cData, int iSize, BOOL bSaveFlag)
 }
 
 
-// юл гт╪Ж╢б _SendUnsentData©║╪╜╦╦ ╩Г©Кгя╢ы. ╨М╥оюл ╬ф╢я ©║╥╞╫ц©║╢б ю╫╪Ж╟╙ю╩, ╨М╥╟╩Себ╦╕ фВгтгя юЭ╪ш╩Себ©║╪╜╢б ╨╦Ё╫ ╦╦е╜юг ╟╙ю╩ ╧щх╞.
+// ц─ц▄ ц┤ц■б╪ц╤б╢ц┌ _SendUnsentDataб©б║б╪б╜б╦б╦ б╩ц╖б©ц╚ц┤ц▒б╢ц≥. б╨ц╜б╥ц▐ц─ц▄ б╬ц├б╢ц▒ б©б║б╥б╞б╫ц┐б©б║б╢ц┌ ц─б╫б╪ц╤б╟б╙ц─б╩, б╨ц╜б╥б╟б╩цЁц┘ц┌б╦б╕ ц├ц╥ц┤ц■ц┤ц▒ ц─ц╪б╪ц⌡б╩цЁц┘ц┌б©б║б╪б╜б╢ц┌ б╨б╦бЁб╫ б╦б╦ц┘б╜ц─ц┤ б╟б╙ц─б╩ б╧ц²ц┬б╞.
 int XSocket::_iSend_ForInternalUse(char * cData, int iSize)
 {
  int  iOutLen, iRet, WSAErr;
@@ -334,12 +334,12 @@ int XSocket::_iSend_ForInternalUse(char * cData, int iSize)
 		if (iRet == SOCKET_ERROR) {
 			WSAErr = WSAGetLastError();
 			if (WSAErr != WSAEWOULDBLOCK) {
-				// ╪рдо©║ ©║╥╞╟║ ╧ъ╩Щгъ╢ы.
+				// б╪ц▓ц└ц▐б©б║ б©б║б╥б╞б╟б║ б╧ц÷б╩ц╫ц┤ц÷б╢ц≥.
 				m_WSAErr = WSAErr;
 				return DEF_XSOCKEVENT_SOCKETERROR;
 			}
 			else {
-				// ╨М╥╟╩Себюл╦И ╢Уюл╩С ╨╦Ё╬ ╪Ж ╬Ью╦╧г╥н аЖ╠щ╠НаЖ ╨╦Ё╫ ╣╔юлем ╩ГюлаН╦╦ю╩ ╧щх╞  
+				// б╨ц╜б╥б╟б╩цЁц┘ц┌ц─ц▄б╦ц╘ б╢ц╣ц─ц▄б╩цЁ б╨б╦бЁб╬ б╪ц╤ б╬ц╦ц─б╦б╧ц┤б╥ц▌ ц│ц╤б╠ц²б╠ц╝ц│ц╤ б╨б╦бЁб╫ б╣б╔ц─ц▄ц┘ц█ б╩ц╖ц─ц▄ц│ц╝б╦б╦ц─б╩ б╧ц²ц┬б╞  
 				return iOutLen;
 			}
 		} else iOutLen += iRet;
@@ -352,17 +352,17 @@ int XSocket::_iSend_ForInternalUse(char * cData, int iSize)
 
 int XSocket::_iRegisterUnsentData(char * cData, int iSize)
 {
-	// е╔╟║ ╟║╣ФбВ╪╜ ╢Уюл╩С ╣╔юлем╦╕ ╢К╠Б©╜©║ юЗюЕгр ╪Ж ╬Ь╢ы.
+	// ц┘б╔б╟б║ б╟б║б╣ц╕ц┌ц╥б╪б╜ б╢ц╣ц─ц▄б╩цЁ б╣б╔ц─ц▄ц┘ц█б╦б╕ б╢ц╚б╠ц╒б©б╜б©б║ ц─ц╨ц─ц╔ц┤ц▓ б╪ц╤ б╬ц╦б╢ц≥.
 	if (m_pUnsentDataList[m_sTail] != NULL) return 0;
 	
 	m_pUnsentDataList[m_sTail] = new char[iSize];
-	if (m_pUnsentDataList[m_sTail] == NULL) return -1; // ╦ч╦П╦╝ гр╢Г©║ ╫гфпгъ╢ы.
+	if (m_pUnsentDataList[m_sTail] == NULL) return -1; // б╦ц·б╦ц╟б╦б╝ ц┤ц▓б╢ц╖б©б║ б╫ц┤ц├ц░ц┤ц÷б╢ц≥.
 
-	// ╣╔юлем юЗюЕ 
+	// б╣б╔ц─ц▄ц┘ц█ ц─ц╨ц─ц╔ 
 	memcpy(m_pUnsentDataList[m_sTail], cData, iSize);
 	m_iUnsentDataSize[m_sTail] = iSize;
 
-	// евюо фВюнем аУ╟║ 
+	// ц┘ц≈ц─ц▐ ц├ц╥ц─ц▌ц┘ц█ ц│ц╣б╟б║ 
 	m_sTail++;
 	//if (m_sTail >= DEF_XSOCKBLOCKLIMIT) m_sTail = 0;
 	if (m_sTail >= m_iBlockLimit) m_sTail = 0;
@@ -377,27 +377,27 @@ int XSocket::_iSendUnsentData()
  int iRet;
  char * pTemp;
 	
-	// ╟║╢игя гя ╢К╠Б©╜юг ╣╔юлем╦╕ ╨╦Ё╫╢ы. 
+	// б╟б║б╢ц┴ц┤ц▒ ц┤ц▒ б╢ц╚б╠ц╒б©б╜ц─ц┤ б╣б╔ц─ц▄ц┘ц█б╦б╕ б╨б╦бЁб╫б╢ц≥. 
 	while (m_pUnsentDataList[m_sHead] != NULL) {
 		
 		iRet = _iSend_ForInternalUse(m_pUnsentDataList[m_sHead], m_iUnsentDataSize[m_sHead]);
 
 		if (iRet == m_iUnsentDataSize[m_sHead]) {
-			// Headе╔юг ╣╔юлем╦╕ ╢ы ╨╦Ёб╢ы.	╢ыю╫ ╣╔юлем╦╕ ╨╦Ё╫╢ы.
+			// Headц┘б╔ц─ц┤ б╣б╔ц─ц▄ц┘ц█б╦б╕ б╢ц≥ б╨б╦бЁц┌б╢ц≥.	б╢ц≥ц─б╫ б╣б╔ц─ц▄ц┘ц█б╦б╕ б╨б╦бЁб╫б╢ц≥.
 			delete m_pUnsentDataList[m_sHead];
 			m_pUnsentDataList[m_sHead] = NULL;
 			m_iUnsentDataSize[m_sHead] = 0;
-			// гЛ╣Е фВюнем аУ╟║ 
+			// ц┤ц╛б╣ц╔ ц├ц╥ц─ц▌ц┘ц█ ц│ц╣б╟б║ 
 			m_sHead++;
 			//if (m_sHead >= DEF_XSOCKBLOCKLIMIT) m_sHead = 0;
 			if (m_sHead >= m_iBlockLimit) m_sHead = 0;
 		}
 		else {
-			// ╨╦Ё╩╢Ь аъ ╪рдо ©║╥╞╟║ ╧ъ╩Щго╦И ╠вЁи ╦╝еогя╢ы. (а╕╟е╣г╬ъ╦╦ гя╢ы)
+			// б╨б╦бЁб╩б╢ц╦ ц│ц÷ б╪ц▓ц└ц▐ б©б║б╥б╞б╟б║ б╧ц÷б╩ц╫ц┤ц▐б╦ц╘ б╠ц≈бЁц┴ б╦б╝ц┘ц▐ц┤ц▒б╢ц≥. (ц│б╕б╟ц┘б╣ц┤б╬ц÷б╦б╦ ц┤ц▒б╢ц≥)
 			if (iRet < 0) 
 				return iRet;
 
-			// ╣╔юлем╦╕ ╢ы ╨╦Ё╩аЖ ╦Ьго╟М ╤г ╨М╥о ╩Себ╟║ ╧ъ╩Щгъ╢ы. ╨╦Ё╩аЖ ╦Ьгя ╣╔юлем╦╦ Ё╡╟эЁУ╢б╢ы.
+			// б╣б╔ц─ц▄ц┘ц█б╦б╕ б╢ц≥ б╨б╦бЁб╩ц│ц╤ б╦ц╦ц┤ц▐б╟ц╜ б╤ц┤ б╨ц╜б╥ц▐ б╩цЁц┘ц┌б╟б║ б╧ц÷б╩ц╫ц┤ц÷б╢ц≥. б╨б╦бЁб╩ц│ц╤ б╦ц╦ц┤ц▒ б╣б╔ц─ц▄ц┘ц█б╦б╦ бЁб╡б╟ц°бЁц╣б╢ц┌б╢ц≥.
 			pTemp = new char[m_iUnsentDataSize[m_sHead] - iRet];
 			memcpy(pTemp, m_pUnsentDataList[m_sHead] + iRet, m_iUnsentDataSize[m_sHead] - iRet);
 
@@ -429,7 +429,7 @@ int XSocket::iSendMsg(char * cData, DWORD dwSize, char cKey)
 	*wp = dwSize + 3;
 
 	memcpy((char *)(m_pSndBuffer + 3), cData, dwSize);
-	// v.14 : m_pSndBuffer +3 ╨нем dwSize╠НаЖ cKey╟
+	// v.14 : m_pSndBuffer +3 б╨ц▌ц┘ц█ dwSizeб╠ц╝ц│ц╤ cKeyб╟
 	if (cKey != NULL) {//Encryption
 		for (i = 0; i < dwSize; i++) {
 			m_pSndBuffer[3+i] += (i ^ cKey);
@@ -450,12 +450,12 @@ BOOL XSocket::bListen(char * pAddr, int iPort, unsigned int uiMsg)
 	if (m_cType != NULL) return FALSE;
 	if (m_Sock  != INVALID_SOCKET) closesocket(m_Sock);
 
-	// ╪рдою╩ ╩Щ╪╨гя╢ы. 
+	// б╪ц▓ц└ц▐ц─б╩ б╩ц╫б╪б╨ц┤ц▒б╢ц≥. 
 	m_Sock = socket(AF_INET, SOCK_STREAM, 0);
 	if (m_Sock == INVALID_SOCKET) 
 		return FALSE;
 	
-	// аж╪р╦╕ ╧ыюн╣Егя╢ы.
+	// ц│ц√б╪ц▓б╦б╕ б╧ц≥ц─ц▌б╣ц╔ц┤ц▒б╢ц≥.
 	memset(&saTemp,0,sizeof(saTemp));
 	saTemp.sin_family = AF_INET;
 	saTemp.sin_addr.s_addr = inet_addr(pAddr);
@@ -544,12 +544,12 @@ char * XSocket::pGetRcvDataPointer(DWORD * pMsgSize, char * pKey)
 	if (pKey != NULL) *pKey = cKey;		// v1.4
 
 	wp = (WORD *)(m_pRcvBuffer + 1);
-	*pMsgSize = (*wp) - 3;				// гЛ╢Уе╘╠Б╢б а╕©эгь╪╜ ╧щх╞гя╢ы. 
+	*pMsgSize = (*wp) - 3;				// ц┤ц╛б╢ц╣ц┘б╘б╠ц╒б╢ц┌ ц│б╕б©ц°ц┤ц≤б╪б╜ б╧ц²ц┬б╞ц┤ц▒б╢ц≥. 
 	dwSize    = (*wp) - 3;
 
 	if (dwSize > DEF_MSGBUFFERSIZE) dwSize = DEF_MSGBUFFERSIZE;
 
-	// v.14 : m_pSndBuffer +3 ╨нем dwSize╠НаЖ cKey╟║ 0юл ╬ф╢о╤С╦И ╬охёх╜╦╕ г╛╢ы.
+	// v.14 : m_pSndBuffer +3 б╨ц▌ц┘ц█ dwSizeб╠ц╝ц│ц╤ cKeyб╟б║ 0ц─ц▄ б╬ц├б╢ц▐б╤цЁб╦ц╘ б╬ц▐ц┬бёц┬б╜б╦б╕ ц┤б╛б╢ц≥.
 	if (cKey != NULL) {//Encryption
 		for (i = 0; i < dwSize; i++) {
 			m_pRcvBuffer[3+i]  = m_pRcvBuffer[3+i] ^ (cKey ^ (dwSize - i));
@@ -565,7 +565,7 @@ BOOL _InitWinsock()
  WORD	 wVersionRequested;
  WSADATA wsaData;
 
-	// ╪рдоюг ╧Жа╞ю╩ ц╪е╘гя╢ы.
+	// б╪ц▓ц└ц▐ц─ц┤ б╧ц╤ц│б╞ц─б╩ ц┐б╪ц┘б╘ц┤ц▒б╢ц≥.
 	wVersionRequested = MAKEWORD( 2, 2 ); 
 	iErrCode = WSAStartup( wVersionRequested, &wsaData );
 	if ( iErrCode ) return FALSE;

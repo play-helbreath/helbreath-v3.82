@@ -219,14 +219,14 @@
 #define DEF_NOTIFY_REQGUILDNAMEANSWER			0x0BA6
 #define DEF_NOTIFY_FORCERECALLTIME				0x0BA7 // You have %d minutes to get forced recall. Recall is not available in the opposite town.
 #define DEF_NOTIFY_ITEMUPGRADEFAIL				0x0BA8
-#define DEF_NOTIFY_CHANGEPLAYMODE				0x0BA9 // Snoopy: renommé comme sur serveur // Play mode has been changed.
-#define DEF_NOTIFY_SPAWNEVENT					0x0BAA // Snoopy: renommé comme sur serveur
+#define DEF_NOTIFY_CHANGEPLAYMODE				0x0BA9 // Snoopy: renommÃ© comme sur serveur // Play mode has been changed.
+#define DEF_NOTIFY_SPAWNEVENT					0x0BAA // Snoopy: renommÃ© comme sur serveur
 
 #define DEF_NOTIFY_NOMOREAGRICULTURE			0x0BB0  //You cannot farm any more.
 #define DEF_NOTIFY_AGRICULTURESKILLLIMIT		0x0BB1  //Farming is not possible with your current farming skill.
 #define DEF_NOTIFY_AGRICULTURENOAREA			0x0BB2  //This is not an area to farm.
 #define DEF_NOTIFY_SETTING_SUCCESS				0x0BB3 // Your stat has been changed. // CLEROTH - LU
-#define DEF_NOTIFY_SETTING_FAILED				0x0BB4 // Your stat has been changed. // Inutilisé ???
+#define DEF_NOTIFY_SETTING_FAILED				0x0BB4 // Your stat has been changed. // InutilisÃ© ???
 #define DEF_NOTIFY_STATECHANGE_SUCCESS			0x0BB5 // Your stat has been changed. // MJ Stats Change - Diuuude
 #define DEF_NOTIFY_STATECHANGE_FAILED			0x0BB6 // MJ Stats Change - Diuuude
 

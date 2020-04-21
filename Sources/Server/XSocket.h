@@ -2,7 +2,7 @@
 //
 //////////////////////////////////////////////////////////////////////
 
-// гЛ╢Уюг х╝юндз╣Е╢б 1╧ыюлф╝, е╘╠Б╢б WORD╥н ╨╞╟Ф╣г╬Зю╫. аО гЛ╢У╢б ця 3╧ыюлф╝ 
+// ц┤ц╛б╢ц╣ц─ц┤ ц┬б╝ц─ц▌ц└ц б╣ц╔б╢ц┌ 1б╧ц≥ц─ц▄ц├б╝, ц┘б╘б╠ц╒б╢ц┌ WORDб╥ц▌ б╨б╞б╟ц╕б╣ц┤б╬ц╨ц─б╫. ц│ц╞ ц┤ц╛б╢ц╣б╢ц┌ ц┐ц▒ 3б╧ц≥ц─ц▄ц├б╝ 
 
 
 #if !defined(AFX_XSOCKET_H__F9D1BA42_7338_11D2_A8E6_00001C7030A6__INCLUDED_)
@@ -34,24 +34,24 @@
 #define DEF_XSOCKSTATUS_READINGHEADER	11
 #define DEF_XSOCKSTATUS_READINGBODY		12
 
-#define DEF_XSOCKEVENT_SOCKETMISMATCH			-121	// ╪рдо юл╨╔ф╝©м ╪рдоюл ╪╜╥н ╢ы╦ё╢ы. (юл╥╠ ╟Ф©Л╟║?)
-#define DEF_XSOCKEVENT_CONNECTIONESTABLISH		-122	// а╒╪сюл юл╥Г╬Н аЁ╢ы.
-#define DEF_XSOCKEVENT_RETRYINGCONNECTION		-123	// а╒╪сю╩ ╢ы╫ц ╫ц╣╣го╢б аъюл╢ы.
-#define DEF_XSOCKEVENT_ONREAD					-124	// ╦ч╫цаЖ╦╕ юп╢б аъюл╢ы. 
-#define DEF_XSOCKEVENT_READCOMPLETE				-125	// гоЁ╙юг ╦ч╫цаЖ╦╕ ©оюЭхВ ╪Ж╫егъ╢ы.
-#define DEF_XSOCKEVENT_UNKNOWN					-126	// ╬к╪Ж╬Ь╢б юл╨╔ф╝юл╢ы.
-#define DEF_XSOCKEVENT_SOCKETCLOSED				-127	// ╪рдоюл ╢щгШ╢ы. 
-#define DEF_XSOCKEVENT_BLOCK					-128	// ╦ч╫цаЖ╦╕ ╨╦Ё╩╢ы╟║ ╪рдоюл ╨М╥╟╣х ╩Себюл╢ы.
-#define DEF_XSOCKEVENT_SOCKETERROR				-129	// ╪рдо©║ ©║╥╞╟║ ╧ъ╩Щгъ╢ы. юл╟Ф©Л е╛╥║╫╨╦╕ ╩Ха╕го©╘╬ъ гя╢ы.
-#define DEF_XSOCKEVENT_CRITICALERROR			-130    // д║╦МюШюн ©║╥╞╥н га╥н╠в╥╔ юЭц╪╟║ ╦ьцГ╬ъ гя╢ы.
-#define DEF_XSOCKEVENT_NOTINITIALIZED			-131	// е╛╥║╫╨╟║ цй╠Бх╜ ╣гаЖ ╬йю╨ ╩Себ╥н ╩Г©К╣ф╢ы.
-#define DEF_XSOCKEVENT_MSGSIZETOOLARGE			-132	// ╨╦Ё╩╟Мюз го╢б ╦ч╫цаЖюг ╩ГюлаН╟║ Ёй╧╚ е╘╢ы.
-#define DEF_XSOCKEVENT_CONFIRMCODENOTMATCH		-133	// х╝юндз╣Е╟║ юод║гоаЖ ╬й╢б╢ы. ╩Ха╕╣г╬Н╬ъ гя╢ы.
-#define DEF_XSOCKEVENT_QUENEFULL                -134    // ╨М╥о е╔юг ╟Ь╟ёюл ╬Ь╢ы.
-#define DEF_XSOCKEVENT_UNSENTDATASENDBLOCK		-135    // е╔©║ юж╢б ╣╔юлем╦╕ ╨╦Ё╩╢ы╟║ ╤г ╨М╥оюл ╟и╥х╢ы. 
-#define DEF_XSOCKEVENT_UNSENTDATASENDCOMPLETE	-136	// е╔©║ юж╢б ╦П╣Г ╣╔юлем╦╕ ╨╦Ёб╢ы.
+#define DEF_XSOCKEVENT_SOCKETMISMATCH			-121	// б╪ц▓ц└ц▐ ц─ц▄б╨б╔ц├б╝б©ц█ б╪ц▓ц└ц▐ц─ц▄ б╪б╜б╥ц▌ б╢ц≥б╦бёб╢ц≥. (ц─ц▄б╥б╠ б╟ц╕б©ц╛б╟б║?)
+#define DEF_XSOCKEVENT_CONNECTIONESTABLISH		-122	// ц│б╒б╪ц⌠ц─ц▄ ц─ц▄б╥ц╖б╬ц╝ ц│бЁб╢ц≥.
+#define DEF_XSOCKEVENT_RETRYINGCONNECTION		-123	// ц│б╒б╪ц⌠ц─б╩ б╢ц≥б╫ц┐ б╫ц┐б╣б╣ц┤ц▐б╢ц┌ ц│ц÷ц─ц▄б╢ц≥.
+#define DEF_XSOCKEVENT_ONREAD					-124	// б╦ц·б╫ц┐ц│ц╤б╦б╕ ц─ц░б╢ц┌ ц│ц÷ц─ц▄б╢ц≥. 
+#define DEF_XSOCKEVENT_READCOMPLETE				-125	// ц┤ц▐бЁб╙ц─ц┤ б╦ц·б╫ц┐ц│ц╤б╦б╕ б©ц▐ц─ц╪ц┬ц╥ б╪ц╤б╫ц┘ц┤ц÷б╢ц≥.
+#define DEF_XSOCKEVENT_UNKNOWN					-126	// б╬ц▀б╪ц╤б╬ц╦б╢ц┌ ц─ц▄б╨б╔ц├б╝ц─ц▄б╢ц≥.
+#define DEF_XSOCKEVENT_SOCKETCLOSED				-127	// б╪ц▓ц└ц▐ц─ц▄ б╢ц²ц┤ц╩б╢ц≥. 
+#define DEF_XSOCKEVENT_BLOCK					-128	// б╦ц·б╫ц┐ц│ц╤б╦б╕ б╨б╦бЁб╩б╢ц≥б╟б║ б╪ц▓ц└ц▐ц─ц▄ б╨ц╜б╥б╟б╣ц┬ б╩цЁц┘ц┌ц─ц▄б╢ц≥.
+#define DEF_XSOCKEVENT_SOCKETERROR				-129	// б╪ц▓ц└ц▐б©б║ б©б║б╥б╞б╟б║ б╧ц÷б╩ц╫ц┤ц÷б╢ц≥. ц─ц▄б╟ц╕б©ц╛ ц┘б╛б╥б║б╫б╨б╦б╕ б╩ц╗ц│б╕ц┤ц▐б©б╘б╬ц÷ ц┤ц▒б╢ц≥.
+#define DEF_XSOCKEVENT_CRITICALERROR			-130    // ц└б║б╦ц╜ц─ц╩ц─ц▌ б©б║б╥б╞б╥ц▌ ц┤ц│б╥ц▌б╠ц≈б╥б╔ ц─ц╪ц┐б╪б╟б║ б╦ц≤ц┐ц╖б╬ц÷ ц┤ц▒б╢ц≥.
+#define DEF_XSOCKEVENT_NOTINITIALIZED			-131	// ц┘б╛б╥б║б╫б╨б╟б║ ц┐ц┼б╠ц╒ц┬б╜ б╣ц┤ц│ц╤ б╬ц┼ц─б╨ б╩цЁц┘ц┌б╥ц▌ б╩ц╖б©ц╚б╣ц├б╢ц≥.
+#define DEF_XSOCKEVENT_MSGSIZETOOLARGE			-132	// б╨б╦бЁб╩б╟ц╜ц─ц  ц┤ц▐б╢ц┌ б╦ц·б╫ц┐ц│ц╤ц─ц┤ б╩ц╖ц─ц▄ц│ц╝б╟б║ бЁц┼б╧б╚ ц┘б╘б╢ц≥.
+#define DEF_XSOCKEVENT_CONFIRMCODENOTMATCH		-133	// ц┬б╝ц─ц▌ц└ц б╣ц╔б╟б║ ц─ц▐ц└б║ц┤ц▐ц│ц╤ б╬ц┼б╢ц┌б╢ц≥. б╩ц╗ц│б╕б╣ц┤б╬ц╝б╬ц÷ ц┤ц▒б╢ц≥.
+#define DEF_XSOCKEVENT_QUENEFULL                -134    // б╨ц╜б╥ц▐ ц┘б╔ц─ц┤ б╟ц╦б╟бёц─ц▄ б╬ц╦б╢ц≥.
+#define DEF_XSOCKEVENT_UNSENTDATASENDBLOCK		-135    // ц┘б╔б©б║ ц─ц√б╢ц┌ б╣б╔ц─ц▄ц┘ц█б╦б╕ б╨б╦бЁб╩б╢ц≥б╟б║ б╤ц┤ б╨ц╜б╥ц▐ц─ц▄ б╟ц┴б╥ц┬б╢ц≥. 
+#define DEF_XSOCKEVENT_UNSENTDATASENDCOMPLETE	-136	// ц┘б╔б©б║ ц─ц√б╢ц┌ б╦ц╟б╣ц╖ б╣б╔ц─ц▄ц┘ц█б╦б╕ б╨б╦бЁц┌б╢ц≥.
 
-#define DEF_XSOCKBLOCKLIMIT						300		// юл е╛╥║╫╨ ╪рдою╨ ?╧Ьюл╩С ╨М╥о╣г╦И ╢Уюл╩С ╣╔юлем╦╕ юЗюЕгр ╪Ж ╬Ь╢ы. 	
+#define DEF_XSOCKBLOCKLIMIT						300		// ц─ц▄ ц┘б╛б╥б║б╫б╨ б╪ц▓ц└ц▐ц─б╨ ?б╧ц╦ц─ц▄б╩цЁ б╨ц╜б╥ц▐б╣ц┤б╦ц╘ б╢ц╣ц─ц▄б╩цЁ б╣б╔ц─ц▄ц┘ц█б╦б╕ ц─ц╨ц─ц╔ц┤ц▓ б╪ц╤ б╬ц╦б╢ц≥. 	
 
 class XSocket  
 {

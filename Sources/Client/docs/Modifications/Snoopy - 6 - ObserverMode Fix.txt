@@ -1,12 +1,12 @@
 ___________________________________________________________________
                     Correction Observer mode
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Vieux bug sur HB, aussi présent sur la v3.51 officielle.
-Juste qu'un écran de 640x480 compte de 0 a.... 639!
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Vieux bug sur HB, aussi prÃ©sent sur la v3.51 officielle.
+Juste qu'un Ã©cran de 640x480 compte de 0 a.... 639!
 
 
 Game.cpp
-¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 void CGame::CommandProcessor(short msX, short msY, short indexX, short indexY, char cLB, char cRB) 
 REmplacer la partie Observermode par:
 // Fixed by Snoopy

@@ -74,8 +74,8 @@ public:
 	short m_sIntLimit;
 	int   m_iGoldCost;
 	
-	char  m_cCategory; // ¸¶aı Ál·u: RDaİ ¸¶aı 0, °r°İ¸¶aı 1, aclî ¸¶aı 2 
-	int   m_iAttribute; // ¸¶aı LÓLs:  ¶A 1 ÇD´A 2 sN 3 a° 4  
+	char  m_cCategory; // Â¸Â¶aÃ½ ÃlÂ·u: RDaÃ Â¸Â¶aÃ½ 0, Â°rÂ°ÃÂ¸Â¶aÃ½ 1, aclÃ® Â¸Â¶aÃ½ 2 
+	int   m_iAttribute; // Â¸Â¶aÃ½ LÃ“Ls:  Â¶A 1 Ã‡DÂ´A 2 sN 3 aÂ° 4  
 };
 
 #endif // !defined(AFX_MAGIC_H__CD611900_EF3A_11D2_9B6C_00001C7030A6__INCLUDED_)

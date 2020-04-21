@@ -19,15 +19,15 @@ public:
 	virtual ~CFish();
 
 	char  m_cMapIndex;
-	short m_sX, m_sY;			// ธสป๓ภว ภงฤก 
+	short m_sX, m_sY;			// ยธรยปรณร€ร ร€ยงรยก 
 
-	short m_sType;				// นฐฐํฑโ มพท๙  
-	class CItem * m_pItem;		// ณฌพาภปถง วาด็ตวดย พฦภฬลÛ(นฐฐํฑโ ท๙ภฯ ฐอภำ)
+	short m_sType;				// ยนยฐยฐรญยฑรข รยพยทรน  
+	class CItem * m_pItem;		// ยณยฌยพร’ร€ยปยถยง รร’ยดรงยตรยดร ยพรร€รร…ร(ยนยฐยฐรญยฑรข ยทรนร€ร ยฐรร€ร“)
 
 	short m_sDynamicObjectHandle;
 
-	short m_sEngagingCount;		// ว๖ภ็ ภฬ นฐฐํฑโธฆ ณ๋ธฎฐํ ภึดย วรทนภฬพ๎ ผ๖ 
-	int   m_iDifficulty;		// ณญภฬตต. รึผา 1ภบ ตวพ๎พ฿ วัดู.
+	short m_sEngagingCount;		// รรถร€รง ร€ร ยนยฐยฐรญยฑรขยธยฆ ยณรซยธยฎยฐรญ ร€ร–ยดร รรยทยนร€รยพรฎ ยผรถ 
+	int   m_iDifficulty;		// ยณยญร€รยตยต. รร–ยผร’ 1ร€ยบ ยตรยพรฎยพร รร‘ยดร.
 };
 
 #endif // !defined(AFX_FISH_H__B43430CE_E9DE_45BF_9E17_EDF084B0BADD__INCLUDED_)

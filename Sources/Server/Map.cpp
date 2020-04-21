@@ -427,7 +427,7 @@ BOOL CMap::bSetItem(short sX, short sY, class CItem * pItem)
 
 	pTile = (class CTile *)(m_pTile + sX + sY*m_sSizeY);
 
-	// v1.4 ¸¶Áö¸· Å¸ÀÏ¿¡ ¾ÆÀÌÅÛÀÌ ÀÖ´Ù¸é »èÁ¦½ÃÅ°°í ÀÌµ¿ÇÑ´Ù. 
+	// v1.4 Â¸Â¶ÃÃ¶Â¸Â· Ã…Â¸Ã€ÃÂ¿Â¡ Â¾Ã†Ã€ÃŒÃ…Ã›Ã€ÃŒ Ã€Ã–Â´Ã™Â¸Ã© Â»Ã¨ÃÂ¦Â½ÃƒÃ…Â°Â°Ã­ Ã€ÃŒÂµÂ¿Ã‡Ã‘Â´Ã™. 
 	if (pTile->m_pItem[DEF_TILE_PER_ITEMS-1] != NULL) 
 		delete pTile->m_pItem[DEF_TILE_PER_ITEMS-1];
 	else pTile->m_cTotalItem++;
@@ -512,7 +512,7 @@ BOOL CMap::bIsValidLoc(short sX, short sY)
 BOOL CMap::bInit(char * pName)
 {
  int i;
-	// ¸ÊÆÄÀÏÀ» ·ÎµåÇÑ´Ù.
+	// Â¸ÃŠÃ†Ã„Ã€ÃÃ€Â» Â·ÃÂµÃ¥Ã‡Ã‘Â´Ã™.
 	ZeroMemory(m_cName, sizeof(m_cName));
 	strcpy(m_cName, pName);
 
@@ -551,9 +551,9 @@ BOOL CMap::_bDecodeMapDataFileContents()
 	ZeroMemory(cHeader, sizeof(cHeader));
 	ReadFile(hFile, (char *)cHeader, 256, &nRead, NULL);
 
-	// Çì´õÁ¤º¸¸¦ ºĞ¼®ÇÑ´Ù.
+	// Ã‡Ã¬Â´ÃµÃÂ¤ÂºÂ¸Â¸Â¦ ÂºÃÂ¼Â®Ã‡Ã‘Â´Ã™.
 
-	// ¸ÕÀú ³Î¹®ÀÚ¸¦ ¾ø¾Ø´Ù.
+	// Â¸Ã•Ã€Ãº Â³ÃÂ¹Â®Ã€ÃšÂ¸Â¦ Â¾Ã¸Â¾Ã˜Â´Ã™.
 	for (i = 0; i < 256; i++) 
 		if (cHeader[i] == NULL) cHeader[i] = ' ';
 
@@ -590,22 +590,22 @@ BOOL CMap::_bDecodeMapDataFileContents()
 		token = pStrTok->pGet();
 	}
 
-	// Å©±â¿¡ ¸Â°Ô Å¸ÀÏÀ» »ı¼ºÇÑ´Ù.
+	// Ã…Â©Â±Ã¢Â¿Â¡ Â¸Ã‚Â°Ã” Ã…Â¸Ã€ÃÃ€Â» Â»Ã½Â¼ÂºÃ‡Ã‘Â´Ã™.
 	m_pTile = (class CTile *)new class CTile[m_sSizeX * m_sSizeY];
 
-	// Å¸ÀÏÀÇ Á¤º¸¸¦ ÀĞ¾îµéÀÎ´Ù.
+	// Ã…Â¸Ã€ÃÃ€Ã‡ ÃÂ¤ÂºÂ¸Â¸Â¦ Ã€ÃÂ¾Ã®ÂµÃ©Ã€ÃÂ´Ã™.
 	for (iy = 0; iy < m_sSizeY; iy++)
 	for (ix = 0; ix < m_sSizeX; ix++) {
 		ReadFile(hFile, (char *)cTemp, m_sTileDataSize, &nRead, NULL);	
 		pTile = (class CTile *)(m_pTile + ix + iy*m_sSizeY);
 		if ((cTemp[8] & 0x80) != 0) {
-			// °¥¼ö¾ø´Â ¼Ó¼ºÀÌ ¼¼Æ®µÇ¾î ÀÖ´Ù.
+			// Â°Â¥Â¼Ã¶Â¾Ã¸Â´Ã‚ Â¼Ã“Â¼ÂºÃ€ÃŒ Â¼Â¼Ã†Â®ÂµÃ‡Â¾Ã® Ã€Ã–Â´Ã™.
 			 pTile->m_bIsMoveAllowed = FALSE;
 		}
 		else pTile->m_bIsMoveAllowed = TRUE;
 
 		if ((cTemp[8] & 0x40) != 0) {
-			// ÅÚ·¹Æ÷Æ® ¼Ó¼ºÀÌ ¼¼Æ®µÇ¾î ÀÖ´Ù.
+			// Ã…ÃšÂ·Â¹Ã†Ã·Ã†Â® Â¼Ã“Â¼ÂºÃ€ÃŒ Â¼Â¼Ã†Â®ÂµÃ‡Â¾Ã® Ã€Ã–Â´Ã™.
 			 pTile->m_bIsTeleport = TRUE;
 		}
 		else pTile->m_bIsTeleport = FALSE;
@@ -617,7 +617,7 @@ BOOL CMap::_bDecodeMapDataFileContents()
 
 		sp = (short *)&cTemp[0];
 		if (*sp == 19) {
-			// ¹° Å¸ÀÏÀÌ´Ù. 
+			// Â¹Â° Ã…Â¸Ã€ÃÃ€ÃŒÂ´Ã™. 
 			 pTile->m_bIsWater = TRUE;
 		}
 		else pTile->m_bIsWater = FALSE;
@@ -707,7 +707,7 @@ BOOL CMap::bGetIsWater(short dX, short dY)
 	return TRUE;
 }
 
-//v2.19 2002-12-16 ³ó»ç ½ºÅ³ °ü·Ã
+//v2.19 2002-12-16 Â³Ã³Â»Ã§ Â½ÂºÃ…Â³ Â°Ã¼Â·Ãƒ
 BOOL CMap::bRemoveCropsTotalSum()
 {
 	if(m_iTotalAgriculture < DEF_MAXAGRICULTURE)
@@ -722,7 +722,7 @@ BOOL CMap::bRemoveCropsTotalSum()
 	return FALSE;
 }
 
-//v2.19 2002-12-16 ³ó»ç ½ºÅ³ °ü·Ã
+//v2.19 2002-12-16 Â³Ã³Â»Ã§ Â½ÂºÃ…Â³ Â°Ã¼Â·Ãƒ
 BOOL CMap::bAddCropsTotalSum()
 {
 	if(m_iTotalAgriculture < DEF_MAXAGRICULTURE)
@@ -750,10 +750,10 @@ int CMap::iAnalyze(char cType, int * pX, int * pY, int * pV1, int * pV2, int * p
 {
 
  
-	// ÇöÀç ¸ÊÀÇ »óÈ²À» ºĞ¼®ÇÏ¿© Äõ¸®¿¡ ¸Â´Â À§Ä¡¸¦ ¹İÈ¯ÇÑ´Ù. 
+	// Ã‡Ã¶Ã€Ã§ Â¸ÃŠÃ€Ã‡ Â»Ã³ÃˆÂ²Ã€Â» ÂºÃÂ¼Â®Ã‡ÃÂ¿Â© Ã„ÃµÂ¸Â®Â¿Â¡ Â¸Ã‚Â´Ã‚ Ã€Â§Ã„Â¡Â¸Â¦ Â¹ÃÃˆÂ¯Ã‡Ã‘Â´Ã™. 
 	switch (cType) {
 	case 1:
-		// ÇöÀç ±³ÀüÀÌ ¹ú¾îÁö°í ÀÖ´Â °÷ÀÇ À§Ä¡¸¦ Ã£´Â´Ù. 
+		// Ã‡Ã¶Ã€Ã§ Â±Â³Ã€Ã¼Ã€ÃŒ Â¹ÃºÂ¾Ã®ÃÃ¶Â°Ã­ Ã€Ã–Â´Ã‚ Â°Ã·Ã€Ã‡ Ã€Â§Ã„Â¡Â¸Â¦ ÃƒÂ£Â´Ã‚Â´Ã™. 
 
 		break;
 
@@ -827,11 +827,11 @@ void CMap::_SetupNoAttackArea()
 
 	for (i = 0; i < DEF_MAXNMR; i++) {
 		if ((m_rcNoAttackRect[i].top > 0)) {
-			// No-Magic-Area°¡ Á¤ÀÇµÇ¾î ÀÖ´Ù.
+			// No-Magic-AreaÂ°Â¡ ÃÂ¤Ã€Ã‡ÂµÃ‡Â¾Ã® Ã€Ã–Â´Ã™.
 			for (ix = m_rcNoAttackRect[i].left; ix <= m_rcNoAttackRect[i].right; ix++)
 			for (iy = m_rcNoAttackRect[i].top; iy <= m_rcNoAttackRect[i].bottom; iy++) {
 				pTile = (class CTile *)(m_pTile + ix + iy*m_sSizeY);
-				pTile->m_iAttribute = pTile->m_iAttribute | 0x00000004;		// 3¹øÂ° ºñÆ®¸¦ ¼¼ÆÃÇÑ´Ù. ¾ÈÀüÁö´ë 
+				pTile->m_iAttribute = pTile->m_iAttribute | 0x00000004;		// 3Â¹Ã¸Ã‚Â° ÂºÃ±Ã†Â®Â¸Â¦ Â¼Â¼Ã†ÃƒÃ‡Ã‘Â´Ã™. Â¾ÃˆÃ€Ã¼ÃÃ¶Â´Ã« 
 			}
 		}
 		else if (m_rcNoAttackRect[i].top == -10) 
@@ -839,7 +839,7 @@ void CMap::_SetupNoAttackArea()
 			for (ix = 0; ix < m_sSizeX; ix++)
 			for (iy = 0; iy < m_sSizeY; iy++) {
 				pTile = (class CTile *)(m_pTile + ix + iy*m_sSizeY);
-				pTile->m_iAttribute = pTile->m_iAttribute | 0x00000004;		// 3¹øÂ° ºñÆ®¸¦ ¼¼ÆÃÇÑ´Ù. ¾ÈÀüÁö´ë
+				pTile->m_iAttribute = pTile->m_iAttribute | 0x00000004;		// 3Â¹Ã¸Ã‚Â° ÂºÃ±Ã†Â®Â¸Â¦ Â¼Â¼Ã†ÃƒÃ‡Ã‘Â´Ã™. Â¾ÃˆÃ€Ã¼ÃÃ¶Â´Ã«
 			}
 		}
 	}

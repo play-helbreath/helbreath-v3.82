@@ -24,9 +24,9 @@
 #define DEF_MSGBUFFERSIZE	50000
 #define DEF_MAXITEMS		50
 #define DEF_MAXBANKITEMS	120
-#define DEF_MAXGUILDSMAN	128 // ÃÖ´ë ±æµå¿ø ¼ö 
+#define DEF_MAXGUILDSMAN	128 // ÃƒÃ–Â´Ã« Â±Ã¦ÂµÃ¥Â¿Ã¸ Â¼Ã¶ 
 
-#define	DEF_MAXMAGICTYPE	100	// º¯°æÇÏ·Á¸é ·Î±×¼­¹ö³»¿ëµµ ¹Ù²Ù¾î¾ß ÇÑ´Ù.
+#define	DEF_MAXMAGICTYPE	100	// ÂºÂ¯Â°Ã¦Ã‡ÃÂ·ÃÂ¸Ã© Â·ÃÂ±Ã—Â¼Â­Â¹Ã¶Â³Â»Â¿Ã«ÂµÂµ Â¹Ã™Â²Ã™Â¾Ã®Â¾ÃŸ Ã‡Ã‘Â´Ã™.
 #define DEF_MAXSKILLTYPE	60
 
 #define DEF_MAXPARTYMEMBERS	8
@@ -146,19 +146,19 @@ public:
 	char  m_cMapIndex;
 	short m_sX, m_sY;
 	
-	char  m_cGuildName[21];		// ±æµåÀÇ ÀÌ¸§ 
-	char  m_cLocation[11];      //  <- ¸ÊÀÌ¸§ÀÌ ±×´ë·Î ÀúÀåµÈ´Ù. ¼Ò¼Ó ¸¶À» 
-	int   m_iGuildRank;			// -1ÀÌ¸é ¹«ÀÇ¹Ì. 0ÀÌ¸é ±æµå ¸¶½ºÅÍ. ¾ç¼ö´Â ±æµå³»¿¡¼­ÀÇ ¼­¿­ 
+	char  m_cGuildName[21];		// Â±Ã¦ÂµÃ¥Ã€Ã‡ Ã€ÃŒÂ¸Â§ 
+	char  m_cLocation[11];      //  <- Â¸ÃŠÃ€ÃŒÂ¸Â§Ã€ÃŒ Â±Ã—Â´Ã«Â·Ã Ã€ÃºÃ€Ã¥ÂµÃˆÂ´Ã™. Â¼Ã’Â¼Ã“ Â¸Â¶Ã€Â» 
+	int   m_iGuildRank;			// -1Ã€ÃŒÂ¸Ã© Â¹Â«Ã€Ã‡Â¹ÃŒ. 0Ã€ÃŒÂ¸Ã© Â±Ã¦ÂµÃ¥ Â¸Â¶Â½ÂºÃ…Ã. Â¾Ã§Â¼Ã¶Â´Ã‚ Â±Ã¦ÂµÃ¥Â³Â»Â¿Â¡Â¼Â­Ã€Ã‡ Â¼Â­Â¿Â­ 
 	int   m_iGuildGUID;
 	
 	char  m_cDir;
-	short m_sType;				// ÇöÀç Å¸ÀÔ <- Æú¸®¸ğÇÁ ½Ã¿¡ º¯ÇÑ´Ù. 
-	short m_sOriginalType;		// ¿À¸®Áö³¯ Å¸ÀÔ
+	short m_sType;				// Ã‡Ã¶Ã€Ã§ Ã…Â¸Ã€Ã” <- Ã†ÃºÂ¸Â®Â¸Ã°Ã‡Ã Â½ÃƒÂ¿Â¡ ÂºÂ¯Ã‡Ã‘Â´Ã™. 
+	short m_sOriginalType;		// Â¿Ã€Â¸Â®ÃÃ¶Â³Â¯ Ã…Â¸Ã€Ã”
 	short m_sAppr1;
 	short m_sAppr2;
 	short m_sAppr3;
 	short m_sAppr4;
-	int   m_iApprColor;			// v1.4 ¿ÜÇü ÄÃ·¯Å×ÀÌºí
+	int   m_iApprColor;			// v1.4 Â¿ÃœÃ‡Ã¼ Ã„ÃƒÂ·Â¯Ã…Ã—Ã€ÃŒÂºÃ­
 	int   m_iStatus;
 
 	DWORD m_dwTime, m_dwHPTime, m_dwMPTime, m_dwSPTime, m_dwAutoSaveTime, m_dwHungerTime, m_dwWarmEffectTime;
@@ -216,7 +216,7 @@ public:
 	int  m_iEnemyKillCount, m_iPKCount, m_iRewardGold;
 	int  m_iCurWeightLoad;		// 
 
-	char m_cSide;				// ÇÃ·¹ÀÌ¾îÀÇ Æí 
+	char m_cSide;				// Ã‡ÃƒÂ·Â¹Ã€ÃŒÂ¾Ã®Ã€Ã‡ Ã†Ã­ 
 	
 	BOOL m_bInhibition;
 	//Add by Snoopy
@@ -224,12 +224,12 @@ public:
 	BOOL m_bManaSlate;
 	BOOL m_bXpSlate;
 
-	char m_cAttackDiceThrow_SM;	// °ø°İÄ¡ ÁÖ»çÀ§ ´øÁö´Â È¸¼ö 
-	char m_cAttackDiceRange_SM;	// °ø°İÄ¡ ÁÖ»çÀ§ ¹üÀ§ 
-	char m_cAttackDiceThrow_L;	// °ø°İÄ¡ ÁÖ»çÀ§ ´øÁö´Â È¸¼ö 
-	char m_cAttackDiceRange_L;	// °ø°İÄ¡ ÁÖ»çÀ§ ¹üÀ§ 
-	char m_cAttackBonus_SM;		// °ø°İ º¸³Ê½º
-	char m_cAttackBonus_L;		// °ø°İ º¸³Ê½º
+	char m_cAttackDiceThrow_SM;	// Â°Ã¸Â°ÃÃ„Â¡ ÃÃ–Â»Ã§Ã€Â§ Â´Ã¸ÃÃ¶Â´Ã‚ ÃˆÂ¸Â¼Ã¶ 
+	char m_cAttackDiceRange_SM;	// Â°Ã¸Â°ÃÃ„Â¡ ÃÃ–Â»Ã§Ã€Â§ Â¹Ã¼Ã€Â§ 
+	char m_cAttackDiceThrow_L;	// Â°Ã¸Â°ÃÃ„Â¡ ÃÃ–Â»Ã§Ã€Â§ Â´Ã¸ÃÃ¶Â´Ã‚ ÃˆÂ¸Â¼Ã¶ 
+	char m_cAttackDiceRange_L;	// Â°Ã¸Â°ÃÃ„Â¡ ÃÃ–Â»Ã§Ã€Â§ Â¹Ã¼Ã€Â§ 
+	char m_cAttackBonus_SM;		// Â°Ã¸Â°Ã ÂºÂ¸Â³ÃŠÂ½Âº
+	char m_cAttackBonus_L;		// Â°Ã¸Â°Ã ÂºÂ¸Â³ÃŠÂ½Âº
 
 	class CItem * m_pItemList[DEF_MAXITEMS];
 	POINT m_ItemPosList[DEF_MAXITEMS];
@@ -237,7 +237,7 @@ public:
 	
 	BOOL  m_bIsItemEquipped[DEF_MAXITEMS];
 	short m_sItemEquipmentStatus[DEF_MAXITEMEQUIPPOS];
-	char  m_cArrowIndex;		// ÇÃ·¹ÀÌ¾î°¡ È°À» »ç¿ëÇÒ¶§ È­»ì ¾ÆÀÌÅÛ ÀÎµ¦½º. ÃÊ±â°ªÀº -1(ÇÒ´ç ¾ÈµÊ)
+	char  m_cArrowIndex;		// Ã‡ÃƒÂ·Â¹Ã€ÃŒÂ¾Ã®Â°Â¡ ÃˆÂ°Ã€Â» Â»Ã§Â¿Ã«Ã‡Ã’Â¶Â§ ÃˆÂ­Â»Ã¬ Â¾Ã†Ã€ÃŒÃ…Ã› Ã€ÃÂµÂ¦Â½Âº. ÃƒÃŠÂ±Ã¢Â°ÂªÃ€Âº -1(Ã‡Ã’Â´Ã§ Â¾ÃˆÂµÃŠ)
 
 	char           m_cMagicMastery[DEF_MAXMAGICTYPE];
 	unsigned char  m_cSkillMastery[DEF_MAXSKILLTYPE]; // v1.4
@@ -254,72 +254,72 @@ public:
 	int   m_iHungerStatus;		// 
 
 
-	BOOL  m_bIsPoisoned;		// Áßµ¶µÇ¾ú´ÂÁöÀÇ ¿©ºÎ 
-	int   m_iPoisonLevel;       // µ¶ÀÇ °­µµ 
-	DWORD m_dwPoisonTime;		// Áßµ¶ ½Ã°£.
+	BOOL  m_bIsPoisoned;		// ÃÃŸÂµÂ¶ÂµÃ‡Â¾ÃºÂ´Ã‚ÃÃ¶Ã€Ã‡ Â¿Â©ÂºÃ 
+	int   m_iPoisonLevel;       // ÂµÂ¶Ã€Ã‡ Â°Â­ÂµÂµ 
+	DWORD m_dwPoisonTime;		// ÃÃŸÂµÂ¶ Â½ÃƒÂ°Â£.
 	
 	int   m_iPenaltyBlockYear, m_iPenaltyBlockMonth, m_iPenaltyBlockDay; // v1.4
 
-	//v1.4311-3 Ãß°¡ º¯¼ö ¼±¾ğ »çÅõÀå ¹øÈ£¿Í »çÅõÀå ¿¹¾àÇÑ ½Ã°£
+	//v1.4311-3 ÃƒÃŸÂ°Â¡ ÂºÂ¯Â¼Ã¶ Â¼Â±Â¾Ã° Â»Ã§Ã…ÃµÃ€Ã¥ Â¹Ã¸ÃˆÂ£Â¿Ã Â»Ã§Ã…ÃµÃ€Ã¥ Â¿Â¹Â¾Ã Ã‡Ã‘ Â½ÃƒÂ°Â£
 	int   m_iFightzoneNumber , m_iReserveTime, m_iFightZoneTicketNumber ; 
 
 	class XSocket * m_pXSock;
 
-	int   m_iAdminUserLevel;     // °ü¸®ÀÚ ·¹º§. 0ÀÌ¸é ¹«È¿. ¹øÈ£°¡ ¿Ã¶ó°¥ ¼ö·Ï ±ÇÇÑÀÌ Ä¿Áø´Ù.
+	int   m_iAdminUserLevel;     // Â°Ã¼Â¸Â®Ã€Ãš Â·Â¹ÂºÂ§. 0Ã€ÃŒÂ¸Ã© Â¹Â«ÃˆÂ¿. Â¹Ã¸ÃˆÂ£Â°Â¡ Â¿ÃƒÂ¶Ã³Â°Â¥ Â¼Ã¶Â·Ã Â±Ã‡Ã‡Ã‘Ã€ÃŒ Ã„Â¿ÃÃ¸Â´Ã™.
 	int   m_iRating;
 	int   m_iClientPrimaryDropRate;
 
-	int   m_iTimeLeft_ShutUp;	 // ÀÌ °ªÀÌ 0ÀÌ ¾Æ´Ï¸é Ã¤ÆÃ¸Ş½ÃÁö°¡ Àü´ŞµÇÁö ¾Ê´Â´Ù.
-	int   m_iTimeLeft_Rating;	 // ´Ù¸¥ ÇÃ·¹ÀÌ¾îÀÇ ÆòÆÇÀ» ¸Å±â±â À§ÇØ ³²Àº ½Ã°£. 0ÀÌ¸é »ç¿ë °¡´É 
-	int   m_iTimeLeft_FirmStaminar; // ½ºÅÂ¹Ì³Ê°¡ ´Ş¾Æ ¾ø¾îÁöÁö ¾Ê´Â ½Ã°£ ÅÒ  
+	int   m_iTimeLeft_ShutUp;	 // Ã€ÃŒ Â°ÂªÃ€ÃŒ 0Ã€ÃŒ Â¾Ã†Â´ÃÂ¸Ã© ÃƒÂ¤Ã†ÃƒÂ¸ÃÂ½ÃƒÃÃ¶Â°Â¡ Ã€Ã¼Â´ÃÂµÃ‡ÃÃ¶ Â¾ÃŠÂ´Ã‚Â´Ã™.
+	int   m_iTimeLeft_Rating;	 // Â´Ã™Â¸Â¥ Ã‡ÃƒÂ·Â¹Ã€ÃŒÂ¾Ã®Ã€Ã‡ Ã†Ã²Ã†Ã‡Ã€Â» Â¸Ã…Â±Ã¢Â±Ã¢ Ã€Â§Ã‡Ã˜ Â³Â²Ã€Âº Â½ÃƒÂ°Â£. 0Ã€ÃŒÂ¸Ã© Â»Ã§Â¿Ã« Â°Â¡Â´Ã‰ 
+	int   m_iTimeLeft_FirmStaminar; // Â½ÂºÃ…Ã‚Â¹ÃŒÂ³ÃŠÂ°Â¡ Â´ÃÂ¾Ã† Â¾Ã¸Â¾Ã®ÃÃ¶ÃÃ¶ Â¾ÃŠÂ´Ã‚ Â½ÃƒÂ°Â£ Ã…Ã’  
 	int   m_iTimeLeft_ForceRecall;	// Time counter for force recall (counts by 3 seconds)
 	BOOL  m_bIsWarLocation;			// True if m_iTimeLeft_ForceRecall needs to recall client
 
 
-	int   m_iExpStock;			 // ½×¿©ÀÖ´Â °æÇèÄ¡ 
-	DWORD m_dwExpStockTime;		 // ExpStock °è»ê ½Ã°£.
+	int   m_iExpStock;			 // Â½Ã—Â¿Â©Ã€Ã–Â´Ã‚ Â°Ã¦Ã‡Ã¨Ã„Â¡ 
+	DWORD m_dwExpStockTime;		 // ExpStock Â°Ã¨Â»Ãª Â½ÃƒÂ°Â£.
 
-	int   m_iAutoExpAmount;		 // Auto-Exp ½Ã°£ µ¿¾È ¾òÀº °æÇèÄ¡ 
-	DWORD m_dwAutoExpTime;		 // Auto-Exp °è»ê ½Ã°£.
+	int   m_iAutoExpAmount;		 // Auto-Exp Â½ÃƒÂ°Â£ ÂµÂ¿Â¾Ãˆ Â¾Ã²Ã€Âº Â°Ã¦Ã‡Ã¨Ã„Â¡ 
+	DWORD m_dwAutoExpTime;		 // Auto-Exp Â°Ã¨Â»Ãª Â½ÃƒÂ°Â£.
 
 
-	int   m_iAllocatedFish;		 // ÀÌ °ªÀÌ 0ÀÌ ¾Æ´Ï¸é ÀÌº¥Æ® ³¬½Ã¸ğµå¶ó´Â ÀÌ¾ß±â´Ù. 
-	int   m_iFishChance;		 // ÇöÀç ³¬À» »óÅÂ 
+	int   m_iAllocatedFish;		 // Ã€ÃŒ Â°ÂªÃ€ÃŒ 0Ã€ÃŒ Â¾Ã†Â´ÃÂ¸Ã© Ã€ÃŒÂºÂ¥Ã†Â® Â³Â¬Â½ÃƒÂ¸Ã°ÂµÃ¥Â¶Ã³Â´Ã‚ Ã€ÃŒÂ¾ÃŸÂ±Ã¢Â´Ã™. 
+	int   m_iFishChance;		 // Ã‡Ã¶Ã€Ã§ Â³Â¬Ã€Â» Â»Ã³Ã…Ã‚ 
 	
-	char  m_cIPaddress[21];		 // Å¬¶óÀÌ¾ğÆ®ÀÇ IP address
+	char  m_cIPaddress[21];		 // Ã…Â¬Â¶Ã³Ã€ÃŒÂ¾Ã°Ã†Â®Ã€Ã‡ IP address
 	BOOL  m_bIsSafeAttackMode;
 
 	BOOL  m_bIsOnWaitingProcess;	// TRUE Means wait deletion and connection to other server.
 									// Prevents another TP tentative, and LogoutHack Check
 	
-	int   m_iSuperAttackLeft;	 // v1.2 ÇÊ»ì±â »ç¿ë °¡´É È½¼ö 
-	int   m_iSuperAttackCount;   // v1.2 ÇÊ»ì±â »ç¿ë °¡´É Ä«¿îÆ®. ÀÌ Ä«¿îÆ®°¡ ´Ù Â÷¸é ÇÊ»ì±â »ç¿ë È½¼ö°¡ ´Ã¾î³­´Ù. 
+	int   m_iSuperAttackLeft;	 // v1.2 Ã‡ÃŠÂ»Ã¬Â±Ã¢ Â»Ã§Â¿Ã« Â°Â¡Â´Ã‰ ÃˆÂ½Â¼Ã¶ 
+	int   m_iSuperAttackCount;   // v1.2 Ã‡ÃŠÂ»Ã¬Â±Ã¢ Â»Ã§Â¿Ã« Â°Â¡Â´Ã‰ Ã„Â«Â¿Ã®Ã†Â®. Ã€ÃŒ Ã„Â«Â¿Ã®Ã†Â®Â°Â¡ Â´Ã™ Ã‚Ã·Â¸Ã© Ã‡ÃŠÂ»Ã¬Â±Ã¢ Â»Ã§Â¿Ã« ÃˆÂ½Â¼Ã¶Â°Â¡ Â´ÃƒÂ¾Ã®Â³Â­Â´Ã™. 
 
-	short m_sUsingWeaponSkill;	 // v1.2 ÇöÀç »ç¿ëÇÏ´Â ¹«±âÀÇ ½ºÅ³ ÀÎµ¦½º 
+	short m_sUsingWeaponSkill;	 // v1.2 Ã‡Ã¶Ã€Ã§ Â»Ã§Â¿Ã«Ã‡ÃÂ´Ã‚ Â¹Â«Â±Ã¢Ã€Ã‡ Â½ÂºÃ…Â³ Ã€ÃÂµÂ¦Â½Âº 
 
-	int   m_iManaSaveRatio;		 // v1.2 ¸¶³ª Àı¾à Æ÷ÀÎÆ® 
+	int   m_iManaSaveRatio;		 // v1.2 Â¸Â¶Â³Âª Ã€Ã½Â¾Ã  Ã†Ã·Ã€ÃÃ†Â® 
 	
-	int   m_bIsLuckyEffect;		 // v1.2 Çà¿î È¿°ú 
-	int   m_iSideEffect_MaxHPdown; // v1.4 ÃÖ´ë HP Àı°¨ È¿°ú 
+	int   m_bIsLuckyEffect;		 // v1.2 Ã‡Ã Â¿Ã® ÃˆÂ¿Â°Ãº 
+	int   m_iSideEffect_MaxHPdown; // v1.4 ÃƒÃ–Â´Ã« HP Ã€Ã½Â°Â¨ ÃˆÂ¿Â°Ãº 
 
-	int   m_iComboAttackCount;   // v1.3 ¿¬Å¸ °ø°İ Ä«¿îÆ® 
-	int   m_iDownSkillIndex;	 // v1.3 ´Ù¸¥ ½ºÅ³ÀÌ ¿Ã¶ó°¥¶§ ³»¸± ½ºÅ³ ÀÎµ¦½º 
+	int   m_iComboAttackCount;   // v1.3 Â¿Â¬Ã…Â¸ Â°Ã¸Â°Ã Ã„Â«Â¿Ã®Ã†Â® 
+	int   m_iDownSkillIndex;	 // v1.3 Â´Ã™Â¸Â¥ Â½ÂºÃ…Â³Ã€ÃŒ Â¿ÃƒÂ¶Ã³Â°Â¥Â¶Â§ Â³Â»Â¸Â± Â½ÂºÃ…Â³ Ã€ÃÂµÂ¦Â½Âº 
 
-	int   m_iMagicDamageSaveItemIndex; // v1.3 ¸¶¹ı °ø°İ ´ë¹ÌÁö Àı°¨ ¾ÆÀÌÅÛ ÀÎµ¦½º (º¸ÅëÀº -1)
+	int   m_iMagicDamageSaveItemIndex; // v1.3 Â¸Â¶Â¹Ã½ Â°Ã¸Â°Ã Â´Ã«Â¹ÃŒÃÃ¶ Ã€Ã½Â°Â¨ Â¾Ã†Ã€ÃŒÃ…Ã› Ã€ÃÂµÂ¦Â½Âº (ÂºÂ¸Ã…Ã«Ã€Âº -1)
 
-	short m_sCharIDnum1, m_sCharIDnum2, m_sCharIDnum3; // v1.3 ±× Ä³¸¯ÅÍ°¡ °®´Â °íÀ¯°ª!
+	short m_sCharIDnum1, m_sCharIDnum2, m_sCharIDnum3; // v1.3 Â±Ã— Ã„Â³Â¸Â¯Ã…ÃÂ°Â¡ Â°Â®Â´Ã‚ Â°Ã­Ã€Â¯Â°Âª!
 
-	int   m_iAbuseCount;		// ÇØÅ· ¿ëÀÇÀÚ ÆÄ¾Ç¿ë 
+	int   m_iAbuseCount;		// Ã‡Ã˜Ã…Â· Â¿Ã«Ã€Ã‡Ã€Ãš Ã†Ã„Â¾Ã‡Â¿Ã« 
 	
-	BOOL  m_bIsBWMonitor;		// BadWord ¸ğ´ÏÅÍÀÎ°¡?
+	BOOL  m_bIsBWMonitor;		// BadWord Â¸Ã°Â´ÃÃ…ÃÃ€ÃÂ°Â¡?
 
-	//BOOL  m_bIsExchangeMode;		// ÇöÀç ¾ÆÀÌÅÛ ±³È¯ ¸ğµåÀÎ°¡? 
-	//int   m_iExchangeH;				// ±³È¯ÇÒ ´ë»óÀÇ ÀÎµ¦½º 
-	//char  m_cExchangeName[11];		// ±³È¯ÇÒ ´ë»óÀÇ ÀÌ¸§ 
-	//char  m_cExchangeItemName[21];	// ±³È¯ÇÏ°íÀÚ ÇÏ´Â ¾ÆÀÌÅÛ ÀÌ¸§ 
-	//char  m_cExchangeItemIndex;  // ±³È¯ÇÒ ¾ÆÀÌÅÛ ÀÎµ¦½º 
-	//int   m_iExchangeItemAmount; // ±³È¯ÇÒ ¾ÆÀÌÅÛ °¹¼ö 
-	//BOOL  m_bIsExchangeConfirm;  // ±³È¯ È®ÀÎ 
+	//BOOL  m_bIsExchangeMode;		// Ã‡Ã¶Ã€Ã§ Â¾Ã†Ã€ÃŒÃ…Ã› Â±Â³ÃˆÂ¯ Â¸Ã°ÂµÃ¥Ã€ÃÂ°Â¡? 
+	//int   m_iExchangeH;				// Â±Â³ÃˆÂ¯Ã‡Ã’ Â´Ã«Â»Ã³Ã€Ã‡ Ã€ÃÂµÂ¦Â½Âº 
+	//char  m_cExchangeName[11];		// Â±Â³ÃˆÂ¯Ã‡Ã’ Â´Ã«Â»Ã³Ã€Ã‡ Ã€ÃŒÂ¸Â§ 
+	//char  m_cExchangeItemName[21];	// Â±Â³ÃˆÂ¯Ã‡ÃÂ°Ã­Ã€Ãš Ã‡ÃÂ´Ã‚ Â¾Ã†Ã€ÃŒÃ…Ã› Ã€ÃŒÂ¸Â§ 
+	//char  m_cExchangeItemIndex;  // Â±Â³ÃˆÂ¯Ã‡Ã’ Â¾Ã†Ã€ÃŒÃ…Ã› Ã€ÃÂµÂ¦Â½Âº 
+	//int   m_iExchangeItemAmount; // Â±Â³ÃˆÂ¯Ã‡Ã’ Â¾Ã†Ã€ÃŒÃ…Ã› Â°Â¹Â¼Ã¶ 
+	//BOOL  m_bIsExchangeConfirm;  // Â±Â³ÃˆÂ¯ ÃˆÂ®Ã€Ã 
 
 
 	BOOL  m_bIsExchangeConfirm;			// Has the user hit confirm? 	
@@ -331,35 +331,35 @@ public:
 	int   m_iExchangeItemAmount[4];		// Ammount to exchange with
 	int	  iExchangeCount;				// Keeps track of items which are on list
 
-	int   m_iQuest;				// ÇöÀç ÇÒ´çµÈ Quest 
-	int   m_iQuestID;			// ÇÒ´ç¹ŞÀº QuestÀÇ ID°ª 
-	int   m_iAskedQuest;		// ¹°¾îº» Äù½ºÆ® 
-	int   m_iCurQuestCount;		// ÇöÀç Äù½ºÆ® »óÅÂ 
+	int   m_iQuest;				// Ã‡Ã¶Ã€Ã§ Ã‡Ã’Â´Ã§ÂµÃˆ Quest 
+	int   m_iQuestID;			// Ã‡Ã’Â´Ã§Â¹ÃÃ€Âº QuestÃ€Ã‡ IDÂ°Âª 
+	int   m_iAskedQuest;		// Â¹Â°Â¾Ã®ÂºÂ» Ã„Ã¹Â½ÂºÃ†Â® 
+	int   m_iCurQuestCount;		// Ã‡Ã¶Ã€Ã§ Ã„Ã¹Â½ÂºÃ†Â® Â»Ã³Ã…Ã‚ 
 	
-	int   m_iQuestRewardType;	 // Äù½ºÆ® ÇØ°á½Ã »óÇ° Á¾·ù -> ¾ÆÀÌÅÛÀÇ ID°ªÀÌ´Ù.
-	int   m_iQuestRewardAmount;	 // »óÇ° °¹¼ö 
+	int   m_iQuestRewardType;	 // Ã„Ã¹Â½ÂºÃ†Â® Ã‡Ã˜Â°Ã¡Â½Ãƒ Â»Ã³Ã‡Â° ÃÂ¾Â·Ã¹ -> Â¾Ã†Ã€ÃŒÃ…Ã›Ã€Ã‡ IDÂ°ÂªÃ€ÃŒÂ´Ã™.
+	int   m_iQuestRewardAmount;	 // Â»Ã³Ã‡Â° Â°Â¹Â¼Ã¶ 
 
-	int   m_iContribution;		 // µµ½Ã¿¡ ´ëÇÑ °øÇåµµ. 
+	int   m_iContribution;		 // ÂµÂµÂ½ÃƒÂ¿Â¡ Â´Ã«Ã‡Ã‘ Â°Ã¸Ã‡Ã¥ÂµÂµ. 
 
-	BOOL  m_bQuestMatchFlag_Loc; // Äù½ºÆ® ¼öÇà Á¶°ÇÀ» ÆÇ´ÜÇÏ±â À§ÇÔ.
-	BOOL  m_bIsQuestCompleted;   // Äù½ºÆ®°¡ ¿Ï·áµÇ¾ú´Â°¡? 
+	BOOL  m_bQuestMatchFlag_Loc; // Ã„Ã¹Â½ÂºÃ†Â® Â¼Ã¶Ã‡Ã  ÃÂ¶Â°Ã‡Ã€Â» Ã†Ã‡Â´ÃœÃ‡ÃÂ±Ã¢ Ã€Â§Ã‡Ã”.
+	BOOL  m_bIsQuestCompleted;   // Ã„Ã¹Â½ÂºÃ†Â®Â°Â¡ Â¿ÃÂ·Ã¡ÂµÃ‡Â¾ÃºÂ´Ã‚Â°Â¡? 
 
 	int   m_iCustomItemValue_Attack;
 	int   m_iCustomItemValue_Defense;
 
-	int   m_iMinAP_SM;			// Custom-ItemÀÇ È¿°ú·Î ÀÎÇÑ ÃÖ¼Ò AP
+	int   m_iMinAP_SM;			// Custom-ItemÃ€Ã‡ ÃˆÂ¿Â°ÃºÂ·Ã Ã€ÃÃ‡Ã‘ ÃƒÃ–Â¼Ã’ AP
 	int   m_iMinAP_L;
 
-	int   m_iMaxAP_SM;			// Custom-ItemÀÇ È¿°ú·Î ÀÎÇÑ ÃÖ´ë AP
+	int   m_iMaxAP_SM;			// Custom-ItemÃ€Ã‡ ÃˆÂ¿Â°ÃºÂ·Ã Ã€ÃÃ‡Ã‘ ÃƒÃ–Â´Ã« AP
 	int   m_iMaxAP_L;
 
-	BOOL  m_bIsNeutral;			// v1.5 Áß¸³¿©ºÎ¸¦ ÆÇº°ÇÏ±â À§ÇÑ ÇÃ·¡±×. Ã³¸® ¼Óµµ¸¦ ³ôÀÌ±â À§ÇÔÀÌ´Ù.
-	BOOL  m_bIsObserverMode;	// v1.5 °ü¶÷ÀÚ ¸ğµåÀÎÁö ÆÇº° 
+	BOOL  m_bIsNeutral;			// v1.5 ÃÃŸÂ¸Â³Â¿Â©ÂºÃÂ¸Â¦ Ã†Ã‡ÂºÂ°Ã‡ÃÂ±Ã¢ Ã€Â§Ã‡Ã‘ Ã‡ÃƒÂ·Â¡Â±Ã—. ÃƒÂ³Â¸Â® Â¼Ã“ÂµÂµÂ¸Â¦ Â³Ã´Ã€ÃŒÂ±Ã¢ Ã€Â§Ã‡Ã”Ã€ÃŒÂ´Ã™.
+	BOOL  m_bIsObserverMode;	// v1.5 Â°Ã¼Â¶Ã·Ã€Ãš Â¸Ã°ÂµÃ¥Ã€ÃÃÃ¶ Ã†Ã‡ÂºÂ° 
 
-	int   m_iSpecialEventID;	// Æ¯¼ö Çà»ç Âü°¡È®ÀÎ¿ë ÇÃ·¡±× 
+	int   m_iSpecialEventID;	// Ã†Â¯Â¼Ã¶ Ã‡Ã Â»Ã§ Ã‚Ã¼Â°Â¡ÃˆÂ®Ã€ÃÂ¿Ã« Ã‡ÃƒÂ·Â¡Â±Ã— 
 
-	int   m_iSpecialWeaponEffectType;	// Èñ±Í ¾ÆÀÌÅÛ È¿°ú Á¾·ù
-	int   m_iSpecialWeaponEffectValue;	// Èñ±Í ¾ÆÀÌÅÛ È¿°ú °ª
+	int   m_iSpecialWeaponEffectType;	// ÃˆÃ±Â±Ã Â¾Ã†Ã€ÃŒÃ…Ã› ÃˆÂ¿Â°Ãº ÃÂ¾Â·Ã¹
+	int   m_iSpecialWeaponEffectValue;	// ÃˆÃ±Â±Ã Â¾Ã†Ã€ÃŒÃ…Ã› ÃˆÂ¿Â°Ãº Â°Âª
 	int   m_iSpecialWeaponEffectSpell;
 
 
@@ -367,13 +367,13 @@ public:
 	int   m_iAddHP, m_iAddSP, m_iAddMP; 
 	int   m_iAddAR, m_iAddPR, m_iAddDR;
 	int   m_iAddMR, m_iAddAbsPD, m_iAddAbsMD; 
-	int   m_iAddCD, m_iAddExp, m_iAddGold;		// °íÁ¤ ¸¶¹ı ´ë¹ÌÁö Èí¼öÀ². ¹İÁö·ù¿Í´Â µ¶¸³ÀûÀ¸·Î °è»êµÈ´Ù.
+	int   m_iAddCD, m_iAddExp, m_iAddGold;		// Â°Ã­ÃÂ¤ Â¸Â¶Â¹Ã½ Â´Ã«Â¹ÃŒÃÃ¶ ÃˆÃ­Â¼Ã¶Ã€Â². Â¹ÃÃÃ¶Â·Ã¹Â¿ÃÂ´Ã‚ ÂµÂ¶Â¸Â³Ã€Ã»Ã€Â¸Â·Ã Â°Ã¨Â»ÃªÂµÃˆÂ´Ã™.
 
-	int   m_iAddResistMagic;					// v1.2 Ãß°¡ ¸¶¹ı ÀúÇ× 
-	int   m_iAddPhysicalDamage;					// v1.2 °íÁ¤ ´ë¹ÌÁö Ãß°¡ Æ÷ÀÎÆ® 
+	int   m_iAddResistMagic;					// v1.2 ÃƒÃŸÂ°Â¡ Â¸Â¶Â¹Ã½ Ã€ÃºÃ‡Ã— 
+	int   m_iAddPhysicalDamage;					// v1.2 Â°Ã­ÃÂ¤ Â´Ã«Â¹ÃŒÃÃ¶ ÃƒÃŸÂ°Â¡ Ã†Ã·Ã€ÃÃ†Â® 
 	int   m_iAddMagicalDamage;	
 
-	int   m_iAddAbsAir;							// ¼Ó¼ºº° ´ë¹ÌÁö Èí¼ö
+	int   m_iAddAbsAir;							// Â¼Ã“Â¼ÂºÂºÂ° Â´Ã«Â¹ÃŒÃÃ¶ ÃˆÃ­Â¼Ã¶
 	int   m_iAddAbsEarth;
 	int   m_iAddAbsFire;
 	int   m_iAddAbsWater;
@@ -384,30 +384,30 @@ public:
 	int   m_iAddDamageWater;	
 
 
-	int   m_iSpecialAbilityTime;				// Æ¯¼ö ´É·ÂÀ» »ç¿ëÇÏ±â À§ÇØ¼­´Â ÀÌ °ªÀÌ 0ÀÌ µÇ¾î¾ß ÇÑ´Ù. 
-	BOOL  m_bIsSpecialAbilityEnabled;			// Æ¯¼ö ´É·ÂÀÌ È°¼ºÈ­ µÈ »óÅÂÀÎ°¡?
-	DWORD m_dwSpecialAbilityStartTime;			// Æ¯¼ö ´É·ÂÀ» »ç¿ëÇÏ±â ½ÃÀÛÇÑ ½Ã°£
-	int   m_iSpecialAbilityLastSec;				// Æ¯¼ö ´É·Â Áö¼Ó ½Ã°£.
+	int   m_iSpecialAbilityTime;				// Ã†Â¯Â¼Ã¶ Â´Ã‰Â·Ã‚Ã€Â» Â»Ã§Â¿Ã«Ã‡ÃÂ±Ã¢ Ã€Â§Ã‡Ã˜Â¼Â­Â´Ã‚ Ã€ÃŒ Â°ÂªÃ€ÃŒ 0Ã€ÃŒ ÂµÃ‡Â¾Ã®Â¾ÃŸ Ã‡Ã‘Â´Ã™. 
+	BOOL  m_bIsSpecialAbilityEnabled;			// Ã†Â¯Â¼Ã¶ Â´Ã‰Â·Ã‚Ã€ÃŒ ÃˆÂ°Â¼ÂºÃˆÂ­ ÂµÃˆ Â»Ã³Ã…Ã‚Ã€ÃÂ°Â¡?
+	DWORD m_dwSpecialAbilityStartTime;			// Ã†Â¯Â¼Ã¶ Â´Ã‰Â·Ã‚Ã€Â» Â»Ã§Â¿Ã«Ã‡ÃÂ±Ã¢ Â½ÃƒÃ€Ã›Ã‡Ã‘ Â½ÃƒÂ°Â£
+	int   m_iSpecialAbilityLastSec;				// Ã†Â¯Â¼Ã¶ Â´Ã‰Â·Ã‚ ÃÃ¶Â¼Ã“ Â½ÃƒÂ°Â£.
 
-	int   m_iSpecialAbilityType;				// ÇÒ´çµÈ Æ¯¼ö ´É·Â Á¾·ù
-												// °ø°İÇü
-												// 0:´É·Â ¾øÀ½  1:°ø°İ½Ã Àû HP 50% °¨¼Ò  2:³Ãµ¿ È¿°ú  3: ¸¶ºñ È¿°ú  4: ¿ø¼¦ ¿øÅ³  5:ÀÔÈù ´ë¹ÌÁö ¸¸Å­ÀÇ HP¸¦ ¾ò´Â´Ù.
-												// ¹æ¾îÇü
-												// 50: ¹«±â ¼ö¸í 0·Î ¸¸µë. 51:ÇØ´ç ºÎÀ§ ´ë¹ÌÁö ¹«È¿È­  52: ¸ğ5µç ºÎÀ§ ´ë¹ÌÁö ¹«È¿È­
-	int   m_iSpecialAbilityEquipPos;			// ¹æ¾î±¸ÀÎ °æ¿ì Æ¯¼öÈ¿°ú°¡ Àû¿ëµÇ´Â ºÎÀ§¸¦ ÀÇ¹ÌÇÔ.
+	int   m_iSpecialAbilityType;				// Ã‡Ã’Â´Ã§ÂµÃˆ Ã†Â¯Â¼Ã¶ Â´Ã‰Â·Ã‚ ÃÂ¾Â·Ã¹
+												// Â°Ã¸Â°ÃÃ‡Ã¼
+												// 0:Â´Ã‰Â·Ã‚ Â¾Ã¸Ã€Â½  1:Â°Ã¸Â°ÃÂ½Ãƒ Ã€Ã» HP 50% Â°Â¨Â¼Ã’  2:Â³ÃƒÂµÂ¿ ÃˆÂ¿Â°Ãº  3: Â¸Â¶ÂºÃ± ÃˆÂ¿Â°Ãº  4: Â¿Ã¸Â¼Â¦ Â¿Ã¸Ã…Â³  5:Ã€Ã”ÃˆÃ¹ Â´Ã«Â¹ÃŒÃÃ¶ Â¸Â¸Ã…Â­Ã€Ã‡ HPÂ¸Â¦ Â¾Ã²Â´Ã‚Â´Ã™.
+												// Â¹Ã¦Â¾Ã®Ã‡Ã¼
+												// 50: Â¹Â«Â±Ã¢ Â¼Ã¶Â¸Ã­ 0Â·Ã Â¸Â¸ÂµÃ«. 51:Ã‡Ã˜Â´Ã§ ÂºÃÃ€Â§ Â´Ã«Â¹ÃŒÃÃ¶ Â¹Â«ÃˆÂ¿ÃˆÂ­  52: Â¸Ã°5ÂµÃ§ ÂºÃÃ€Â§ Â´Ã«Â¹ÃŒÃÃ¶ Â¹Â«ÃˆÂ¿ÃˆÂ­
+	int   m_iSpecialAbilityEquipPos;			// Â¹Ã¦Â¾Ã®Â±Â¸Ã€Ã Â°Ã¦Â¿Ã¬ Ã†Â¯Â¼Ã¶ÃˆÂ¿Â°ÃºÂ°Â¡ Ã€Ã»Â¿Ã«ÂµÃ‡Â´Ã‚ ÂºÃÃ€Â§Â¸Â¦ Ã€Ã‡Â¹ÃŒÃ‡Ã”.
 	bool  m_bIsAdminCommandEnabled;
 	bool  m_bIsAdminStopStart;					// Snoopy: to prevent wrong GMs to restart or close a server.
 	int   m_iAlterItemDropIndex;				// Index of ZemStone
 	int   m_iEventItemDropIndex;				// Index of Item for events
 
-	int   m_iWarContribution;					// ÀüÀï °øÇåµµ 
+	int   m_iWarContribution;					// Ã€Ã¼Ã€Ã¯ Â°Ã¸Ã‡Ã¥ÂµÂµ 
 
 
-	char  m_cLockedMapName[11];					// °®Èù ¸Ê ÀÌ¸§
-	int   m_iLockedMapTime;						// ÀÌ °ªÀÌ 0 ÀÌ»óÀÌ¸é ¾îµğ·Î ÅÚ·¹Æ÷Æ® ÇØµµ À§ÀÇ ¸ÊÀ¸·Î °£´Ù.
+	char  m_cLockedMapName[11];					// Â°Â®ÃˆÃ¹ Â¸ÃŠ Ã€ÃŒÂ¸Â§
+	int   m_iLockedMapTime;						// Ã€ÃŒ Â°ÂªÃ€ÃŒ 0 Ã€ÃŒÂ»Ã³Ã€ÃŒÂ¸Ã© Â¾Ã®ÂµÃ°Â·Ã Ã…ÃšÂ·Â¹Ã†Ã·Ã†Â® Ã‡Ã˜ÂµÂµ Ã€Â§Ã€Ã‡ Â¸ÃŠÃ€Â¸Â·Ã Â°Â£Â´Ã™.
 
-	int   m_iCrusadeDuty;						// Å©·ç¼¼ÀÌµå¿¡¼­ ¸ÃÀº ¿ªÇÒ: 1-¿ëº´. 2-°Ç¼³ÀÚ. 3-ÁöÈÖ°ü
-	DWORD m_dwCrusadeGUID;						// Å©·ç¼¼ÀÌµå GUID
+	int   m_iCrusadeDuty;						// Ã…Â©Â·Ã§Â¼Â¼Ã€ÃŒÂµÃ¥Â¿Â¡Â¼Â­ Â¸ÃƒÃ€Âº Â¿ÂªÃ‡Ã’: 1-Â¿Ã«ÂºÂ´. 2-Â°Ã‡Â¼Â³Ã€Ãš. 3-ÃÃ¶ÃˆÃ–Â°Ã¼
+	DWORD m_dwCrusadeGUID;						// Ã…Â©Â·Ã§Â¼Â¼Ã€ÃŒÂµÃ¥ GUID
 	DWORD m_dwHeldenianGUID;
 	DWORD m_dwAvatarGUID;
 	BOOL bIsHeldenianHeroEnabled;
@@ -425,7 +425,7 @@ public:
 	char m_cSendingMapName[11];
 	BOOL m_bIsSendingMapStatus;
 
-	// ÁöÈÖ°üÀÌ °Ç¼³ÇÒ ¼ö ÀÖ´Â Æ÷ÀÎÆ®. ÀÏ¹İ ÇÃ·¹ÀÌ¾î¶ó¸é ÀÚ½ÅÀÇ Çàµ¿¿¡ ´ëÇÑ ´©Àû°ªÀÌ´Ù.
+	// ÃÃ¶ÃˆÃ–Â°Ã¼Ã€ÃŒ Â°Ã‡Â¼Â³Ã‡Ã’ Â¼Ã¶ Ã€Ã–Â´Ã‚ Ã†Ã·Ã€ÃÃ†Â®. Ã€ÃÂ¹Ã Ã‡ÃƒÂ·Â¹Ã€ÃŒÂ¾Ã®Â¶Ã³Â¸Ã© Ã€ÃšÂ½Ã…Ã€Ã‡ Ã‡Ã ÂµÂ¿Â¿Â¡ Â´Ã«Ã‡Ã‘ Â´Â©Ã€Ã»Â°ÂªÃ€ÃŒÂ´Ã™.
 	int  m_iConstructionPoint;
 
 	char m_cConstructMapName[11];
@@ -445,8 +445,8 @@ public:
 	char m_cReqJoinPartyName[12];
 	bool m_bIsReflexionVictim; // By Snoopy
 
-	int   m_iPartyRank;										// Party³»¿¡¼­ÀÇ À§Ä¡. -1ÀÌ¸é ¹«ÀÇ¹Ì. 1ÀÌ¸é ÆÄÆ¼ »ı¼ºÀÚ. 12¸é ¸â¹ö 
-	int   m_iPartyMemberCount;								// ÆÄÆ¼ ÀÎ¿ø Á¦ÇÑ¿ë 
+	int   m_iPartyRank;										// PartyÂ³Â»Â¿Â¡Â¼Â­Ã€Ã‡ Ã€Â§Ã„Â¡. -1Ã€ÃŒÂ¸Ã© Â¹Â«Ã€Ã‡Â¹ÃŒ. 1Ã€ÃŒÂ¸Ã© Ã†Ã„Ã†Â¼ Â»Ã½Â¼ÂºÃ€Ãš. 12Â¸Ã© Â¸Ã¢Â¹Ã¶ 
+	int   m_iPartyMemberCount;								// Ã†Ã„Ã†Â¼ Ã€ÃÂ¿Ã¸ ÃÂ¦Ã‡Ã‘Â¿Ã« 
 	int   m_iPartyGUID;										// v1.42 Party GUID
 	struct {
 	int  iIndex;

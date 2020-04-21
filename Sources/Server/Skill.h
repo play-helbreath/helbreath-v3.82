@@ -13,9 +13,9 @@
 
 
 
-#define DEF_SKILLEFFECTTYPE_GET			    1		// ��´�. �����⳪ ������ 
-#define DEF_SKILLEFFECTTYPE_PRETEND			2		// ...�� ü �ϴ� 
-#define DEF_SKILLEFFECTTYPE_TAMING			3		//  ����̱� �迭	
+#define DEF_SKILLEFFECTTYPE_GET			    1		// ¾ò´Â´Ù. ¹°°í±â³ª ±¤¹°µî 
+#define DEF_SKILLEFFECTTYPE_PRETEND			2		// ...ÇÑ Ã¼ ÇÏ´Ù 
+#define DEF_SKILLEFFECTTYPE_TAMING			3		//  ±æµéÀÌ±â °è¿­	
 
 
 class CSkill  

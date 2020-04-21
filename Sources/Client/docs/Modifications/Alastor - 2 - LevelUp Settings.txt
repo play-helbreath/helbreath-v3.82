@@ -1,21 +1,21 @@
 ___________________________________________________________________
                   LevelUp Settings
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Voilà la fenêtre pour les levelup, version 3.51 légèrement modifiée pour être plus lisible,
-j'ai déplacé un texte qui en chevauchait un autre, et j'ai affich le nombre de points à
-distribuer en vert s'il est supérieur à zéro.
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+VoilÃ  la fenÃªtre pour les levelup, version 3.51 lÃ©gÃ¨rement modifiÃ©e pour Ãªtre plus lisible,
+j'ai dÃ©placÃ© un texte qui en chevauchait un autre, et j'ai affich le nombre de points Ã 
+distribuer en vert s'il est supÃ©rieur Ã  zÃ©ro.
 
 L'ID pour le DialogBox ne change pas
 
 lan_eng.h
-¯¯¯¯¯¯¯¯¯¯¯¯
-juste un texte à remplacer par celui-ci
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+juste un texte Ã  remplacer par celui-ci
 
 #define	DRAW_DIALOGBOX_LEVELUP_SETTING3	"* Points left:"
 
 
 game.cpp
-¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Remplacer la fonction DrawDialogBox_LevelUpSetting par celle-ci :
 
 // 3.51 Level Up Dialog - Alastor
@@ -159,7 +159,7 @@ void CGame::DrawDialogBox_LevelUpSetting(short msX, short msY)
 	}
 }
 	
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Remplacer la fonction DlgBoxClick_LevelUpSettings par celle-ci
 
 // 3.51 LevelUp Box - Alastor

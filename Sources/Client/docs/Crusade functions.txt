@@ -119,7 +119,7 @@ void CGame::DrawDialogBox_Commander(int msX, int msY) // Snoopy: Fixed for 351
 			{	if (m_iConstructionPoint >= 3000) 
 				{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20, sY +220, 11, dwTime);
 				}
-				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER16, 255,255,255);//"¹(Battle Golem)"
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER16, 255,255,255);//"Â¹(Battle Golem)"
 				PutString2(msX +20, msY +50, DRAW_DIALOGBOX_COMMANDER17, 255,255,255);//"3000"				
 			}else if ((msX >= sX +20 +50) && (msX <= sX +20 +50 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
 			{	if (m_iConstructionPoint >= 2000) 
@@ -164,7 +164,7 @@ void CGame::DrawDialogBox_Commander(int msX, int msY) // Snoopy: Fixed for 351
 			{	if (m_iConstructionPoint >= 2000) 
 				{	m_pSprite[DEF_SPRID_INTERFACE_ND_CRUSADE]->PutSpriteFast(sX +20 +50, sY +220, 13, dwTime);
 				}
-				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER30, 255,255,255);//"°(God's Hand Knight)"
+				PutString2(msX +20, msY +35, DRAW_DIALOGBOX_COMMANDER30, 255,255,255);//"Â°(God's Hand Knight)"
 				PutString2(msX +20, msY +50, DRAW_DIALOGBOX_COMMANDER31, 255,255,255);//"2000"
 			}else if ((msX >= sX +20 +100) && (msX <= sX +20 +100 +45) && (msY >= sY +220) && (msY <= sY +220 +50)) 
 			{	if (m_iConstructionPoint >= 1000) 
@@ -1032,7 +1032,7 @@ void CGame::DlgBoxClick_Soldier(int msX, int msY) // Snoopy: Fixed for 351
 }
 
 
-						case 15: // ShopKeeper-W°
+						case 15: // ShopKeeper-WÂ°
 							/*switch (cName[0]) {
 							case '1':*/
 								EnableDialogBox(20, 5, 11, 1);

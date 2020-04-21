@@ -1,21 +1,21 @@
 ___________________________________________________________________
-                  ImplÈmentation du MultiTrade
-ØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØ
+                  Impl√©mentation du MultiTrade
+¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø
 Bon, ce coup ci, ce n'est pas un petit morceau!
 Y a plein d'endroits ou j'ai du jouer....
 
 Game.h
-ØØØØØØ
-J'ai ajoutÈ une structure pour stocker les 8 objÍts, 
+¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø
+J'ai ajout√© une structure pour stocker les 8 obj√™ts, 
 et des nouvelles fonctions.
 Les structures et tableaux qui servent a stocker les diverses
-dlgbox ou fenÍtres ont du Ítre augmentÈe.
-Je suis directement passÈ ‡ 61, comme ca il y aura de la marge
+dlgbox ou fen√™tres ont du √™tre augment√©e.
+Je suis directement pass√© √† 61, comme ca il y aura de la marge
 pour la suite ! 
-(ca ne reprÈsente pas beaucoup de mÈmoire en fait)
+(ca ne repr√©sente pas beaucoup de m√©moire en fait)
 
 
-DÈclarations:
+D√©clarations:
 void DrawDialogBox_ConfirmExchange(short msX, short msY);
 void DlgBoxClick_ConfirmExchange(short msX, short msY);
 m_stDialogBoxExchangeInfo[8];
@@ -26,7 +26,7 @@ CInt m_bIsDialogEnabled[61]; 		(au lieu de 41 ou 60)
 struct(..)m_stDialogBoxInfo[61]; 	(au lieu de 60)
 
 CODE:
-ØØØØØ	
+¬Ø¬Ø¬Ø¬Ø¬Ø	
 	struct {
 		int   sV1, sV2, sV3, sV4, sV5, sV6, sV7, sV8, sV9, sV10, sV11, sV12, sV13, sV14; // v1.4 short
 		DWORD dwV1, dwV2, dwT1;
@@ -37,7 +37,7 @@ CODE:
 		char  cStr[32], cStr2[32], cStr3[32], cStr4[32];
 		char  cMode;
 		BOOL  bIsScrollSelected;
-	} m_stDialogBoxInfo[61];	 // Snoopy passÈ ‡ 61 (origine 41, Alastor 60), j'ai mis +20 car plus pratique.	
+	} m_stDialogBoxInfo[61];	 // Snoopy pass√© √† 61 (origine 41, Alastor 60), j'ai mis +20 car plus pratique.	
 	char m_cDialogBoxOrder[61];	
 	CInt m_bIsDialogEnabled[61];//was BOOL
 //Snoopy=>>>>>>>>>>>>>>>>>>>>>
@@ -50,12 +50,12 @@ CODE:
 
 
 
-ØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØØ
+¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø
 
 
 Game.cpp:
-ØØØØØØØØØ
-Enfin, ici le gros morceau. Il y a beaucoup de fonctions qui ont du Ítre modifiÈes
+¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø¬Ø
+Enfin, ici le gros morceau. Il y a beaucoup de fonctions qui ont du √™tre modifi√©es
 principalement pour l'ajout des 20 nouvelles dlgbox possibles:
 
 
@@ -81,7 +81,7 @@ BOOL CGame::bInit(HWND hWnd, HINSTANCE hInst, char * pCmdLine)
 Corriger:
 // Snoopy: fixed here
 	m_cDialogBoxOrder[60] = 29;
-	m_cDialogBoxOrder[59] = 30; // 29π¯ GaugePannel
+	m_cDialogBoxOrder[59] = 30; // 29¬π√∏ GaugePannel
 
 
 
@@ -97,7 +97,7 @@ Corrections:
 		cDlgID = m_cDialogBoxOrder[60 - i];
 
 Vers la fin rajouter le cas 41:
-	// Snoopy: Boite de dialogue de confirmation d'Èchange
+	// Snoopy: Boite de dialogue de confirmation d'√©change
 			case 41:
 				DlgBoxClick_ConfirmExchange(msX, msY);
 				break;
@@ -154,7 +154,7 @@ Corriger:
 		// Snoopy: 40->60
 			cDlgID = m_cDialogBoxOrder[60 - i];
 
-AprËs le case 27: du 1er gros switch, ajouter:
+Apr√®s le case 27: du 1er gros switch, ajouter:
 					//Snoopy: Drag exchange confirmation dialog
 				case 41:
 					m_stMCursor.cSelectedObjectType	= DEF_SELECTEDOBJTYPE_DLGBOX;
@@ -218,7 +218,7 @@ Ajouter le case 41:
 	case 41: // Snoopy: 7 mar 06 (MultiTrade) Confirmation dialog
 		break;
 
-Corriger ‡ la fin:
+Corriger √† la fin:
 	//Snoopy: 39->59
 	for (i = 0; i < 59; i++)
 	if (m_cDialogBoxOrder[i] == iBoxID) m_cDialogBoxOrder[i] = NULL;
@@ -337,7 +337,7 @@ void CGame::bItemDrop_ExchangeDialog(short msX, short msY)
 		ZeroMemory(m_stDialogBoxInfo[17].cStr, sizeof(m_stDialogBoxInfo[17].cStr));
 		EnableDialogBox(17, cItemID, m_pItemList[cItemID]->m_dwCount, NULL);
 		return;
-	}else // hum? dÈj‡ on affiche? , bon je dÈsactive, ca devrait plutÙt s'afficher lors du retour du serveur.
+	}else // hum? d√©j√† on affiche? , bon je d√©sactive, ca devrait plut√¥t s'afficher lors du retour du serveur.
 	{	/*m_stDialogBoxInfo[27].sV1 = m_pItemList[cItemID]->m_sSprite;
 		m_stDialogBoxInfo[27].sV2 = m_pItemList[cItemID]->m_sSpriteFrame;
 		m_stDialogBoxInfo[27].sV3 = 1;
@@ -374,15 +374,15 @@ void CGame::DlgBoxClick_Exchange(short msX, short msY)
 		if ((msX >= sX + 220) && (msX <= sX + 220 + DEF_BTNSZX) && (msY >= sY + 310) && (msY <= sY + 310 + DEF_BTNSZY)) // Exchange			
 		{	if ( (m_stDialogBoxExchangeInfo[0].sV1 != -1) && (m_stDialogBoxExchangeInfo[4].sV1 != -1))
 			{	/*bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_CONFIRMEXCHANGEITEM, NULL
-					, m_stDialogBoxExchangeInfo[0].sV1 // ItemID; inutilisÈ par serveur
-					, m_stDialogBoxExchangeInfo[0].sV3 // Amount; inutilisÈ par serveur
+					, m_stDialogBoxExchangeInfo[0].sV1 // ItemID; inutilis√© par serveur
+					, m_stDialogBoxExchangeInfo[0].sV3 // Amount; inutilis√© par serveur
 					, NULL, NULL);	*/			
 				PlaySound('E', 14, 5);
 				m_stDialogBoxInfo[27].cMode = 2;
 				// Show confirmation Diag instead.
 				//DebugLog("avant EnableDialogBox(41, NULL, NULL, NULL);");
 				EnableDialogBox(41, NULL, NULL, NULL);
-				//DebugLog("AprËs EnableDialogBox(41, NULL, NULL, NULL);");
+				//DebugLog("Apr√®s EnableDialogBox(41, NULL, NULL, NULL);");
 				m_stDialogBoxInfo[41].cMode = 1;
 			}
 			return;
@@ -416,7 +416,7 @@ void CGame::DlgBoxClick_Exchange(short msX, short msY)
 
 
 void CGame::DlgBoxClick_ConfirmExchange(short msX, short msY)
-Rajouter la fonction ci dessous en dessous de la prÈcÈdente:
+Rajouter la fonction ci dessous en dessous de la pr√©c√©dente:
 /*********************************************************************************************************************
 **  void CGame::DlgBoxClick_ConfirmExchange(short msX, short msY)		(snoopy)						**
 **  description			:: click on confirmation diag										**
@@ -432,8 +432,8 @@ void CGame::DlgBoxClick_ConfirmExchange(short msX, short msY)
 		if ((msX >= sX + 30) && (msX <= sX + 30 + DEF_BTNSZX) && (msY >= sY + 55) && (msY <= sY + 55 + DEF_BTNSZY)) 
 		{	if ( (m_stDialogBoxExchangeInfo[0].sV1 != -1) && (m_stDialogBoxExchangeInfo[4].sV1 != -1))
 			{	bSendCommand(MSGID_COMMAND_COMMON, DEF_COMMONTYPE_CONFIRMEXCHANGEITEM, NULL
-					, m_stDialogBoxExchangeInfo[0].sV1 // ItemID; inutilisÈ par serveur
-					, m_stDialogBoxExchangeInfo[0].sV3 // Amount; inutilisÈ par serveur
+					, m_stDialogBoxExchangeInfo[0].sV1 // ItemID; inutilis√© par serveur
+					, m_stDialogBoxExchangeInfo[0].sV3 // Amount; inutilis√© par serveur
 					, NULL, NULL);				
 				PlaySound('E', 14, 5);
 				m_stDialogBoxInfo[27].cMode = 2;
@@ -461,7 +461,7 @@ void CGame::DlgBoxClick_ConfirmExchange(short msX, short msY)
 
 
 void CGame::NotifyMsg_SetExchangeItem(char *pData)
-RemaniÈ pour prendre en compte 4 items et code 0/1 -> x/x+1000
+Remani√© pour prendre en compte 4 items et code 0/1 -> x/x+1000
 Remplacer par:
 /*********************************************************************************************************************
 **  void CGame::NotifyMsg_SetExchangeItem(char *pData)		(snoopy)												**
@@ -537,7 +537,7 @@ void CGame::NotifyMsg_SetExchangeItem(char *pData)
 
 
 void CGame::NotifyMsg_OpenExchageWindow(char *pData)
-RemaniÈ pour prendre en compte 4 items et code 0/1 -> x/x+1000
+Remani√© pour prendre en compte 4 items et code 0/1 -> x/x+1000
 Remplacer par:
 /*********************************************************************************************************************
 **  void CGame::NotifyMsg_OpenExchageWindow(char *pData)		(snoopy)											**
@@ -620,7 +620,7 @@ void CGame::NotifyMsg_OpenExchageWindow(char *pData)
 void CGame::UpdateScreen_OnGame()
 Trouver et remplacer le case 1000:
 	case 1000: // Trade stackable items
-								// hum, dÈj‡ affichÈ? , j'attends le retour et je dÈsactive!
+								// hum, d√©j√† affich√©? , j'attends le retour et je d√©sactive!
 								/*m_stDialogBoxInfo[27].sV1 = m_pItemList[m_stDialogBoxInfo[17].sV4]->m_sSprite;
 								m_stDialogBoxInfo[27].sV2 = m_pItemList[m_stDialogBoxInfo[17].sV4]->m_sSpriteFrame;
 								m_stDialogBoxInfo[27].sV3 = iAmount;
@@ -643,7 +643,7 @@ Trouver et remplacer le case 1000:
 
 void CGame::DrawDialogBox_Exchange(short msX, short msY)
 Enfin le gros morceau!
-Remplacer complËtement la fonction:
+Remplacer compl√®tement la fonction:
 /*********************************************************************************************************************
 **  void CGame::DrawDialogBox_Exchange(short msX, short msY)	(snoopy)											**
 **  description			:: paints the trade windows																	**
@@ -663,7 +663,7 @@ void CGame::DrawDialogBox_Exchange(short msX, short msY)
 	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_NEWEXCHANGE, sX, sY, 0);
 
 //	DrawNewDialogBox(DEF_SPRID_INTERFACE_ND_TEXT, sX, sY, 9);
-	/*m_stDialogBoxExchangeInfo[i].sV1 = sSprite;	// ANciennne donnÈe pour rÈfÈrence.
+	/*m_stDialogBoxExchangeInfo[i].sV1 = sSprite;	// ANciennne donn√©e pour r√©f√©rence.
 	m_stDialogBoxExchangeInfo[i].sV2 = sSpriteFrame;
 	m_stDialogBoxExchangeInfo[i].sV3 = iAmount;
 	m_stDialogBoxExchangeInfo[i].sV4 = cColor;
@@ -842,8 +842,8 @@ void CGame::DrawDialogBox_Exchange(short msX, short msY)
 
 
 void CGame::DrawDialogBox_ConfirmExchange(short msX, short msY)
-Fonction rajoutÈe pour afficher la boite de Dialogue de confirmation.
-Rajouter la fonction au dessus de la prÈcÈdente:
+Fonction rajout√©e pour afficher la boite de Dialogue de confirmation.
+Rajouter la fonction au dessus de la pr√©c√©dente:
 /*********************************************************************************************************************
 **  void CGame::DrawDialogBox_ConfirmExchange(short msX, short msY)	(snoopy)											**
 **  description			:: paints the trade windows	Added confirmation window in v3.51																**
@@ -877,13 +877,13 @@ void CGame::DrawDialogBox_ConfirmExchange(short msX, short msY)
 
 
 -----------------------------------------------------------------------------
-Voil‡, beaucoup de choses comme tu peux le voir....
+Voil√†, beaucoup de choses comme tu peux le voir....
 
-A toi de dÈcider si tu modifies ton game.cpp, ou si tu reprends
+A toi de d√©cider si tu modifies ton game.cpp, ou si tu reprends
 le mien pour ajouter ce que tu as fait depuis...
 
 Par contre stp, envoie moi le nouveau stp, car il ne faudrait pas que nos
 modifs entrent en conflit ....
 
-NB1: les txt 1, 2, 3, 4 sont dÈj‡ inclus ds le game.cpp inclus.
-NB2: l'autre modif incluse est la deco instantanÈe (pratique pour tester)
+NB1: les txt 1, 2, 3, 4 sont d√©j√† inclus ds le game.cpp inclus.
+NB2: l'autre modif incluse est la deco instantan√©e (pratique pour tester)

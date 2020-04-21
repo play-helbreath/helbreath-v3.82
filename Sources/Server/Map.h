@@ -33,7 +33,7 @@
 #define DEF_MAXITEMEVENTS		200
 #define DEF_MAXMINERALPOINT		200
 #define DEF_MAXHELDENIANDOOR	10  // 4 exists at HRampart
-#define DEF_MAXOCCUPYFLAG		201 //by Snoopy thats enougth! (n°1..200) //3001
+#define DEF_MAXOCCUPYFLAG		201 //by Snoopy thats enougth! (nÂ°1..200) //3001
 #define	DEF_MAXINITIALPOINT		20
 #define DEF_MAXAGRICULTURE		200
 #define DEF_MAXDYNAMICGATES		10
@@ -134,16 +134,16 @@ public:
 	int   m_iMaximumObjectDefault;
 	bool  m_bHpMpSpPopoEnabled; // TRUE by default
 
-	char  m_cType;				// ¸ÊÀÇ Çü½Ä. 0ÀÌ¸é º¸Åë. 1ÀÌ¸é °ø°İÇàÀ§°¡ ¹üÁË°¡ ¾Æ´Ï´Ù.
+	char  m_cType;				// Â¸ÃŠÃ€Ã‡ Ã‡Ã¼Â½Ã„. 0Ã€ÃŒÂ¸Ã© ÂºÂ¸Ã…Ã«. 1Ã€ÃŒÂ¸Ã© Â°Ã¸Â°ÃÃ‡Ã Ã€Â§Â°Â¡ Â¹Ã¼ÃÃ‹Â°Â¡ Â¾Ã†Â´ÃÂ´Ã™.
 
-	BOOL  m_bIsFixedDayMode;	// Ç×»ó ÁÖ°£¸ğµåÀÎÁö: °Ç¹° ³»ºÎ µî 
+	BOOL  m_bIsFixedDayMode;	// Ã‡Ã—Â»Ã³ ÃÃ–Â°Â£Â¸Ã°ÂµÃ¥Ã€ÃÃÃ¶: Â°Ã‡Â¹Â° Â³Â»ÂºÃ ÂµÃ® 
 
 	struct {		    
 		BOOL bDefined;
 		char cType;				// 1:RANDOMAREA   2:RANDOMWAYPOINT 3: sequencial Waypoints 
 								// 4+: Attracting spawns      -1 & below: moving all arround		
-		char cWaypoint[10];     // RANDOMWAYPOINT µî
-		RECT rcRect;			// RANDOMAREA¹ß»ıÀÇ °æ¿ì 		
+		char cWaypoint[10];     // RANDOMWAYPOINT ÂµÃ®
+		RECT rcRect;			// RANDOMAREAÂ¹ÃŸÂ»Ã½Ã€Ã‡ Â°Ã¦Â¿Ã¬ 		
 		int  iTotalActiveMob;
 		int  iMobType;
 		int  iMaxMobs;
@@ -182,11 +182,11 @@ public:
 	POINT m_MineralPointList[DEF_MAXMINERALPOINT];
 	int   m_iTotalMineralPoint, m_iMaxMineral, m_iCurMineral;
 
-	char  m_cWhetherStatus;		// ±â»ó »óÅÂ. 0ÀÌ¸é ¾øÀ½. 1~3 ºñ 4~6 ´« 7~9 ÆøÇ³ 
-	DWORD m_dwWhetherLastTime, m_dwWhetherStartTime;  // ³¯¾¾ Áö¼Ó, ½ÃÀÛ ½Ã°£ 
+	char  m_cWhetherStatus;		// Â±Ã¢Â»Ã³ Â»Ã³Ã…Ã‚. 0Ã€ÃŒÂ¸Ã© Â¾Ã¸Ã€Â½. 1~3 ÂºÃ± 4~6 Â´Â« 7~9 Ã†Ã¸Ã‡Â³ 
+	DWORD m_dwWhetherLastTime, m_dwWhetherStartTime;  // Â³Â¯Â¾Â¾ ÃÃ¶Â¼Ã“, Â½ÃƒÃ€Ã› Â½ÃƒÂ°Â£ 
 
 	int   m_iLevelLimit;
-	int   m_iUpperLevelLimit;	// »óÀ§ ·¾ Á¦ÇÑ 
+	int   m_iUpperLevelLimit;	// Â»Ã³Ã€Â§ Â·Â¾ ÃÂ¦Ã‡Ã‘ 
 
 	class COccupyFlag * m_pOccupyFlag[DEF_MAXOCCUPYFLAG];
 	int   m_iTotalOccupyFlags;
@@ -263,13 +263,13 @@ public:
 	} m_stStrikePoint[DEF_MAXSTRIKEPOINTS];
 	int m_iTotalStrikePoints;
 
-	BOOL m_bIsDisabled;		// Æø°İÀ¸·Î ±â´ÉÀÌ ¸¶ºñµÈ °æ¿ì 
+	BOOL m_bIsDisabled;		// Ã†Ã¸Â°ÃÃ€Â¸Â·Ã Â±Ã¢Â´Ã‰Ã€ÃŒ Â¸Â¶ÂºÃ±ÂµÃˆ Â°Ã¦Â¿Ã¬ 
 	int m_iTotalAgriculture;
 
 	struct {
-		char cType;			// ÀÌ°Ô NULLÀÌ¸é Á¤ÀÇµÇÁö ¾ÊÀº°ÍÀ» ÀÇ¹Ì.
-		char cSide;			// »çÀÌµå
-		short sX, sY;		// ¼³Ä¡µÈ À§Ä¡ 
+		char cType;			// Ã€ÃŒÂ°Ã” NULLÃ€ÃŒÂ¸Ã© ÃÂ¤Ã€Ã‡ÂµÃ‡ÃÃ¶ Â¾ÃŠÃ€ÂºÂ°ÃÃ€Â» Ã€Ã‡Â¹ÃŒ.
+		char cSide;			// Â»Ã§Ã€ÃŒÂµÃ¥
+		short sX, sY;		// Â¼Â³Ã„Â¡ÂµÃˆ Ã€Â§Ã„Â¡ 
 	} m_stCrusadeStructureInfo[DEF_MAXCRUSADESTRUCTURES];
 	int m_iTotalCrusadeStructures;
 	BOOL m_bIsEnergySphereAutoCreation;

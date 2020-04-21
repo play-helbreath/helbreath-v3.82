@@ -1,12 +1,12 @@
 ___________________________________________________________________
 Caster avec les 6 wands
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Sans cette modif les Beserkwands ne permettent pas de caster.
-Et supprimé la possibilité de caster avec un Hoe !
-(Impossible côté serveur de toute facon.)
+Et supprimÃ© la possibilitÃ© de caster avec un Hoe !
+(Impossible cÃ´tÃ© serveur de toute facon.)
 
 Game.cpp
-¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 
 BOOL CGame::_bIsItemOnHand()
 {int i;

@@ -1,15 +1,15 @@
 ___________________________________________________________________
                   Multi client (pour tester le trade lol)
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 C'est trop utile ca pour tester...
-(j'avais "inventé" mon propre patch pour celà depuis la v2.20)
+(j'avais "inventÃ©" mon propre patch pour celÃ  depuis la v2.20)
 
-Bien sûr, j'aurai pu ne plus définir _DEBUG, mais ca semble jouer en bien
+Bien sÃ»r, j'aurai pu ne plus dÃ©finir _DEBUG, mais ca semble jouer en bien
 des endroits....
 
 Wmain.cpp:
-¯¯¯¯¯¯¯¯¯¯
-J'ai commenté:
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+J'ai commentÃ©:
  /*	if (OpenMutex(MUTEX_ALL_ACCESS, FALSE, "0543kjg3j31%") != NULL) {
 		MessageBox(NULL, "Only one Helbreath client program allowed!", "ERROR!", MB_OK);
 		return 0;

@@ -1,13 +1,13 @@
 ___________________________________________________________________
                   Cityhall Menu - Hero Items
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Voilà la fenêtre pour demander les hero items, ça va très vite à remplacer :)
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+VoilÃ  la fenÃªtre pour demander les hero items, Ã§a va trÃ¨s vite Ã  remplacer :)
 
 L'ID pour le DialogBox ne change pas
 
 lan_eng.h
-¯¯¯¯¯¯¯¯¯¯¯¯
-textes à remplacer par ceux-ci
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+textes Ã  remplacer par ceux-ci
 
 // 3.51 Cityhall Menu - Alastor
 #define	DRAW_DIALOGBOX_CITYHALL_MENU8	"Take the HERO's items."
@@ -22,15 +22,15 @@ textes à remplacer par ceux-ci
 
 
 game.cpp
-¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Dans la fonction DrawDialogBox_CityHallMenu, remplacer 
 
 		if (m_iEnemyKillCount >= 300) {
 			if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 120) && (msY < sY + 145))  
-				 PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 255,255,255);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
-			else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 4,0,50);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
+				 PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 255,255,255);//"Â¿ÂµÂ¿ÃµÃ€Ã‡ Â¸ÃÃ…Ã¤Â¸Â¦ Â¹ÃžÂ½Ã€Â´ÃÂ´Ã™."
+			else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 4,0,50);//"Â¿ÂµÂ¿ÃµÃ€Ã‡ Â¸ÃÃ…Ã¤Â¸Â¦ Â¹ÃžÂ½Ã€Â´ÃÂ´Ã™."
 		}
-		else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 65,65,65);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
+		else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 65,65,65);//"Â¿ÂµÂ¿ÃµÃ€Ã‡ Â¸ÃÃ…Ã¤Â¸Â¦ Â¹ÃžÂ½Ã€Â´ÃÂ´Ã™."
 		
 **********************************************************
 Par
@@ -38,12 +38,12 @@ Par
 		// 3.51 Cityhall Menu - Alastor
 		if ((m_iEnemyKillCount >= 100) && (m_iContribution >= 10)) {
 			if ((msX > sX + 35) && (msX < sX + 220) && (msY > sY + 120) && (msY < sY + 145))  
-				 PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 255,255,255);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
-			else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 4,0,50);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
+				 PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 255,255,255);//"Â¿ÂµÂ¿ÃµÃ€Ã‡ Â¸ÃÃ…Ã¤Â¸Â¦ Â¹ÃžÂ½Ã€Â´ÃÂ´Ã™."
+			else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 4,0,50);//"Â¿ÂµÂ¿ÃµÃ€Ã‡ Â¸ÃÃ…Ã¤Â¸Â¦ Â¹ÃžÂ½Ã€Â´ÃÂ´Ã™."
 		}
-		else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 65,65,65);//"¿µ¿õÀÇ ¸ÁÅä¸¦ ¹Þ½À´Ï´Ù."
+		else PutAlignedString(sX, sX + szX, sY + 120, DRAW_DIALOGBOX_CITYHALL_MENU8, 65,65,65);//"Â¿ÂµÂ¿ÃµÃ€Ã‡ Â¸ÃÃ…Ã¤Â¸Â¦ Â¹ÃžÂ½Ã€Â´ÃÂ´Ã™."
 	
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Dans la fonction DrawDialogBox_CityHallMenu, remplacer le "case 7" par
 
 	// 3.51 Cityhall Menu - Alastor
@@ -102,7 +102,7 @@ Dans la fonction DrawDialogBox_CityHallMenu, remplacer le "case 7" par
 		else PutAlignedString(sX, sX + szX, sY + 275, DRAW_DIALOGBOX_CITYHALL_MENU53, 65,65,65);// Disabled Mode
 		break;
 	
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Dans la fonction DlgBoxClick_CityhallMenu, remplacer le "case 7" par :
 
 	case 7:

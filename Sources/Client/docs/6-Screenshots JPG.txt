@@ -1,23 +1,23 @@
 ___________________________________________________________________
-                Passage des screenshots en JPG et datés
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-J'ai choisi une qualité un peu meilleure que sur la v3.51, car
+                Passage des screenshots en JPG et datÃ©s
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+J'ai choisi une qualitÃ© un peu meilleure que sur la v3.51, car
 les screenshots sont vraiment horribles (120KO par screenshot)
-J'ai également corrigé un peu le datage en separant jour - heure
+J'ai Ã©galement corrigÃ© un peu le datage en separant jour - heure
 
 NB: Les fonctions sont directement incluses dans le client, 
 il n'utilise pas cximage.dll. 
-(en fait, je m'en suis apercu à la fin, lol)
+(en fait, je m'en suis apercu Ã  la fin, lol)
 
 Game.h
-¯¯¯¯¯¯
-Ajouter les déclarations suivantes:
+Â¯Â¯Â¯Â¯Â¯Â¯
+Ajouter les dÃ©clarations suivantes:
 //Snoopy: Implementation JPG sreenshots
 #include "cximage/ximage.h" // Snoopy
 #include "cximage/ximajpg.h" // Snoopy
 
 Game.cpp
-¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 Remplacer par la fonction suivante:
 /*********************************************************************************************************************
 ** void CGame::CreateScreenShot()										(snoopy)									**
@@ -103,8 +103,8 @@ void CGame::CreateScreenShot()
 }
 
 Inclusions:
-¯¯¯¯¯¯¯¯¯¯¯
-Bien sûr, il faudra inclure au projêt les répertoires /cximage/ et /jpeg/,
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Bien sÃ»r, il faudra inclure au projÃªt les rÃ©pertoires /cximage/ et /jpeg/,
 et configurer en concequence...
 
 

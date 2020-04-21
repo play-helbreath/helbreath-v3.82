@@ -1,18 +1,18 @@
 ___________________________________________________________________
-              (ré)implémentation du fichier de config.
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-Trop pratique pour tester depuis plusieurs ordi, et à terme, quelques
-autres réglages pourront y être incorporés...
+              (rÃ©)implÃ©mentation du fichier de config.
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
+Trop pratique pour tester depuis plusieurs ordi, et Ã  terme, quelques
+autres rÃ©glages pourront y Ãªtre incorporÃ©s...
 
 
 Game.h
-¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯
 BOOL bReadLoginConfigFile(char * cFn);
 
 Game.cpp
-¯¯¯¯¯¯¯¯
+Â¯Â¯Â¯Â¯Â¯Â¯Â¯Â¯
 BOOL CGame::bInit(HWND hWnd, HINSTANCE hInst, char * pCmdLine)
-Remplacé // if(bReadIp() == FALSE) {	
+RemplacÃ© // if(bReadIp() == FALSE) {	
 par   	if(bReadLoginConfigFile("login.cfg") == FALSE) {
 
 
@@ -22,7 +22,7 @@ par   	if(bReadLoginConfigFile("login.cfg") == FALSE) {
 **  	   				:: May be used later for other settings								**
 **********************************************************************************************************************/
 BOOL CGame::bReadLoginConfigFile(char * cFn)
-//(je n'ai pas viré la fonction :bReadIP(...), juste remis celle ci)
+//(je n'ai pas virÃ© la fonction :bReadIP(...), juste remis celle ci)
 BOOL CGame::bReadLoginConfigFile(char * cFn)
 {FILE * pFile; 
  HANDLE hFile;
