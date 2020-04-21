@@ -60,7 +60,7 @@
 #include "Cint.h"
 
 // Snoopy: MP3 support
-#include "mp3.h" 
+#include "mp3.h"
 #include "CRCdemo.h"
 
 
@@ -773,7 +773,7 @@ public:
 	BOOL m_bSoundFlag;
 	BOOL m_bSoundStat, m_bMusicStat; // On/Off
 	CInt m_bIsItemEquipped[DEF_MAXITEMS];//was BOOL
-	CInt m_bIsItemDisabled[DEF_MAXITEMS];//was BOOL 
+	CInt m_bIsItemDisabled[DEF_MAXITEMS];//was BOOL
 	CInt m_bIsGetPointingMode;//was BOOL
 	BOOL m_bEnterPressed, m_bEscPressed, m_bCtrlPressed, m_bRunningMode, m_bShiftPressed;
 
@@ -982,9 +982,9 @@ public:
 	BOOL m_bIsAvatarMode;
 	BOOL m_bIsAvatarMessenger;
 
-	//Snoopy: Crafting	
+	//Snoopy: Crafting
 	//BOOL _bDecodeCraftItemContents();
-	//BOOL __bDecodeCraftItemContents(char *pBuffer);	
+	//BOOL __bDecodeCraftItemContents(char *pBuffer);
 	//BOOL _bCheckCraftItemStatus();
 	//BOOL _bCheckCurrentCraftItemStatus();
 
@@ -1000,7 +1000,7 @@ public:
 	DWORD	m_dwCRC32;
 	WORD	m_wCRC16_1;
 	WORD	m_wCRC16_2;
-	BOOL	m_bUseCRC_2;	
+	BOOL	m_bUseCRC_2;
 	int		m_iMangler;
 	class   CRCdemo  m_CRCdemo;
 

@@ -75,4 +75,4 @@ GetIPByDNS();
 No need to do extra configs, as the function will check if it is a DNS
  or an IP address. If your DNS begins with a number, just use http:// in front of it.
 
-Thats it. 
+Thats it.
