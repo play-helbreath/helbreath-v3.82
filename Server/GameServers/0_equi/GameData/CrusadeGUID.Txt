@@ -1,3 +1,3 @@
-CrusadeGUID = -1731497345
-winner-side = 0
+CrusadeGUID = 124674605
+winner-side = 2
 advantage-side = 4
